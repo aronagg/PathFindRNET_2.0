@@ -1,0 +1,4 @@
+weights: "yolo11n.pt"
+conf: 0.3
+device: "auto"
+classes: null

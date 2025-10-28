@@ -1,0 +1,7 @@
+scene: sample
+fps: 15
+data_dir: data
+raw_dir: ${data_dir}/raw/${scene}
+interim_dir: ${data_dir}/interim/${scene}
+processed_dir: ${data_dir}/processed/${scene}
+video: ${raw_dir}/sample.mp4

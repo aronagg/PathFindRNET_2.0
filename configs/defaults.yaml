@@ -1,0 +1,6 @@
+defaults:
+  - dataset: sample
+  - detect: yolo11n
+  - tracker: bytetrack
+  - features: reve_rs
+  - clf: mlp
