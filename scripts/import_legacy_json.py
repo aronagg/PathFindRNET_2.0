@@ -13,20 +13,37 @@ def main(cfg: DictConfig):
     """Import a legacy entities JSON and write tracks.parquet under interim/.
 
     Usage examples (run from repo root):
-      - python scripts/import_legacy_json.py source=/absolute/path/to/entities.json
-      - python scripts/import_legacy_json.py source=data/raw/sample/entities.json
-      - Or set dataset.legacy_json in a config and call without source=...
+      - python scripts/import_legacy_json.py input_json=/absolute/path/to/entities.json
+      - python scripts/import_legacy_json.py input_json=data/raw/sample/entities.json
+      - Or set dataset.legacy_json in a config and call without input_json=...
     """
+    # logger = logging.getLogger(__name__)
+    # if not logger.handlers:
+    #     handler = logging.StreamHandler()
+    #     handler.setFormatter(logging.Formatter("%(asctime)s %(levelname)s %(name)s: %(message)s"))
+    #     logger.addHandler(handler)
+    # logger.setLevel(logging.DEBUG)
+
+    # # Log full cfg (resolved) and dataset keys (if present) for debugging
+    # logger.debug("cfg: %s", OmegaConf.to_container(cfg, resolve=True))
+    # if hasattr(cfg, "dataset") and cfg.dataset is not None:
+    #     try:
+    #         dataset_keys = list(cfg.dataset.keys())
+    #     except Exception:
+    #         dataset_keys = []
+    #     logger.debug("dataset keys: %s", dataset_keys)
+    # else:
+    #     logger.debug("cfg has no 'dataset' key")
     raw, interim, _ = get_paths(cfg.dataset)
 
     # Resolve input file
-    source = getattr(cfg, "source", None)
+    source = getattr(cfg, "input_json", None)
     if source is None:
         # Optional config location (relative to original CWD)
         source = getattr(cfg.dataset, "legacy_json", None)
         if source is None:
             raise SystemExit(
-                "Provide source=<path> on the CLI or set dataset.legacy_json in your config"
+                "Provide input_json=<path> on the CLI or set dataset.legacy_json in your config"
             )
     # Make relative paths resolve from original working directory (not the Hydra run dir)
     if not os.path.isabs(source):

@@ -1,0 +1,14 @@
+scene: bellevue_150th_newport
+fps: 30
+data_dir: data
+raw_dir: ${.data_dir}/raw/${.scene}
+interim_dir: ${.data_dir}/interim/${.scene}
+processed_dir: ${.data_dir}/processed/${.scene}
+video: ${.raw_dir}/sample.mp4
+class_map:
+  car: 2
+  bus: 5
+  bicycle: 1
+  person: 0
+  truck: 7
+  traffic_light: 9
