@@ -1,0 +1,6 @@
+defaults:
+  - dataset: bellevue_116th_ne12th
+  - detect: yolo11n
+  - tracker: bytetrack
+  - features: reve_rs
+  - clf: mlp

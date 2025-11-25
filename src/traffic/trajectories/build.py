@@ -16,6 +16,7 @@ def build_trajectories(df: pd.DataFrame, fps: float, win: int = 9, poly: int = 2
             sy = savgol_filter(cy, win, poly, mode="interp")
         else:
             sx, sy = cx, cy
+        # convert from per-frame units to per-second units
         vx = np.gradient(sx) * fps
         vy = np.gradient(sy) * fps
         ax = np.gradient(vx) * fps

@@ -5,6 +5,14 @@ raw_dir: ${.data_dir}/raw/${.scene}
 interim_dir: ${.data_dir}/interim/${.scene}
 processed_dir: ${.data_dir}/processed/${.scene}
 video: ${.raw_dir}/sample.mp4
+
+# OPTICS clustering parameters (optional override)
+# For 4-way intersection, expect 8-16 clusters (4 directions × 2-4 movements)
+cluster:
+  min_samples: 40  # Lower = more sensitive to small patterns
+  max_eps: 0.10    # Normalized coordinate scale
+  xi: 0.06         # Lower = finds more distinct clusters
+
 class_map:
   car: 2
   bus: 5

@@ -5,6 +5,13 @@ raw_dir: ${.data_dir}/raw/${.scene}
 interim_dir: ${.data_dir}/interim/${.scene}
 processed_dir: ${.data_dir}/processed/${.scene}
 video: ${.raw_dir}/sample.mp4
+
+# OPTICS clustering parameters (optional override)
+cluster:
+  min_samples: 200
+  max_eps: 0.1
+  xi: 0.1
+
 class_map:
   car: 2
   bus: 5
