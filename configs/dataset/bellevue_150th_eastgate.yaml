@@ -1,0 +1,32 @@
+scene: bellevue_150th_eastgate
+fps: 30
+visualize: true
+data_dir: data
+raw_dir: ${.data_dir}/raw/${.scene}
+interim_dir: ${.data_dir}/interim/${.scene}
+processed_dir: ${.data_dir}/processed/${.scene}
+video: ${.raw_dir}
+
+# colors: map from label name (same keys as class_map) to [R,G,B]
+# must contain exactly the same set of labels as `class_map`
+colors:
+  car: [255, 0, 0]
+  bus: [0, 255, 0]
+  bicycle: [0, 0, 255]
+  person: [255, 255, 0]
+  truck: [255, 0, 255]
+  traffic_light: [0, 255, 255]
+
+# OPTICS clustering parameters (optional override)
+cluster:
+  min_samples: 200
+  max_eps: 0.16
+  xi: 0.1
+
+class_map:
+  car: 2
+  bus: 5
+  bicycle: 1
+  person: 0
+  truck: 7
+  traffic_light: 9

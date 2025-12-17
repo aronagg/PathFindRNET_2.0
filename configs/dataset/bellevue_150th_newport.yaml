@@ -4,7 +4,7 @@ data_dir: data
 raw_dir: ${.data_dir}/raw/${.scene}
 interim_dir: ${.data_dir}/interim/${.scene}
 processed_dir: ${.data_dir}/processed/${.scene}
-video: ${.raw_dir}/sample.mp4
+video: E:/Education/Doktori_iskola/research/FinalPhase/Bellevue/Bellevue_150th_Eastgate/Bellevue_150th_Eastgate__2017-09-10_18-08-24.mp4
 
 # OPTICS clustering parameters (optional override)
 cluster:

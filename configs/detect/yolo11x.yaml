@@ -1,0 +1,5 @@
+weights: "yolo11x.pt"
+conf: 0.01
+device: "cpu"
+classes: null
+size: 1088

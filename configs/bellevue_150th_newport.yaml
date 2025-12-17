@@ -1,0 +1,6 @@
+defaults:
+  - dataset: bellevue_150th_newport
+  - detect: yolo11x
+  - tracker: bytetrack
+  - features: reve_rs
+  - clf: mlp
