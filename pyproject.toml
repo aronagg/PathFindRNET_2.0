@@ -31,6 +31,12 @@ dev = [
   "isort>=5.13",
   "pre-commit>=3.7",
 ]
+# CUDA-enabled PyTorch (install using the PyTorch wheel index shown below)
+cuda = [
+  "torch==2.9.1+cu121",
+  "torchvision==0.15.2+cu121",
+  "torchaudio==2.3.2+cu121",
+]
 
 [tool.setuptools.packages.find]
 where = ["src"]
