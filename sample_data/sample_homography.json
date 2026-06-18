@@ -1,0 +1,8 @@
+{
+  "scene_id": "sample_scene",
+  "method": "map_based_homography",
+  "source": "manual control points selected on image and overhead map",
+  "matrix": [[1.02, 0.08, -120.0], [0.04, 1.15, -80.0], [0.0001, 0.0002, 1.0]],
+  "control_point_count": 8,
+  "notes": "Placeholder example. Replace with real homography matrices after processing."
+}
