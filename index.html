@@ -15,7 +15,7 @@
       <p class="lead">An updated dataset and software framework for extracting, cleaning, transforming, and visualizing traffic trajectories from real-world surveillance videos.</p>
       <div class="actions">
         <a href="#downloads" class="button primary">Dataset downloads</a>
-        <a href="#sample-code" class="button">Sample code</a>
+        <a href="sample_code.html" class="button">Extended sample code</a>
         <a href="#notebooks" class="button">Jupyter notebooks</a>
       </div>
     </div>
@@ -35,6 +35,7 @@
           <li>Trajectory filtering, filling, and smoothing tools.</li>
           <li>Homography-based map correction using control points.</li>
           <li>Perspective transformation tool for top-view visualization.</li>
+          <li>Isotropic coordinate normalization examples.</li>
           <li>Reproducible examples through Jupyter notebooks and Python scripts.</li>
         </ul>
       </div>
@@ -58,24 +59,24 @@
       <div class="grid three">
         <div class="card"><h3>Dataset loader</h3><p>Loads video-level, detection-level, and trajectory-level records into Python for analysis.</p></div>
         <div class="card"><h3>Trajectory visualizer</h3><p>Plots raw, filtered, smoothed, and corrected trajectories for selected scenes.</p></div>
-        <div class="card"><h3>Filtering tool</h3><p>Removes short, noisy, parked, or application-specific irrelevant trajectories.</p></div>
-        <div class="card"><h3>Filling and smoothing</h3><p>Interpolates missing detections and smooths the motion path for stable trajectory features.</p></div>
+        <div class="card"><h3>Filtering tool</h3><p>Removes short, noisy, low-motion, or application-specific irrelevant trajectories.</p></div>
+        <div class="card"><h3>Filling and smoothing</h3><p>Interpolates missing detections, handles short occlusions and stabilizes motion features.</p></div>
         <div class="card"><h3>Homography transformation</h3><p>Transforms image-plane trajectories into a map-aligned spatial coordinate representation.</p></div>
-        <div class="card"><h3>Perspective tool</h3><p>Supports manual point selection and perspective-transformed visualization of traffic scenes.</p></div>
+        <div class="card"><h3>Isotropic normalization</h3><p>Normalizes coordinates with one shared scale factor while preserving the x/y aspect ratio.</p></div>
       </div>
     </section>
 
     <section id="sample-code">
       <h2>Sample code</h2>
-      <p>These links open the files on GitHub, where notebooks are rendered in the browser. The local GitHub Pages links may open raw notebook JSON, therefore the GitHub file-view links below are preferred.</p>
+      <p>The extended sample code page contains the full list of executable scripts for filtering, filling, smoothing, homography and isotropic normalization.</p>
+      <p><a class="button primary" href="sample_code.html">Open extended sample code page</a></p>
       <table>
         <thead><tr><th>Example</th><th>Purpose</th><th>Open</th></tr></thead>
         <tbody>
-          <tr><td>examples/load_dataset.py</td><td>Load the sample dataset manifest.</td><td><a href="https://github.com/aronagg/PathFindRNET_2.0/blob/tnvd2-github-pages/examples/load_dataset.py">Open on GitHub</a></td></tr>
-          <tr><td>examples/plot_trajectories.py</td><td>Plot sample image-plane trajectories.</td><td><a href="https://github.com/aronagg/PathFindRNET_2.0/blob/tnvd2-github-pages/examples/plot_trajectories.py">Open on GitHub</a></td></tr>
-          <tr><td>examples/apply_homography.py</td><td>Apply a sample homography matrix to trajectory points.</td><td><a href="https://github.com/aronagg/PathFindRNET_2.0/blob/tnvd2-github-pages/examples/apply_homography.py">Open on GitHub</a></td></tr>
-          <tr><td>examples/generate_summary_stats.py</td><td>Generate basic per-track summary statistics.</td><td><a href="https://github.com/aronagg/PathFindRNET_2.0/blob/tnvd2-github-pages/examples/generate_summary_stats.py">Open on GitHub</a></td></tr>
-          <tr><td>requirements.txt</td><td>Minimal Python dependencies for the examples.</td><td><a href="https://github.com/aronagg/PathFindRNET_2.0/blob/tnvd2-github-pages/requirements.txt">Open on GitHub</a></td></tr>
+          <tr><td>examples/load_dataset.py</td><td>Load the sample dataset manifest.</td><td><a href="examples/load_dataset.py">Open</a></td></tr>
+          <tr><td>examples/plot_trajectories.py</td><td>Plot sample image-plane trajectories.</td><td><a href="examples/plot_trajectories.py">Open</a></td></tr>
+          <tr><td>examples/apply_homography.py</td><td>Apply a sample homography matrix to trajectory points.</td><td><a href="examples/apply_homography.py">Open</a></td></tr>
+          <tr><td>examples/generate_summary_stats.py</td><td>Generate basic per-track summary statistics.</td><td><a href="examples/generate_summary_stats.py">Open</a></td></tr>
         </tbody>
       </table>
     </section>
@@ -84,10 +85,11 @@
       <h2>Jupyter notebooks</h2>
       <p>The repository follows the earlier dataset webpage concept: documentation links to executable Jupyter notebooks with small sample data and code examples.</p>
       <div class="grid two">
-        <a class="card linkcard" href="https://github.com/aronagg/PathFindRNET_2.0/blob/tnvd2-github-pages/notebooks/01_load_dataset.ipynb"><h3>01 Load dataset</h3><p>Load the manifest and inspect dataset-level metadata.</p></a>
-        <a class="card linkcard" href="https://github.com/aronagg/PathFindRNET_2.0/blob/tnvd2-github-pages/notebooks/02_visualize_trajectories.ipynb"><h3>02 Visualize trajectories</h3><p>Plot raw image-plane trajectories from sample CSV data.</p></a>
-        <a class="card linkcard" href="https://github.com/aronagg/PathFindRNET_2.0/blob/tnvd2-github-pages/notebooks/03_homography_transform.ipynb"><h3>03 Homography transform</h3><p>Apply a sample homography matrix to trajectory points.</p></a>
-        <a class="card linkcard" href="https://github.com/aronagg/PathFindRNET_2.0/blob/tnvd2-github-pages/notebooks/04_perspective_tool_demo.ipynb"><h3>04 Perspective tool demo</h3><p>Minimal structure for demonstrating the new perspective transformation workflow.</p></a>
+        <a class="card linkcard" href="notebooks/01_load_dataset.ipynb"><h3>01 Load dataset</h3><p>Load the manifest and inspect dataset-level metadata.</p></a>
+        <a class="card linkcard" href="notebooks/02_visualize_trajectories.ipynb"><h3>02 Visualize trajectories</h3><p>Plot raw image-plane trajectories from sample CSV data.</p></a>
+        <a class="card linkcard" href="notebooks/03_homography_transform.ipynb"><h3>03 Homography transform</h3><p>Apply a sample homography matrix to trajectory points.</p></a>
+        <a class="card linkcard" href="notebooks/04_perspective_tool_demo.ipynb"><h3>04 Perspective tool demo</h3><p>Minimal structure for demonstrating the new perspective transformation workflow.</p></a>
+        <a class="card linkcard" href="notebooks/05_filtering.ipynb"><h3>05 Filtering</h3><p>Length, class, movement and application-based trajectory filtering.</p></a>
       </div>
     </section>
 
@@ -112,9 +114,10 @@
 cd PathFindRNET_2.0
 git checkout tnvd2-github-pages
 pip install -r requirements.txt
-python examples/load_dataset.py
-python examples/plot_trajectories.py
-python examples/apply_homography.py</pre>
+python examples/filtering_examples.py
+python examples/filling_and_smoothing_examples.py
+python examples/homography_extended_examples.py
+python examples/isotropic_normalization_examples.py</pre>
     </section>
 
     <section>
