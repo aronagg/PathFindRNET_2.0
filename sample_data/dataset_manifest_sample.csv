@@ -1,0 +1,2 @@
+scene_id,video_id,location_name,scene_type,duration_sec,fps,resolution,detection_file,trajectory_file,correction_file,notes
+sample_scene,sample_video_001,Example intersection,signalized_intersection,60,30,1920x1080,sample_data/sample_detections.csv,sample_data/sample_trajectories.csv,sample_data/sample_homography.json,Replace with real processed data after upload
