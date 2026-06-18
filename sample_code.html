@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TNVD 2.0 Sample Code</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <main class="wrap">
+    <section>
+      <h1>Traffic Node Video Dataset 2.0 - Sample Code</h1>
+      <p>This page lists the executable sample scripts and notebooks added for the dataset website.</p>
+    </section>
+
+    <section>
+      <h2>Core scripts</h2>
+      <table>
+        <thead><tr><th>File</th><th>Topic</th></tr></thead>
+        <tbody>
+          <tr><td><a href="examples/load_dataset.py">examples/load_dataset.py</a></td><td>Dataset manifest loading.</td></tr>
+          <tr><td><a href="examples/plot_trajectories.py">examples/plot_trajectories.py</a></td><td>Trajectory plotting.</td></tr>
+          <tr><td><a href="examples/apply_homography.py">examples/apply_homography.py</a></td><td>Basic homography transform.</td></tr>
+          <tr><td><a href="examples/generate_summary_stats.py">examples/generate_summary_stats.py</a></td><td>Per-track summary statistics.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Extended scripts</h2>
+      <table>
+        <thead><tr><th>File</th><th>Topic</th></tr></thead>
+        <tbody>
+          <tr><td><a href="examples/filtering_examples.py">examples/filtering_examples.py</a></td><td>Length, class, low-motion and application-based trajectory filtering.</td></tr>
+          <tr><td><a href="examples/filling_and_smoothing_examples.py">examples/filling_and_smoothing_examples.py</a></td><td>Missing detection filling, hidden-object handling, speed/acceleration and bounding box smoothing.</td></tr>
+          <tr><td><a href="examples/homography_extended_examples.py">examples/homography_extended_examples.py</a></td><td>Homography estimation, inverse projection and reprojection error calculation.</td></tr>
+          <tr><td><a href="examples/isotropic_normalization_examples.py">examples/isotropic_normalization_examples.py</a></td><td>Scene-level and track-level isotropic coordinate normalization.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Notebooks</h2>
+      <table>
+        <tbody>
+          <tr><td><a href="notebooks/01_load_dataset.ipynb">01 Load dataset</a></td></tr>
+          <tr><td><a href="notebooks/02_visualize_trajectories.ipynb">02 Visualize trajectories</a></td></tr>
+          <tr><td><a href="notebooks/03_homography_transform.ipynb">03 Homography transform</a></td></tr>
+          <tr><td><a href="notebooks/04_perspective_tool_demo.ipynb">04 Perspective tool demo</a></td></tr>
+          <tr><td><a href="notebooks/05_filtering.ipynb">05 Filtering</a></td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Run locally</h2>
+      <pre>pip install -r requirements.txt
+python examples/filtering_examples.py
+python examples/filling_and_smoothing_examples.py
+python examples/homography_extended_examples.py
+python examples/isotropic_normalization_examples.py</pre>
+    </section>
+
+    <p><a href="index.html">Back to main page</a></p>
+  </main>
+</body>
+</html>
