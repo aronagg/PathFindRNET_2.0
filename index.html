@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Traffic Node Video Dataset 2.0</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Traffic surveillance · trajectory extraction · geometric correction</p>
+      <h1>Traffic Node Video Dataset 2.0</h1>
+      <h2>Enhanced Vehicle Trajectory Extraction with YOLOv11x and Map-Based Geometric Correction</h2>
+      <p class="lead">An updated dataset and software framework for extracting, cleaning, transforming, and visualizing traffic trajectories from real-world surveillance videos.</p>
+      <div class="actions">
+        <a href="#downloads" class="button primary">Dataset downloads</a>
+        <a href="#notebooks" class="button">Sample notebooks</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="grid two">
+      <div>
+        <h2>Overview</h2>
+        <p>Traffic Node Video Dataset 2.0 extends the previously published Traffic Node Video Dataset. The new version reprocesses the video material with a YOLOv11x-based detection stage, replaces the earlier tracking stage with a YOLO-based tracking workflow, and adds map-based geometric correction for producing spatially more interpretable trajectory records.</p>
+      </div>
+      <div class="card">
+        <h3>Main contributions</h3>
+        <ul>
+          <li>YOLOv11x-based vehicle and road-user detection.</li>
+          <li>YOLO-based multi-object tracking workflow.</li>
+          <li>Trajectory filtering, filling, and smoothing tools.</li>
+          <li>Homography-based map correction using control points.</li>
+          <li>Perspective transformation tool for top-view visualization.</li>
+          <li>Reproducible examples through Jupyter notebooks.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="pipeline">
+      <h2>Processing pipeline</h2>
+      <div class="pipeline">
+        <span>Video input</span>
+        <span>YOLOv11x detection</span>
+        <span>YOLO tracking</span>
+        <span>Trajectory database</span>
+        <span>Filtering + filling</span>
+        <span>Homography correction</span>
+        <span>Visualization + export</span>
+      </div>
+    </section>
+
+    <section>
+      <h2>Software tools</h2>
+      <div class="grid three">
+        <div class="card"><h3>Dataset loader</h3><p>Loads video-level, detection-level, and trajectory-level records into Python for analysis.</p></div>
+        <div class="card"><h3>Trajectory visualizer</h3><p>Plots raw, filtered, smoothed, and corrected trajectories for selected scenes.</p></div>
+        <div class="card"><h3>Filtering tool</h3><p>Removes short, noisy, parked, or application-specific irrelevant trajectories.</p></div>
+        <div class="card"><h3>Filling and smoothing</h3><p>Interpolates missing detections and smooths the motion path for stable trajectory features.</p></div>
+        <div class="card"><h3>Homography transformation</h3><p>Transforms image-plane trajectories into a map-aligned spatial coordinate representation.</p></div>
+        <div class="card"><h3>Perspective tool</h3><p>Supports manual point selection and perspective-transformed visualization of traffic scenes.</p></div>
+      </div>
+    </section>
+
+    <section id="downloads">
+      <h2>Downloads</h2>
+      <p>The full dataset is stored externally because video files and trajectory exports are too large for GitHub. Replace the placeholder links below with public Google Drive links after upload.</p>
+      <table>
+        <thead><tr><th>Package</th><th>Content</th><th>Status</th><th>Link</th></tr></thead>
+        <tbody>
+          <tr><td>Original videos</td><td>Traffic surveillance video segments</td><td>Pending upload</td><td><a href="#">Google Drive link</a></td></tr>
+          <tr><td>YOLOv11x detections</td><td>Frame-level bounding boxes and confidence values</td><td>Pending upload</td><td><a href="#">Google Drive link</a></td></tr>
+          <tr><td>Tracked trajectories</td><td>Raw and processed trajectory records</td><td>Pending upload</td><td><a href="#">Google Drive link</a></td></tr>
+          <tr><td>Geometric correction</td><td>Control points, homography matrices, corrected trajectories</td><td>Pending upload</td><td><a href="#">Google Drive link</a></td></tr>
+          <tr><td>Sample data</td><td>Small example files for notebooks</td><td>In repository</td><td><a href="sample_data/dataset_manifest_sample.csv">Sample CSV</a></td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="notebooks">
+      <h2>Sample notebooks</h2>
+      <p>The repository follows the earlier dataset webpage concept: the documentation page links to executable Jupyter notebooks with small sample data and code examples.</p>
+      <div class="grid two">
+        <a class="card linkcard" href="notebooks/01_load_dataset.ipynb"><h3>01 Load dataset</h3><p>Load the manifest and inspect dataset-level metadata.</p></a>
+        <a class="card linkcard" href="notebooks/02_visualize_trajectories.ipynb"><h3>02 Visualize trajectories</h3><p>Plot raw image-plane trajectories from sample CSV data.</p></a>
+        <a class="card linkcard" href="notebooks/03_homography_transform.ipynb"><h3>03 Homography transform</h3><p>Apply a sample homography matrix to trajectory points.</p></a>
+        <a class="card linkcard" href="notebooks/04_perspective_tool_demo.ipynb"><h3>04 Perspective tool demo</h3><p>Minimal structure for demonstrating the new perspective transformation workflow.</p></a>
+      </div>
+    </section>
+
+    <section>
+      <h2>Citation</h2>
+      <pre>Agg, A. D., Horváth, A. Traffic Node Video Dataset 2.0: Enhanced Vehicle Trajectory Extraction with YOLOv11x and Map-Based Geometric Correction. Tavaszi Szél Conference, 2026.</pre>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">Széchenyi István University · Multidisciplinary Doctoral School of Engineering Sciences</div>
+  </footer>
+</body>
+</html>
