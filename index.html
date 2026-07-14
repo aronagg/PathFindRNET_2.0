@@ -1,1 +1,153 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Traffic Node Video Dataset 2.0</title><link rel="stylesheet" href="assets/style.css"><style>.scene-card img{width:100%;height:155px;object-fit:cover;border-radius:12px;border:1px solid var(--line);display:block;margin-bottom:12px;background:#e5e7eb}.scene-card h3{margin:.25rem 0 .35rem}</style></head><body><header class="hero"><div class="wrap"><p class="eyebrow">Traffic surveillance · trajectory extraction · geometric correction</p><h1>Traffic Node Video Dataset 2.0</h1><h2>Enhanced Vehicle Trajectory Extraction with YOLOv11x and Map-Based Geometric Correction</h2><p class="lead">Updated trajectory dataset with YOLOv11x detection, YOLO-based tracking, filtering, smoothing and map-based geometric correction.</p><div class="actions"><a class="button primary" href="#scenes">Scene previews</a><a class="button" href="sample_code.html">Sample code</a><a class="button" href="#downloads">Dataset access</a></div></div></header><main class="wrap"><section id="scenes"><h2>Representative scenes</h2><p>Preview images are embedded directly from the repository. Full-resolution images are in the dataset package.</p><div class="grid three"><div class="card scene-card"><img src="assets/scenes/Bellevue_116th_NE12th.svg"><h3>Bellevue 116th NE12th</h3></div><div class="card scene-card"><img src="assets/scenes/Bellevue_150th_Eastgate.svg"><h3>Bellevue 150th Eastgate</h3></div><div class="card scene-card"><img src="assets/scenes/Bellevue_150th_Newport.svg"><h3>Bellevue 150th Newport</h3></div><div class="card scene-card"><img src="assets/scenes/Bellevue_150th_SE38th.svg"><h3>Bellevue 150th SE38th</h3></div><div class="card scene-card"><img src="assets/scenes/Bellevue_Bellevue_NE8th.svg"><h3>Bellevue Bellevue NE8th</h3></div><div class="card scene-card"><img src="assets/scenes/City_of_Orange_Plaza.svg"><h3>City of Orange Plaza</h3></div><div class="card scene-card"><img src="assets/scenes/History_Jonesborough_Tenessee.svg"><h3>History Jonesborough</h3></div><div class="card scene-card"><img src="assets/scenes/Polanow_Live.svg"><h3>Polanow roundabout</h3></div></div></section><section id="downloads"><h2>Dataset access</h2><p><a class="button primary" href="https://1drv.ms/f/c/80faad6fea05b08c/IgBPqnPXzdVwR54Dklu_S0tnAT1bERPsJMWLs7MRwd3OdTI?e=oci9pL">Open full OneDrive dataset folder</a></p></section><section><h2>Sample code</h2><p><a class="button primary" href="sample_code.html">Open sample code page</a></p></section></main><footer><div class="wrap">Széchenyi István University · Multidisciplinary Doctoral School of Engineering Sciences</div></footer></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Traffic Node Video Dataset 2.0: YOLO11x detection, ByteTrack tracking, trajectory refinement and map-based geometric correction." />
+  <title>Traffic Node Video Dataset 2.0</title>
+  <link rel="stylesheet" href="assets/style.css" />
+  <style>
+    .scene-card{padding:0;overflow:hidden}.scene-card img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;background:#dfe6ee}.scene-card .content{padding:18px}.scene-card h3{margin:0 0 6px}.scene-card p{margin:0;color:var(--muted)}
+    .release-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.release-item{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px}.release-item strong{display:block;margin-bottom:5px;color:#173c60}
+    .comparison td:first-child{font-weight:700;width:22%}.comparison td:nth-child(2),.comparison td:nth-child(3){width:39%}
+    .tag{display:inline-block;padding:4px 9px;border-radius:999px;background:#e8f0f8;color:#214f7a;font-size:12px;font-weight:800;margin:0 6px 6px 0}
+    .notice{border-left:4px solid var(--accent2);background:#edf5f8;padding:16px 18px;border-radius:8px}
+    .section-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}.section-actions .button{background:#214f7a;border-color:#214f7a;color:#fff}.section-actions .button.secondary{background:#fff;color:#214f7a}
+    .small{font-size:14px;color:var(--muted)}
+    @media(max-width:860px){.release-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Computer vision · traffic trajectories · reproducible research</p>
+      <h1>Traffic Node Video Dataset 2.0</h1>
+      <h2>Enhanced Vehicle Trajectory Extraction with YOLO11x and Map-Based Geometric Correction</h2>
+      <p class="lead">An updated dataset and software framework for extracting, cleaning, transforming and analysing road-user trajectories from real-world traffic surveillance videos.</p>
+      <div class="actions">
+        <a href="#datasets" class="button primary">Explore the datasets</a>
+        <a href="#downloads" class="button">Download data</a>
+        <a href="sample_code.html" class="button">Sample code</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="grid two">
+      <div>
+        <h2>About the research</h2>
+        <p>Traffic Node Video Dataset 2.0 extends the previously published Traffic Node Video Dataset and preserves its original purpose: providing reusable video and trajectory data for traffic analysis, modelling and movement prediction. The new release updates the complete processing chain and introduces a reproducible map-based correction workflow.</p>
+        <p>The dataset contains recordings from eight traffic scenes, including signalised intersections, roundabouts and a pedestrian-oriented urban plaza. Object detections, tracked trajectories, cleaned trajectories, transformation data and software examples are published together so that the processing stages can be inspected and repeated.</p>
+      </div>
+      <div class="card">
+        <h3>Release highlights</h3>
+        <div>
+          <span class="tag">8 traffic scenes</span><span class="tag">YOLO11x</span><span class="tag">ByteTrack</span><span class="tag">Parquet</span><span class="tag">Homography</span><span class="tag">Jupyter</span>
+        </div>
+        <ul>
+          <li>Video material reprocessed with the YOLO11x detector.</li>
+          <li>Previous DeepSORT stage replaced by the Ultralytics tracking workflow using ByteTrack.</li>
+          <li>Per-video detection tables and structured trajectory exports.</li>
+          <li>Filtering, filling and smoothing methods for trajectory refinement.</li>
+          <li>Map-based geometric correction and isotropic coordinate normalisation.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>What changed in version 2.0?</h2>
+      <table class="comparison">
+        <thead><tr><th>Component</th><th>Previous release</th><th>Version 2.0</th></tr></thead>
+        <tbody>
+          <tr><td>Object detection</td><td>YOLOv7-based detection pipeline.</td><td>YOLO11x-based reprocessing with updated Ultralytics inference.</td></tr>
+          <tr><td>Object tracking</td><td>DeepSORT-based trajectory generation.</td><td>Ultralytics tracking workflow configured with ByteTrack.</td></tr>
+          <tr><td>Data storage</td><td>SQL and pickle-oriented trajectory exports.</td><td>Per-video Parquet detection tables and structured trajectory packages.</td></tr>
+          <tr><td>Trajectory preparation</td><td>Filtering, filling and ironing utilities.</td><td>Extended filtering, interpolation, smoothing, outlier analysis and reproducible examples.</td></tr>
+          <tr><td>Geometry</td><td>Image-plane coordinates.</td><td>Image-to-map homography, inverse projection, reprojection error and isotropic normalisation.</td></tr>
+          <tr><td>Reproducibility</td><td>Introductory examples and notebooks.</td><td>Expanded scripts, notebooks, sample data and a documented dataset package.</td></tr>
+        </tbody>
+      </table>
+      <p class="small">Quantitative detector and tracker benchmark values will be reported in the associated publication after validation on the same annotated evaluation subset.</p>
+    </section>
+
+    <section id="pipeline">
+      <h2>Processing pipeline</h2>
+      <div class="pipeline">
+        <span>Video input</span><span>YOLO11x detection</span><span>ByteTrack tracking</span><span>Trajectory export</span><span>Filtering + filling</span><span>Map correction</span><span>Analysis + publication</span>
+      </div>
+    </section>
+
+    <section id="datasets">
+      <h2>Featured datasets</h2>
+      <p>Each scene is represented by its original video material and the corresponding detection and trajectory records. The preview images below are served directly from this repository.</p>
+      <div class="grid three">
+        <article class="card scene-card"><img src="assets/scenes/Bellevue_116th_NE12th.svg" alt="Bellevue 116th NE12th traffic scene"><div class="content"><h3>Bellevue 116th NE12th</h3><p>Signalised intersection with wide-angle surveillance view.</p></div></article>
+        <article class="card scene-card"><img src="assets/scenes/Bellevue_150th_Eastgate.svg" alt="Bellevue 150th Eastgate traffic scene"><div class="content"><h3>Bellevue 150th Eastgate</h3><p>Complex signalised junction with multiple turning movements.</p></div></article>
+        <article class="card scene-card"><img src="assets/scenes/Bellevue_150th_Newport.svg" alt="Bellevue 150th Newport traffic scene"><div class="content"><h3>Bellevue 150th Newport</h3><p>Urban intersection used in trajectory clustering experiments.</p></div></article>
+        <article class="card scene-card"><img src="assets/scenes/Bellevue_150th_SE38th.svg" alt="Bellevue 150th SE38th traffic scene"><div class="content"><h3>Bellevue 150th SE38th</h3><p>Multi-lane intersection suitable for lane-level analysis.</p></div></article>
+        <article class="card scene-card"><img src="assets/scenes/Bellevue_Bellevue_NE8th.svg" alt="Bellevue Bellevue NE8th traffic scene"><div class="content"><h3>Bellevue Bellevue NE8th</h3><p>Dense downtown traffic with diverse vehicle movements.</p></div></article>
+        <article class="card scene-card"><img src="assets/scenes/City_of_Orange_Plaza.svg" alt="City of Orange Plaza traffic scene"><div class="content"><h3>City of Orange Plaza</h3><p>Urban plaza with mixed vehicle and pedestrian activity.</p></div></article>
+        <article class="card scene-card"><img src="assets/scenes/History_Jonesborough_Tenessee.svg" alt="Historic Jonesborough Tennessee traffic scene"><div class="content"><h3>Historic Jonesborough</h3><p>Small-town street environment with different scale and perspective.</p></div></article>
+        <article class="card scene-card"><img src="assets/scenes/Polanow_Live.svg" alt="Polanow roundabout traffic scene"><div class="content"><h3>Polanow roundabout</h3><p>Roundabout scene used for detection and tracking demonstrations.</p></div></article>
+      </div>
+    </section>
+
+    <section>
+      <h2>Software framework</h2>
+      <div class="grid three">
+        <div class="card"><h3>Dataset loader</h3><p>Loads manifests, per-video detections and trajectory records for Python-based analysis.</p></div>
+        <div class="card"><h3>Trajectory visualisation</h3><p>Plots raw, filtered, filled, smoothed and geometrically corrected trajectories.</p></div>
+        <div class="card"><h3>Filtering and outlier analysis</h3><p>Removes short, low-motion or application-specific trajectories and inspects OPTICS outliers.</p></div>
+        <div class="card"><h3>Filling and smoothing</h3><p>Interpolates missing detections and stabilises position, bounding-box and motion features.</p></div>
+        <div class="card"><h3>Homography transformation</h3><p>Estimates image-to-map transformation and calculates inverse projection and reprojection error.</p></div>
+        <div class="card"><h3>Isotropic normalisation</h3><p>Applies one shared spatial scale to preserve the relative geometry of the coordinate axes.</p></div>
+      </div>
+    </section>
+
+    <section id="sample-code">
+      <h2>Sample code and notebooks</h2>
+      <p>The repository contains executable examples for dataset loading, trajectory visualisation, filtering, filling, smoothing, homography estimation and normalisation.</p>
+      <div class="section-actions"><a class="button" href="sample_code.html">Open sample code page</a><a class="button secondary" href="https://github.com/aronagg/PathFindRNET_2.0">Open GitHub repository</a></div>
+    </section>
+
+    <section id="downloads">
+      <h2>Dataset access</h2>
+      <div class="notice"><strong>Storage note.</strong> The full-resolution videos and generated trajectory packages are hosted on OneDrive because their size exceeds the practical limits of the GitHub repository. The public folder remains stable while individual files are updated.</div>
+      <div class="section-actions"><a class="button" href="https://1drv.ms/f/c/80faad6fea05b08c/IgBPqnPXzdVwR54Dklu_S0tnAT1bERPsJMWLs7MRwd3OdTI?e=oci9pL">Open full OneDrive dataset</a></div>
+      <table>
+        <thead><tr><th>Package</th><th>Published content</th></tr></thead>
+        <tbody>
+          <tr><td>00_README_METADATA</td><td>Dataset manifest, scene metadata and processing configuration.</td></tr>
+          <tr><td>01_ORIGINAL_VIDEO_REFERENCES</td><td>Original traffic videos and source references.</td></tr>
+          <tr><td>02_YOLOV11X_DETECTIONS</td><td>YOLO11x detection data stored as per-video Parquet files.</td></tr>
+          <tr><td>03_TRACKED_TRAJECTORIES</td><td>Tracked trajectory records and the trajectories.joblib export.</td></tr>
+          <tr><td>04_CLEANED_TRAJECTORIES</td><td>Filtered, interpolated and smoothed trajectory variants.</td></tr>
+          <tr><td>05_MAP_BASED_GEOMETRIC_CORRECTION</td><td>Control points, transformation matrices and corrected trajectory outputs.</td></tr>
+          <tr><td>06_PERSPECTIVE_TRANSFORM_TOOL</td><td>Perspective transformation tool, examples and configuration.</td></tr>
+          <tr><td>07_RESULTS_AND_STATISTICS</td><td>Generated summary tables, figures and validation outputs.</td></tr>
+          <tr><td>08_FIGURES_FOR_PAPER_AND_PRESENTATION</td><td>Publication and presentation figures.</td></tr>
+          <tr><td>10_SOFTWARE_TOOLS</td><td>Supporting scripts and software packages.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="grid two">
+      <div>
+        <h2>Related publications</h2>
+        <ul>
+          <li><a href="https://pecneb.github.io/PathFindRNET/">Traffic Node Video Dataset - previous release and project page</a></li>
+          <li><a href="https://doi.org/10.55348/KM.36">Automatic traffic statistics generation based on object detection and adaptive vehicle trajectory clustering</a></li>
+          <li><a href="https://doi.org/10.1007/978-3-031-81799-1_32">Adaptive Vehicle Trajectory Clustering Based on Computer Vision</a></li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Suggested citation</h3>
+        <p>Agg, A. D., Horváth, A.: Traffic Node Video Dataset 2.0: Enhanced Vehicle Trajectory Extraction with YOLO11x and Map-Based Geometric Correction. Tavaszi Szél Conference, 2026.</p>
+        <p class="small">Final bibliographic details will be added after publication.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="wrap">Széchenyi István University · Multidisciplinary Doctoral School of Engineering Sciences · <a href="mailto:aggaaron@gmail.com">aggaaron@gmail.com</a></div></footer>
+</body>
+</html>
