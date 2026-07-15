@@ -1,0 +1,11 @@
+release,scene,stage,track_count,mean,median,p10,p90,ge_0_90_ratio
+new_yolo11x_bytetrack,bellevue_116th_ne12th,cleaned,14027,1.0,1.0,1.0,1.0,1.0
+new_yolo11x_bytetrack,bellevue_150th_eastgate,cleaned,97527,1.0,1.0,1.0,1.0,1.0
+new_yolo11x_bytetrack,bellevue_150th_newport,cleaned,63475,1.0,1.0,1.0,1.0,1.0
+new_yolo11x_bytetrack,bellevue_150th_se38th,cleaned,64764,1.0,1.0,1.0,1.0,1.0
+new_yolo11x_bytetrack,bellevue_ne8th,cleaned,78061,1.0,1.0,1.0,1.0,1.0
+old_yolov7_deepsort,bellevue_116th_ne12th,cleaned,10707,1.0,1.0,1.0,1.0,1.0
+old_yolov7_deepsort,bellevue_150th_eastgate,cleaned,72629,1.0,1.0,1.0,1.0,1.0
+old_yolov7_deepsort,bellevue_150th_newport,cleaned,44123,1.0,1.0,1.0,1.0,1.0
+old_yolov7_deepsort,bellevue_150th_se38th,cleaned,54222,1.0,1.0,1.0,1.0,1.0
+old_yolov7_deepsort,bellevue_ne8th,cleaned,74279,1.0,1.0,1.0,1.0,1.0

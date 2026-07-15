@@ -1,0 +1,16 @@
+metric,old_yolov7_deepsort,new_yolo11x_bytetrack,absolute_change,relative_change_percent,interpretation
+total detections,0.0,172261609.0,172261609.0,,"Higher detection/observation volume may indicate broader scene coverage, but not accuracy."
+total tracks,255960.0,317854.0,61894.0,24.181122050320365,Track count is an annotation-free volume indicator.
+detections per source,,1497927.0347826087,,,Normalizes detection/observation volume by input source count.
+tracks per source,51192.0,63570.8,12378.800000000003,24.18112205032037,Normalizes track volume by input source count.
+median track length,108.6132325363338,132.09135326281879,23.47812072648499,21.616261829451563,Longer tracks can indicate better temporal persistence.
+p90 track length,436.8357282387873,870.300171776982,433.4644435381947,99.22824886275104,Upper-tail trajectory persistence indicator.
+short track ratio,0.13382169088920143,0.15713818293933693,0.0233164920501355,17.423552112669498,Lower is generally preferable when short fragments are noise.
+mean continuity ratio,1.0,1.0,0.0,0.0,Higher continuity indicates fewer temporal gaps.
+median continuity ratio,1.0,1.0,0.0,0.0,Robust continuity indicator.
+interpolation demand proxy,0.0363932893714133,0.020353760410327996,-0.016039528961085302,-44.07276516665804,Lower is generally preferable; high values indicate more missing-frame repair.
+class consistency,,0.9541683954197265,,,Higher means track-level class labels are more stable.
+roughness,176464.94626535528,79721.08109918349,-96743.86516617179,-54.82327635806793,Lower roughness can indicate smoother trajectories after processing.
+outlier ratio,0.017787124093502613,0.04247104076739928,0.024683916673896664,138.7740735609606,Cluster-level outlier behavior when cluster outputs are available.
+cluster count,15.383796296296296,12.286863389527209,-3.096932906769087,-20.131135690575185,Annotation-free clustering structure indicator.
+mean cluster size,,,,,Cluster compactness/fragmentation proxy.
