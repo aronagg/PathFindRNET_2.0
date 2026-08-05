@@ -24,6 +24,7 @@ ANNOTATION_PROTOCOL_VERSION = "future-transportation-manual-annotation-v1"
 APPROACH_COORDINATE_FIELDS = ("label_x", "label_y", "arrow_x", "arrow_y")
 REGION_COORDINATE_FIELDS = ("region_x_min", "region_y_min", "region_x_max", "region_y_max")
 REGION_ROLES = {"entry", "exit", "both"}
+POLYGON_MINIMUM_VERTICES = 3
 
 
 def utc_timestamp() -> str:
@@ -65,6 +66,49 @@ def _blank(value: Any) -> bool:
         return False
 
 
+def normalize_polygon_points(value: Any, row_number: int) -> list[dict[str, float]] | None:
+    """Parse and validate an optional manually drawn normalized polygon."""
+    if _blank(value):
+        return None
+    if isinstance(value, str):
+        try:
+            value = json.loads(value)
+        except json.JSONDecodeError as exc:
+            raise ValueError(
+                f"Approach row {row_number}: polygon_points must be valid JSON."
+            ) from exc
+    if not isinstance(value, list) or len(value) < POLYGON_MINIMUM_VERTICES:
+        raise ValueError(f"Approach row {row_number}: polygon requires at least three vertices.")
+    points = []
+    for vertex_number, point in enumerate(value, start=1):
+        if not isinstance(point, dict):
+            raise ValueError(
+                f"Approach row {row_number}: polygon vertex {vertex_number} must contain x and y."
+            )
+        try:
+            x = float(point["x"])
+            y = float(point["y"])
+        except (KeyError, TypeError, ValueError) as exc:
+            raise ValueError(
+                f"Approach row {row_number}: polygon vertex {vertex_number} must contain numeric x and y."
+            ) from exc
+        if not math.isfinite(x) or not math.isfinite(y) or not (0 <= x <= 1 and 0 <= y <= 1):
+            raise ValueError(
+                f"Approach row {row_number}: polygon vertex {vertex_number} must be inside the image."
+            )
+        points.append({"x": x, "y": y})
+    twice_area = abs(
+        sum(
+            point["x"] * points[(index + 1) % len(points)]["y"]
+            - points[(index + 1) % len(points)]["x"] * point["y"]
+            for index, point in enumerate(points)
+        )
+    )
+    if twice_area <= 1e-8:
+        raise ValueError(f"Approach row {row_number}: polygon must have positive area.")
+    return points
+
+
 def normalize_approach_rows(records: list[dict[str, Any]]) -> list[dict[str, Any]]:
     """Validate editable table rows and discard only completely empty new rows."""
     normalized = []
@@ -75,6 +119,7 @@ def normalize_approach_rows(records: list[dict[str, Any]]) -> list[dict[str, Any
             item.get("human_readable_name"),
             *(item.get(field) for field in APPROACH_COORDINATE_FIELDS),
             *(item.get(field) for field in REGION_COORDINATE_FIELDS),
+            item.get("polygon_points"),
         )
         if all(_blank(value) for value in relevant):
             continue
@@ -109,6 +154,19 @@ def normalize_approach_rows(records: list[dict[str, Any]]) -> list[dict[str, Any
             },
         }
         region_values = [item.get(field) for field in REGION_COORDINATE_FIELDS]
+        polygon = normalize_polygon_points(item.get("polygon_points"), row_number)
+        if polygon is not None and any(not _blank(value) for value in region_values):
+            raise ValueError(
+                f"Approach row {row_number}: use either polygon or rectangle coordinates, not both."
+            )
+        if polygon is not None:
+            role = "both" if _blank(item.get("region_role")) else str(item["region_role"]).strip()
+            if role not in REGION_ROLES:
+                raise ValueError(
+                    f"Approach row {row_number}: region_role must be entry, exit, or both."
+                )
+            normalized_row["polygon_normalized"] = polygon
+            normalized_row["region_role"] = role
         if any(not _blank(value) for value in region_values):
             if any(_blank(value) for value in region_values):
                 raise ValueError(
@@ -189,6 +247,14 @@ def validate_scene_guide_definition(guide: dict[str, Any], scene: str) -> None:
                 and approach.get("region_role", "both") in REGION_ROLES
             ):
                 raise ValueError(f"Invalid approach region: {scene}")
+        polygon = approach.get("polygon_normalized")
+        if polygon is not None:
+            normalized_polygon = normalize_polygon_points(polygon, 1)
+            if (
+                normalized_polygon is None
+                or approach.get("region_role", "both") not in REGION_ROLES
+            ):
+                raise ValueError(f"Invalid approach polygon: {scene}")
     entries = set(guide.get("valid_entry_approaches", []))
     exits = set(guide.get("valid_exit_approaches", []))
     if (

@@ -51,9 +51,32 @@ Start designer mode:
 .\publications\hg-msa-tc-future-transportation\run_annotation_app.ps1 -Role protocol_designer -Port 8501
 ```
 
-Manually enter every approach and mapping. Review all five generated guide images.
-Set a guide ready only after manual verification. No automatic endpoint, target, or
-cluster information may be consulted.
+Enter one neutral approach ID at a time. Use `Point` for a simple anchor or `Polygon`
+to click the boundary vertices of a manually interpreted approach zone, then finish
+the polygon with the check-mark button. The image toolbar supports fit-to-window and
+25--250% display scaling. `entry`, `exit`, and `both` describe the visual role of the
+zone. Review the editable table and all five generated guide images before saving.
+
+The point or polygon is a visual codebook aid. It does not automatically assign an
+approach to a trajectory and is not a source of pseudo-labels. No automatic endpoint,
+HG-target, or cluster information may be consulted. Set a guide ready only after
+manual verification.
+
+## How the Ground Truth Is Produced
+
+The frozen scene guide defines a shared manual vocabulary. For each trajectory, a
+human annotator inspects the rendered camera-view path and, when needed, the source
+video frames. The annotator manually records the entry approach, exit approach,
+coarse maneuver type, validity, confidence, and an optional note. The application
+derives `manual_maneuver_id` only from the scene and the two human approach choices.
+
+Annotators A and B independently label the complete independent-test cohort in
+different deterministic orders. Their first-pass exports are immutable. Agreement
+is measured after both exports are complete; disagreements are resolved in the
+separate adjudicator workflow without replacing either original decision. The
+adjudicated record is the reference ground-truth label. Pilot labels, polygon
+containment, clustering output, HG targets, and model predictions are not ground
+truth.
 
 ## Freeze the Manual Protocol
 

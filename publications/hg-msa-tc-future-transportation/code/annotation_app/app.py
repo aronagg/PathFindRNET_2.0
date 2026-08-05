@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 import sys
 import uuid
 from pathlib import Path
@@ -465,6 +466,11 @@ def protocol_designer_mode() -> None:
                 "region_x_max": item.get("region_normalized", {}).get("x_max"),
                 "region_y_max": item.get("region_normalized", {}).get("y_max"),
                 "region_role": item.get("region_role", "both"),
+                "polygon_points": (
+                    json.dumps(item["polygon_normalized"], separators=(",", ":"))
+                    if item.get("polygon_normalized")
+                    else None
+                ),
             }
         )
     draft_key = f"scene_guide_rows::{scene}"
@@ -480,8 +486,8 @@ def protocol_designer_mode() -> None:
     with picker_columns[1]:
         picker_mode_label = st.segmented_control(
             "Geometry",
-            ["Point", "Rectangle"],
-            default="Rectangle",
+            ["Point", "Polygon"],
+            default="Polygon",
             key=f"picker_mode::{scene}",
         )
     with picker_columns[2]:
@@ -495,6 +501,22 @@ def protocol_designer_mode() -> None:
             continue
         raw_role = row.get("region_role")
         region_role = raw_role if raw_role in {"entry", "exit", "both"} else "both"
+        raw_polygon = row.get("polygon_points")
+        if pd.notna(raw_polygon) and str(raw_polygon).strip():
+            try:
+                polygon_points = json.loads(str(raw_polygon))
+            except json.JSONDecodeError:
+                polygon_points = []
+            if len(polygon_points) >= 3:
+                existing_shapes.append(
+                    {
+                        "type": "polygon",
+                        "approach_id": str(row["id"]),
+                        "region_role": region_role,
+                        "points": polygon_points,
+                    }
+                )
+                continue
         region_fields = ["region_x_min", "region_y_min", "region_x_max", "region_y_max"]
         if all(pd.notna(row.get(field)) for field in region_fields):
             existing_shapes.append(
@@ -524,7 +546,7 @@ def protocol_designer_mode() -> None:
             )
     selection = approach_picker(
         frame_path,
-        "rectangle" if picker_mode_label == "Rectangle" else "point",
+        "polygon" if picker_mode_label == "Polygon" else "point",
         picker_id,
         picker_role,
         existing_shapes,
@@ -544,7 +566,28 @@ def protocol_designer_mode() -> None:
             if row is None:
                 row = {"id": selected_id, "human_readable_name": ""}
                 rows.append(row)
-            if selection["type"] == "rectangle":
+            if selection["type"] == "polygon":
+                points = [
+                    {"x": float(point["x"]), "y": float(point["y"])}
+                    for point in selection["points"]
+                ]
+                center_x = sum(point["x"] for point in points) / len(points)
+                center_y = sum(point["y"] for point in points) / len(points)
+                row.update(
+                    {
+                        "label_x": center_x,
+                        "label_y": center_y,
+                        "arrow_x": center_x,
+                        "arrow_y": center_y,
+                        "region_x_min": None,
+                        "region_y_min": None,
+                        "region_x_max": None,
+                        "region_y_max": None,
+                        "region_role": selection.get("region_role", "both"),
+                        "polygon_points": json.dumps(points, separators=(",", ":")),
+                    }
+                )
+            elif selection["type"] == "rectangle":
                 center_x = (float(selection["x_min"]) + float(selection["x_max"])) / 2
                 center_y = (float(selection["y_min"]) + float(selection["y_max"])) / 2
                 row.update(
@@ -558,6 +601,7 @@ def protocol_designer_mode() -> None:
                         "region_x_max": float(selection["x_max"]),
                         "region_y_max": float(selection["y_max"]),
                         "region_role": selection.get("region_role", "both"),
+                        "polygon_points": None,
                     }
                 )
             else:
@@ -572,6 +616,7 @@ def protocol_designer_mode() -> None:
                         "region_x_max": None,
                         "region_y_max": None,
                         "region_role": selection.get("region_role", "both"),
+                        "polygon_points": None,
                     }
                 )
             st.session_state[draft_key] = rows
@@ -594,6 +639,7 @@ def protocol_designer_mode() -> None:
             "region_x_max",
             "region_y_max",
             "region_role",
+            "polygon_points",
         ],
     )
     edited = st.data_editor(
@@ -662,6 +708,11 @@ def protocol_designer_mode() -> None:
                 "region_x_max": row.get("region_normalized", {}).get("x_max"),
                 "region_y_max": row.get("region_normalized", {}).get("y_max"),
                 "region_role": row.get("region_role", "both"),
+                "polygon_points": (
+                    json.dumps(row["polygon_normalized"], separators=(",", ":"))
+                    if row.get("polygon_normalized")
+                    else None
+                ),
             }
             for row in rows
         ]

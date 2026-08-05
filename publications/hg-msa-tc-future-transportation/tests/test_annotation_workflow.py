@@ -232,6 +232,57 @@ def test_scene_guide_editor_normalizes_manual_region() -> None:
     assert rows[0]["region_role"] == "entry"
 
 
+def test_scene_guide_editor_normalizes_manual_polygon() -> None:
+    polygon = [
+        {"x": 0.1, "y": 0.2},
+        {"x": 0.4, "y": 0.2},
+        {"x": 0.3, "y": 0.5},
+    ]
+    rows = protocol.normalize_approach_rows(
+        [
+            {
+                "id": "A",
+                "human_readable_name": "North entry",
+                "label_x": 0.25,
+                "label_y": 0.3,
+                "arrow_x": 0.25,
+                "arrow_y": 0.3,
+                "polygon_points": json.dumps(polygon),
+                "region_role": "entry",
+            }
+        ]
+    )
+    assert rows[0]["polygon_normalized"] == polygon
+    assert rows[0]["region_role"] == "entry"
+
+
+@pytest.mark.parametrize(
+    ("polygon", "message"),
+    [
+        ([{"x": 0.1, "y": 0.2}, {"x": 0.4, "y": 0.2}], "at least three"),
+        (
+            [{"x": 0.1, "y": 0.2}, {"x": 0.2, "y": 0.2}, {"x": 0.3, "y": 0.2}],
+            "positive area",
+        ),
+    ],
+)
+def test_scene_guide_editor_rejects_invalid_polygon(
+    polygon: list[dict[str, float]], message: str
+) -> None:
+    row = {
+        "id": "A",
+        "human_readable_name": "",
+        "label_x": 0.2,
+        "label_y": 0.3,
+        "arrow_x": 0.2,
+        "arrow_y": 0.3,
+        "polygon_points": json.dumps(polygon),
+        "region_role": "entry",
+    }
+    with pytest.raises(ValueError, match=message):
+        protocol.normalize_approach_rows([row])
+
+
 def test_scene_guide_editor_rejects_incomplete_or_inverted_region() -> None:
     base = {
         "id": "A",
@@ -269,7 +320,19 @@ def test_scene_guide_renderer_draws_manual_point_and_region(tmp_path: Path) -> N
                     "y_max": 0.5,
                 },
                 "region_role": "entry",
-            }
+            },
+            {
+                "id": "B",
+                "label_position_normalized": {"x": 0.7, "y": 0.35},
+                "arrow_end_normalized": {"x": 0.7, "y": 0.35},
+                "polygon_normalized": [
+                    {"x": 0.55, "y": 0.2},
+                    {"x": 0.85, "y": 0.25},
+                    {"x": 0.8, "y": 0.55},
+                    {"x": 0.6, "y": 0.5},
+                ],
+                "region_role": "exit",
+            },
         ],
     }
     output = rendering.render_scene_guide(background, guide, tmp_path / "guide.png")

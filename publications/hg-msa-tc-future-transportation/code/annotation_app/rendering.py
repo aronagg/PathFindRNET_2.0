@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import yaml
-from matplotlib.patches import Rectangle
+from matplotlib.patches import Polygon, Rectangle
 
 
 RENDERING_VERSION = "camera-polyline-renderer-v1"
@@ -175,7 +175,22 @@ def render_scene_guide(
         region = approach.get("region_normalized")
         role = approach.get("region_role", "both")
         color = {"entry": "#00a66a", "exit": "#d1495b", "both": "#f2b134"}.get(role, "#f2b134")
-        if region:
+        polygon = approach.get("polygon_normalized")
+        if polygon:
+            vertices = np.asarray(
+                [[float(point["x"]) * width, float(point["y"]) * height] for point in polygon]
+            )
+            ax.add_patch(
+                Polygon(
+                    vertices,
+                    closed=True,
+                    linewidth=3,
+                    edgecolor=color,
+                    facecolor=color,
+                    alpha=0.2,
+                )
+            )
+        elif region:
             region_x = float(region["x_min"]) * width
             region_y = float(region["y_min"]) * height
             region_width = (float(region["x_max"]) - float(region["x_min"])) * width

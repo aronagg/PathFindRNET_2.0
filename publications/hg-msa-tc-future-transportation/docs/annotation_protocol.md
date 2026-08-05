@@ -14,10 +14,12 @@ scene and recording only and does not use any inferred movement structure.
 ## Manual Scene Codebook
 
 An authorized designer must enter neutral approach IDs, optional names, normalized
-label and arrow positions, valid entry/exit sets, coarse maneuver mappings, and
-ambiguity notes on a representative source frame. Approach counts and locations may
-not be inferred from HG or clustering. All five guide YAML files must have
-`status: ready_for_freeze` and valid guide images.
+point anchors or manually drawn polygon zones, valid entry/exit sets, coarse maneuver
+mappings, and ambiguity notes on a representative source frame. A polygon describes
+where an entry or exit approach is visually interpreted on the camera image. It is a
+codebook aid, not an automatic point-containment labeler. Approach counts and
+locations may not be inferred from HG or clustering. All five guide YAML files must
+have `status: ready_for_freeze` and valid guide images.
 
 The app's `Freeze Protocol` action validates the five guides, the written guideline,
 and the pre-existing scientific freeze manifest. It then writes immutable
@@ -27,9 +29,13 @@ files cannot be overwritten. Any later change requires an explicit new version.
 ## Labels
 
 The human chooses entry, exit, coarse maneuver type, validity, confidence, and an
-optional note. `manual_maneuver_id` is generated only from the scene and the two human
-approach choices. `rare_movement` is not human input; it is derived after consensus
-from a configurable scene-level frequency threshold. Full decision rules are in
+optional note after inspecting the trajectory and optional source frames. No label is
+generated from polygon membership. `manual_maneuver_id` is generated only from the
+scene and the two human approach choices. Annotators A and B produce immutable,
+independent first-pass exports; disagreements are resolved separately by adjudication.
+The adjudicated record is the reference label while both first-pass records remain
+auditable. `rare_movement` is not human input; it is derived after consensus from a
+configurable scene-level frequency threshold. Full decision rules are in
 `annotations/protocol/annotation_guideline.md`.
 
 ## Integrity
