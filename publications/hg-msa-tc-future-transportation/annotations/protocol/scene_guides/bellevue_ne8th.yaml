@@ -1,10 +1,335 @@
 scene_id: bellevue_ne8th
-status: draft_manual_configuration_required
+status: ready_for_freeze
 representative_frame: protocol/scene_guides/bellevue_ne8th_representative_frame.png
 representative_recording_id: Bellevue_Bellevue_NE8th__2017-09-10_18-08-23
 representative_frame_number: 300
-approaches: []
-valid_entry_approaches: []
-valid_exit_approaches: []
-maneuver_type_mapping: []
-ambiguity_notes: '[MANUAL INPUT REQUIRED]'
+approaches:
+- id: A
+  human_readable_name: ''
+  label_position_normalized:
+    x: 0.8260945511917507
+    y: 0.8291460055096419
+  arrow_end_normalized:
+    x: 0.8260945511917507
+    y: 0.8291460055096419
+  polygon_normalized:
+  - x: 0.684819969572322
+    y: 0.9626596543951916
+  - x: 0.6595762664112244
+    y: 0.8745053844227398
+  - x: 0.6424466106947653
+    y: 0.8168044077134986
+  - x: 0.7479292274750662
+    y: 0.7623090408214375
+  - x: 0.8461993576379105
+    y: 0.7014024542950162
+  - x: 0.8777539865892827
+    y: 0.6901828199348861
+  - x: 0.9011945680960162
+    y: 0.735061357375407
+  - x: 0.9327491970473882
+    y: 0.8360380666165791
+  - x: 0.9796303600608554
+    y: 0.9482344102178812
+  - x: 0.9886459683326759
+    y: 0.9642624593037816
+  region_role: entry
+- id: B
+  human_readable_name: ''
+  label_position_normalized:
+    x: 0.8578595443361319
+    y: 0.36053927706820266
+  arrow_end_normalized:
+    x: 0.8578595443361319
+    y: 0.36053927706820266
+  polygon_normalized:
+  - x: 0.776779173944892
+    y: 0.47700976709241166
+  - x: 0.7326026934129712
+    y: 0.3872526922113699
+  - x: 0.683016847917958
+    y: 0.31672927623340846
+  - x: 0.7226855243139686
+    y: 0.2974956173303281
+  - x: 0.7677635656730715
+    y: 0.3055096418732782
+  - x: 0.836282188538908
+    y: 0.30070122714750813
+  - x: 0.8759508649349186
+    y: 0.2830703731530178
+  - x: 0.9309460753930242
+    y: 0.3103180565990483
+  - x: 0.9525835352453935
+    y: 0.31672927623340846
+  - x: 0.9706147517890347
+    y: 0.3487853744052091
+  - x: 0.9796303600608554
+    y: 0.37603305785123964
+  - x: 0.9787287992336733
+    y: 0.39206110693713997
+  - x: 0.9372570011832986
+    y: 0.40969196093163035
+  - x: 0.8786555474164647
+    y: 0.43854244928625097
+  - x: 0.8443962359835465
+    y: 0.44815927873779116
+  region_role: entry
+- id: C
+  human_readable_name: ''
+  label_position_normalized:
+    x: 0.45256403032365167
+    y: 0.19491610318056599
+  arrow_end_normalized:
+    x: 0.45256403032365167
+    y: 0.19491610318056599
+  polygon_normalized:
+  - x: 0.5811404744463853
+    y: 0.31192086150763837
+  - x: 0.56130613624838
+    y: 0.2526170798898072
+  - x: 0.546881163013467
+    y: 0.2093413473578763
+  - x: 0.5108187299261847
+    y: 0.15324317555722514
+  - x: 0.48016566180199466
+    y: 0.10355622339093415
+  - x: 0.4648391277398997
+    y: 0.06989732031054345
+  - x: 0.423367329689525
+    y: 0.0666917104933634
+  - x: 0.40443455231870173
+    y: 0.08913097921362384
+  - x: 0.39632050487406323
+    y: 0.15003756574004506
+  - x: 0.38730489660224265
+    y: 0.1901076884547959
+  - x: 0.3791908491576041
+    y: 0.2670423240671174
+  - x: 0.3746830450216938
+    y: 0.3263461056849487
+  - x: 0.37287992336732967
+    y: 0.34397695967943903
+  region_role: entry
+- id: D
+  human_readable_name: ''
+  label_position_normalized:
+    x: 0.21693606162812226
+    y: 0.6592715824120783
+  arrow_end_normalized:
+    x: 0.21693606162812226
+    y: 0.6592715824120783
+  polygon_normalized:
+  - x: 0.002338423395503465
+    y: 0.5587528174305033
+  - x: 0.06003831633515524
+    y: 0.5571500125219134
+  - x: 0.15560376401645348
+    y: 0.5459303781617831
+  - x: 0.2187130219191976
+    y: 0.5234911094415227
+  - x: 0.29444413140249054
+    y: 0.5186826947157526
+  - x: 0.3611596326139629
+    y: 0.5218883045329327
+  - x: 0.3864033357750606
+    y: 0.5459303781617831
+  - x: 0.3855017749478785
+    y: 0.6725519659403957
+  - x: 0.3882064574294247
+    y: 0.7751314800901578
+  - x: 0.3755846058488759
+    y: 0.8696969696969696
+  - x: 0.2313348734997464
+    y: 0.8087903831705484
+  - x: 0.11503352679326084
+    y: 0.7959679439018281
+  - x: 0.06274299881670141
+    y: 0.7735286751815676
+  - x: 0.0
+    y: 0.7623090408214375
+  region_role: entry
+- id: E
+  human_readable_name: ''
+  label_position_normalized:
+    x: 0.5189327773708232
+    y: 0.9025544703230655
+  arrow_end_normalized:
+    x: 0.5189327773708232
+    y: 0.9025544703230655
+  polygon_normalized:
+  - x: 0.6406434890404011
+    y: 0.8103931880791385
+  - x: 0.3755846058488759
+    y: 0.8712997746055596
+  - x: 0.3710768017129656
+    y: 0.9658652642123717
+  - x: 0.6884262128810503
+    y: 0.9626596543951916
+  region_role: exit
+- id: F
+  human_readable_name: ''
+  label_position_normalized:
+    x: 0.9216299468454763
+    y: 0.5067507026184712
+  arrow_end_normalized:
+    x: 0.9216299468454763
+    y: 0.5067507026184712
+  polygon_normalized:
+  - x: 0.7785822955992562
+    y: 0.47861257200100177
+  - x: 0.8615258917000057
+    y: 0.693388429752066
+  - x: 0.9038992505775625
+    y: 0.6597295266716755
+  - x: 0.9525835352453935
+    y: 0.5539444027047332
+  - x: 0.9904490899870402
+    y: 0.5042574505384423
+  - x: 0.9922522116414042
+    y: 0.44976208364638115
+  - x: 0.9805319208880373
+    y: 0.3904583020285499
+  - x: 0.9345523187017524
+    y: 0.40167793638868016
+  - x: 0.9002930072688342
+    y: 0.4289256198347107
+  region_role: exit
+- id: G
+  human_readable_name: ''
+  label_position_normalized:
+    x: 0.5674367498732181
+    y: 0.1850855664078805
+  arrow_end_normalized:
+    x: 0.5674367498732181
+    y: 0.1850855664078805
+  polygon_normalized:
+  - x: 0.5802389136192032
+    y: 0.31672927623340846
+  - x: 0.6812137262635939
+    y: 0.3295517155021287
+  - x: 0.6712965571645911
+    y: 0.292687202604558
+  - x: 0.6406434890404011
+    y: 0.24139744552967693
+  - x: 0.6190060291880318
+    y: 0.2093413473578763
+  - x: 0.5865498394094777
+    y: 0.1660656148259454
+  - x: 0.5685186228658365
+    y: 0.13881793137991486
+  - x: 0.5414717980503747
+    y: 0.1115702479338843
+  - x: 0.5171296557164591
+    y: 0.0875281743050338
+  - x: 0.5090156082718206
+    y: 0.08271975957926371
+  - x: 0.4873781484194512
+    y: 0.09073378412221388
+  - x: 0.4873781484194512
+    y: 0.10355622339093415
+  - x: 0.5126218515805487
+    y: 0.14683195592286502
+  - x: 0.5477827238406492
+    y: 0.2093413473578763
+  - x: 0.56130613624838
+    y: 0.2494114700726271
+  region_role: exit
+- id: H
+  human_readable_name: ''
+  label_position_normalized:
+    x: 0.1804313621803902
+    y: 0.47787281588934477
+  arrow_end_normalized:
+    x: 0.1804313621803902
+    y: 0.47787281588934477
+  polygon_normalized:
+  - x: 0.3900095790837888
+    y: 0.542724768344603
+  - x: 0.392714261565335
+    y: 0.33436013022789884
+  - x: 0.28182227982194175
+    y: 0.3471825694966191
+  - x: 0.11503352679326084
+    y: 0.38084147257700973
+  - x: 0.04831802558178847
+    y: 0.4369396443776609
+  - x: 0.014058714148870232
+    y: 0.45777610818933134
+  - x: 0.0005353017411393474
+    y: 0.47861257200100177
+  - x: 0.005043105877049642
+    y: 0.5635612321562734
+  - x: 0.06634924212542966
+    y: 0.5523415977961433
+  - x: 0.15650532484363555
+    y: 0.5459303781617831
+  - x: 0.22502394770947204
+    y: 0.5299023290758829
+  - x: 0.29354257057530847
+    y: 0.5218883045329327
+  - x: 0.3566518284780526
+    y: 0.5202854996243426
+  region_role: exit
+valid_entry_approaches:
+- A
+- B
+- C
+- D
+valid_exit_approaches:
+- E
+- F
+- G
+- H
+maneuver_type_mapping:
+- entry: A
+  exit: F
+  maneuver_type: right
+- entry: A
+  exit: G
+  maneuver_type: straight
+- entry: A
+  exit: H
+  maneuver_type: left
+- entry: B
+  exit: G
+  maneuver_type: right
+- entry: B
+  exit: H
+  maneuver_type: straight
+- entry: B
+  exit: E
+  maneuver_type: left
+- entry: C
+  exit: H
+  maneuver_type: right
+- entry: C
+  exit: E
+  maneuver_type: straight
+- entry: C
+  exit: F
+  maneuver_type: left
+- entry: D
+  exit: E
+  maneuver_type: right
+- entry: D
+  exit: F
+  maneuver_type: straight
+- entry: D
+  exit: G
+  maneuver_type: left
+ambiguity_notes: Approach IDs are direction-specific and image-relative. A-D denote entry corridors; E-H
+  denote exit corridors. Same-road entry/exit pairs are A/E, B/F, C/G, and D/H. Determine entry and exit
+  from the full direction of travel, not solely from the first or last sampled point, polygon membership,
+  or a single lane-arrow marking. Strong perspective compresses the distant C/G corridors in the upper
+  image area, while B/F and D/H are spatially close near the right and left image boundaries. The lower
+  A/E corridors are partly truncated by the bottom image boundary. Dense urban traffic, queued vehicles,
+  and temporary vehicle-to-vehicle occlusion may hide parts of a trajectory, particularly on the C/G and
+  B/F approaches. Building and tree shadows create strong illumination changes across the intersection,
+  and the overhead structure may obscure or visually compress distant movements. Use temporal direction
+  and source video frames when a trajectory passes through an occluded, shadowed, or congested area. Queued,
+  lane-changing, or partially observed vehicles must be classified from their complete observed movement
+  rather than their position in a single frame. If a trajectory starts or ends inside the intersection,
+  is too short, is truncated near an image boundary, or cannot be assigned to a unique approach, select
+  UNKNOWN and mark it ambiguous. Mark it unusable when travel direction cannot be recovered. Treat adjacent
+  lanes within the same corridor as one approach. U-turns are not included in the current mapping; flag
+  a clear same-road reversal for protocol review instead of forcing it into left, right, or straight.

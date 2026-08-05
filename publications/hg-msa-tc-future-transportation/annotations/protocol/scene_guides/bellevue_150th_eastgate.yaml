@@ -1,10 +1,312 @@
 scene_id: bellevue_150th_eastgate
-status: draft_manual_configuration_required
+status: ready_for_freeze
 representative_frame: protocol/scene_guides/bellevue_150th_eastgate_representative_frame.png
 representative_recording_id: Bellevue_150th_Eastgate__2017-09-10_18-08-24
 representative_frame_number: 300
-approaches: []
-valid_entry_approaches: []
-valid_exit_approaches: []
-maneuver_type_mapping: []
-ambiguity_notes: '[MANUAL INPUT REQUIRED]'
+approaches:
+- id: A
+  human_readable_name: ''
+  label_position_normalized:
+    x: 0.726832704119006
+    y: 0.6358477335336838
+  arrow_end_normalized:
+    x: 0.726832704119006
+    y: 0.6358477335336838
+  polygon_normalized:
+  - x: 0.9994646982588608
+    y: 0.9658652642123717
+  - x: 0.9985631374316786
+    y: 0.6116453794139745
+  - x: 0.7226855243139686
+    y: 0.29108439769596794
+  - x: 0.6622809488927707
+    y: 0.33436013022789884
+  - x: 0.6190060291880318
+    y: 0.39686952166291006
+  - x: 0.5874514002366598
+    y: 0.5443275732531931
+  - x: 0.5586014537668338
+    y: 0.6244678186826947
+  - x: 0.62261227249676
+    y: 0.7591034310042575
+  - x: 0.6965402603256888
+    y: 0.8648885549711997
+  - x: 0.8011213162788076
+    y: 0.9658652642123717
+  region_role: entry
+- id: B
+  human_readable_name: ''
+  label_position_normalized:
+    x: 0.5118022508285652
+    y: 0.14216925073423947
+  arrow_end_normalized:
+    x: 0.5118022508285652
+    y: 0.14216925073423947
+  polygon_normalized:
+  - x: 0.5333577506057362
+    y: 0.23979464062108688
+  - x: 0.5802389136192032
+    y: 0.1564487853744052
+  - x: 0.5964670085084803
+    y: 0.09714500375657399
+  - x: 0.5955654476812983
+    y: 0.05867768595041323
+  - x: 0.528849946469826
+    y: 0.029827197595792634
+  - x: 0.5090156082718206
+    y: 0.06989732031054345
+  - x: 0.47836254014763063
+    y: 0.1115702479338843
+  - x: 0.45672508029526115
+    y: 0.1420235411970949
+  - x: 0.4269735729982532
+    y: 0.19491610318056599
+  - x: 0.4170564038992506
+    y: 0.21735537190082646
+  - x: 0.5072124866174564
+    y: 0.24620586025544702
+  region_role: entry
+- id: C
+  human_readable_name: ''
+  label_position_normalized:
+    x: 0.2707459610879907
+    y: 0.26028764623805944
+  arrow_end_normalized:
+    x: 0.2707459610879907
+    y: 0.26028764623805944
+  polygon_normalized:
+  - x: 0.3882064574294247
+    y: 0.244603055346857
+  - x: 0.36747055840423737
+    y: 0.2157525669922364
+  - x: 0.3287034428354088
+    y: 0.20293012772351615
+  - x: 0.27100354989575703
+    y: 0.20293012772351615
+  - x: 0.23313799515411054
+    y: 0.1901076884547959
+  - x: 0.20338648785710262
+    y: 0.20132732281492613
+  - x: 0.18715839296782555
+    y: 0.22697220135236662
+  - x: 0.19527244041246408
+    y: 0.23979464062108688
+  - x: 0.22051614357356172
+    y: 0.30070122714750813
+  - x: 0.22231926522792586
+    y: 0.3231404958677686
+  - x: 0.22953175184538233
+    y: 0.3487853744052091
+  - x: 0.23584267763565672
+    y: 0.3696218382168795
+  - x: 0.3178847129092241
+    y: 0.31672927623340846
+  - x: 0.3900095790837888
+    y: 0.26063110443275733
+  region_role: entry
+- id: D
+  human_readable_name: ''
+  label_position_normalized:
+    x: 0.2934423971500661
+    y: 0.7779809110387623
+  arrow_end_normalized:
+    x: 0.2934423971500661
+    y: 0.7779809110387623
+  polygon_normalized:
+  - x: 0.023975883247872882
+    y: 0.9706736789381417
+  - x: 0.0961007494224376
+    y: 0.8184072126220886
+  - x: 0.17363498056009466
+    y: 0.7046080641121963
+  - x: 0.2601848199695723
+    y: 0.589206110693714
+  - x: 0.28813320561221617
+    y: 0.5555472076133233
+  - x: 0.47565785766608437
+    y: 0.685374405209116
+  - x: 0.47475629683890236
+    y: 0.8039819684447784
+  - x: 0.4359891812700738
+    y: 0.9065614825945404
+  - x: 0.4125485997633403
+    y: 0.9674680691209616
+  region_role: entry
+- id: E
+  human_readable_name: ''
+  label_position_normalized:
+    x: 0.5678424522454499
+    y: 0.7921612822439269
+  arrow_end_normalized:
+    x: 0.5678424522454499
+    y: 0.7921612822439269
+  polygon_normalized:
+  - x: 0.8047275595875358
+    y: 0.9626596543951916
+  - x: 0.698343381980053
+    y: 0.8632857500626095
+  - x: 0.6271200766326703
+    y: 0.7542950162784874
+  - x: 0.5567983321124698
+    y: 0.6260706235912847
+  - x: 0.4864765875922691
+    y: 0.6789631855747558
+  - x: 0.4765594184932665
+    y: 0.685374405209116
+  - x: 0.47565785766608437
+    y: 0.8007763586275983
+  - x: 0.4170564038992506
+    y: 0.9658652642123717
+  region_role: exit
+- id: F
+  human_readable_name: ''
+  label_position_normalized:
+    x: 0.6001859469206063
+    y: 0.16005509641873278
+  arrow_end_normalized:
+    x: 0.6001859469206063
+    y: 0.16005509641873278
+  polygon_normalized:
+  - x: 0.6586747055840424
+    y: 0.31833208114199846
+  - x: 0.515326534062095
+    y: 0.2494114700726271
+  - x: 0.5486842846678311
+    y: 0.23178061607813671
+  - x: 0.5730264270017468
+    y: 0.18369646882043575
+  - x: 0.5964670085084803
+    y: 0.1211870773854245
+  - x: 0.607285738434665
+    y: 0.07470573503631354
+  - x: 0.6181044683608496
+    y: 0.042649636864512896
+  - x: 0.68391840874514
+    y: 0.05867768595041323
+  region_role: exit
+- id: G
+  human_readable_name: ''
+  label_position_normalized:
+    x: 0.3458330985518679
+    y: 0.20335754236580686
+  arrow_end_normalized:
+    x: 0.3458330985518679
+    y: 0.20335754236580686
+  polygon_normalized:
+  - x: 0.3909111399109709
+    y: 0.2622339093413473
+  - x: 0.40443455231870173
+    y: 0.28146756824442776
+  - x: 0.44320166788753024
+    y: 0.2878787878787879
+  - x: 0.454921958640897
+    y: 0.22697220135236662
+  - x: 0.41615484307206857
+    y: 0.21094415226646632
+  - x: 0.37287992336732967
+    y: 0.16766841973453545
+  - x: 0.34583309855186795
+    y: 0.13721512647132483
+  - x: 0.28903476643939824
+    y: 0.1259954921111946
+  - x: 0.25116921169775175
+    y: 0.13400951665414476
+  - x: 0.2304333126725644
+    y: 0.16766841973453545
+  - x: 0.23764579929002086
+    y: 0.1901076884547959
+  - x: 0.2673973065870288
+    y: 0.19812171299774606
+  - x: 0.3269003211810447
+    y: 0.20293012772351615
+  - x: 0.36837211923141944
+    y: 0.21254695717505637
+  - x: 0.3882064574294247
+    y: 0.244603055346857
+  region_role: exit
+- id: H
+  human_readable_name: ''
+  label_position_normalized:
+    x: 0.09604127145119991
+    y: 0.7152934301694631
+  arrow_end_normalized:
+    x: 0.09604127145119991
+    y: 0.7152934301694631
+  polygon_normalized:
+  - x: 0.2872316447850341
+    y: 0.5555472076133233
+  - x: 0.1970755620668282
+    y: 0.4321312296518908
+  - x: 0.07536485039725024
+    y: 0.5972201352366642
+  - x: 0.014058714148870232
+    y: 0.6789631855747558
+  - x: 0.0
+    y: 0.7126220886551465
+  - x: 0.0014368625683214066
+    y: 0.9626596543951916
+  - x: 0.02307432242069082
+    y: 0.9690708740295517
+  - x: 0.09519918859525553
+    y: 0.8232156273478588
+  - x: 0.17093029807854848
+    y: 0.7062108690207863
+  region_role: exit
+valid_entry_approaches:
+- A
+- B
+- C
+- D
+valid_exit_approaches:
+- E
+- F
+- G
+- H
+maneuver_type_mapping:
+- entry: A
+  exit: F
+  maneuver_type: right
+- entry: A
+  exit: G
+  maneuver_type: straight
+- entry: A
+  exit: H
+  maneuver_type: left
+- entry: B
+  exit: G
+  maneuver_type: right
+- entry: B
+  exit: H
+  maneuver_type: straight
+- entry: B
+  exit: E
+  maneuver_type: left
+- entry: C
+  exit: H
+  maneuver_type: right
+- entry: C
+  exit: E
+  maneuver_type: straight
+- entry: C
+  exit: F
+  maneuver_type: left
+- entry: D
+  exit: E
+  maneuver_type: right
+- entry: D
+  exit: F
+  maneuver_type: straight
+- entry: D
+  exit: G
+  maneuver_type: left
+ambiguity_notes: Approach IDs are direction-specific and image-relative. A-D denote entry corridors; E-H
+  denote exit corridors. Same-road entry/exit pairs are A/E, B/F, C/G, and D/H. Determine entry and exit
+  from the full direction of travel, not solely from the first or last sampled point or polygon membership.
+  Same-road entry and exit corridors are spatially close under strong perspective and lens distortion,
+  particularly B/F and C/G. The lower image area around A/E is partly affected by camera housing and edge
+  cropping, while the upper-left area around C/G may be affected by glare. Use temporal direction and
+  source video frames when needed. If a trajectory starts or ends inside the intersection, is too short,
+  is truncated near the image boundary, or cannot be assigned to a unique approach, select UNKNOWN and
+  mark it ambiguous. Mark it unusable when travel direction cannot be recovered. Treat adjacent lanes
+  within the same corridor as one approach. U-turns are not included in the current mapping; flag a clear
+  same-road reversal for protocol review instead of forcing it into left, right, or straight.

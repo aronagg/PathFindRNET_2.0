@@ -1,10 +1,296 @@
 scene_id: bellevue_116th_ne12th
-status: draft_manual_configuration_required
+status: ready_for_freeze
 representative_frame: protocol/scene_guides/bellevue_116th_ne12th_representative_frame.png
 representative_recording_id: Bellevue_116th_NE12th__2017-09-10_19-08-25
 representative_frame_number: 300
-approaches: []
-valid_entry_approaches: []
-valid_exit_approaches: []
-maneuver_type_mapping: []
-ambiguity_notes: '[MANUAL INPUT REQUIRED]'
+approaches:
+- id: A
+  human_readable_name: ''
+  label_position_normalized:
+    x: 0.8488659404913471
+    y: 0.7303691036055294
+  arrow_end_normalized:
+    x: 0.8488659404913471
+    y: 0.7303691036055294
+  polygon_normalized:
+  - x: 0.9997595133682274
+    y: 0.9988934436536479
+  - x: 0.7872046965624558
+    y: 0.9988934436536479
+  - x: 0.6839934927146696
+    y: 0.7639011141010487
+  - x: 0.8195925873532325
+    y: 0.47579407992354705
+  - x: 0.9028858395812703
+    y: 0.51925156552574
+  - x: 0.9997595133682274
+    y: 0.6554809747755451
+  region_role: entry
+- id: B
+  human_readable_name: ''
+  label_position_normalized:
+    x: 0.7300825199226668
+    y: 0.1695529344700685
+  arrow_end_normalized:
+    x: 0.7300825199226668
+    y: 0.1695529344700685
+  polygon_normalized:
+  - x: 0.6955580704484368
+    y: 0.3486406961245379
+  - x: 0.7480690338095911
+    y: 0.2890878454844957
+  - x: 0.8060121657943131
+    y: 0.2182682393179589
+  - x: 0.8168765030414485
+    y: 0.1812488997309056
+  - x: 0.8177818644787098
+    y: 0.15710585217413173
+  - x: 0.8042014429197906
+    y: 0.13135326811357292
+  - x: 0.7960531899844391
+    y: 0.1104292935643689
+  - x: 0.7833781298627811
+    y: 0.0975530015340895
+  - x: 0.7661762625548169
+    y: 0.08628624600759499
+  - x: 0.7489743952468524
+    y: 0.10560068405301411
+  - x: 0.7000848776347433
+    y: 0.12169604909086337
+  - x: 0.6566275286462017
+    y: 0.14744863315142218
+  - x: 0.6276559626538407
+    y: 0.14744863315142218
+  - x: 0.6023058424105249
+    y: 0.18929658224983023
+  - x: 0.5814825293535153
+    y: 0.2118300933028192
+  region_role: entry
+- id: C
+  human_readable_name: ''
+  label_position_normalized:
+    x: 0.3803276791110997
+    y: 0.16807996469993805
+  arrow_end_normalized:
+    x: 0.3803276791110997
+    y: 0.16807996469993805
+  polygon_normalized:
+  - x: 0.4945678313764323
+    y: 0.25850665191258204
+  - x: 0.43119253076814257
+    y: 0.28425923597314084
+  - x: 0.35423680860093365
+    y: 0.3212785755601941
+  - x: 0.33160277266940164
+    y: 0.24241128687473282
+  - x: 0.3225491582967888
+    y: 0.14101048713628248
+  - x: 0.3107794596123922
+    y: 0.05570505243568141
+  - x: 0.3279813269203565
+    y: 0.04926690642054171
+  - x: 0.34789927854010466
+    y: 0.060533661947036195
+  - x: 0.377776205969727
+    y: 0.0927243920227347
+  - x: 0.42032819352100725
+    y: 0.14422956014385233
+  - x: 0.46469090394681
+    y: 0.1989538012725398
+  region_role: entry
+- id: D
+  human_readable_name: ''
+  label_position_normalized:
+    x: 0.24417072529959785
+    y: 0.7588425708034389
+  arrow_end_normalized:
+    x: 0.24417072529959785
+    y: 0.7588425708034389
+  polygon_normalized:
+  - x: 0.39407271184043
+    y: 0.496718054472751
+  - x: 0.22114867732352525
+    y: 0.5643185876317179
+  - x: 0.1052624133540812
+    y: 0.6351381937982546
+  - x: 0.00024048663177252794
+    y: 0.6963005809420818
+  - x: 0.0011458480690338096
+    y: 0.9972839071498629
+  - x: 0.4864195784410808
+    y: 0.995674370646078
+  - x: 0.5009053614372613
+    y: 0.9264643009833263
+  region_role: entry
+- id: E
+  human_readable_name: ''
+  label_position_normalized:
+    x: 0.6147545621728675
+    y: 0.8858235042627569
+  arrow_end_normalized:
+    x: 0.6147545621728675
+    y: 0.8858235042627569
+  polygon_normalized:
+  - x: 0.7859711416041874
+    y: 0.995674370646078
+  - x: 0.6556401188286886
+    y: 0.6930815079345121
+  - x: 0.4891356627528646
+    y: 0.8572542313205744
+  - x: 0.47827132550572926
+    y: 0.9972839071498629
+  region_role: exit
+- id: F
+  human_readable_name: ''
+  label_position_normalized:
+    x: 0.8140907755421831
+    y: 0.23102072084794714
+  arrow_end_normalized:
+    x: 0.8140907755421831
+    y: 0.23102072084794714
+  polygon_normalized:
+  - x: 0.6955580704484368
+    y: 0.35185976913210776
+  - x: 0.8105389729806196
+    y: 0.4918894449613963
+  - x: 0.8295515631631065
+    y: 0.41624122928350477
+  - x: 0.8539963219691611
+    y: 0.29874506450720517
+  - x: 0.8594284905927289
+    y: 0.2263159218368835
+  - x: 0.8476587919083322
+    y: 0.1748107537157659
+  - x: 0.8286462017258452
+    y: 0.13296280461735785
+  - x: 0.8105389729806196
+    y: 0.1039911475492292
+  - x: 0.7987692742962229
+    y: 0.10238161104544424
+  - x: 0.8123496958551423
+    y: 0.13779141412871262
+  - x: 0.8168765030414485
+    y: 0.15871538867791665
+  - x: 0.811444334417881
+    y: 0.1860775092422604
+  - x: 0.8078228886688358
+    y: 0.22148731232552876
+  region_role: exit
+- id: G
+  human_readable_name: ''
+  label_position_normalized:
+    x: 0.4298344886122507
+    y: 0.11056342160635096
+  arrow_end_normalized:
+    x: 0.4298344886122507
+    y: 0.11056342160635096
+  polygon_normalized:
+  - x: 0.4954731928136936
+    y: 0.25850665191258204
+  - x: 0.5914415051633894
+    y: 0.21987777582174384
+  - x: 0.5371198189277125
+    y: 0.14744863315142218
+  - x: 0.46016409676050357
+    y: 0.06214319845082111
+  - x: 0.41399066346017827
+    y: 0.039609687397832154
+  - x: 0.36691186872259157
+    y: 0.023514322359982902
+  - x: 0.3524260857264111
+    y: 0.017076176344843198
+  - x: 0.3297920497948791
+    y: 0.04765736991675678
+  - x: 0.3524260857264111
+    y: 0.06214319845082111
+  - x: 0.37958692884424955
+    y: 0.0975530015340895
+  - x: 0.42213891639552975
+    y: 0.14744863315142218
+  - x: 0.45654265101145847
+    y: 0.20378241078389456
+  region_role: exit
+- id: H
+  human_readable_name: ''
+  label_position_normalized:
+    x: 0.17977711761839643
+    y: 0.4824110633279962
+  arrow_end_normalized:
+    x: 0.17977711761839643
+    y: 0.4824110633279962
+  polygon_normalized:
+  - x: 0.3967887961522139
+    y: 0.48545129894625655
+  - x: 0.3587636157872401
+    y: 0.3180595025526243
+  - x: 0.31621162823595983
+    y: 0.31001182003369965
+  - x: 0.19036638845664167
+    y: 0.3792218896964515
+  - x: 0.019253076814259442
+    y: 0.4725750069159772
+  - x: 0.00024048663177252794
+    y: 0.4902799084576114
+  - x: 0.0
+    y: 0.6930815079345121
+  - x: 0.11159994341491017
+    y: 0.6351381937982546
+  - x: 0.22477012307257035
+    y: 0.5578804416165782
+  region_role: exit
+valid_entry_approaches:
+- A
+- B
+- C
+- D
+valid_exit_approaches:
+- E
+- F
+- G
+- H
+maneuver_type_mapping:
+- entry: A
+  exit: F
+  maneuver_type: right
+- entry: A
+  exit: G
+  maneuver_type: straight
+- entry: A
+  exit: H
+  maneuver_type: left
+- entry: B
+  exit: G
+  maneuver_type: right
+- entry: B
+  exit: H
+  maneuver_type: straight
+- entry: B
+  exit: E
+  maneuver_type: left
+- entry: C
+  exit: H
+  maneuver_type: right
+- entry: C
+  exit: E
+  maneuver_type: straight
+- entry: C
+  exit: F
+  maneuver_type: left
+- entry: D
+  exit: E
+  maneuver_type: right
+- entry: D
+  exit: F
+  maneuver_type: straight
+- entry: D
+  exit: G
+  maneuver_type: left
+ambiguity_notes: Approach IDs are direction-specific and image-relative. A-D denote entry corridors; E-H
+  denote exit corridors. Same-road entry/exit pairs are A/E, B/F, C/G, and D/H. Determine entry and exit
+  from the full direction of travel, not solely from the first or last sampled point or polygon membership.
+  B/F and C/G are spatially close under perspective; use temporal direction and source video frames when
+  needed. If a trajectory starts or ends inside the intersection, is too short, or cannot be assigned
+  to a unique approach, select UNKNOWN and mark it ambiguous. Mark it unusable when travel direction cannot
+  be recovered. Treat adjacent lanes within the same corridor as one approach. U-turns are not included
+  in the current mapping; flag a clear same-road reversal for protocol review instead of forcing it into
+  left, right, or straight.

@@ -1,10 +1,384 @@
 scene_id: bellevue_150th_newport
-status: draft_manual_configuration_required
+status: ready_for_freeze
 representative_frame: protocol/scene_guides/bellevue_150th_newport_representative_frame.png
 representative_recording_id: Bellevue_150th_Newport__2017-09-10_18-08-24
 representative_frame_number: 300
-approaches: []
-valid_entry_approaches: []
-valid_exit_approaches: []
-maneuver_type_mapping: []
-ambiguity_notes: '[MANUAL INPUT REQUIRED]'
+approaches:
+- id: A
+  human_readable_name: ''
+  label_position_normalized:
+    x: 0.706665481923272
+    y: 0.5699724517906335
+  arrow_end_normalized:
+    x: 0.706665481923272
+    y: 0.5699724517906335
+  polygon_normalized:
+  - x: 0.4468079111962585
+    y: 0.9706736789381417
+  - x: 0.43418605961570966
+    y: 0.5619584272476834
+  - x: 0.4477094720234406
+    y: 0.47861257200100177
+  - x: 0.5072124866174564
+    y: 0.4321312296518908
+  - x: 0.5865498394094777
+    y: 0.35199098422238917
+  - x: 0.6694934355102271
+    y: 0.32153769095917856
+  - x: 0.7010480644615991
+    y: 0.3295517155021287
+  - x: 0.7677635656730715
+    y: 0.345579764588029
+  - x: 0.8290697019214516
+    y: 0.441748059103431
+  - x: 0.8903758381698316
+    y: 0.5811920861507638
+  - x: 0.943567926973573
+    y: 0.7382669671925871
+  - x: 0.9760241167521271
+    y: 0.8905334335086402
+  - x: 0.9868428466783119
+    y: 0.9658652642123717
+  region_role: entry
+- id: B
+  human_readable_name: ''
+  label_position_normalized:
+    x: 0.6614995961758795
+    y: 0.16350112697220132
+  arrow_end_normalized:
+    x: 0.6614995961758795
+    y: 0.16350112697220132
+  polygon_normalized:
+  - x: 0.776779173944892
+    y: 0.11477585775106436
+  - x: 0.7244886459683327
+    y: 0.06829451540195342
+  - x: 0.6721981179917733
+    y: 0.07951414976208365
+  - x: 0.6081872992618471
+    y: 0.11798146756824443
+  - x: 0.5928607651997521
+    y: 0.1211870773854245
+  - x: 0.5829435961007494
+    y: 0.15003756574004506
+  - x: 0.5838451569279315
+    y: 0.16927122464312547
+  - x: 0.5838451569279315
+    y: 0.20132732281492613
+  - x: 0.5946638868541162
+    y: 0.23178061607813671
+  - x: 0.6280216374598524
+    y: 0.22697220135236662
+  - x: 0.6658871922014988
+    y: 0.2157525669922364
+  - x: 0.6974418211528709
+    y: 0.20132732281492613
+  - x: 0.7226855243139686
+    y: 0.19812171299774606
+  - x: 0.7344058150673354
+    y: 0.19331329827197596
+  - x: 0.7542401532653407
+    y: 0.16286000500876535
+  region_role: entry
+- id: C
+  human_readable_name: ''
+  label_position_normalized:
+    x: 0.447649367968295
+    y: 0.1339026629935721
+  arrow_end_normalized:
+    x: 0.447649367968295
+    y: 0.1339026629935721
+  polygon_normalized:
+  - x: 0.4774609793204485
+    y: 0.0330328074129727
+  - x: 0.47836254014763063
+    y: 0.05386927122464313
+  - x: 0.48377190511072293
+    y: 0.08592536939644377
+  - x: 0.49188595255536144
+    y: 0.1308039068369647
+  - x: 0.5
+    y: 0.17087402955171552
+  - x: 0.5009015608271821
+    y: 0.18690207863761582
+  - x: 0.4828703442835409
+    y: 0.20132732281492613
+  - x: 0.4404969854059841
+    y: 0.21735537190082646
+  - x: 0.4125485997633403
+    y: 0.22376659153518655
+  - x: 0.37738772750323996
+    y: 0.23178061607813671
+  - x: 0.38099397081196823
+    y: 0.19171049336338591
+  - x: 0.40713923480024794
+    y: 0.11477585775106436
+  - x: 0.42156420803516087
+    y: 0.08432256448785375
+  - x: 0.4278751338254353
+    y: 0.04906085649887303
+  - x: 0.4314813771341635
+    y: 0.0330328074129727
+  region_role: entry
+- id: D
+  human_readable_name: ''
+  label_position_normalized:
+    x: 0.15957098382825266
+    y: 0.5695717505634861
+  arrow_end_normalized:
+    x: 0.15957098382825266
+    y: 0.5695717505634861
+  polygon_normalized:
+  - x: 0.25657857666084405
+    y: 0.3567993989481593
+  - x: 0.30436130050149324
+    y: 0.36321061858251935
+  - x: 0.30165661801994703
+    y: 0.40167793638868016
+  - x: 0.27821603651321347
+    y: 0.49143501126972206
+  - x: 0.2367442384628388
+    y: 0.5763836714249937
+  - x: 0.20338648785710262
+    y: 0.6661407463060356
+  - x: 0.17814278469600495
+    y: 0.7126220886551465
+  - x: 0.1574068856708176
+    y: 0.735061357375407
+  - x: 0.13486786499126613
+    y: 0.7655146506386176
+  - x: 0.07536485039725024
+    y: 0.7126220886551465
+  - x: 0.03479461317405759
+    y: 0.685374405209116
+  - x: 0.0
+    y: 0.6613323315802654
+  - x: 0.0014368625683214066
+    y: 0.5988229401452542
+  - x: 0.04741646475460641
+    y: 0.539519158527423
+  - x: 0.14117879078154055
+    y: 0.4465564738292011
+  - x: 0.2015833662027385
+    y: 0.40007513148009016
+  region_role: entry
+- id: E
+  human_readable_name: ''
+  label_position_normalized:
+    x: 0.26364080314043686
+    y: 0.7104850154436931
+  arrow_end_normalized:
+    x: 0.26364080314043686
+    y: 0.7104850154436931
+  polygon_normalized:
+  - x: 0.4468079111962585
+    y: 0.9722764838467318
+  - x: 0.4350876204428918
+    y: 0.5651640370648635
+  - x: 0.41615484307206857
+    y: 0.48983220636113195
+  - x: 0.34583309855186795
+    y: 0.49944903581267214
+  - x: 0.26649574575984675
+    y: 0.5170798898071626
+  - x: 0.24215360342593115
+    y: 0.5747808665164037
+  - x: 0.20338648785710262
+    y: 0.6581267217630854
+  - x: 0.17904434552318702
+    y: 0.7142248935637365
+  - x: 0.15830844649799966
+    y: 0.7671174555472077
+  - x: 0.15199752070772526
+    y: 0.8568745304282495
+  - x: 0.1574068856708176
+    y: 0.9434259954921113
+  - x: 0.16101312897954584
+    y: 0.9674680691209616
+  region_role: exit
+- id: F
+  human_readable_name: ''
+  label_position_normalized:
+    x: 0.7436586761884144
+    y: 0.21516205992065063
+  arrow_end_normalized:
+    x: 0.7436586761884144
+    y: 0.21516205992065063
+  polygon_normalized:
+  - x: 0.6045810559531188
+    y: 0.23819183571249686
+  - x: 0.6099904209162113
+    y: 0.30390683696468823
+  - x: 0.620809150842396
+    y: 0.3375657400450789
+  - x: 0.667690313855863
+    y: 0.3231404958677686
+  - x: 0.7019496252887812
+    y: 0.3295517155021287
+  - x: 0.7641573223643433
+    y: 0.31352366641622836
+  - x: 0.8290697019214516
+    y: 0.2878787878787879
+  - x: 0.8489040401194569
+    y: 0.23658903080390686
+  - x: 0.8425931143291823
+    y: 0.1660656148259454
+  - x: 0.83718374936609
+    y: 0.13881793137991486
+  - x: 0.8299712627486336
+    y: 0.1163786626596544
+  - x: 0.8227587761311771
+    y: 0.10515902829952416
+  - x: 0.7966135121428974
+    y: 0.1019534184823441
+  - x: 0.7776807347720742
+    y: 0.1163786626596544
+  - x: 0.7551417140925227
+    y: 0.16446280991735537
+  - x: 0.7344058150673354
+    y: 0.19331329827197596
+  - x: 0.7208824026596045
+    y: 0.19972451790633608
+  - x: 0.699244942807235
+    y: 0.2045329326321062
+  - x: 0.6658871922014988
+    y: 0.21094415226646632
+  region_role: exit
+- id: G
+  human_readable_name: ''
+  label_position_normalized:
+    x: 0.52577403305944
+    y: 0.0954479162063022
+  arrow_end_normalized:
+    x: 0.52577403305944
+    y: 0.0954479162063022
+  polygon_normalized:
+  - x: 0.5018031216543641
+    y: 0.18850488354620584
+  - x: 0.5513889671493774
+    y: 0.19171049336338591
+  - x: 0.5856482785822956
+    y: 0.18049085900325568
+  - x: 0.5829435961007494
+    y: 0.15805159028299523
+  - x: 0.5838451569279315
+    y: 0.1420235411970949
+  - x: 0.5811404744463853
+    y: 0.10996744302529426
+  - x: 0.5685186228658365
+    y: 0.06348610067618332
+  - x: 0.5432749197047388
+    y: 0.045855246681692954
+  - x: 0.5279483856426438
+    y: 0.03143000250438267
+  - x: 0.5135234124077309
+    y: 0.012196343601302279
+  - x: 0.4891812700738153
+    y: 0.023415977961432504
+  - x: 0.47926410097481265
+    y: 0.029827197595792634
+  - x: 0.4774609793204485
+    y: 0.029827197595792634
+  - x: 0.47926410097481265
+    y: 0.04906085649887303
+  - x: 0.4819687834563588
+    y: 0.07951414976208365
+  - x: 0.49188595255536144
+    y: 0.1211870773854245
+  - x: 0.499098439172818
+    y: 0.1660656148259454
+  region_role: exit
+- id: H
+  human_readable_name: ''
+  label_position_normalized:
+    x: 0.1716815987678669
+    y: 0.3783036981384089
+  arrow_end_normalized:
+    x: 0.1716815987678669
+    y: 0.3783036981384089
+  polygon_normalized:
+  - x: 0.3052628613286753
+    y: 0.36481342349110946
+  - x: 0.3755846058488759
+    y: 0.23658903080390686
+  - x: 0.30436130050149324
+    y: 0.244603055346857
+  - x: 0.21781146109201557
+    y: 0.21254695717505637
+  - x: 0.15199752070772526
+    y: 0.30070122714750813
+  - x: 0.05733363385360905
+    y: 0.3872526922113699
+  - x: 0.0014368625683214066
+    y: 0.46258452291510144
+  - x: 0.0014368625683214066
+    y: 0.6004257450538443
+  - x: 0.04831802558178847
+    y: 0.541121963436013
+  - x: 0.14117879078154055
+    y: 0.44335086401202106
+  - x: 0.20428804868428468
+    y: 0.3888554971199599
+  - x: 0.25116921169775175
+    y: 0.3567993989481593
+  region_role: exit
+valid_entry_approaches:
+- A
+- B
+- C
+- D
+valid_exit_approaches:
+- E
+- F
+- G
+- H
+maneuver_type_mapping:
+- entry: A
+  exit: F
+  maneuver_type: right
+- entry: A
+  exit: G
+  maneuver_type: straight
+- entry: A
+  exit: H
+  maneuver_type: left
+- entry: B
+  exit: G
+  maneuver_type: right
+- entry: B
+  exit: H
+  maneuver_type: straight
+- entry: B
+  exit: E
+  maneuver_type: left
+- entry: C
+  exit: H
+  maneuver_type: right
+- entry: C
+  exit: E
+  maneuver_type: straight
+- entry: C
+  exit: F
+  maneuver_type: left
+- entry: D
+  exit: E
+  maneuver_type: right
+- entry: D
+  exit: F
+  maneuver_type: straight
+- entry: D
+  exit: G
+  maneuver_type: left
+ambiguity_notes: Approach IDs are direction-specific and image-relative. A-D denote entry corridors; E-H
+  denote exit corridors. Same-road entry/exit pairs are A/E, B/F, C/G, and D/H. Determine entry and exit
+  from the full direction of travel, not solely from the first or last sampled point or polygon membership.
+  Same-road entry and exit corridors are spatially close under perspective, particularly B/F and C/G in
+  the upper image area and D/H near the left image boundary. The lower foreground around A/E is substantially
+  occluded by traffic-signal and camera-mounting structures. Use the full temporal direction and source
+  video frames when a trajectory passes behind these structures or begins or ends near them. Queued or
+  partially occluded vehicles must be classified from their observed movement rather than their position
+  in a single frame. If a trajectory starts or ends inside the intersection, is too short, is truncated
+  near an image boundary, or cannot be assigned to a unique approach, select UNKNOWN and mark it ambiguous.
+  Mark it unusable when travel direction cannot be recovered. Treat adjacent lanes within the same corridor
+  as one approach. U-turns are not included in the current mapping; flag a clear same-road reversal for
+  protocol review instead of forcing it into left, right, or straight.
