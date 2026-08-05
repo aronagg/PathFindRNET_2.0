@@ -1,0 +1,8 @@
+# Generated protocol tables are reproducible local artifacts and can be tens of MB.
+# Keep code/config/docs under version control; do not commit trajectory-level tables.
+data/manifests/*.csv
+data/splits/*.csv
+annotations/annotation_template.csv
+
+__pycache__/
+*.py[cod]

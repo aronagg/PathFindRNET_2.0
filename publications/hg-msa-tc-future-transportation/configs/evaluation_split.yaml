@@ -1,0 +1,287 @@
+protocol_version: future-transportation-evaluation-v1
+creation_timestamp_utc: '2026-08-04T14:36:36+00:00'
+scene_list:
+- bellevue_116th_ne12th
+- bellevue_150th_newport
+- bellevue_150th_eastgate
+- bellevue_150th_se38th
+- bellevue_ne8th
+canonical_trajectory_cohort: rows in feature_analysis/features_trimmed_frame_disp_norm.parquet; one row
+  per pipeline-valid trajectory
+split_proportions:
+  target_estimation: 0.3
+  model_selection: 0.3
+  independent_test: 0.4
+split_strategy: chronological complete-recording blocks; earliest target_estimation, middle model_selection,
+  latest independent_test
+boundary_optimization: choose two complete-recording boundaries minimizing deviation from cumulative 30%
+  and 60%
+temporal_boundaries:
+  bellevue_116th_ne12th:
+    target_estimation:
+      recording_ids:
+      - Bellevue_116th_NE12th__2017-09-10_19-08-25
+      - Bellevue_116th_NE12th__2017-09-10_20-09-12
+      - Bellevue_116th_NE12th__2017-09-10_21-08-54
+      - Bellevue_116th_NE12th__2017-09-10_22-08-50
+      - Bellevue_116th_NE12th__2017-09-10_23-08-29
+      recording_start: '2017-09-10T19:08:25'
+      recording_end: '2017-09-10T23:08:29'
+      boundary_after_recording_id: Bellevue_116th_NE12th__2017-09-10_23-08-29
+      n_recordings: 5
+      n_trajectories: 723
+      proportion: 0.3115036622145627
+    model_selection:
+      recording_ids:
+      - Bellevue_116th_NE12th__2017-09-11_00-08-29
+      - Bellevue_116th_NE12th__2017-09-11_01-08-29
+      - Bellevue_116th_NE12th__2017-09-11_02-08-32
+      - Bellevue_116th_NE12th__2017-09-11_03-08-30
+      - Bellevue_116th_NE12th__2017-09-11_04-08-30
+      - Bellevue_116th_NE12th__2017-09-11_05-08-39
+      - Bellevue_116th_NE12th__2017-09-11_06-08-30
+      - Bellevue_116th_NE12th__2017-09-11_07-08-32
+      recording_start: '2017-09-11T00:08:29'
+      recording_end: '2017-09-11T07:08:32'
+      boundary_after_recording_id: Bellevue_116th_NE12th__2017-09-11_07-08-32
+      n_recordings: 8
+      n_trajectories: 634
+      proportion: 0.2731581214993537
+    independent_test:
+      recording_ids:
+      - Bellevue_116th_NE12th__2017-09-11_08-08-50
+      - Bellevue_116th_NE12th__2017-09-11_09-08-31
+      - Bellevue_116th_NE12th__2017-09-11_11-08-33
+      - Bellevue_116th_NE12th__2017-09-11_12-08-33
+      - Bellevue_116th_NE12th__2017-09-11_14-08-35
+      - Bellevue_116th_NE12th__2017-09-11_15-08-36
+      - Bellevue_116th_NE12th__2017-09-11_16-08-37
+      - Bellevue_116th_NE12th__2017-09-11_17-08-39
+      recording_start: '2017-09-11T08:08:50'
+      recording_end: '2017-09-11T17:08:39'
+      boundary_after_recording_id: Bellevue_116th_NE12th__2017-09-11_17-08-39
+      n_recordings: 8
+      n_trajectories: 964
+      proportion: 0.4153382162860836
+  bellevue_150th_newport:
+    target_estimation:
+      recording_ids:
+      - Bellevue_150th_Newport__2017-09-10_18-08-24
+      - Bellevue_150th_Newport__2017-09-10_19-08-24
+      - Bellevue_150th_Newport__2017-09-10_20-08-25
+      - Bellevue_150th_Newport__2017-09-10_21-08-28
+      - Bellevue_150th_Newport__2017-09-10_22-08-28
+      - Bellevue_150th_Newport__2017-09-10_23-08-29
+      - Bellevue_150th_Newport__2017-09-11_00-08-29
+      - Bellevue_150th_Newport__2017-09-11_01-08-29
+      - Bellevue_150th_Newport__2017-09-11_02-08-29
+      - Bellevue_150th_Newport__2017-09-11_03-08-29
+      - Bellevue_150th_Newport__2017-09-11_04-08-29
+      - Bellevue_150th_Newport__2017-09-11_05-08-29
+      - Bellevue_150th_Newport__2017-09-11_06-08-30
+      - Bellevue_150th_Newport__2017-09-11_07-08-31
+      recording_start: '2017-09-10T18:08:24'
+      recording_end: '2017-09-11T07:08:31'
+      boundary_after_recording_id: Bellevue_150th_Newport__2017-09-11_07-08-31
+      n_recordings: 14
+      n_trajectories: 2423
+      proportion: 0.2564563928873836
+    model_selection:
+      recording_ids:
+      - Bellevue_150th_Newport__2017-09-11_08-08-31
+      - Bellevue_150th_Newport__2017-09-11_09-08-30
+      - Bellevue_150th_Newport__2017-09-11_10-08-31
+      - Bellevue_150th_Newport__2017-09-11_11-08-32
+      - Bellevue_150th_Newport__2017-09-11_12-08-32
+      - Bellevue_150th_Newport__2017-09-11_13-08-32
+      recording_start: '2017-09-11T08:08:31'
+      recording_end: '2017-09-11T13:08:32'
+      boundary_after_recording_id: Bellevue_150th_Newport__2017-09-11_13-08-32
+      n_recordings: 6
+      n_trajectories: 3101
+      proportion: 0.32821761219305673
+    independent_test:
+      recording_ids:
+      - Bellevue_150th_Newport__2017-09-11_14-08-31
+      - Bellevue_150th_Newport__2017-09-11_15-08-32
+      - Bellevue_150th_Newport__2017-09-11_16-08-32
+      - Bellevue_150th_Newport__2017-09-11_17-08-32
+      recording_start: '2017-09-11T14:08:31'
+      recording_end: '2017-09-11T17:08:32'
+      boundary_after_recording_id: Bellevue_150th_Newport__2017-09-11_17-08-32
+      n_recordings: 4
+      n_trajectories: 3924
+      proportion: 0.4153259949195597
+  bellevue_150th_eastgate:
+    target_estimation:
+      recording_ids:
+      - Bellevue_150th_Eastgate__2017-09-10_18-08-24
+      - Bellevue_150th_Eastgate__2017-09-10_19-08-25
+      - Bellevue_150th_Eastgate__2017-09-10_20-08-25
+      - Bellevue_150th_Eastgate__2017-09-10_21-08-28
+      - Bellevue_150th_Eastgate__2017-09-10_22-08-28
+      - Bellevue_150th_Eastgate__2017-09-10_23-08-29
+      - Bellevue_150th_Eastgate__2017-09-11_00-08-29
+      - Bellevue_150th_Eastgate__2017-09-11_01-08-29
+      - Bellevue_150th_Eastgate__2017-09-11_02-08-29
+      - Bellevue_150th_Eastgate__2017-09-11_03-08-30
+      - Bellevue_150th_Eastgate__2017-09-11_04-08-29
+      - Bellevue_150th_Eastgate__2017-09-11_05-08-30
+      - Bellevue_150th_Eastgate__2017-09-11_06-08-30
+      - Bellevue_150th_Eastgate__2017-09-11_07-08-31
+      - Bellevue_150th_Eastgate__2017-09-11_08-08-31
+      recording_start: '2017-09-10T18:08:24'
+      recording_end: '2017-09-11T08:08:31'
+      boundary_after_recording_id: Bellevue_150th_Eastgate__2017-09-11_08-08-31
+      n_recordings: 15
+      n_trajectories: 8720
+      proportion: 0.33198812152592705
+    model_selection:
+      recording_ids:
+      - Bellevue_150th_Eastgate__2017-09-11_09-08-31
+      - Bellevue_150th_Eastgate__2017-09-11_10-08-31
+      - Bellevue_150th_Eastgate__2017-09-11_11-08-32
+      - Bellevue_150th_Eastgate__2017-09-11_12-08-32
+      recording_start: '2017-09-11T09:08:31'
+      recording_end: '2017-09-11T12:08:32'
+      boundary_after_recording_id: Bellevue_150th_Eastgate__2017-09-11_12-08-32
+      n_recordings: 4
+      n_trajectories: 6791
+      proportion: 0.2585471712480012
+    independent_test:
+      recording_ids:
+      - Bellevue_150th_Eastgate__2017-09-11_13-08-32
+      - Bellevue_150th_Eastgate__2017-09-11_14-08-31
+      - Bellevue_150th_Eastgate__2017-09-11_15-08-33
+      - Bellevue_150th_Eastgate__2017-09-11_16-08-33
+      - Bellevue_150th_Eastgate__2017-09-11_17-08-33
+      recording_start: '2017-09-11T13:08:32'
+      recording_end: '2017-09-11T17:08:33'
+      boundary_after_recording_id: Bellevue_150th_Eastgate__2017-09-11_17-08-33
+      n_recordings: 5
+      n_trajectories: 10755
+      proportion: 0.4094647072260717
+  bellevue_150th_se38th:
+    target_estimation:
+      recording_ids:
+      - Bellevue_150th_SE38th__2017-09-10_18-08-24
+      - Bellevue_150th_SE38th__2017-09-10_19-08-25
+      - Bellevue_150th_SE38th__2017-09-10_20-08-25
+      - Bellevue_150th_SE38th__2017-09-10_21-08-38
+      - Bellevue_150th_SE38th__2017-09-10_22-08-28
+      - Bellevue_150th_SE38th__2017-09-10_23-08-29
+      - Bellevue_150th_SE38th__2017-09-11_00-08-29
+      - Bellevue_150th_SE38th__2017-09-11_01-08-30
+      - Bellevue_150th_SE38th__2017-09-11_02-08-29
+      - Bellevue_150th_SE38th__2017-09-11_03-08-30
+      - Bellevue_150th_SE38th__2017-09-11_04-08-29
+      - Bellevue_150th_SE38th__2017-09-11_05-08-30
+      recording_start: '2017-09-10T18:08:24'
+      recording_end: '2017-09-11T05:08:30'
+      boundary_after_recording_id: Bellevue_150th_SE38th__2017-09-11_05-08-30
+      n_recordings: 12
+      n_trajectories: 2482
+      proportion: 0.2739514348785872
+    model_selection:
+      recording_ids:
+      - Bellevue_150th_SE38th__2017-09-11_06-08-32
+      - Bellevue_150th_SE38th__2017-09-11_07-08-31
+      - Bellevue_150th_SE38th__2017-09-11_08-09-36
+      - Bellevue_150th_SE38th__2017-09-11_09-08-31
+      - Bellevue_150th_SE38th__2017-09-11_10-08-33
+      recording_start: '2017-09-11T06:08:32'
+      recording_end: '2017-09-11T10:08:33'
+      boundary_after_recording_id: Bellevue_150th_SE38th__2017-09-11_10-08-33
+      n_recordings: 5
+      n_trajectories: 2865
+      proportion: 0.3162251655629139
+    independent_test:
+      recording_ids:
+      - Bellevue_150th_SE38th__2017-09-11_11-08-34
+      - Bellevue_150th_SE38th__2017-09-11_12-08-38
+      - Bellevue_150th_SE38th__2017-09-11_13-08-32
+      - Bellevue_150th_SE38th__2017-09-11_14-08-32
+      - Bellevue_150th_SE38th__2017-09-11_16-08-35
+      - Bellevue_150th_SE38th__2017-09-11_17-08-45
+      recording_start: '2017-09-11T11:08:34'
+      recording_end: '2017-09-11T17:08:45'
+      boundary_after_recording_id: Bellevue_150th_SE38th__2017-09-11_17-08-45
+      n_recordings: 6
+      n_trajectories: 3713
+      proportion: 0.4098233995584989
+  bellevue_ne8th:
+    target_estimation:
+      recording_ids:
+      - Bellevue_Bellevue_NE8th__2017-09-10_18-08-23
+      - Bellevue_Bellevue_NE8th__2017-09-10_19-08-24
+      - Bellevue_Bellevue_NE8th__2017-09-10_20-08-24
+      - Bellevue_Bellevue_NE8th__2017-09-10_21-08-28
+      - Bellevue_Bellevue_NE8th__2017-09-10_22-08-28
+      - Bellevue_Bellevue_NE8th__2017-09-10_23-08-29
+      - Bellevue_Bellevue_NE8th__2017-09-11_00-08-29
+      - Bellevue_Bellevue_NE8th__2017-09-11_01-08-29
+      - Bellevue_Bellevue_NE8th__2017-09-11_02-08-29
+      - Bellevue_Bellevue_NE8th__2017-09-11_03-08-29
+      - Bellevue_Bellevue_NE8th__2017-09-11_04-08-29
+      - Bellevue_Bellevue_NE8th__2017-09-11_05-08-29
+      - Bellevue_Bellevue_NE8th__2017-09-11_06-08-29
+      recording_start: '2017-09-10T18:08:23'
+      recording_end: '2017-09-11T06:08:29'
+      boundary_after_recording_id: Bellevue_Bellevue_NE8th__2017-09-11_06-08-29
+      n_recordings: 13
+      n_trajectories: 5576
+      proportion: 0.27972308618440855
+    model_selection:
+      recording_ids:
+      - Bellevue_Bellevue_NE8th__2017-09-11_07-08-31
+      - Bellevue_Bellevue_NE8th__2017-09-11_08-08-31
+      - Bellevue_Bellevue_NE8th__2017-09-11_09-08-30
+      - Bellevue_Bellevue_NE8th__2017-09-11_10-08-31
+      - Bellevue_Bellevue_NE8th__2017-09-11_11-08-31
+      recording_start: '2017-09-11T07:08:31'
+      recording_end: '2017-09-11T11:08:31'
+      boundary_after_recording_id: Bellevue_Bellevue_NE8th__2017-09-11_11-08-31
+      n_recordings: 5
+      n_trajectories: 6321
+      proportion: 0.31709641817999396
+    independent_test:
+      recording_ids:
+      - Bellevue_Bellevue_NE8th__2017-09-11_12-08-31
+      - Bellevue_Bellevue_NE8th__2017-09-11_13-08-32
+      - Bellevue_Bellevue_NE8th__2017-09-11_14-08-31
+      - Bellevue_Bellevue_NE8th__2017-09-11_15-08-32
+      - Bellevue_Bellevue_NE8th__2017-09-11_16-08-32
+      recording_start: '2017-09-11T12:08:31'
+      recording_end: '2017-09-11T16:08:32'
+      boundary_after_recording_id: Bellevue_Bellevue_NE8th__2017-09-11_16-08-32
+      n_recordings: 5
+      n_trajectories: 8037
+      proportion: 0.4031804956355975
+random_seed: 20260702
+random_seed_usage: recorded for protocol compatibility; not used by this deterministic split
+duplicate_policy: exact fingerprint groups are kept in one subset; a group crossing a provisional temporal
+  boundary is assigned to its earliest provisional subset
+near_duplicate_policy: report candidates; do not remove or reassign automatically
+missing_timestamp_fallback: stop with an error; do not silently randomize. A future explicit fallback
+  may order by recording ID and frame range only after documented review
+manual_label_policy: manual labels are forbidden during homography-guided target estimation and clustering
+  model selection; they are reserved for independent final evaluation and explicitly identified post hoc
+  diagnostics
+manifest_path: publications/hg-msa-tc-future-transportation/data/manifests/trajectory_manifest.csv
+manifest_sha256: 0b26f59168f0c3996290cc1832ddd423321a5988e27fca93e78d2a02ecde7a03
+source_data_checksums:
+  bellevue_116th_ne12th:
+    path: data/processed/bellevue_116th_ne12th/feature_analysis/features_trimmed_frame_disp_norm.parquet
+    sha256: ec4bdb9b8a010a7af0535a24952a31d647ee78d045eb95fffebd8a31f0046e09
+  bellevue_150th_newport:
+    path: data/processed/bellevue_150th_newport/feature_analysis/features_trimmed_frame_disp_norm.parquet
+    sha256: d391fcc142e63089e3cf23841e3bd26be03f9247a06da587dd2ebb59189e516f
+  bellevue_150th_eastgate:
+    path: data/processed/bellevue_150th_eastgate/feature_analysis/features_trimmed_frame_disp_norm.parquet
+    sha256: 40e5fbda861b3a082a97717d2eed15f841892ef8a58068ee4b2747ff6898ed5e
+  bellevue_150th_se38th:
+    path: data/processed/bellevue_150th_se38th/feature_analysis/features_trimmed_frame_disp_norm.parquet
+    sha256: fed46c5dd2373c007616d0b84d16f09481578d40cb97339a15a03f6697ba491a
+  bellevue_ne8th:
+    path: data/processed/bellevue_ne8th/feature_analysis/features_trimmed_frame_disp_norm.parquet
+    sha256: 400b59562b64745e464cdee99e8e227c903429b933fa26a3f6616a0539a2b968

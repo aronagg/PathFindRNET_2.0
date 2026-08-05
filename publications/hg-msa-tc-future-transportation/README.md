@@ -1,0 +1,152 @@
+# HG-MSA-TC Future Transportation Evaluation Protocol
+
+This publication-specific directory contains the data audit, canonical trajectory
+manifest, leakage-controlled evaluation split, split-aware HG-MSA-TC runner,
+annotation schema, and validation tests for the Future Transportation major revision.
+It does not change the repository's trajectory preprocessing, homography calibration,
+prior full-data results, figures, or manuscript.
+
+The protocol covers exactly these five scenes:
+
+- `bellevue_116th_ne12th`
+- `bellevue_150th_newport`
+- `bellevue_150th_eastgate`
+- `bellevue_150th_se38th`
+- `bellevue_ne8th`
+
+## Leakage Prevention
+
+**The manually annotated labels are isolated from homography-guided target estimation
+and clustering model selection. They are used only for independent final evaluation
+and explicitly identified post hoc diagnostic analyses.**
+
+The three subsets have fixed roles:
+
+| Subset | Permitted role | Manual labels available to method code |
+| --- | --- | --- |
+| `target_estimation` | Estimate the homography-guided observed maneuver target | No |
+| `model_selection` | Select candidate parameters using the frozen target | No |
+| `independent_test` | Final evaluation and explicitly marked diagnostics | Only after all decisions are frozen |
+
+No independent-test label may affect preprocessing choices, coordinate normalization
+choices, target estimation, candidate grids, hyperparameter selection, stopping,
+claim selection, or figure selection.
+
+## Canonical Cohort
+
+The manifest uses the exact one-row-per-trajectory inputs consumed by the completed
+five-scene HG-MSA-TC experiments:
+
+```text
+data/processed/<scene>/feature_analysis/features_trimmed_frame_disp_norm.parquet
+```
+
+These files contain 67,029 pipeline-valid trajectories. The manifest does not copy
+trajectory arrays or modify source data. Original merged `track_id` values are
+preserved and namespaced by scene in `trajectory_id`.
+
+The merged feature files do not retain `video_id`. The generator reconstructs source
+recording provenance from the verified deterministic offset rule in
+`scripts/merge_tracks.py` and checks that every final trajectory maps to exactly one
+per-recording shard. Recording timestamps come from source filenames; frame time uses
+the configured 30 fps.
+
+## Generate the Manifest
+
+From the repository root:
+
+```powershell
+.\.venv\Scripts\python.exe publications\hg-msa-tc-future-transportation\code\data\build_trajectory_manifest.py
+```
+
+Output:
+
+```text
+publications/hg-msa-tc-future-transportation/data/manifests/trajectory_manifest.csv
+```
+
+The script is read-only with respect to `data/`. It computes source checksums,
+deterministic IDs, trajectory fingerprints, exact duplicate groups, and conservative
+near-duplicate candidates.
+
+The fingerprint hashes scene, frame range, point count, camera endpoints, path length,
+displacement, and straightness. The near-duplicate flag uses narrow quantized bins over
+the same structural fields and is a review signal, not a deletion rule.
+
+## Generate the Evaluation Split
+
+```powershell
+.\.venv\Scripts\python.exe publications\hg-msa-tc-future-transportation\code\data\build_evaluation_split.py
+```
+
+Outputs:
+
+- `data/splits/evaluation_split.csv`
+- `configs/evaluation_split.yaml`
+- `docs/evaluation_split_report.md`
+- `annotations/annotation_template.csv`
+
+The split is chronological within scene and uses complete hourly recordings as its
+atomic units. The requested 30/30/40 ratios are optimized at recording boundaries;
+ordinary random row splitting is not used. Exact duplicate groups are forced into one
+subset. Approximate near-duplicates are reported and never removed automatically.
+
+## Run Validation
+
+```powershell
+.\.venv\Scripts\python.exe -m pytest publications\hg-msa-tc-future-transportation\tests -q
+```
+
+The tests cover deterministic IDs and split assignment, required schemas and scene
+membership, split proportions, ordering, duplicate isolation, annotation-label
+emptiness, and source-file checksum preservation.
+
+The latest executed result is recorded in `docs/validation_results.md`.
+
+## Run the Split-Aware Development Protocol
+
+The development phases are technically separate:
+
+```powershell
+.\.venv\Scripts\python.exe publications\hg-msa-tc-future-transportation\code\pipeline\run_split_aware_hg_msa_tc.py benchmark
+.\.venv\Scripts\python.exe publications\hg-msa-tc-future-transportation\code\pipeline\run_split_aware_hg_msa_tc.py target
+.\.venv\Scripts\python.exe publications\hg-msa-tc-future-transportation\code\pipeline\run_split_aware_hg_msa_tc.py select
+.\.venv\Scripts\python.exe publications\hg-msa-tc-future-transportation\code\pipeline\run_split_aware_hg_msa_tc.py freeze
+```
+
+The target phase uses only `target_estimation`. The select phase uses only
+`model_selection` and the frozen target table. The freeze phase records the selected
+configurations, data and configuration checksums, software versions, random seeds,
+candidate grids, selection rules, and the locked status of `independent_test`.
+
+The final test protocol is transductive for all three methods. The algorithm and all
+hyperparameters remain frozen, but KMeans, HDBSCAN, and OPTICS are each fitted on the
+independent-test feature vectors without labels. Cluster assignments are persisted
+and checksummed before a separate evaluation step may read manual labels. The real
+test command refuses to run without an external unlock file and explicit confirmation.
+
+The generated trajectory-level CSV files are intentionally ignored by Git because the
+manifest and split are about 50 MB and 27 MB respectively. Recreate them from the
+versioned scripts/configuration instead of committing them as dataset content.
+
+## Directory Contents
+
+```text
+annotations/   annotation schema and empty label template
+code/data/     read-only manifest and split generators
+code/pipeline/ split-aware HG-MSA-TC implementation and data guards
+configs/       versioned split strategy, boundaries, and checksums
+data/          generated lightweight CSV manifests only
+docs/          repository/data audit and split audit
+results/       development-only target, candidate, and frozen protocol artifacts
+tests/         protocol validation
+```
+
+## Intentionally Not Implemented
+
+- annotation user interface;
+- manual maneuver labels;
+- manual maneuver annotation;
+- real independent-test clustering or evaluation;
+- manuscript or final-claim regeneration;
+- split-fitted preprocessing sensitivity analysis.

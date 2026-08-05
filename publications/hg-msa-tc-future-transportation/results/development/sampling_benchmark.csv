@@ -1,0 +1,4 @@
+scene,method,n_trajectories,parameters_json,fit_time_s,n_clusters,pct_outliers
+bellevue_150th_eastgate,kmeans,6791,"{""max_iter"": 300, ""n_clusters"": 12, ""n_init"": 10}",1.3447864000918344,12,0.0
+bellevue_150th_eastgate,hdbscan,6791,"{""min_cluster_size"": 160, ""min_samples"": 20}",0.138062100042589,12,2.945074363127669
+bellevue_150th_eastgate,optics,6791,"{""max_eps"": 0.0221361176788761, ""min_samples"": 80, ""xi"": 0.05}",3.3442891999147832,11,18.553968487704314

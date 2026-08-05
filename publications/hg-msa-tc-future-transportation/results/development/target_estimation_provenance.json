@@ -1,0 +1,79 @@
+{
+  "allowed_split": "target_estimation",
+  "created_at_utc": "2026-08-05T10:05:43+00:00",
+  "forbidden_inputs": [
+    "model_selection feature rows",
+    "independent_test feature rows",
+    "manual annotations",
+    "historical declared targets",
+    "previous full-data selected results"
+  ],
+  "implementation_version": "split-aware-hg-msa-tc-v1",
+  "input_checksums": {
+    "publications/hg-msa-tc-future-transportation/data/manifests/trajectory_manifest.csv": "0b26f59168f0c3996290cc1832ddd423321a5988e27fca93e78d2a02ecde7a03",
+    "publications/hg-msa-tc-future-transportation/data/splits/evaluation_split.csv": "0ec1e76f7024ecbea46b832be56ae07ab2d9b16dc57a99654d0d8390d909774f",
+    "research_experiments/fov2026_trajectory_clustering/configs/hg_msa_tc_five_scene/homography_five_scene_index.yaml": "d33cee67771be75a8a912911ae3b3d7d184a6df0cfa9cbea09bf5dd3d6ff47c8"
+  },
+  "output_checksums": {
+    "publications/hg-msa-tc-future-transportation/results/development/target_candidates.csv": "b9510562e8cecf1533f75ff5547492e532a6c93499b186d5ba6e484fdb18f935",
+    "publications/hg-msa-tc-future-transportation/results/development/target_estimates.csv": "57664aa66e2f902853e304c1cd2a85d6d68e16836a7cca42de38aeca322d80f0",
+    "publications/hg-msa-tc-future-transportation/results/development/target_od_support_counts.csv": "91998c74708d479fb40ccc18b84fac28a36194345443c300c1e37b8e1e45611c",
+    "publications/hg-msa-tc-future-transportation/results/development/target_region_candidates.csv": "4ec450ab8909975354a194f726b1e6ae38fb6fd5a0bd7ca6e7aa6f758014b207"
+  },
+  "phase": "target",
+  "protocol_version": "future-transportation-split-aware-v1",
+  "sampling_applied": false,
+  "sampling_limit": null,
+  "scene_provenance": {
+    "bellevue_116th_ne12th": {
+      "feature_file": "data/processed/bellevue_116th_ne12th/feature_analysis/features_trimmed_frame_disp_norm.parquet",
+      "feature_file_sha256": "ec4bdb9b8a010a7af0535a24952a31d647ee78d045eb95fffebd8a31f0046e09",
+      "homography_file": "research_experiments/fov2026_trajectory_clustering/configs/hg_msa_tc_five_scene/homography_bellevue_116th_ne12th.json",
+      "homography_file_sha256": "9afd259bd684c188409527be753af4f8bcb572b7fbcada7e17d184c56c2f730a",
+      "number_of_trajectories": 723,
+      "random_seed": 20260702,
+      "sampling_applied": false,
+      "split": "target_estimation"
+    },
+    "bellevue_150th_eastgate": {
+      "feature_file": "data/processed/bellevue_150th_eastgate/feature_analysis/features_trimmed_frame_disp_norm.parquet",
+      "feature_file_sha256": "40e5fbda861b3a082a97717d2eed15f841892ef8a58068ee4b2747ff6898ed5e",
+      "homography_file": "research_experiments/fov2026_trajectory_clustering/configs/hg_msa_tc_five_scene/homography_bellevue_150th_eastgate.json",
+      "homography_file_sha256": "99bbf7a9fc5b8cca7bfb91b5055a84ff75b47a2f679a0a196a92b197e273f366",
+      "number_of_trajectories": 8720,
+      "random_seed": 20262702,
+      "sampling_applied": false,
+      "split": "target_estimation"
+    },
+    "bellevue_150th_newport": {
+      "feature_file": "data/processed/bellevue_150th_newport/feature_analysis/features_trimmed_frame_disp_norm.parquet",
+      "feature_file_sha256": "d391fcc142e63089e3cf23841e3bd26be03f9247a06da587dd2ebb59189e516f",
+      "homography_file": "research_experiments/fov2026_trajectory_clustering/configs/hg_msa_tc_five_scene/homography_bellevue_150th_newport.json",
+      "homography_file_sha256": "1e3a078de822a5dc946669c4f91cbf75f87dc808232e4e5285eecbba61ee735c",
+      "number_of_trajectories": 2423,
+      "random_seed": 20261702,
+      "sampling_applied": false,
+      "split": "target_estimation"
+    },
+    "bellevue_150th_se38th": {
+      "feature_file": "data/processed/bellevue_150th_se38th/feature_analysis/features_trimmed_frame_disp_norm.parquet",
+      "feature_file_sha256": "fed46c5dd2373c007616d0b84d16f09481578d40cb97339a15a03f6697ba491a",
+      "homography_file": "research_experiments/fov2026_trajectory_clustering/configs/hg_msa_tc_five_scene/homography_bellevue_150th_se38th.json",
+      "homography_file_sha256": "47da6b23ad76ba6fbb101b94fde50acfacc794af17eadfbe52d4a31d4032b51b",
+      "number_of_trajectories": 2482,
+      "random_seed": 20263702,
+      "sampling_applied": false,
+      "split": "target_estimation"
+    },
+    "bellevue_ne8th": {
+      "feature_file": "data/processed/bellevue_ne8th/feature_analysis/features_trimmed_frame_disp_norm.parquet",
+      "feature_file_sha256": "400b59562b64745e464cdee99e8e227c903429b933fa26a3f6616a0539a2b968",
+      "homography_file": "research_experiments/fov2026_trajectory_clustering/configs/hg_msa_tc_five_scene/homography_bellevue_ne8th.json",
+      "homography_file_sha256": "d5b5ccd06d2cd9a1bdf356895347bd66ed4e23d388f860fe195d11a07290ddc6",
+      "number_of_trajectories": 5576,
+      "random_seed": 20264702,
+      "sampling_applied": false,
+      "split": "target_estimation"
+    }
+  }
+}

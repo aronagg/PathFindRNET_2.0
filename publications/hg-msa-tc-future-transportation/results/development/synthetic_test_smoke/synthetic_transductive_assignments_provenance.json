@@ -1,0 +1,10 @@
+{
+  "assignment_sha256": "0cd3f6710c2661b251c7ae08e525f416f3ec3aaefe011dac31fdf7dc11ce03f5",
+  "manual_labels_read": false,
+  "methods": [
+    "kmeans",
+    "hdbscan",
+    "optics"
+  ],
+  "synthetic_fixture": true
+}

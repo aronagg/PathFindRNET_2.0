@@ -1,0 +1,77 @@
+{
+  "allowed_split": "model_selection",
+  "created_at_utc": "2026-08-05T10:08:12+00:00",
+  "implementation_version": "split-aware-hg-msa-tc-v1",
+  "input_checksums": {
+    "publications/hg-msa-tc-future-transportation/data/manifests/trajectory_manifest.csv": "0b26f59168f0c3996290cc1832ddd423321a5988e27fca93e78d2a02ecde7a03",
+    "publications/hg-msa-tc-future-transportation/data/splits/evaluation_split.csv": "0ec1e76f7024ecbea46b832be56ae07ab2d9b16dc57a99654d0d8390d909774f"
+  },
+  "normalization_by_scene": {
+    "bellevue_116th_ne12th": {
+      "shared_scale": 1262.6338365761835,
+      "x_min": 3.580070561599546,
+      "x_range": 1262.6338365761835,
+      "y_min": 24.42323527480615,
+      "y_range": 686.4493841691444
+    },
+    "bellevue_150th_eastgate": {
+      "shared_scale": 1272.7534363004906,
+      "x_min": 3.9231328578891578,
+      "x_range": 1272.7534363004906,
+      "y_min": 35.43277300054373,
+      "y_range": 654.0800760095763
+    },
+    "bellevue_150th_newport": {
+      "shared_scale": 1096.3660142979609,
+      "x_min": 3.854053691503674,
+      "x_range": 1096.3660142979609,
+      "y_min": 34.488688012325376,
+      "y_range": 652.2052499019734
+    },
+    "bellevue_150th_se38th": {
+      "shared_scale": 1238.6788422266638,
+      "x_min": 38.01966370669276,
+      "x_range": 1238.6788422266638,
+      "y_min": 57.85551089662488,
+      "y_range": 629.1849372863765
+    },
+    "bellevue_ne8th": {
+      "shared_scale": 1234.148390845096,
+      "x_min": 0.9325880108457056,
+      "x_range": 1234.148390845096,
+      "y_min": 46.588199811993135,
+      "y_range": 643.6102182677295
+    }
+  },
+  "normalization_fitted_only_on": "model_selection",
+  "optics_max_eps_fitted_only_on": "model_selection",
+  "output_checksums": {
+    "publications/hg-msa-tc-future-transportation/results/development/model_selection_candidates.csv": "c9243c0adb3135d327b4bbaaa3944feefe4b891289a51490fc5ad38734418469",
+    "publications/hg-msa-tc-future-transportation/results/development/selected_configurations.csv": "e57e82e282dc888f556090e289a8e845cebce2bb653d9aac1dd9a978d9c76d2f"
+  },
+  "phase": "select",
+  "protocol_version": "future-transportation-split-aware-v1",
+  "sampling_applied": false,
+  "sampling_limit": null,
+  "selection_rules": {
+    "hg_expected_aware_selection": [
+      "minimize cluster_count_error against frozen HG target",
+      "minimize pct_outliers for HDBSCAN and OPTICS only",
+      "maximize silhouette_clustered_only",
+      "minimize davies_bouldin_clustered_only",
+      "maximize calinski_harabasz_clustered_only",
+      "minimize largest_cluster_ratio",
+      "deterministic lexical parameter order"
+    ],
+    "untargeted_selection": [
+      "maximize silhouette_clustered_only",
+      "minimize davies_bouldin_clustered_only",
+      "maximize calinski_harabasz_clustered_only",
+      "minimize largest_cluster_ratio",
+      "deterministic lexical parameter order"
+    ]
+  },
+  "target_output": "publications/hg-msa-tc-future-transportation/results/development/target_estimates.csv",
+  "target_output_sha256": "57664aa66e2f902853e304c1cd2a85d6d68e16836a7cca42de38aeca322d80f0",
+  "target_provenance_sha256": "6fbfd74605a4ebaaba7e0b39287ed9af6d20a26e1d7a48539e26bda096b7dd0b"
+}
