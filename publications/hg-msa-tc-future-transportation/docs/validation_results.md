@@ -29,3 +29,26 @@ Validated properties:
 
 The full manifest was rebuilt during the test session rather than testing only cached
 CSV content.
+
+## Split-Aware Runner Validation
+
+Result on 2026-08-05 after target estimation, model selection, and freezing:
+
+```text
+.............................                                            [100%]
+29 passed
+```
+
+The expanded suite additionally validates:
+
+- target, select, and test phase split guards;
+- rejection of annotation inputs by development phases;
+- refusal of the real test phase without an unlock artifact;
+- deterministic HG target estimation and selected configurations;
+- model-selection-only OPTICS parameter derivation;
+- frozen configuration and manifest hashes;
+- immutable frozen protocol behavior;
+- stable feature order;
+- synthetic transductive test clustering without labels;
+- absence of real independent-test outputs;
+- detection of the Newport cross-scene single-video path.

@@ -26,7 +26,6 @@ from typing import Any
 
 import numpy as np
 import pandas as pd
-import yaml
 
 
 PIPELINE_DIR = Path(__file__).resolve().parent

@@ -1,0 +1,9 @@
+{
+  "complete_frozen_configuration_sha256": "829c95c4f0a012d08433536b22379afad4d5a79122e52f8fd6ac12817882167c",
+  "created_at_utc": "2026-08-05T10:10:56+00:00",
+  "frozen_protocol_file_sha256": "865513b8be4d59365bd430e5909fbd72b6a9d37f3e8b805917af3a80e66a1337",
+  "frozen_protocol_path": "publications/hg-msa-tc-future-transportation/configs/frozen_evaluation_protocol.yaml",
+  "git_commit_hash": "0574efa38e4fcbe8e77fb054ec63c962170ebf23",
+  "independent_test_locked": true,
+  "protocol_version": "future-transportation-split-aware-v1"
+}

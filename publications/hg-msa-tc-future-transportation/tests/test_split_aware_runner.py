@@ -22,6 +22,10 @@ import split_aware_io as protocol_io  # noqa: E402
 
 SPLIT_PATH = PUBLICATION_ROOT / "data" / "splits" / "evaluation_split.csv"
 CONFIG_PATH = PUBLICATION_ROOT / "configs" / "split_aware_runner.yaml"
+FROZEN_PATH = PUBLICATION_ROOT / "configs" / "frozen_evaluation_protocol.yaml"
+FROZEN_MANIFEST_PATH = (
+    PUBLICATION_ROOT / "results" / "development" / "frozen_selection_manifest.json"
+)
 NEWPORT_CONFIG = REPO_ROOT / "configs" / "dataset" / "bellevue_150th_newport.yaml"
 
 
@@ -161,6 +165,18 @@ def test_frozen_manifest_hash_validates_and_detects_mutation() -> None:
     payload["selected"][0]["method"] = "optics"
     with pytest.raises(ValueError):
         protocol_io.validate_frozen_payload(payload)
+
+
+def test_generated_frozen_protocol_and_manifest_validate() -> None:
+    frozen = protocol_io.load_yaml(FROZEN_PATH)
+    frozen_hash = protocol_io.validate_frozen_payload(frozen)
+    manifest = json.loads(FROZEN_MANIFEST_PATH.read_text(encoding="utf-8"))
+    assert manifest["complete_frozen_configuration_sha256"] == frozen_hash
+    assert manifest["frozen_protocol_file_sha256"] == protocol_io.sha256_file(
+        FROZEN_PATH
+    )
+    assert manifest["independent_test_locked"] is True
+    assert frozen["independent_test_locked"] is True
 
 
 def test_frozen_protocol_cannot_be_overwritten_silently(tmp_path: Path) -> None:

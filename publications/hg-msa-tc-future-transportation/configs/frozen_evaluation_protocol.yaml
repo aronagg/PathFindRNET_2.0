@@ -1,0 +1,957 @@
+protocol_version: future-transportation-split-aware-v1
+implementation_version: split-aware-hg-msa-tc-v1
+creation_timestamp_utc: '2026-08-05T10:10:56+00:00'
+git_commit_hash: 0574efa38e4fcbe8e77fb054ec63c962170ebf23
+independent_test_locked: true
+test_protocol:
+  mode: transductive
+  unlock_file: publications/hg-msa-tc-future-transportation/configs/INDEPENDENT_TEST_UNLOCK.json
+  required_cli_confirmation: I_CONFIRM_FROZEN_TRANSDUCTIVE_TEST
+  clustering_output_directory: publications/hg-msa-tc-future-transportation/results/independent_test
+  labels_may_be_read_during_clustering: false
+paths:
+  development_directory: publications/hg-msa-tc-future-transportation/results/development
+  trajectory_manifest: publications/hg-msa-tc-future-transportation/data/manifests/trajectory_manifest.csv
+  evaluation_split: publications/hg-msa-tc-future-transportation/data/splits/evaluation_split.csv
+checksums:
+  runner_config:
+    path: publications/hg-msa-tc-future-transportation/configs/split_aware_runner.yaml
+    sha256: 982699aa24f3c2f33b2e9a8e670fc3b6aeef8992d697d71cfd66f4c7449943f9
+  trajectory_manifest: 0b26f59168f0c3996290cc1832ddd423321a5988e27fca93e78d2a02ecde7a03
+  evaluation_split: 0ec1e76f7024ecbea46b832be56ae07ab2d9b16dc57a99654d0d8390d909774f
+  split_config: 0f5c09fbe9b28dcea5d613020d947b801d0f1cf6bd7ca71598ac959e658d8e7d
+  homography_index: d33cee67771be75a8a912911ae3b3d7d184a6df0cfa9cbea09bf5dd3d6ff47c8
+  homography_configurations:
+    bellevue_116th_ne12th:
+      path: research_experiments/fov2026_trajectory_clustering/configs/hg_msa_tc_five_scene/homography_bellevue_116th_ne12th.json
+      sha256: 9afd259bd684c188409527be753af4f8bcb572b7fbcada7e17d184c56c2f730a
+    bellevue_150th_newport:
+      path: research_experiments/fov2026_trajectory_clustering/configs/hg_msa_tc_five_scene/homography_bellevue_150th_newport.json
+      sha256: 1e3a078de822a5dc946669c4f91cbf75f87dc808232e4e5285eecbba61ee735c
+    bellevue_150th_eastgate:
+      path: research_experiments/fov2026_trajectory_clustering/configs/hg_msa_tc_five_scene/homography_bellevue_150th_eastgate.json
+      sha256: 99bbf7a9fc5b8cca7bfb91b5055a84ff75b47a2f679a0a196a92b197e273f366
+    bellevue_150th_se38th:
+      path: research_experiments/fov2026_trajectory_clustering/configs/hg_msa_tc_five_scene/homography_bellevue_150th_se38th.json
+      sha256: 47da6b23ad76ba6fbb101b94fde50acfacc794af17eadfbe52d4a31d4032b51b
+    bellevue_ne8th:
+      path: research_experiments/fov2026_trajectory_clustering/configs/hg_msa_tc_five_scene/homography_bellevue_ne8th.json
+      sha256: d5b5ccd06d2cd9a1bdf356895347bd66ed4e23d388f860fe195d11a07290ddc6
+  target_estimates: 57664aa66e2f902853e304c1cd2a85d6d68e16836a7cca42de38aeca322d80f0
+  target_candidates: b9510562e8cecf1533f75ff5547492e532a6c93499b186d5ba6e484fdb18f935
+  target_region_candidates: 4ec450ab8909975354a194f726b1e6ae38fb6fd5a0bd7ca6e7aa6f758014b207
+  target_provenance: 6fbfd74605a4ebaaba7e0b39287ed9af6d20a26e1d7a48539e26bda096b7dd0b
+  model_selection_candidates: c9243c0adb3135d327b4bbaaa3944feefe4b891289a51490fc5ad38734418469
+  selected_configurations: e57e82e282dc888f556090e289a8e845cebce2bb653d9aac1dd9a978d9c76d2f
+  model_selection_provenance: 338d096d557d1d08fb3c1eccf05ecfe4cc13900b74492c8e145d71049cd4d825
+  source_feature_files:
+    bellevue_116th_ne12th:
+      path: data/processed/bellevue_116th_ne12th/feature_analysis/features_trimmed_frame_disp_norm.parquet
+      sha256: ec4bdb9b8a010a7af0535a24952a31d647ee78d045eb95fffebd8a31f0046e09
+    bellevue_150th_newport:
+      path: data/processed/bellevue_150th_newport/feature_analysis/features_trimmed_frame_disp_norm.parquet
+      sha256: d391fcc142e63089e3cf23841e3bd26be03f9247a06da587dd2ebb59189e516f
+    bellevue_150th_eastgate:
+      path: data/processed/bellevue_150th_eastgate/feature_analysis/features_trimmed_frame_disp_norm.parquet
+      sha256: 40e5fbda861b3a082a97717d2eed15f841892ef8a58068ee4b2747ff6898ed5e
+    bellevue_150th_se38th:
+      path: data/processed/bellevue_150th_se38th/feature_analysis/features_trimmed_frame_disp_norm.parquet
+      sha256: fed46c5dd2373c007616d0b84d16f09481578d40cb97339a15a03f6697ba491a
+    bellevue_ne8th:
+      path: data/processed/bellevue_ne8th/feature_analysis/features_trimmed_frame_disp_norm.parquet
+      sha256: 400b59562b64745e464cdee99e8e227c903429b933fa26a3f6616a0539a2b968
+target_outputs:
+- scene: bellevue_116th_ne12th
+  n_entry_regions: 4
+  n_exit_regions: 4
+  support_threshold: 0.0025
+  support_threshold_percent: 0.25
+  support_threshold_absolute_count: 2
+  hg_estimated_target: 10
+  od_coverage: 1.0
+  n_trajectories: 723
+  sampling_applied: false
+  random_seed: 20260702
+  implementation_version: split-aware-hg-msa-tc-v1
+  target_selection_rule: prefer coverage>=0.90 and target>=2; minimize adjacent-threshold target instability;
+    tie by distance to 0.5% support, higher coverage, then lower threshold
+- scene: bellevue_150th_newport
+  n_entry_regions: 4
+  n_exit_regions: 4
+  support_threshold: 0.001
+  support_threshold_percent: 0.1
+  support_threshold_absolute_count: 3
+  hg_estimated_target: 12
+  od_coverage: 1.0
+  n_trajectories: 2423
+  sampling_applied: false
+  random_seed: 20261702
+  implementation_version: split-aware-hg-msa-tc-v1
+  target_selection_rule: prefer coverage>=0.90 and target>=2; minimize adjacent-threshold target instability;
+    tie by distance to 0.5% support, higher coverage, then lower threshold
+- scene: bellevue_150th_eastgate
+  n_entry_regions: 4
+  n_exit_regions: 4
+  support_threshold: 0.005
+  support_threshold_percent: 0.5
+  support_threshold_absolute_count: 44
+  hg_estimated_target: 9
+  od_coverage: 0.9942660550458716
+  n_trajectories: 8720
+  sampling_applied: false
+  random_seed: 20262702
+  implementation_version: split-aware-hg-msa-tc-v1
+  target_selection_rule: prefer coverage>=0.90 and target>=2; minimize adjacent-threshold target instability;
+    tie by distance to 0.5% support, higher coverage, then lower threshold
+- scene: bellevue_150th_se38th
+  n_entry_regions: 7
+  n_exit_regions: 3
+  support_threshold: 0.0025
+  support_threshold_percent: 0.25
+  support_threshold_absolute_count: 7
+  hg_estimated_target: 18
+  od_coverage: 0.9975825946817084
+  n_trajectories: 2482
+  sampling_applied: false
+  random_seed: 20263702
+  implementation_version: split-aware-hg-msa-tc-v1
+  target_selection_rule: prefer coverage>=0.90 and target>=2; minimize adjacent-threshold target instability;
+    tie by distance to 0.5% support, higher coverage, then lower threshold
+- scene: bellevue_ne8th
+  n_entry_regions: 4
+  n_exit_regions: 4
+  support_threshold: 0.005
+  support_threshold_percent: 0.5
+  support_threshold_absolute_count: 28
+  hg_estimated_target: 9
+  od_coverage: 0.9974892395982784
+  n_trajectories: 5576
+  sampling_applied: false
+  random_seed: 20264702
+  implementation_version: split-aware-hg-msa-tc-v1
+  target_selection_rule: prefer coverage>=0.90 and target>=2; minimize adjacent-threshold target instability;
+    tie by distance to 0.5% support, higher coverage, then lower threshold
+selected_configurations:
+- scene: bellevue_116th_ne12th
+  method: kmeans
+  selection_strategy: untargeted_selection
+  split: model_selection
+  n_trajectories: 634
+  hg_estimated_target: 10
+  coordinate_representation: camera_isotropic_shared_scale
+  feature_columns_json: '["start_x", "start_y", "end_x", "end_y"]'
+  normalization_parameters_json: '{"shared_scale": 1262.6338365761835, "x_min": 3.580070561599546, "x_range":
+    1262.6338365761835, "y_min": 24.42323527480615, "y_range": 686.4493841691444}'
+  params_json: '{"max_iter": 300, "n_clusters": 10, "n_init": 10}'
+  fit_random_seed: 20260711
+  selection_key_json: '[-0.8066763101492748, 0.26884006434666297, -3165.89735429552, 0.27602523659305994,
+    "{\"max_iter\": 300, \"n_clusters\": 10, \"n_init\": 10}"]'
+  trial_index: 9
+  n_clusters: 10
+  cluster_count_error: 0
+  pct_outliers: 0.0
+  largest_cluster_ratio: 0.2760252365930599
+  silhouette_clustered_only: 0.8066763101492748
+  davies_bouldin_clustered_only: 0.2688400643466629
+  calinski_harabasz_clustered_only: 3165.89735429552
+  quick_score: 0.952137361537284
+  EMAS_HG: 0.9415434312264102
+- scene: bellevue_116th_ne12th
+  method: kmeans
+  selection_strategy: hg_expected_aware_selection
+  split: model_selection
+  n_trajectories: 634
+  hg_estimated_target: 10
+  coordinate_representation: camera_isotropic_shared_scale
+  feature_columns_json: '["start_x", "start_y", "end_x", "end_y"]'
+  normalization_parameters_json: '{"shared_scale": 1262.6338365761835, "x_min": 3.580070561599546, "x_range":
+    1262.6338365761835, "y_min": 24.42323527480615, "y_range": 686.4493841691444}'
+  params_json: '{"max_iter": 300, "n_clusters": 10, "n_init": 10}'
+  fit_random_seed: 20260711
+  selection_key_json: '[0.0, -0.8066763101492748, 0.26884006434666297, -3165.89735429552, 0.27602523659305994,
+    "{\"max_iter\": 300, \"n_clusters\": 10, \"n_init\": 10}"]'
+  trial_index: 9
+  n_clusters: 10
+  cluster_count_error: 0
+  pct_outliers: 0.0
+  largest_cluster_ratio: 0.2760252365930599
+  silhouette_clustered_only: 0.8066763101492748
+  davies_bouldin_clustered_only: 0.2688400643466629
+  calinski_harabasz_clustered_only: 3165.89735429552
+  quick_score: 0.952137361537284
+  EMAS_HG: 0.9415434312264102
+- scene: bellevue_116th_ne12th
+  method: hdbscan
+  selection_strategy: untargeted_selection
+  split: model_selection
+  n_trajectories: 634
+  hg_estimated_target: 10
+  coordinate_representation: camera_isotropic_shared_scale
+  feature_columns_json: '["start_x", "start_y", "end_x", "end_y"]'
+  normalization_parameters_json: '{"shared_scale": 1262.6338365761835, "x_min": 3.580070561599546, "x_range":
+    1262.6338365761835, "y_min": 24.42323527480615, "y_range": 686.4493841691444}'
+  params_json: '{"min_cluster_size": 80, "min_samples": 10}'
+  fit_random_seed: 20260703
+  selection_key_json: '[-0.7143497645807769, 0.42012450702313275, -1423.6982182934707, 0.4174603174603175,
+    "{\"min_cluster_size\": 80, \"min_samples\": 10}"]'
+  trial_index: 1
+  n_clusters: 4
+  cluster_count_error: 6
+  pct_outliers: 0.6309148264984227
+  largest_cluster_ratio: 0.4174603174603175
+  silhouette_clustered_only: 0.7143497645807769
+  davies_bouldin_clustered_only: 0.4201245070231327
+  calinski_harabasz_clustered_only: 1423.6982182934707
+  quick_score: 0.456489235918519
+  EMAS_HG: 0.6131259878641706
+- scene: bellevue_116th_ne12th
+  method: hdbscan
+  selection_strategy: hg_expected_aware_selection
+  split: model_selection
+  n_trajectories: 634
+  hg_estimated_target: 10
+  coordinate_representation: camera_isotropic_shared_scale
+  feature_columns_json: '["start_x", "start_y", "end_x", "end_y"]'
+  normalization_parameters_json: '{"shared_scale": 1262.6338365761835, "x_min": 3.580070561599546, "x_range":
+    1262.6338365761835, "y_min": 24.42323527480615, "y_range": 686.4493841691444}'
+  params_json: '{"min_cluster_size": 80, "min_samples": 10}'
+  fit_random_seed: 20260703
+  selection_key_json: '[6.0, 0.6309148264984227, -0.7143497645807769, 0.42012450702313275, -1423.6982182934707,
+    0.4174603174603175, "{\"min_cluster_size\": 80, \"min_samples\": 10}"]'
+  trial_index: 1
+  n_clusters: 4
+  cluster_count_error: 6
+  pct_outliers: 0.6309148264984227
+  largest_cluster_ratio: 0.4174603174603175
+  silhouette_clustered_only: 0.7143497645807769
+  davies_bouldin_clustered_only: 0.4201245070231327
+  calinski_harabasz_clustered_only: 1423.6982182934707
+  quick_score: 0.456489235918519
+  EMAS_HG: 0.6131259878641706
+- scene: bellevue_116th_ne12th
+  method: optics
+  selection_strategy: untargeted_selection
+  split: model_selection
+  n_trajectories: 634
+  hg_estimated_target: 10
+  coordinate_representation: camera_isotropic_shared_scale
+  feature_columns_json: '["start_x", "start_y", "end_x", "end_y"]'
+  normalization_parameters_json: '{"shared_scale": 1262.6338365761835, "x_min": 3.580070561599546, "x_range":
+    1262.6338365761835, "y_min": 24.42323527480615, "y_range": 686.4493841691444}'
+  params_json: '{"max_eps": 0.028528990860990387, "min_samples": 40, "xi": 0.05}'
+  fit_random_seed: 20260703
+  selection_key_json: '[-0.965340495392891, 0.04912309566539761, -62864.578588499615, 0.425, "{\"max_eps\":
+    0.028528990860990387, \"min_samples\": 40, \"xi\": 0.05}"]'
+  trial_index: 1
+  n_clusters: 3
+  cluster_count_error: 7
+  pct_outliers: 68.45425867507886
+  largest_cluster_ratio: 0.425
+  silhouette_clustered_only: 0.965340495392891
+  davies_bouldin_clustered_only: 0.0491230956653976
+  calinski_harabasz_clustered_only: 62864.578588499615
+  quick_score: 0.3352673571832392
+  EMAS_HG: 0.4641762069469916
+- scene: bellevue_116th_ne12th
+  method: optics
+  selection_strategy: hg_expected_aware_selection
+  split: model_selection
+  n_trajectories: 634
+  hg_estimated_target: 10
+  coordinate_representation: camera_isotropic_shared_scale
+  feature_columns_json: '["start_x", "start_y", "end_x", "end_y"]'
+  normalization_parameters_json: '{"shared_scale": 1262.6338365761835, "x_min": 3.580070561599546, "x_range":
+    1262.6338365761835, "y_min": 24.42323527480615, "y_range": 686.4493841691444}'
+  params_json: '{"max_eps": 0.31873943664454396, "min_samples": 40, "xi": 0.05}'
+  fit_random_seed: 20260706
+  selection_key_json: '[5.0, 16.876971608832807, -0.8491730113229672, 0.25217750893065227, -3484.0461859320326,
+    0.31688804554079697, "{\"max_eps\": 0.31873943664454396, \"min_samples\": 40, \"xi\": 0.05}"]'
+  trial_index: 4
+  n_clusters: 5
+  cluster_count_error: 5
+  pct_outliers: 16.876971608832807
+  largest_cluster_ratio: 0.3168880455407969
+  silhouette_clustered_only: 0.8491730113229672
+  davies_bouldin_clustered_only: 0.2521775089306522
+  calinski_harabasz_clustered_only: 3484.0461859320326
+  quick_score: 0.4586130103477612
+  EMAS_HG: 0.6568767845677861
+- scene: bellevue_150th_newport
+  method: kmeans
+  selection_strategy: untargeted_selection
+  split: model_selection
+  n_trajectories: 3101
+  hg_estimated_target: 12
+  coordinate_representation: camera_isotropic_shared_scale
+  feature_columns_json: '["start_x", "start_y", "end_x", "end_y"]'
+  normalization_parameters_json: '{"shared_scale": 1096.3660142979609, "x_min": 3.854053691503674, "x_range":
+    1096.3660142979609, "y_min": 34.488688012325376, "y_range": 652.2052499019734}'
+  params_json: '{"max_iter": 300, "n_clusters": 7, "n_init": 10}'
+  fit_random_seed: 20261708
+  selection_key_json: '[-0.888957749100115, 0.15309598944553554, -35949.279400448504, 0.36633344082554015,
+    "{\"max_iter\": 300, \"n_clusters\": 7, \"n_init\": 10}"]'
+  trial_index: 6
+  n_clusters: 7
+  cluster_count_error: 5
+  pct_outliers: 0.0
+  largest_cluster_ratio: 0.3663334408255401
+  silhouette_clustered_only: 0.888957749100115
+  davies_bouldin_clustered_only: 0.1530959894455355
+  calinski_harabasz_clustered_only: 35949.279400448504
+  quick_score: 0.4928427345415516
+  EMAS_HG: 0.7362042590439848
+- scene: bellevue_150th_newport
+  method: kmeans
+  selection_strategy: hg_expected_aware_selection
+  split: model_selection
+  n_trajectories: 3101
+  hg_estimated_target: 12
+  coordinate_representation: camera_isotropic_shared_scale
+  feature_columns_json: '["start_x", "start_y", "end_x", "end_y"]'
+  normalization_parameters_json: '{"shared_scale": 1096.3660142979609, "x_min": 3.854053691503674, "x_range":
+    1096.3660142979609, "y_min": 34.488688012325376, "y_range": 652.2052499019734}'
+  params_json: '{"max_iter": 300, "n_clusters": 12, "n_init": 10}'
+  fit_random_seed: 20261713
+  selection_key_json: '[0.0, -0.6799288266882095, 0.40905242158144267, -79792.39994865551, 0.3140922283134473,
+    "{\"max_iter\": 300, \"n_clusters\": 12, \"n_init\": 10}"]'
+  trial_index: 11
+  n_clusters: 12
+  cluster_count_error: 0
+  pct_outliers: 0.0
+  largest_cluster_ratio: 0.3140922283134473
+  silhouette_clustered_only: 0.6799288266882095
+  davies_bouldin_clustered_only: 0.4090524215814426
+  calinski_harabasz_clustered_only: 79792.39994865551
+  quick_score: 0.9380720586936688
+  EMAS_HG: 0.9235568988842722
+- scene: bellevue_150th_newport
+  method: hdbscan
+  selection_strategy: untargeted_selection
+  split: model_selection
+  n_trajectories: 3101
+  hg_estimated_target: 12
+  coordinate_representation: camera_isotropic_shared_scale
+  feature_columns_json: '["start_x", "start_y", "end_x", "end_y"]'
+  normalization_parameters_json: '{"shared_scale": 1096.3660142979609, "x_min": 3.854053691503674, "x_range":
+    1096.3660142979609, "y_min": 34.488688012325376, "y_range": 652.2052499019734}'
+  params_json: '{"min_cluster_size": 80, "min_samples": 20}'
+  fit_random_seed: 20261704
+  selection_key_json: '[-0.8945741739500087, 0.14479924233603972, -46986.95437617456, 0.36907486106570775,
+    "{\"min_cluster_size\": 80, \"min_samples\": 20}"]'
+  trial_index: 2
+  n_clusters: 6
+  cluster_count_error: 6
+  pct_outliers: 1.3544018058690743
+  largest_cluster_ratio: 0.3690748610657077
+  silhouette_clustered_only: 0.8945741739500087
+  davies_bouldin_clustered_only: 0.1447992423360397
+  calinski_harabasz_clustered_only: 46986.95437617456
+  quick_score: 0.4773596276795199
+  EMAS_HG: 0.6924639792369911
+- scene: bellevue_150th_newport
+  method: hdbscan
+  selection_strategy: hg_expected_aware_selection
+  split: model_selection
+  n_trajectories: 3101
+  hg_estimated_target: 12
+  coordinate_representation: camera_isotropic_shared_scale
+  feature_columns_json: '["start_x", "start_y", "end_x", "end_y"]'
+  normalization_parameters_json: '{"shared_scale": 1096.3660142979609, "x_min": 3.854053691503674, "x_range":
+    1096.3660142979609, "y_min": 34.488688012325376, "y_range": 652.2052499019734}'
+  params_json: '{"min_cluster_size": 80, "min_samples": 10}'
+  fit_random_seed: 20261703
+  selection_key_json: '[6.0, 1.3221541438245727, -0.8945074956513663, 0.14474996421825226, -46612.27221288506,
+    0.369281045751634, "{\"min_cluster_size\": 80, \"min_samples\": 10}"]'
+  trial_index: 1
+  n_clusters: 6
+  cluster_count_error: 6
+  pct_outliers: 1.3221541438245727
+  largest_cluster_ratio: 0.369281045751634
+  silhouette_clustered_only: 0.8945074956513663
+  davies_bouldin_clustered_only: 0.1447499642182522
+  calinski_harabasz_clustered_only: 46612.27221288506
+  quick_score: 0.4774020507339124
+  EMAS_HG: 0.692508282405212
+- scene: bellevue_150th_newport
+  method: optics
+  selection_strategy: untargeted_selection
+  split: model_selection
+  n_trajectories: 3101
+  hg_estimated_target: 12
+  coordinate_representation: camera_isotropic_shared_scale
+  feature_columns_json: '["start_x", "start_y", "end_x", "end_y"]'
+  normalization_parameters_json: '{"shared_scale": 1096.3660142979609, "x_min": 3.854053691503674, "x_range":
+    1096.3660142979609, "y_min": 34.488688012325376, "y_range": 652.2052499019734}'
+  params_json: '{"max_eps": 0.012798475487971639, "min_samples": 80, "xi": 0.05}'
+  fit_random_seed: 20261712
+  selection_key_json: '[-0.9615318182716166, 0.05105601219059602, -466436.64590299386, 0.4353577871316897,
+    "{\"max_eps\": 0.012798475487971639, \"min_samples\": 80, \"xi\": 0.05}"]'
+  trial_index: 10
+  n_clusters: 4
+  cluster_count_error: 8
+  pct_outliers: 46.37213801999355
+  largest_cluster_ratio: 0.4353577871316897
+  silhouette_clustered_only: 0.9615318182716166
+  davies_bouldin_clustered_only: 0.051056012190596
+  calinski_harabasz_clustered_only: 466436.64590299386
+  quick_score: 0.3704788512987986
+  EMAS_HG: 0.523605610881617
+- scene: bellevue_150th_newport
+  method: optics
+  selection_strategy: hg_expected_aware_selection
+  split: model_selection
+  n_trajectories: 3101
+  hg_estimated_target: 12
+  coordinate_representation: camera_isotropic_shared_scale
+  feature_columns_json: '["start_x", "start_y", "end_x", "end_y"]'
+  normalization_parameters_json: '{"shared_scale": 1096.3660142979609, "x_min": 3.854053691503674, "x_range":
+    1096.3660142979609, "y_min": 34.488688012325376, "y_range": 652.2052499019734}'
+  params_json: '{"max_eps": 0.036343618402565836, "min_samples": 40, "xi": 0.07}'
+  fit_random_seed: 20261710
+  selection_key_json: '[5.0, 7.99742018703644, -0.8914818869685179, 0.15613712590997922, -155395.69764444692,
+    0.38380651945320715, "{\"max_eps\": 0.036343618402565836, \"min_samples\": 40, \"xi\": 0.07}"]'
+  trial_index: 8
+  n_clusters: 7
+  cluster_count_error: 5
+  pct_outliers: 7.99742018703644
+  largest_cluster_ratio: 0.3838065194532071
+  silhouette_clustered_only: 0.8914818869685179
+  davies_bouldin_clustered_only: 0.1561371259099792
+  calinski_harabasz_clustered_only: 155395.69764444692
+  quick_score: 0.4751127337925798
+  EMAS_HG: 0.7183601988894607
+- scene: bellevue_150th_eastgate
+  method: kmeans
+  selection_strategy: untargeted_selection
+  split: model_selection
+  n_trajectories: 6791
+  hg_estimated_target: 9
+  coordinate_representation: camera_isotropic_shared_scale
+  feature_columns_json: '["start_x", "start_y", "end_x", "end_y"]'
+  normalization_parameters_json: '{"shared_scale": 1272.7534363004906, "x_min": 3.9231328578891578, "x_range":
+    1272.7534363004906, "y_min": 35.43277300054373, "y_range": 654.0800760095763}'
+  params_json: '{"max_iter": 300, "n_clusters": 11, "n_init": 10}'
+  fit_random_seed: 20262712
+  selection_key_json: '[-0.819307164876336, 0.26076725492745684, -40368.521145006656, 0.2295685466058018,
+    "{\"max_iter\": 300, \"n_clusters\": 11, \"n_init\": 10}"]'
+  trial_index: 10
+  n_clusters: 11
+  cluster_count_error: 2
+  pct_outliers: 0.0
+  largest_cluster_ratio: 0.2295685466058018
+  silhouette_clustered_only: 0.819307164876336
+  davies_bouldin_clustered_only: 0.2607672549274568
+  calinski_harabasz_clustered_only: 40368.521145006656
+  quick_score: 0.5910002273170066
+  EMAS_HG: 0.836214173272999
+- scene: bellevue_150th_eastgate
+  method: kmeans
+  selection_strategy: hg_expected_aware_selection
+  split: model_selection
+  n_trajectories: 6791
+  hg_estimated_target: 9
+  coordinate_representation: camera_isotropic_shared_scale
+  feature_columns_json: '["start_x", "start_y", "end_x", "end_y"]'
+  normalization_parameters_json: '{"shared_scale": 1272.7534363004906, "x_min": 3.9231328578891578, "x_range":
+    1272.7534363004906, "y_min": 35.43277300054373, "y_range": 654.0800760095763}'
+  params_json: '{"max_iter": 300, "n_clusters": 9, "n_init": 10}'
+  fit_random_seed: 20262710
+  selection_key_json: '[0.0, -0.8136297958350629, 0.29154708003716817, -21968.596919777858, 0.2295685466058018,
+    "{\"max_iter\": 300, \"n_clusters\": 9, \"n_init\": 10}"]'
+  trial_index: 8
+  n_clusters: 9
+  cluster_count_error: 0
+  pct_outliers: 0.0
+  largest_cluster_ratio: 0.2295685466058018
+  silhouette_clustered_only: 0.8136297958350629
+  davies_bouldin_clustered_only: 0.2915470800371681
+  calinski_harabasz_clustered_only: 21968.596919777858
+  quick_score: 0.9564378967480558
+  EMAS_HG: 0.9451511583649386
+- scene: bellevue_150th_eastgate
+  method: hdbscan
+  selection_strategy: untargeted_selection
+  split: model_selection
+  n_trajectories: 6791
+  hg_estimated_target: 9
+  coordinate_representation: camera_isotropic_shared_scale
+  feature_columns_json: '["start_x", "start_y", "end_x", "end_y"]'
+  normalization_parameters_json: '{"shared_scale": 1272.7534363004906, "x_min": 3.9231328578891578, "x_range":
+    1272.7534363004906, "y_min": 35.43277300054373, "y_range": 654.0800760095763}'
+  params_json: '{"min_cluster_size": 160, "min_samples": 10}'
+  fit_random_seed: 20262705
+  selection_key_json: '[-0.7658705804084739, 0.31307660480459004, -41010.24361096305, 0.1641383495145631,
+    "{\"min_cluster_size\": 160, \"min_samples\": 10}"]'
+  trial_index: 3
+  n_clusters: 12
+  cluster_count_error: 3
+  pct_outliers: 2.93034899131203
+  largest_cluster_ratio: 0.1641383495145631
+  silhouette_clustered_only: 0.7658705804084739
+  davies_bouldin_clustered_only: 0.31307660480459
+  calinski_harabasz_clustered_only: 41010.24361096305
+  quick_score: 0.5415975056089777
+  EMAS_HG: 0.7755093484649453
+- scene: bellevue_150th_eastgate
+  method: hdbscan
+  selection_strategy: hg_expected_aware_selection
+  split: model_selection
+  n_trajectories: 6791
+  hg_estimated_target: 9
+  coordinate_representation: camera_isotropic_shared_scale
+  feature_columns_json: '["start_x", "start_y", "end_x", "end_y"]'
+  normalization_parameters_json: '{"shared_scale": 1272.7534363004906, "x_min": 3.9231328578891578, "x_range":
+    1272.7534363004906, "y_min": 35.43277300054373, "y_range": 654.0800760095763}'
+  params_json: '{"min_cluster_size": 320, "min_samples": 20}'
+  fit_random_seed: 20262708
+  selection_key_json: '[1.0, 2.871447504049477, -0.7348512715046156, 0.3722523477838459, -15122.050129176521,
+    0.164038811400849, "{\"min_cluster_size\": 320, \"min_samples\": 20}"]'
+  trial_index: 6
+  n_clusters: 10
+  cluster_count_error: 1
+  pct_outliers: 2.871447504049477
+  largest_cluster_ratio: 0.164038811400849
+  silhouette_clustered_only: 0.7348512715046156
+  davies_bouldin_clustered_only: 0.3722523477838459
+  calinski_harabasz_clustered_only: 15122.05012917652
+  quick_score: 0.6760322344702959
+  EMAS_HG: 0.8819131259579891
+- scene: bellevue_150th_eastgate
+  method: optics
+  selection_strategy: untargeted_selection
+  split: model_selection
+  n_trajectories: 6791
+  hg_estimated_target: 9
+  coordinate_representation: camera_isotropic_shared_scale
+  feature_columns_json: '["start_x", "start_y", "end_x", "end_y"]'
+  normalization_parameters_json: '{"shared_scale": 1272.7534363004906, "x_min": 3.9231328578891578, "x_range":
+    1272.7534363004906, "y_min": 35.43277300054373, "y_range": 654.0800760095763}'
+  params_json: '{"max_eps": 0.0391223809812431, "min_samples": 40, "xi": 0.07}'
+  fit_random_seed: 20262710
+  selection_key_json: '[-0.8682007345024816, 0.20136921598031376, -72413.95386273158, 0.3592142188961646,
+    "{\"max_eps\": 0.0391223809812431, \"min_samples\": 40, \"xi\": 0.07}"]'
+  trial_index: 8
+  n_clusters: 11
+  cluster_count_error: 2
+  pct_outliers: 37.03431011633044
+  largest_cluster_ratio: 0.3592142188961646
+  silhouette_clustered_only: 0.8682007345024816
+  davies_bouldin_clustered_only: 0.2013692159803137
+  calinski_harabasz_clustered_only: 72413.95386273158
+  quick_score: 0.5083725065657908
+  EMAS_HG: 0.7555472407509569
+- scene: bellevue_150th_eastgate
+  method: optics
+  selection_strategy: hg_expected_aware_selection
+  split: model_selection
+  n_trajectories: 6791
+  hg_estimated_target: 9
+  coordinate_representation: camera_isotropic_shared_scale
+  feature_columns_json: '["start_x", "start_y", "end_x", "end_y"]'
+  normalization_parameters_json: '{"shared_scale": 1272.7534363004906, "x_min": 3.9231328578891578, "x_range":
+    1272.7534363004906, "y_min": 35.43277300054373, "y_range": 654.0800760095763}'
+  params_json: '{"max_eps": 0.022171253230168272, "min_samples": 80, "xi": 0.07}'
+  fit_random_seed: 20262717
+  selection_key_json: '[1.0, 22.117508467088793, -0.8664390606879109, 0.15478613332867586, -105644.65618680386,
+    0.27850255246738514, "{\"max_eps\": 0.022171253230168272, \"min_samples\": 80, \"xi\": 0.07}"]'
+  trial_index: 15
+  n_clusters: 10
+  cluster_count_error: 1
+  pct_outliers: 22.117508467088797
+  largest_cluster_ratio: 0.2785025524673851
+  silhouette_clustered_only: 0.8664390606879109
+  davies_bouldin_clustered_only: 0.1547861333286758
+  calinski_harabasz_clustered_only: 105644.65618680386
+  quick_score: 0.6395347414700154
+  EMAS_HG: 0.8522772465309955
+- scene: bellevue_150th_se38th
+  method: kmeans
+  selection_strategy: untargeted_selection
+  split: model_selection
+  n_trajectories: 2865
+  hg_estimated_target: 18
+  coordinate_representation: camera_isotropic_shared_scale
+  feature_columns_json: '["start_x", "start_y", "end_x", "end_y"]'
+  normalization_parameters_json: '{"shared_scale": 1238.6788422266638, "x_min": 38.01966370669276, "x_range":
+    1238.6788422266638, "y_min": 57.85551089662488, "y_range": 629.1849372863765}'
+  params_json: '{"max_iter": 300, "n_clusters": 12, "n_init": 10}'
+  fit_random_seed: 20263713
+  selection_key_json: '[-0.828871462132217, 0.33127123978990775, -25398.461101262008, 0.2764397905759162,
+    "{\"max_iter\": 300, \"n_clusters\": 12, \"n_init\": 10}"]'
+  trial_index: 11
+  n_clusters: 12
+  cluster_count_error: 6
+  pct_outliers: 0.0
+  largest_cluster_ratio: 0.2764397905759162
+  silhouette_clustered_only: 0.828871462132217
+  davies_bouldin_clustered_only: 0.3312712397899077
+  calinski_harabasz_clustered_only: 25398.461101262008
+  quick_score: 0.4799291088357638
+  EMAS_HG: 0.7722490998129847
+- scene: bellevue_150th_se38th
+  method: kmeans
+  selection_strategy: hg_expected_aware_selection
+  split: model_selection
+  n_trajectories: 2865
+  hg_estimated_target: 18
+  coordinate_representation: camera_isotropic_shared_scale
+  feature_columns_json: '["start_x", "start_y", "end_x", "end_y"]'
+  normalization_parameters_json: '{"shared_scale": 1238.6788422266638, "x_min": 38.01966370669276, "x_range":
+    1238.6788422266638, "y_min": 57.85551089662488, "y_range": 629.1849372863765}'
+  params_json: '{"max_iter": 300, "n_clusters": 18, "n_init": 10}'
+  fit_random_seed: 20263719
+  selection_key_json: '[0.0, -0.7259645307388554, 0.48864280701667884, -29293.859750073498, 0.2743455497382199,
+    "{\"max_iter\": 300, \"n_clusters\": 18, \"n_init\": 10}"]'
+  trial_index: 17
+  n_clusters: 18
+  cluster_count_error: 0
+  pct_outliers: 0.0
+  largest_cluster_ratio: 0.2743455497382199
+  silhouette_clustered_only: 0.7259645307388554
+  davies_bouldin_clustered_only: 0.4886428070166788
+  calinski_harabasz_clustered_only: 29293.859750073498
+  quick_score: 0.9424513124426698
+  EMAS_HG: 0.9260389533222187
+- scene: bellevue_150th_se38th
+  method: hdbscan
+  selection_strategy: untargeted_selection
+  split: model_selection
+  n_trajectories: 2865
+  hg_estimated_target: 18
+  coordinate_representation: camera_isotropic_shared_scale
+  feature_columns_json: '["start_x", "start_y", "end_x", "end_y"]'
+  normalization_parameters_json: '{"shared_scale": 1238.6788422266638, "x_min": 38.01966370669276, "x_range":
+    1238.6788422266638, "y_min": 57.85551089662488, "y_range": 629.1849372863765}'
+  params_json: '{"min_cluster_size": 160, "min_samples": 20}'
+  fit_random_seed: 20263706
+  selection_key_json: '[-0.8446770227337581, 0.17582903417973403, -24475.606763903408, 0.3698464025869038,
+    "{\"min_cluster_size\": 160, \"min_samples\": 20}"]'
+  trial_index: 4
+  n_clusters: 3
+  cluster_count_error: 15
+  pct_outliers: 13.647469458987784
+  largest_cluster_ratio: 0.3698464025869038
+  silhouette_clustered_only: 0.8446770227337581
+  davies_bouldin_clustered_only: 0.175829034179734
+  calinski_harabasz_clustered_only: 24475.606763903408
+  quick_score: 0.4048524607456096
+  EMAS_HG: 0.4963339828645305
+- scene: bellevue_150th_se38th
+  method: hdbscan
+  selection_strategy: hg_expected_aware_selection
+  split: model_selection
+  n_trajectories: 2865
+  hg_estimated_target: 18
+  coordinate_representation: camera_isotropic_shared_scale
+  feature_columns_json: '["start_x", "start_y", "end_x", "end_y"]'
+  normalization_parameters_json: '{"shared_scale": 1238.6788422266638, "x_min": 38.01966370669276, "x_range":
+    1238.6788422266638, "y_min": 57.85551089662488, "y_range": 629.1849372863765}'
+  params_json: '{"min_cluster_size": 80, "min_samples": 10}'
+  fit_random_seed: 20263703
+  selection_key_json: '[11.0, 6.317626527050611, -0.7259351208326912, 0.5811849180045778, -15734.53014300923,
+    0.29284649776453053, "{\"min_cluster_size\": 80, \"min_samples\": 10}"]'
+  trial_index: 1
+  n_clusters: 7
+  cluster_count_error: 11
+  pct_outliers: 6.317626527050611
+  largest_cluster_ratio: 0.2928464977645305
+  silhouette_clustered_only: 0.7259351208326912
+  davies_bouldin_clustered_only: 0.5811849180045778
+  calinski_harabasz_clustered_only: 15734.53014300923
+  quick_score: 0.4218320414145568
+  EMAS_HG: 0.602065007395811
+- scene: bellevue_150th_se38th
+  method: optics
+  selection_strategy: untargeted_selection
+  split: model_selection
+  n_trajectories: 2865
+  hg_estimated_target: 18
+  coordinate_representation: camera_isotropic_shared_scale
+  feature_columns_json: '["start_x", "start_y", "end_x", "end_y"]'
+  normalization_parameters_json: '{"shared_scale": 1238.6788422266638, "x_min": 38.01966370669276, "x_range":
+    1238.6788422266638, "y_min": 57.85551089662488, "y_range": 629.1849372863765}'
+  params_json: '{"max_eps": 0.020337294551748715, "min_samples": 80, "xi": 0.05}'
+  fit_random_seed: 20263712
+  selection_key_json: '[-0.931674299852372, 0.09742414159072739, -411333.46792901057, 0.3904861474124412,
+    "{\"max_eps\": 0.020337294551748715, \"min_samples\": 80, \"xi\": 0.05}"]'
+  trial_index: 10
+  n_clusters: 3
+  cluster_count_error: 15
+  pct_outliers: 33.22862129144852
+  largest_cluster_ratio: 0.3904861474124412
+  silhouette_clustered_only: 0.931674299852372
+  davies_bouldin_clustered_only: 0.0974241415907273
+  calinski_harabasz_clustered_only: 411333.46792901057
+  quick_score: 0.3710140933886289
+  EMAS_HG: 0.4655336624421136
+- scene: bellevue_150th_se38th
+  method: optics
+  selection_strategy: hg_expected_aware_selection
+  split: model_selection
+  n_trajectories: 2865
+  hg_estimated_target: 18
+  coordinate_representation: camera_isotropic_shared_scale
+  feature_columns_json: '["start_x", "start_y", "end_x", "end_y"]'
+  normalization_parameters_json: '{"shared_scale": 1238.6788422266638, "x_min": 38.01966370669276, "x_range":
+    1238.6788422266638, "y_min": 57.85551089662488, "y_range": 629.1849372863765}'
+  params_json: '{"max_eps": 0.09623894321033927, "min_samples": 40, "xi": 0.05}'
+  fit_random_seed: 20263706
+  selection_key_json: '[6.0, 23.909249563699827, -0.841277102458385, 0.3085153259582977, -48391.20453844755,
+    0.3610091743119266, "{\"max_eps\": 0.09623894321033927, \"min_samples\": 40, \"xi\": 0.05}"]'
+  trial_index: 4
+  n_clusters: 12
+  cluster_count_error: 6
+  pct_outliers: 23.909249563699827
+  largest_cluster_ratio: 0.3610091743119266
+  silhouette_clustered_only: 0.841277102458385
+  davies_bouldin_clustered_only: 0.3085153259582977
+  calinski_harabasz_clustered_only: 48391.20453844755
+  quick_score: 0.4249271123600957
+  EMAS_HG: 0.7179002623463407
+- scene: bellevue_ne8th
+  method: kmeans
+  selection_strategy: untargeted_selection
+  split: model_selection
+  n_trajectories: 6321
+  hg_estimated_target: 9
+  coordinate_representation: camera_isotropic_shared_scale
+  feature_columns_json: '["start_x", "start_y", "end_x", "end_y"]'
+  normalization_parameters_json: '{"shared_scale": 1234.148390845096, "x_min": 0.9325880108457056, "x_range":
+    1234.148390845096, "y_min": 46.588199811993135, "y_range": 643.6102182677295}'
+  params_json: '{"max_iter": 300, "n_clusters": 10, "n_init": 10}'
+  fit_random_seed: 20264711
+  selection_key_json: '[-0.8359066000568947, 0.20423971553520234, -24499.506974623455, 0.23635500711912671,
+    "{\"max_iter\": 300, \"n_clusters\": 10, \"n_init\": 10}"]'
+  trial_index: 9
+  n_clusters: 10
+  cluster_count_error: 1
+  pct_outliers: 0.0
+  largest_cluster_ratio: 0.2363550071191267
+  silhouette_clustered_only: 0.8359066000568947
+  davies_bouldin_clustered_only: 0.2042397155352023
+  calinski_harabasz_clustered_only: 24499.50697462345
+  quick_score: 0.6846798018968667
+  EMAS_HG: 0.8956442189472456
+- scene: bellevue_ne8th
+  method: kmeans
+  selection_strategy: hg_expected_aware_selection
+  split: model_selection
+  n_trajectories: 6321
+  hg_estimated_target: 9
+  coordinate_representation: camera_isotropic_shared_scale
+  feature_columns_json: '["start_x", "start_y", "end_x", "end_y"]'
+  normalization_parameters_json: '{"shared_scale": 1234.148390845096, "x_min": 0.9325880108457056, "x_range":
+    1234.148390845096, "y_min": 46.588199811993135, "y_range": 643.6102182677295}'
+  params_json: '{"max_iter": 300, "n_clusters": 9, "n_init": 10}'
+  fit_random_seed: 20264710
+  selection_key_json: '[0.0, -0.8305133250530503, 0.2151128395716973, -22918.70895804184, 0.23635500711912671,
+    "{\"max_iter\": 300, \"n_clusters\": 9, \"n_init\": 10}"]'
+  trial_index: 8
+  n_clusters: 9
+  cluster_count_error: 0
+  pct_outliers: 0.0
+  largest_cluster_ratio: 0.2363550071191267
+  silhouette_clustered_only: 0.8305133250530503
+  davies_bouldin_clustered_only: 0.2151128395716973
+  calinski_harabasz_clustered_only: 22918.70895804184
+  quick_score: 0.95903860737403
+  EMAS_HG: 0.95018704920732
+- scene: bellevue_ne8th
+  method: hdbscan
+  selection_strategy: untargeted_selection
+  split: model_selection
+  n_trajectories: 6321
+  hg_estimated_target: 9
+  coordinate_representation: camera_isotropic_shared_scale
+  feature_columns_json: '["start_x", "start_y", "end_x", "end_y"]'
+  normalization_parameters_json: '{"shared_scale": 1234.148390845096, "x_min": 0.9325880108457056, "x_range":
+    1234.148390845096, "y_min": 46.588199811993135, "y_range": 643.6102182677295}'
+  params_json: '{"min_cluster_size": 80, "min_samples": 20}'
+  fit_random_seed: 20264704
+  selection_key_json: '[-0.7691477474295804, 0.33664398043305305, -39957.41867717768, 0.2467039913310457,
+    "{\"min_cluster_size\": 80, \"min_samples\": 20}"]'
+  trial_index: 2
+  n_clusters: 14
+  cluster_count_error: 5
+  pct_outliers: 12.4031007751938
+  largest_cluster_ratio: 0.2467039913310457
+  silhouette_clustered_only: 0.7691477474295804
+  davies_bouldin_clustered_only: 0.336643980433053
+  calinski_harabasz_clustered_only: 39957.41867717768
+  quick_score: 0.4680545720279451
+  EMAS_HG: 0.6360172462567922
+- scene: bellevue_ne8th
+  method: hdbscan
+  selection_strategy: hg_expected_aware_selection
+  split: model_selection
+  n_trajectories: 6321
+  hg_estimated_target: 9
+  coordinate_representation: camera_isotropic_shared_scale
+  feature_columns_json: '["start_x", "start_y", "end_x", "end_y"]'
+  normalization_parameters_json: '{"shared_scale": 1234.148390845096, "x_min": 0.9325880108457056, "x_range":
+    1234.148390845096, "y_min": 46.588199811993135, "y_range": 643.6102182677295}'
+  params_json: '{"min_cluster_size": 160, "min_samples": 10}'
+  fit_random_seed: 20264705
+  selection_key_json: '[0.0, 5.189052365132099, -0.7619957418445035, 0.380962710316216, -44738.920619835764,
+    0.22793258801935593, "{\"min_cluster_size\": 160, \"min_samples\": 10}"]'
+  trial_index: 3
+  n_clusters: 9
+  cluster_count_error: 0
+  pct_outliers: 5.189052365132099
+  largest_cluster_ratio: 0.2279325880193559
+  silhouette_clustered_only: 0.7619957418445035
+  davies_bouldin_clustered_only: 0.380962710316216
+  calinski_harabasz_clustered_only: 44738.92061983576
+  quick_score: 0.9411350492903836
+  EMAS_HG: 0.9273416750207416
+- scene: bellevue_ne8th
+  method: optics
+  selection_strategy: untargeted_selection
+  split: model_selection
+  n_trajectories: 6321
+  hg_estimated_target: 9
+  coordinate_representation: camera_isotropic_shared_scale
+  feature_columns_json: '["start_x", "start_y", "end_x", "end_y"]'
+  normalization_parameters_json: '{"shared_scale": 1234.148390845096, "x_min": 0.9325880108457056, "x_range":
+    1234.148390845096, "y_min": 46.588199811993135, "y_range": 643.6102182677295}'
+  params_json: '{"max_eps": 0.044077065525483884, "min_samples": 40, "xi": 0.07}'
+  fit_random_seed: 20264710
+  selection_key_json: '[-0.9149904996995527, 0.18117893169845273, -132198.12737291353, 0.356911696717522,
+    "{\"max_eps\": 0.044077065525483884, \"min_samples\": 40, \"xi\": 0.07}"]'
+  trial_index: 8
+  n_clusters: 10
+  cluster_count_error: 1
+  pct_outliers: 65.78073089700996
+  largest_cluster_ratio: 0.356911696717522
+  silhouette_clustered_only: 0.9149904996995528
+  davies_bouldin_clustered_only: 0.1811789316984527
+  calinski_harabasz_clustered_only: 132198.12737291353
+  quick_score: 0.5458274826096353
+  EMAS_HG: 0.7576025161445096
+- scene: bellevue_ne8th
+  method: optics
+  selection_strategy: hg_expected_aware_selection
+  split: model_selection
+  n_trajectories: 6321
+  hg_estimated_target: 9
+  coordinate_representation: camera_isotropic_shared_scale
+  feature_columns_json: '["start_x", "start_y", "end_x", "end_y"]'
+  normalization_parameters_json: '{"shared_scale": 1234.148390845096, "x_min": 0.9325880108457056, "x_range":
+    1234.148390845096, "y_min": 46.588199811993135, "y_range": 643.6102182677295}'
+  params_json: '{"max_eps": 0.044077065525483884, "min_samples": 80, "xi": 0.05}'
+  fit_random_seed: 20264714
+  selection_key_json: '[0.0, 63.18620471444392, -0.9115030360723186, 0.16986930767314956, -182747.5201196508,
+    0.32874946282767514, "{\"max_eps\": 0.044077065525483884, \"min_samples\": 80, \"xi\": 0.05}"]'
+  trial_index: 12
+  n_clusters: 9
+  cluster_count_error: 0
+  pct_outliers: 63.18620471444392
+  largest_cluster_ratio: 0.3287494628276751
+  silhouette_clustered_only: 0.9115030360723186
+  davies_bouldin_clustered_only: 0.1698693076731495
+  calinski_harabasz_clustered_only: 182747.5201196508
+  quick_score: 0.8290676129860796
+  EMAS_HG: 0.8218074298801984
+candidate_grid_definition:
+  kmeans:
+    n_clusters:
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+    - 8
+    - 9
+    - 10
+    - 11
+    - 12
+    - 13
+    - 14
+    - 15
+    - 16
+    - 17
+    - 18
+    - 19
+    - 20
+    - 21
+    - 22
+    - 23
+    - 24
+    - 25
+    - 26
+    - 27
+    - 28
+    - 29
+    - 30
+    n_init: 10
+    max_iter: 300
+  hdbscan:
+    min_cluster_size:
+    - 80
+    - 160
+    - 320
+    min_samples:
+    - 10
+    - 20
+  optics:
+    min_samples:
+    - 40
+    - 80
+    xi:
+    - 0.05
+    - 0.07
+    max_eps_quantiles:
+    - 0.5
+    - 0.7
+    - 0.85
+    - 0.95
+    quantile_sample_size: 5000
+    max_eps_fit_split: model_selection
+selection_rules:
+  untargeted_selection:
+  - maximize silhouette_clustered_only
+  - minimize davies_bouldin_clustered_only
+  - maximize calinski_harabasz_clustered_only
+  - minimize largest_cluster_ratio
+  - deterministic lexical parameter order
+  hg_expected_aware_selection:
+  - minimize cluster_count_error against frozen HG target
+  - minimize pct_outliers for HDBSCAN and OPTICS only
+  - maximize silhouette_clustered_only
+  - minimize davies_bouldin_clustered_only
+  - maximize calinski_harabasz_clustered_only
+  - minimize largest_cluster_ratio
+  - deterministic lexical parameter order
+tie_breaking: stable mergesort semantics with canonical lexical params_json as the final deterministic
+  tie-breaker; runtime is never a tie-breaker
+random_seeds:
+  base: 20260702
+  scene_offset: 1000
+  candidate_fit_offset: one-based trial index
+sampling_limits:
+  target_fit_max_trajectories: null
+  model_selection_fit_max_trajectories: null
+  policy_if_cap_is_later_required: deterministic_recording_stratified
+  preserve_each_recording_block: true
+  former_full_data_cap: 6000
+  former_cap_retained: false
+coordinate_representation:
+  name: camera_isotropic_shared_scale
+  feature_columns:
+  - start_x
+  - start_y
+  - end_x
+  - end_y
+  feature_order_is_frozen: true
+  normalization_fit_split: model_selection
+  normalization_application_on_test: use_model_selection_fitted_parameters
+software_versions:
+  python: 3.11.9
+  numpy: 2.2.6
+  pandas: 2.3.3
+  scikit-learn: 1.8.0
+  hdbscan: 0.8.41
+  pyarrow: 22.0.0
+  PyYAML: 6.0.3
+complete_frozen_configuration_sha256: 829c95c4f0a012d08433536b22379afad4d5a79122e52f8fd6ac12817882167c
