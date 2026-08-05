@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import math
 import os
 import tempfile
 from datetime import datetime, timezone
@@ -20,6 +21,7 @@ except ImportError:  # Direct script execution.
 
 
 ANNOTATION_PROTOCOL_VERSION = "future-transportation-manual-annotation-v1"
+APPROACH_COORDINATE_FIELDS = ("label_x", "label_y", "arrow_x", "arrow_y")
 
 
 def utc_timestamp() -> str:
@@ -48,6 +50,65 @@ def write_yaml(path: Path, payload: Any) -> None:
         path,
         yaml.safe_dump(payload, sort_keys=False, allow_unicode=False, width=100),
     )
+
+
+def _blank(value: Any) -> bool:
+    if value is None:
+        return True
+    if isinstance(value, str):
+        return not value.strip()
+    try:
+        return bool(math.isnan(value))
+    except (TypeError, ValueError):
+        return False
+
+
+def normalize_approach_rows(records: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Validate editable table rows and discard only completely empty new rows."""
+    normalized = []
+    approach_ids = set()
+    for row_number, item in enumerate(records, start=1):
+        relevant = (
+            item.get("id"),
+            item.get("human_readable_name"),
+            *(item.get(field) for field in APPROACH_COORDINATE_FIELDS),
+        )
+        if all(_blank(value) for value in relevant):
+            continue
+        approach_id = "" if _blank(item.get("id")) else str(item["id"]).strip()
+        if not approach_id:
+            raise ValueError(f"Approach row {row_number}: id is required.")
+        if approach_id in approach_ids:
+            raise ValueError(f"Approach row {row_number}: duplicate id '{approach_id}'.")
+        coordinates = {}
+        for field in APPROACH_COORDINATE_FIELDS:
+            value = item.get(field)
+            if _blank(value):
+                raise ValueError(f"Approach row {row_number}: {field} is required.")
+            try:
+                coordinate = float(value)
+            except (TypeError, ValueError) as exc:
+                raise ValueError(f"Approach row {row_number}: {field} must be numeric.") from exc
+            if not math.isfinite(coordinate) or not 0.0 <= coordinate <= 1.0:
+                raise ValueError(f"Approach row {row_number}: {field} must be between 0 and 1.")
+            coordinates[field] = coordinate
+        name = item.get("human_readable_name")
+        normalized.append(
+            {
+                "id": approach_id,
+                "human_readable_name": "" if _blank(name) else str(name).strip(),
+                "label_position_normalized": {
+                    "x": coordinates["label_x"],
+                    "y": coordinates["label_y"],
+                },
+                "arrow_end_normalized": {
+                    "x": coordinates["arrow_x"],
+                    "y": coordinates["arrow_y"],
+                },
+            }
+        )
+        approach_ids.add(approach_id)
+    return normalized
 
 
 def verify_scientific_protocol_frozen(frozen_manifest_path: Path) -> dict[str, Any]:

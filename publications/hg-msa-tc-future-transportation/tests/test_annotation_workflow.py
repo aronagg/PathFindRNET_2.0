@@ -174,6 +174,61 @@ def test_protocol_freeze_is_required_and_immutable(tmp_path: Path) -> None:
         )
 
 
+def test_scene_guide_editor_skips_blank_rows_and_normalizes_values() -> None:
+    rows = protocol.normalize_approach_rows(
+        [
+            {
+                "id": "A",
+                "human_readable_name": None,
+                "label_x": "0.1",
+                "label_y": 0.2,
+                "arrow_x": 0.3,
+                "arrow_y": 0.4,
+            },
+            {
+                "id": None,
+                "human_readable_name": None,
+                "label_x": None,
+                "label_y": None,
+                "arrow_x": None,
+                "arrow_y": None,
+            },
+        ]
+    )
+    assert rows == [
+        {
+            "id": "A",
+            "human_readable_name": "",
+            "label_position_normalized": {"x": 0.1, "y": 0.2},
+            "arrow_end_normalized": {"x": 0.3, "y": 0.4},
+        }
+    ]
+
+
+@pytest.mark.parametrize(
+    ("field", "value", "message"),
+    [
+        ("label_x", None, "label_x is required"),
+        ("label_y", "not-a-number", "label_y must be numeric"),
+        ("arrow_x", 1.1, "arrow_x must be between 0 and 1"),
+    ],
+)
+def test_scene_guide_editor_reports_partial_row_errors(
+    field: str, value: object, message: str
+) -> None:
+    row = {
+        "id": "A",
+        "human_readable_name": "Approach A",
+        "label_x": 0.1,
+        "label_y": 0.2,
+        "arrow_x": 0.3,
+        "arrow_y": 0.4,
+    }
+    row[field] = value
+    with pytest.raises(ValueError, match=message):
+        protocol.normalize_approach_rows([row])
+
+
 def _queue_record(source_path: Path, annotator: str = "annotator_A") -> dict:
     return {
         "annotator_id": annotator,

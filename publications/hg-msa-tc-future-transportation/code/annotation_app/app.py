@@ -31,7 +31,13 @@ from models import (
     manual_maneuver_id,
     validate_blind_queue_columns,
 )  # noqa: E402
-from protocol import freeze_protocol, load_yaml, require_frozen_protocol, write_yaml  # noqa: E402
+from protocol import (  # noqa: E402
+    freeze_protocol,
+    load_yaml,
+    normalize_approach_rows,
+    require_frozen_protocol,
+    write_yaml,
+)
 from rendering import (
     RENDERING_VERSION,
     extract_clip,
@@ -474,22 +480,14 @@ def protocol_designer_mode() -> None:
         "I manually verified all approach labels and mappings; mark ready for freeze"
     )
     if st.button("Save scene guide", type="primary"):
-        rows = []
-        for item in edited.to_dict(orient="records"):
-            rows.append(
-                {
-                    "id": str(item["id"]).strip(),
-                    "human_readable_name": str(item.get("human_readable_name", "")).strip(),
-                    "label_position_normalized": {
-                        "x": float(item["label_x"]),
-                        "y": float(item["label_y"]),
-                    },
-                    "arrow_end_normalized": {
-                        "x": float(item["arrow_x"]),
-                        "y": float(item["arrow_y"]),
-                    },
-                }
-            )
+        try:
+            rows = normalize_approach_rows(edited.to_dict(orient="records"))
+            mappings = yaml.safe_load(mapping_text) or []
+            if not isinstance(mappings, list):
+                raise ValueError("Maneuver mapping must be a YAML list.")
+        except (ValueError, yaml.YAMLError) as exc:
+            st.error(str(exc))
+            return
         guide.update(
             {
                 "status": "ready_for_freeze" if ready else "draft_manual_configuration_required",
@@ -500,7 +498,7 @@ def protocol_designer_mode() -> None:
                 "valid_exit_approaches": [
                     value.strip() for value in exits.split(",") if value.strip()
                 ],
-                "maneuver_type_mapping": yaml.safe_load(mapping_text) or [],
+                "maneuver_type_mapping": mappings,
                 "ambiguity_notes": notes,
             }
         )
