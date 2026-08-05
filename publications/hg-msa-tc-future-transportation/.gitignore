@@ -3,6 +3,19 @@
 data/manifests/*.csv
 data/splits/*.csv
 annotations/annotation_template.csv
+annotations/databases/*.sqlite*
+annotations/backups/
+annotations/exports/*.csv
+annotations/exports/*.jsonl
+annotations/exports/*.sha256
+annotations/reports/manual_*.csv
+annotations/reports/manual_*.md
+annotations/reports/agreement/
+annotations/cache/
+annotations/preflight/independent_test_renderability.csv
+annotations/preflight/previews/
 
 __pycache__/
 *.py[cod]
+.pytest_cache/
+.ruff_cache/

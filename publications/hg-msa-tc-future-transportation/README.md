@@ -2,7 +2,7 @@
 
 This publication-specific directory contains the data audit, canonical trajectory
 manifest, leakage-controlled evaluation split, split-aware HG-MSA-TC runner,
-annotation schema, and validation tests for the Future Transportation major revision.
+blind manual-annotation workflow, and validation tests for the Future Transportation major revision.
 It does not change the repository's trajectory preprocessing, homography calibration,
 prior full-data results, figures, or manuscript.
 
@@ -142,9 +142,26 @@ results/       development-only target, candidate, and frozen protocol artifacts
 tests/         protocol validation
 ```
 
+## Blind Manual Annotation
+
+The publication-specific `code/annotation_app/` package provides a Streamlit UI,
+deterministic recording-stratified pilot and primary queues, append-only SQLite
+storage, agreement analysis, separate adjudication, and post-consensus inventory
+generation. Install the optional dependencies and inspect exact commands in
+`docs/annotation_user_guide.md`.
+
+The independent-test queues contain all 27,393 trajectories twice, once for each
+independent annotator in a different deterministic order. They remain locked until an
+authorized protocol designer manually configures all five scene guides and freezes
+the annotation protocol. No real human labels are included.
+
+**The annotation application renders only source trajectory geometry and source
+imagery. It does not access homography-derived targets, automatic OD assignments,
+clustering outputs, pseudo-reference labels, or model-selection metrics. The
+scientific model-selection protocol was frozen before manual labels are collected.**
+
 ## Intentionally Not Implemented
 
-- annotation user interface;
 - manual maneuver labels;
 - manual maneuver annotation;
 - real independent-test clustering or evaluation;

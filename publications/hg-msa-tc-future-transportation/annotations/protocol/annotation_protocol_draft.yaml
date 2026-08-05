@@ -1,0 +1,44 @@
+protocol_version_candidate: future-transportation-manual-annotation-v1
+status: draft_scene_guides_require_manual_configuration
+scenes:
+  - bellevue_116th_ne12th
+  - bellevue_150th_newport
+  - bellevue_150th_eastgate
+  - bellevue_150th_se38th
+  - bellevue_ne8th
+pilot:
+  split: target_estimation
+  trajectories_per_scene: 100
+  total_trajectories: 500
+  ordering: deterministic_recording_round_robin_with_temporal_coverage
+  use: protocol_development_and_annotator_training_only
+primary_cohort:
+  split: independent_test
+  trajectories: 27393
+  annotators: [annotator_A, annotator_B]
+  access_gate: annotation_protocol_v1_must_be_frozen_and_checksum_valid
+blinding_policy:
+  allowed:
+    - source full camera-coordinate trajectory polyline
+    - source camera frame and optional video clip
+    - direction markers and frame metadata
+    - frozen manual scene guide
+    - annotation progress
+  forbidden:
+    - homography-derived target
+    - automatic endpoint or OD group
+    - cluster ID, color, method, or selected parameters
+    - EMAS_HG, target error, or model-selection metric
+    - pseudo-reference label
+    - other annotator, consensus, or adjudicated label
+    - class frequency or remaining class distribution
+    - automatic suggested label
+allowed_values:
+  maneuver_type: [straight, left, right, u_turn, other, unknown]
+  validity: [valid, ambiguous, unusable]
+  confidence: [high, medium, low]
+manual_maneuver_id_rule: "<scene_id>:<entry_approach>><exit_approach>"
+rare_movement_policy: derived_from_consensus_frequency_only
+hidden_repeats:
+  enabled: false
+  reason: additional_workload_requires_explicit_approval

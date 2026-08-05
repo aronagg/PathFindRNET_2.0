@@ -1,0 +1,16 @@
+{
+  "all_renderable": true,
+  "frame_range_mismatch": 1237,
+  "frame_range_not_covered": 0,
+  "full_polyline_missing": 0,
+  "nonfinite": 0,
+  "scene_counts": {
+    "bellevue_116th_ne12th": 964,
+    "bellevue_150th_eastgate": 10755,
+    "bellevue_150th_newport": 3924,
+    "bellevue_150th_se38th": 3713,
+    "bellevue_ne8th": 8037
+  },
+  "total": 27393,
+  "video_missing": 0
+}

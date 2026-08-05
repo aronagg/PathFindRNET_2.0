@@ -1,0 +1,10 @@
+scene_id: bellevue_150th_se38th
+status: draft_manual_configuration_required
+representative_frame: protocol/scene_guides/bellevue_150th_se38th_representative_frame.png
+representative_recording_id: Bellevue_150th_SE38th__2017-09-10_18-08-24
+representative_frame_number: 300
+approaches: []
+valid_entry_approaches: []
+valid_exit_approaches: []
+maneuver_type_mapping: []
+ambiguity_notes: '[MANUAL INPUT REQUIRED]'
