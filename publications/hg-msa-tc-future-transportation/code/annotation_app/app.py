@@ -23,6 +23,7 @@ if __package__ in {None, ""}:
     sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from agreement import agreement_analysis, initialize_adjudication_database, save_adjudication  # noqa: E402
+from approach_picker import approach_picker  # noqa: E402
 from models import (
     CONFIDENCE_VALUES,
     MANEUVER_TYPES,
@@ -446,7 +447,7 @@ def protocol_designer_mode() -> None:
     )
     path = ANNOTATIONS / "protocol" / "scene_guides" / f"{scene}.yaml"
     guide = load_yaml(path)
-    st.image(ANNOTATIONS / guide["representative_frame"], width="stretch")
+    frame_path = ANNOTATIONS / guide["representative_frame"]
     approach_rows = []
     for item in guide.get("approaches", []):
         label = item.get("label_position_normalized", {})
@@ -459,13 +460,149 @@ def protocol_designer_mode() -> None:
                 "label_y": label.get("y", 0.5),
                 "arrow_x": arrow.get("x", 0.5),
                 "arrow_y": arrow.get("y", 0.5),
+                "region_x_min": item.get("region_normalized", {}).get("x_min"),
+                "region_y_min": item.get("region_normalized", {}).get("y_min"),
+                "region_x_max": item.get("region_normalized", {}).get("x_max"),
+                "region_y_max": item.get("region_normalized", {}).get("y_max"),
+                "region_role": item.get("region_role", "both"),
             }
         )
-    approaches = pd.DataFrame(
-        approach_rows,
-        columns=["id", "human_readable_name", "label_x", "label_y", "arrow_x", "arrow_y"],
+    draft_key = f"scene_guide_rows::{scene}"
+    version_key = f"scene_guide_table_version::{scene}"
+    if draft_key not in st.session_state:
+        st.session_state[draft_key] = approach_rows
+    if version_key not in st.session_state:
+        st.session_state[version_key] = 0
+    st.subheader("Manual image placement")
+    picker_columns = st.columns([2, 2, 2])
+    with picker_columns[0]:
+        picker_id = st.text_input("Approach ID", key=f"picker_id::{scene}").strip()
+    with picker_columns[1]:
+        picker_mode_label = st.segmented_control(
+            "Geometry",
+            ["Point", "Rectangle"],
+            default="Rectangle",
+            key=f"picker_mode::{scene}",
+        )
+    with picker_columns[2]:
+        picker_role = st.selectbox(
+            "Region role", ["entry", "exit", "both"], key=f"picker_role::{scene}"
+        )
+    existing_shapes = []
+    for row in st.session_state[draft_key]:
+        raw_id = row.get("id")
+        if raw_id is None or pd.isna(raw_id) or not str(raw_id).strip():
+            continue
+        raw_role = row.get("region_role")
+        region_role = raw_role if raw_role in {"entry", "exit", "both"} else "both"
+        region_fields = ["region_x_min", "region_y_min", "region_x_max", "region_y_max"]
+        if all(pd.notna(row.get(field)) for field in region_fields):
+            existing_shapes.append(
+                {
+                    "type": "rectangle",
+                    "approach_id": str(row["id"]),
+                    "region_role": region_role,
+                    "x_min": float(row["region_x_min"]),
+                    "y_min": float(row["region_y_min"]),
+                    "x_max": float(row["region_x_max"]),
+                    "y_max": float(row["region_y_max"]),
+                }
+            )
+        else:
+            point_x = row.get("arrow_x")
+            point_y = row.get("arrow_y")
+            if pd.isna(point_x) or pd.isna(point_y):
+                continue
+            existing_shapes.append(
+                {
+                    "type": "point",
+                    "approach_id": str(row["id"]),
+                    "region_role": region_role,
+                    "x": float(point_x),
+                    "y": float(point_y),
+                }
+            )
+    selection = approach_picker(
+        frame_path,
+        "rectangle" if picker_mode_label == "Rectangle" else "point",
+        picker_id,
+        picker_role,
+        existing_shapes,
+        key=f"approach_picker::{scene}",
     )
-    edited = st.data_editor(approaches, num_rows="dynamic", width="stretch")
+    selection_nonce_key = f"approach_picker_nonce::{scene}"
+    if selection and selection.get("nonce") != st.session_state.get(selection_nonce_key):
+        st.session_state[selection_nonce_key] = selection["nonce"]
+        selected_id = str(selection.get("approach_id", "")).strip()
+        if not selected_id:
+            st.warning("Enter one approach ID before placing a point or region.")
+        else:
+            rows = list(st.session_state[draft_key])
+            row = next(
+                (item for item in rows if str(item.get("id", "")).strip() == selected_id), None
+            )
+            if row is None:
+                row = {"id": selected_id, "human_readable_name": ""}
+                rows.append(row)
+            if selection["type"] == "rectangle":
+                center_x = (float(selection["x_min"]) + float(selection["x_max"])) / 2
+                center_y = (float(selection["y_min"]) + float(selection["y_max"])) / 2
+                row.update(
+                    {
+                        "label_x": center_x,
+                        "label_y": center_y,
+                        "arrow_x": center_x,
+                        "arrow_y": center_y,
+                        "region_x_min": float(selection["x_min"]),
+                        "region_y_min": float(selection["y_min"]),
+                        "region_x_max": float(selection["x_max"]),
+                        "region_y_max": float(selection["y_max"]),
+                        "region_role": selection.get("region_role", "both"),
+                    }
+                )
+            else:
+                row.update(
+                    {
+                        "label_x": float(selection["x"]),
+                        "label_y": float(selection["y"]),
+                        "arrow_x": float(selection["x"]),
+                        "arrow_y": float(selection["y"]),
+                        "region_x_min": None,
+                        "region_y_min": None,
+                        "region_x_max": None,
+                        "region_y_max": None,
+                        "region_role": selection.get("region_role", "both"),
+                    }
+                )
+            st.session_state[draft_key] = rows
+            st.session_state[version_key] += 1
+            st.rerun()
+    st.caption(
+        "These are manual visual guides only. They do not assign trajectories or infer maneuver labels."
+    )
+    approaches = pd.DataFrame(
+        st.session_state[draft_key],
+        columns=[
+            "id",
+            "human_readable_name",
+            "label_x",
+            "label_y",
+            "arrow_x",
+            "arrow_y",
+            "region_x_min",
+            "region_y_min",
+            "region_x_max",
+            "region_y_max",
+            "region_role",
+        ],
+    )
+    edited = st.data_editor(
+        approaches,
+        num_rows="dynamic",
+        width="stretch",
+        key=f"approach_table::{scene}::{st.session_state[version_key]}",
+    )
+    st.session_state[draft_key] = edited.to_dict(orient="records")
     entries = st.text_input(
         "Valid entry IDs (comma separated)", ",".join(guide.get("valid_entry_approaches", []))
     )
@@ -511,8 +648,29 @@ def protocol_designer_mode() -> None:
                 st.error(str(exc))
                 return
         write_yaml(path, candidate)
-        render_scene_guide_from_yaml(path, ANNOTATIONS)
+        preview_path = render_scene_guide_from_yaml(path, ANNOTATIONS)
+        st.session_state[draft_key] = [
+            {
+                "id": row["id"],
+                "human_readable_name": row.get("human_readable_name", ""),
+                "label_x": row["label_position_normalized"]["x"],
+                "label_y": row["label_position_normalized"]["y"],
+                "arrow_x": row["arrow_end_normalized"]["x"],
+                "arrow_y": row["arrow_end_normalized"]["y"],
+                "region_x_min": row.get("region_normalized", {}).get("x_min"),
+                "region_y_min": row.get("region_normalized", {}).get("y_min"),
+                "region_x_max": row.get("region_normalized", {}).get("x_max"),
+                "region_y_max": row.get("region_normalized", {}).get("y_max"),
+                "region_role": row.get("region_role", "both"),
+            }
+            for row in rows
+        ]
         st.success("Draft guide saved. Freeze separately after all five guides pass manual review.")
+        st.image(preview_path, caption="Saved scene-guide overlay", width="stretch")
+    else:
+        preview_path = path.with_name(f"{scene}_guide.png")
+        if preview_path.exists():
+            st.image(preview_path, caption="Last saved scene-guide overlay", width="stretch")
     st.divider()
     freeze_confirmed = st.checkbox(
         "Freeze all five manually reviewed scene guides as annotation protocol v1"

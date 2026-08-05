@@ -205,6 +205,80 @@ def test_scene_guide_editor_skips_blank_rows_and_normalizes_values() -> None:
     ]
 
 
+def test_scene_guide_editor_normalizes_manual_region() -> None:
+    rows = protocol.normalize_approach_rows(
+        [
+            {
+                "id": "A",
+                "human_readable_name": "North entry",
+                "label_x": 0.2,
+                "label_y": 0.3,
+                "arrow_x": 0.2,
+                "arrow_y": 0.3,
+                "region_x_min": 0.1,
+                "region_y_min": 0.2,
+                "region_x_max": 0.3,
+                "region_y_max": 0.4,
+                "region_role": "entry",
+            }
+        ]
+    )
+    assert rows[0]["region_normalized"] == {
+        "x_min": 0.1,
+        "y_min": 0.2,
+        "x_max": 0.3,
+        "y_max": 0.4,
+    }
+    assert rows[0]["region_role"] == "entry"
+
+
+def test_scene_guide_editor_rejects_incomplete_or_inverted_region() -> None:
+    base = {
+        "id": "A",
+        "human_readable_name": "",
+        "label_x": 0.2,
+        "label_y": 0.3,
+        "arrow_x": 0.2,
+        "arrow_y": 0.3,
+        "region_x_min": 0.4,
+        "region_y_min": 0.2,
+        "region_x_max": 0.3,
+        "region_y_max": 0.5,
+        "region_role": "entry",
+    }
+    with pytest.raises(ValueError, match="positive area"):
+        protocol.normalize_approach_rows([base])
+    incomplete = dict(base, region_x_min=0.1, region_x_max=None)
+    with pytest.raises(ValueError, match="all four region coordinates"):
+        protocol.normalize_approach_rows([incomplete])
+
+
+def test_scene_guide_renderer_draws_manual_point_and_region(tmp_path: Path) -> None:
+    background = np.full((240, 320, 3), 230, dtype=np.uint8)
+    guide = {
+        "status": "draft_manual_configuration_required",
+        "approaches": [
+            {
+                "id": "A",
+                "label_position_normalized": {"x": 0.25, "y": 0.3},
+                "arrow_end_normalized": {"x": 0.25, "y": 0.3},
+                "region_normalized": {
+                    "x_min": 0.1,
+                    "y_min": 0.2,
+                    "x_max": 0.4,
+                    "y_max": 0.5,
+                },
+                "region_role": "entry",
+            }
+        ],
+    }
+    output = rendering.render_scene_guide(background, guide, tmp_path / "guide.png")
+    rendered = cv2.imread(str(output))
+    assert output.stat().st_size > 0
+    assert rendered is not None
+    assert rendered.std() > 0
+
+
 @pytest.mark.parametrize(
     ("field", "value", "message"),
     [

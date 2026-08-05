@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root { color-scheme: light; font-family: Arial, sans-serif; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #fff; overflow: hidden; }
+    #toolbar { display: flex; align-items: center; gap: 6px; height: 38px; padding: 2px 0 6px; }
+    button {
+      width: 32px; height: 30px; border: 1px solid #b8c0c8; border-radius: 4px;
+      background: #fff; color: #17202a; font-size: 18px; cursor: pointer;
+    }
+    button:hover { background: #eef2f5; }
+    #mode { margin-left: 4px; color: #3b4652; font-size: 13px; }
+    #viewport { width: 100%; max-height: 720px; overflow: auto; border: 1px solid #c8d0d8; }
+    canvas { display: block; width: 100%; height: auto; cursor: crosshair; touch-action: none; }
+  </style>
+</head>
+<body>
+  <div id="toolbar">
+    <button id="zoom-in" type="button" title="Zoom in">+</button>
+    <button id="zoom-out" type="button" title="Zoom out">&minus;</button>
+    <button id="reset" type="button" title="Reset zoom">&#8634;</button>
+    <span id="mode"></span>
+  </div>
+  <div id="viewport"><canvas id="canvas"></canvas></div>
+  <script>
+    const canvas = document.getElementById("canvas");
+    const ctx = canvas.getContext("2d");
+    const viewport = document.getElementById("viewport");
+    const modeLabel = document.getElementById("mode");
+    const image = new Image();
+    let args = {};
+    let scale = 1;
+    let dragStart = null;
+    let dragCurrent = null;
+    let transient = null;
+
+    function send(type, payload = {}) {
+      window.parent.postMessage({ isStreamlitMessage: true, type, ...payload }, "*");
+    }
+
+    function setHeight() {
+      const height = Math.min(viewport.scrollHeight, 720) + 42;
+      send("streamlit:setFrameHeight", { height });
+    }
+
+    function roleColor(role) {
+      if (role === "entry") return "#00a66a";
+      if (role === "exit") return "#d1495b";
+      return "#f2b134";
+    }
+
+    function canvasPoint(event) {
+      const rect = canvas.getBoundingClientRect();
+      return {
+        x: (event.clientX - rect.left) * canvas.width / rect.width,
+        y: (event.clientY - rect.top) * canvas.height / rect.height,
+      };
+    }
+
+    function normalized(point) {
+      return {
+        x: Math.max(0, Math.min(1, point.x / canvas.width)),
+        y: Math.max(0, Math.min(1, point.y / canvas.height)),
+      };
+    }
+
+    function drawPoint(shape, active = false) {
+      const x = shape.x * canvas.width;
+      const y = shape.y * canvas.height;
+      const color = roleColor(shape.region_role);
+      ctx.beginPath();
+      ctx.arc(x, y, active ? 10 : 8, 0, Math.PI * 2);
+      ctx.fillStyle = color;
+      ctx.globalAlpha = active ? 0.95 : 0.8;
+      ctx.fill();
+      ctx.globalAlpha = 1;
+      ctx.lineWidth = 2;
+      ctx.strokeStyle = "#ffffff";
+      ctx.stroke();
+      drawLabel(shape.approach_id, x + 11, y - 11, color);
+    }
+
+    function drawRectangle(shape, active = false) {
+      const x = shape.x_min * canvas.width;
+      const y = shape.y_min * canvas.height;
+      const width = (shape.x_max - shape.x_min) * canvas.width;
+      const height = (shape.y_max - shape.y_min) * canvas.height;
+      const color = roleColor(shape.region_role);
+      ctx.globalAlpha = active ? 0.25 : 0.16;
+      ctx.fillStyle = color;
+      ctx.fillRect(x, y, width, height);
+      ctx.globalAlpha = 1;
+      ctx.strokeStyle = color;
+      ctx.lineWidth = active ? 4 : 3;
+      ctx.strokeRect(x, y, width, height);
+      drawLabel(shape.approach_id, x + 6, y + 20, color);
+    }
+
+    function drawLabel(text, x, y, color) {
+      if (!text) return;
+      ctx.font = "bold 16px Arial";
+      const width = ctx.measureText(text).width + 10;
+      ctx.fillStyle = "rgba(17, 17, 17, 0.86)";
+      ctx.fillRect(x - 4, y - 17, width, 23);
+      ctx.fillStyle = color;
+      ctx.fillText(text, x + 1, y);
+    }
+
+    function draw() {
+      if (!image.complete || !canvas.width) return;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+      for (const shape of args.existing_shapes || []) {
+        if (shape.type === "rectangle") drawRectangle(shape);
+        else drawPoint(shape);
+      }
+      if (transient) {
+        if (transient.type === "rectangle") drawRectangle(transient, true);
+        else drawPoint(transient, true);
+      }
+      canvas.style.width = `${scale * 100}%`;
+      setHeight();
+    }
+
+    function emit(shape) {
+      transient = shape;
+      draw();
+      send("streamlit:setComponentValue", {
+        value: { ...shape, nonce: `${Date.now()}-${Math.random()}` },
+      });
+    }
+
+    canvas.addEventListener("pointerdown", event => {
+      if (event.button !== 0) return;
+      canvas.setPointerCapture(event.pointerId);
+      dragStart = canvasPoint(event);
+      dragCurrent = dragStart;
+    });
+
+    canvas.addEventListener("pointermove", event => {
+      if (!dragStart || args.mode !== "rectangle") return;
+      dragCurrent = canvasPoint(event);
+      const a = normalized(dragStart);
+      const b = normalized(dragCurrent);
+      transient = {
+        type: "rectangle",
+        approach_id: args.approach_id || "",
+        region_role: args.region_role || "both",
+        x_min: Math.min(a.x, b.x), y_min: Math.min(a.y, b.y),
+        x_max: Math.max(a.x, b.x), y_max: Math.max(a.y, b.y),
+      };
+      draw();
+    });
+
+    canvas.addEventListener("pointerup", event => {
+      if (!dragStart) return;
+      const end = canvasPoint(event);
+      if (args.mode === "rectangle") {
+        const a = normalized(dragStart);
+        const b = normalized(end);
+        if (Math.abs(end.x - dragStart.x) >= 4 && Math.abs(end.y - dragStart.y) >= 4) {
+          emit({
+            type: "rectangle",
+            approach_id: args.approach_id || "",
+            region_role: args.region_role || "both",
+            x_min: Math.min(a.x, b.x), y_min: Math.min(a.y, b.y),
+            x_max: Math.max(a.x, b.x), y_max: Math.max(a.y, b.y),
+          });
+        }
+      } else {
+        const point = normalized(end);
+        emit({
+          type: "point",
+          approach_id: args.approach_id || "",
+          region_role: args.region_role || "both",
+          x: point.x, y: point.y,
+        });
+      }
+      dragStart = null;
+      dragCurrent = null;
+    });
+
+    document.getElementById("zoom-in").addEventListener("click", () => {
+      scale = Math.min(4, scale * 1.35);
+      draw();
+    });
+    document.getElementById("zoom-out").addEventListener("click", () => {
+      scale = Math.max(1, scale / 1.35);
+      draw();
+    });
+    document.getElementById("reset").addEventListener("click", () => {
+      scale = 1;
+      viewport.scrollTo(0, 0);
+      draw();
+    });
+
+    window.addEventListener("message", event => {
+      if (event.data.type !== "streamlit:render") return;
+      const previousSource = args.image_data_url;
+      args = event.data.args || {};
+      modeLabel.textContent = args.mode === "rectangle" ? "Rectangle region" : "Point marker";
+      if (args.image_data_url && args.image_data_url !== previousSource) {
+        image.src = args.image_data_url;
+      } else {
+        draw();
+      }
+    });
+
+    image.addEventListener("load", () => {
+      const maximumWidth = 1600;
+      const factor = Math.min(1, maximumWidth / image.naturalWidth);
+      canvas.width = Math.max(1, Math.round(image.naturalWidth * factor));
+      canvas.height = Math.max(1, Math.round(image.naturalHeight * factor));
+      transient = null;
+      draw();
+    });
+    window.addEventListener("resize", setHeight);
+    send("streamlit:componentReady", { apiVersion: 1 });
+    send("streamlit:setFrameHeight", { height: 420 });
+  </script>
+</body>
+</html>

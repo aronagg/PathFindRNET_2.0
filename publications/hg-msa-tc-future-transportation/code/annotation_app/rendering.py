@@ -9,6 +9,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import yaml
+from matplotlib.patches import Rectangle
 
 
 RENDERING_VERSION = "camera-polyline-renderer-v1"
@@ -171,6 +172,30 @@ def render_scene_guide(
         end = approach["arrow_end_normalized"]
         start_xy = (float(start["x"]) * width, float(start["y"]) * height)
         end_xy = (float(end["x"]) * width, float(end["y"]) * height)
+        region = approach.get("region_normalized")
+        role = approach.get("region_role", "both")
+        color = {"entry": "#00a66a", "exit": "#d1495b", "both": "#f2b134"}.get(role, "#f2b134")
+        if region:
+            region_x = float(region["x_min"]) * width
+            region_y = float(region["y_min"]) * height
+            region_width = (float(region["x_max"]) - float(region["x_min"])) * width
+            region_height = (float(region["y_max"]) - float(region["y_min"])) * height
+            ax.add_patch(
+                Rectangle(
+                    (region_x, region_y),
+                    region_width,
+                    region_height,
+                    linewidth=3,
+                    edgecolor=color,
+                    facecolor=color,
+                    alpha=0.2,
+                )
+            )
+        if np.hypot(start_xy[0] - end_xy[0], start_xy[1] - end_xy[1]) < 2:
+            ax.scatter(*end_xy, s=130, color=color, edgecolor="white", linewidth=1.5)
+            arrow_properties = None
+        else:
+            arrow_properties = {"arrowstyle": "->", "color": color, "lw": 2.5}
         ax.annotate(
             str(approach["id"]),
             xy=end_xy,
@@ -179,7 +204,7 @@ def render_scene_guide(
             fontsize=15,
             weight="bold",
             bbox={"boxstyle": "square,pad=0.25", "facecolor": "#111111", "alpha": 0.85},
-            arrowprops={"arrowstyle": "->", "color": "#fbbc04", "lw": 2.5},
+            arrowprops=arrow_properties,
         )
     if guide.get("status") != "ready_for_freeze":
         ax.text(

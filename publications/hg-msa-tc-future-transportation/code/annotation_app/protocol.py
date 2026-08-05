@@ -22,6 +22,8 @@ except ImportError:  # Direct script execution.
 
 ANNOTATION_PROTOCOL_VERSION = "future-transportation-manual-annotation-v1"
 APPROACH_COORDINATE_FIELDS = ("label_x", "label_y", "arrow_x", "arrow_y")
+REGION_COORDINATE_FIELDS = ("region_x_min", "region_y_min", "region_x_max", "region_y_max")
+REGION_ROLES = {"entry", "exit", "both"}
 
 
 def utc_timestamp() -> str:
@@ -72,6 +74,7 @@ def normalize_approach_rows(records: list[dict[str, Any]]) -> list[dict[str, Any
             item.get("id"),
             item.get("human_readable_name"),
             *(item.get(field) for field in APPROACH_COORDINATE_FIELDS),
+            *(item.get(field) for field in REGION_COORDINATE_FIELDS),
         )
         if all(_blank(value) for value in relevant):
             continue
@@ -93,20 +96,45 @@ def normalize_approach_rows(records: list[dict[str, Any]]) -> list[dict[str, Any
                 raise ValueError(f"Approach row {row_number}: {field} must be between 0 and 1.")
             coordinates[field] = coordinate
         name = item.get("human_readable_name")
-        normalized.append(
-            {
-                "id": approach_id,
-                "human_readable_name": "" if _blank(name) else str(name).strip(),
-                "label_position_normalized": {
-                    "x": coordinates["label_x"],
-                    "y": coordinates["label_y"],
-                },
-                "arrow_end_normalized": {
-                    "x": coordinates["arrow_x"],
-                    "y": coordinates["arrow_y"],
-                },
-            }
-        )
+        normalized_row = {
+            "id": approach_id,
+            "human_readable_name": "" if _blank(name) else str(name).strip(),
+            "label_position_normalized": {
+                "x": coordinates["label_x"],
+                "y": coordinates["label_y"],
+            },
+            "arrow_end_normalized": {
+                "x": coordinates["arrow_x"],
+                "y": coordinates["arrow_y"],
+            },
+        }
+        region_values = [item.get(field) for field in REGION_COORDINATE_FIELDS]
+        if any(not _blank(value) for value in region_values):
+            if any(_blank(value) for value in region_values):
+                raise ValueError(
+                    f"Approach row {row_number}: all four region coordinates are required."
+                )
+            region = {}
+            for field, value in zip(REGION_COORDINATE_FIELDS, region_values, strict=True):
+                try:
+                    coordinate = float(value)
+                except (TypeError, ValueError) as exc:
+                    raise ValueError(
+                        f"Approach row {row_number}: {field} must be numeric."
+                    ) from exc
+                if not math.isfinite(coordinate) or not 0.0 <= coordinate <= 1.0:
+                    raise ValueError(f"Approach row {row_number}: {field} must be between 0 and 1.")
+                region[field.removeprefix("region_")] = coordinate
+            if region["x_min"] >= region["x_max"] or region["y_min"] >= region["y_max"]:
+                raise ValueError(f"Approach row {row_number}: region must have positive area.")
+            role = "both" if _blank(item.get("region_role")) else str(item["region_role"]).strip()
+            if role not in REGION_ROLES:
+                raise ValueError(
+                    f"Approach row {row_number}: region_role must be entry, exit, or both."
+                )
+            normalized_row["region_normalized"] = region
+            normalized_row["region_role"] = role
+        normalized.append(normalized_row)
         approach_ids.add(approach_id)
     return normalized
 
@@ -146,6 +174,21 @@ def validate_scene_guide_definition(guide: dict[str, Any], scene: str) -> None:
         for point in (position, arrow):
             if not (0 <= float(point.get("x", -1)) <= 1 and 0 <= float(point.get("y", -1)) <= 1):
                 raise ValueError(f"Approach label/arrow position outside image: {scene}")
+        region = approach.get("region_normalized")
+        if region is not None:
+            try:
+                x_min = float(region["x_min"])
+                y_min = float(region["y_min"])
+                x_max = float(region["x_max"])
+                y_max = float(region["y_max"])
+            except (KeyError, TypeError, ValueError) as exc:
+                raise ValueError(f"Invalid approach region: {scene}") from exc
+            if not (
+                0 <= x_min < x_max <= 1
+                and 0 <= y_min < y_max <= 1
+                and approach.get("region_role", "both") in REGION_ROLES
+            ):
+                raise ValueError(f"Invalid approach region: {scene}")
     entries = set(guide.get("valid_entry_approaches", []))
     exits = set(guide.get("valid_exit_approaches", []))
     if (
