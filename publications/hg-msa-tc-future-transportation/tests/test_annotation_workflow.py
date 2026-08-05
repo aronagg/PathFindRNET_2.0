@@ -229,6 +229,30 @@ def test_scene_guide_editor_reports_partial_row_errors(
         protocol.normalize_approach_rows([row])
 
 
+def test_ready_scene_guide_rejects_unknown_entry_and_exit_ids() -> None:
+    guide = {
+        "scene_id": models.SCENES[0],
+        "status": "ready_for_freeze",
+        "approaches": [
+            {
+                "id": "A",
+                "label_position_normalized": {"x": 0.1, "y": 0.2},
+                "arrow_end_normalized": {"x": 0.3, "y": 0.4},
+            },
+            {
+                "id": "B",
+                "label_position_normalized": {"x": 0.5, "y": 0.6},
+                "arrow_end_normalized": {"x": 0.7, "y": 0.8},
+            },
+        ],
+        "valid_entry_approaches": ["A", "C"],
+        "valid_exit_approaches": ["B"],
+        "maneuver_type_mapping": [],
+    }
+    with pytest.raises(ValueError, match="Invalid entry/exit approach set"):
+        protocol.validate_scene_guide_definition(guide, models.SCENES[0])
+
+
 def _queue_record(source_path: Path, annotator: str = "annotator_A") -> dict:
     return {
         "annotator_id": annotator,

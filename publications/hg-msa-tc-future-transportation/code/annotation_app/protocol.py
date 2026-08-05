@@ -129,9 +129,9 @@ def verify_scientific_protocol_frozen(frozen_manifest_path: Path) -> dict[str, A
     }
 
 
-def validate_scene_guide(guide: dict[str, Any], scene: str, guide_path: Path) -> None:
+def validate_scene_guide_definition(guide: dict[str, Any], scene: str) -> None:
     if guide.get("scene_id") != scene:
-        raise ValueError(f"Guide scene mismatch in {guide_path}")
+        raise ValueError(f"Guide scene mismatch: {scene}")
     if guide.get("status") != "ready_for_freeze":
         raise ValueError(f"Scene guide is not ready for freeze: {scene}")
     approaches = guide.get("approaches", [])
@@ -161,6 +161,10 @@ def validate_scene_guide(guide: dict[str, Any], scene: str, guide_path: Path) ->
             raise ValueError(f"Maneuver mapping uses an unknown approach: {scene}")
         if mapping.get("maneuver_type") not in MANEUVER_TYPES:
             raise ValueError(f"Invalid coarse maneuver type in guide: {scene}")
+
+
+def validate_scene_guide(guide: dict[str, Any], scene: str, guide_path: Path) -> None:
+    validate_scene_guide_definition(guide, scene)
     frame_path = guide_path.parent.parent.parent / str(guide["representative_frame"])
     image_path = guide_path.with_name(f"{scene}_guide.png")
     if not frame_path.exists() or not image_path.exists():

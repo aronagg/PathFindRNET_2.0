@@ -36,6 +36,7 @@ from protocol import (  # noqa: E402
     load_yaml,
     normalize_approach_rows,
     require_frozen_protocol,
+    validate_scene_guide_definition,
     write_yaml,
 )
 from rendering import (
@@ -488,7 +489,8 @@ def protocol_designer_mode() -> None:
         except (ValueError, yaml.YAMLError) as exc:
             st.error(str(exc))
             return
-        guide.update(
+        candidate = dict(guide)
+        candidate.update(
             {
                 "status": "ready_for_freeze" if ready else "draft_manual_configuration_required",
                 "approaches": rows,
@@ -502,7 +504,13 @@ def protocol_designer_mode() -> None:
                 "ambiguity_notes": notes,
             }
         )
-        write_yaml(path, guide)
+        if ready:
+            try:
+                validate_scene_guide_definition(candidate, scene)
+            except ValueError as exc:
+                st.error(str(exc))
+                return
+        write_yaml(path, candidate)
         render_scene_guide_from_yaml(path, ANNOTATIONS)
         st.success("Draft guide saved. Freeze separately after all five guides pass manual review.")
     st.divider()
