@@ -167,3 +167,32 @@ scientific model-selection protocol was frozen before manual labels are collecte
 - real independent-test clustering or evaluation;
 - manuscript or final-claim regeneration;
 - split-fitted preprocessing sensitivity analysis.
+
+## Exhaustive Polygon-Rule Reference Labels
+
+The five completed scene guides are frozen separately as
+`annotations/protocol/polygon_reference_protocol_v1.yaml`. The reference-label
+generator applies their manually specified entry/exit polygons and legal movement
+mappings to every canonical trajectory. It uses the first and last finite point in
+the canonical interval and Shapely `covers`; no nearest-polygon fallback is used.
+
+The result is an **exhaustive human-defined polygon-rule-based reference**, not a
+claim of fully independent per-trajectory manual ground truth. All 67,029 rows are
+retained, including unassigned and ambiguous cases. The future scientific evaluator
+may use only valid rows from `independent_test_reference_labels.csv`; generation of
+labels for the two development splits is diagnostic and does not reopen frozen model
+selection.
+
+Run the stages from the repository root:
+
+```powershell
+.\.venv\Scripts\python.exe publications\hg-msa-tc-future-transportation\code\reference_labels\cli.py freeze
+.\.venv\Scripts\python.exe publications\hg-msa-tc-future-transportation\code\reference_labels\cli.py generate
+.\.venv\Scripts\python.exe publications\hg-msa-tc-future-transportation\code\reference_labels\cli.py inventories
+.\.venv\Scripts\python.exe publications\hg-msa-tc-future-transportation\code\reference_labels\cli.py sensitivity
+.\.venv\Scripts\python.exe publications\hg-msa-tc-future-transportation\code\reference_labels\cli.py figures
+```
+
+`cli.py all` runs generation and all downstream summaries after the protocol has
+already been frozen. See `docs/polygon_reference_generation_protocol.md` for the
+schema, status rules, scientific isolation constraints, and reproducibility details.

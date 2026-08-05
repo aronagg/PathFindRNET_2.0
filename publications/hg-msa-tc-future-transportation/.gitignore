@@ -14,6 +14,14 @@ annotations/reports/agreement/
 annotations/cache/
 annotations/preflight/independent_test_renderability.csv
 annotations/preflight/previews/
+annotations/reference_labels/polygon_rule_reference_labels_all.csv
+annotations/reference_labels/polygon_rule_reference_labels_all.parquet
+annotations/reference_labels/target_estimation_reference_labels.csv
+annotations/reference_labels/model_selection_reference_labels.csv
+annotations/reference_labels/independent_test_reference_labels.csv
+annotations/reference_labels/polygon_assignment_sensitivity.csv
+annotations/reference_labels/qa_audit_queue.csv
+annotations/reference_labels/figures/
 
 __pycache__/
 *.py[cod]

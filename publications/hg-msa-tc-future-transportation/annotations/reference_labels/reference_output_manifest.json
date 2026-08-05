@@ -1,0 +1,54 @@
+{
+  "input_files": {
+    "evaluation_split": {
+      "path": "data/splits/evaluation_split.csv",
+      "sha256": "0ec1e76f7024ecbea46b832be56ae07ab2d9b16dc57a99654d0d8390d909774f"
+    },
+    "frozen_model_selection_manifest": {
+      "path": "results/development/frozen_selection_manifest.json",
+      "sha256": "65c70bb5f3bb89434df214af1b662159d074d77a339ef54e2dd2c62bccc797db"
+    },
+    "frozen_polygon_protocol": {
+      "path": "annotations/protocol/polygon_reference_protocol_v1.yaml",
+      "sha256": "6609f29e6251d477089ad210d00ac2160ed0daea73d14c1a26e5fdfa401ede96"
+    },
+    "source_catalog": {
+      "path": "annotations/provenance/trajectory_source_catalog.csv",
+      "sha256": "c71149a4bfdc7931bed6997a32ecadf82cd6766cb833b2f9cb2ca87b9c56a780"
+    },
+    "trajectory_manifest": {
+      "path": "data/manifests/trajectory_manifest.csv",
+      "sha256": "0b26f59168f0c3996290cc1832ddd423321a5988e27fca93e78d2a02ecde7a03"
+    }
+  },
+  "label_generation_version": "polygon-rule-label-generator-v1",
+  "output_files": {
+    "independent_test_reference_labels.csv": {
+      "path": "annotations/reference_labels/independent_test_reference_labels.csv",
+      "rows": 27393,
+      "sha256": "127a52ff80af8906fdc3bb6a7436a222baedd42d8c542cfb2e234e67e43b4f5f"
+    },
+    "model_selection_reference_labels.csv": {
+      "path": "annotations/reference_labels/model_selection_reference_labels.csv",
+      "rows": 19712,
+      "sha256": "52ade6f257673392967fdc303daca72ca815a460ada37afc341f4b58414fe8da"
+    },
+    "polygon_rule_reference_labels_all.csv": {
+      "path": "annotations/reference_labels/polygon_rule_reference_labels_all.csv",
+      "rows": 67029,
+      "sha256": "6630bc1f32f9a3ac5bfe78b6312432aafa7ac0327d43251ff01b05e2a9bfbd60"
+    },
+    "polygon_rule_reference_labels_all.parquet": {
+      "path": "annotations/reference_labels/polygon_rule_reference_labels_all.parquet",
+      "rows": 67029,
+      "sha256": "63c88c91925560fc1a636b8cb165abd5d90d8ed2b63adfad293727edec32648c"
+    },
+    "target_estimation_reference_labels.csv": {
+      "path": "annotations/reference_labels/target_estimation_reference_labels.csv",
+      "rows": 19924,
+      "sha256": "c2d9f048dbc80f5856ce076496cf1707d07eb5caf8e1ab52cbf36a85b93d8f87"
+    }
+  },
+  "row_count": 67029,
+  "trajectory_id_set_sha256": "ec472a68bc8b462ea93ef1d29a923d6fb81982611b2d490eae751f1761f74d23"
+}

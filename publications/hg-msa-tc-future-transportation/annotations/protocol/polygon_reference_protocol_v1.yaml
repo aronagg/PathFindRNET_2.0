@@ -1,0 +1,1508 @@
+protocol_version: future-transportation-polygon-reference-v1
+created_at_utc: '2026-08-05T22:52:31+00:00'
+label_generation_timestamp_utc: '2026-08-05T22:52:31+00:00'
+git_commit: a86660c0b3d31ebcf356d556e4b5b2e333bfedb1
+scene_order:
+- bellevue_116th_ne12th
+- bellevue_150th_newport
+- bellevue_150th_eastgate
+- bellevue_150th_se38th
+- bellevue_ne8th
+coordinate_space: normalized_camera_image_coordinates
+endpoint_rule: first_and_last_finite_points_inside_canonical_manifest_interval
+containment_rule: shapely_polygon_covers_without_nearest_polygon_fallback
+boundary_tolerance_px: 1.0e-07
+sensitivity_polygon_buffer_px: 3.0
+scene_guide_checksums:
+  bellevue_116th_ne12th:
+    yaml_path: publications/hg-msa-tc-future-transportation/annotations/protocol/scene_guides/bellevue_116th_ne12th.yaml
+    yaml_sha256: a91fd3d10723f176e04950fd0186fab2e2066600ed45281faa67292706528e3e
+    rendered_guide_path: publications/hg-msa-tc-future-transportation/annotations/protocol/scene_guides/bellevue_116th_ne12th_guide.png
+    rendered_guide_sha256: 5314300b0ae1cb866a0b9d3d3667349bbcced353b85482dc80ec39a24eb2a8c0
+  bellevue_150th_newport:
+    yaml_path: publications/hg-msa-tc-future-transportation/annotations/protocol/scene_guides/bellevue_150th_newport.yaml
+    yaml_sha256: ba28f28b86c3d7c7cd2026e00f14f7b0babde203d8b98a1063fcd13b0ee8f8ab
+    rendered_guide_path: publications/hg-msa-tc-future-transportation/annotations/protocol/scene_guides/bellevue_150th_newport_guide.png
+    rendered_guide_sha256: 2b1142242c4fe58fc0ae30b16b45e03a8981e316fb343ffde3c62c4abd12baf8
+  bellevue_150th_eastgate:
+    yaml_path: publications/hg-msa-tc-future-transportation/annotations/protocol/scene_guides/bellevue_150th_eastgate.yaml
+    yaml_sha256: 262447386cb457abdd44eec22266158eeeda59f408076b8a3b100f785a718467
+    rendered_guide_path: publications/hg-msa-tc-future-transportation/annotations/protocol/scene_guides/bellevue_150th_eastgate_guide.png
+    rendered_guide_sha256: 9f22108acac9aa18253a2c7b4b475e68d2df9f1d86ba8a4789b686828e6400e8
+  bellevue_150th_se38th:
+    yaml_path: publications/hg-msa-tc-future-transportation/annotations/protocol/scene_guides/bellevue_150th_se38th.yaml
+    yaml_sha256: f8db5dfe3c61e77063943de09676b15f23f34ad8172ba6b776b949fae5eebf36
+    rendered_guide_path: publications/hg-msa-tc-future-transportation/annotations/protocol/scene_guides/bellevue_150th_se38th_guide.png
+    rendered_guide_sha256: 7431d460838b4845d28fcca07da87dd10e525175a9fa1a0f6036c410d151ddfc
+  bellevue_ne8th:
+    yaml_path: publications/hg-msa-tc-future-transportation/annotations/protocol/scene_guides/bellevue_ne8th.yaml
+    yaml_sha256: 9e3a658850827fe4df5dfc2d7780c24371da385d25adfca5bb3137e52beaadbc
+    rendered_guide_path: publications/hg-msa-tc-future-transportation/annotations/protocol/scene_guides/bellevue_ne8th_guide.png
+    rendered_guide_sha256: 292eab024455cd17868daed89c93ff19a07413239e8991ec4151447910039c47
+scene_guides:
+- scene_id: bellevue_116th_ne12th
+  representative_frame: protocol/scene_guides/bellevue_116th_ne12th_representative_frame.png
+  representative_recording_id: Bellevue_116th_NE12th__2017-09-10_19-08-25
+  representative_frame_number: 300
+  approaches:
+  - id: A
+    human_readable_name: ''
+    region_role: entry
+    polygon_normalized:
+    - x: 0.9997595133682274
+      y: 0.9988934436536479
+    - x: 0.7872046965624558
+      y: 0.9988934436536479
+    - x: 0.6839934927146696
+      y: 0.7639011141010487
+    - x: 0.8195925873532325
+      y: 0.47579407992354705
+    - x: 0.9028858395812703
+      y: 0.51925156552574
+    - x: 0.9997595133682274
+      y: 0.6554809747755451
+  - id: B
+    human_readable_name: ''
+    region_role: entry
+    polygon_normalized:
+    - x: 0.6955580704484368
+      y: 0.3486406961245379
+    - x: 0.7480690338095911
+      y: 0.2890878454844957
+    - x: 0.8060121657943131
+      y: 0.2182682393179589
+    - x: 0.8168765030414485
+      y: 0.1812488997309056
+    - x: 0.8177818644787098
+      y: 0.15710585217413173
+    - x: 0.8042014429197906
+      y: 0.13135326811357292
+    - x: 0.7960531899844391
+      y: 0.1104292935643689
+    - x: 0.7833781298627811
+      y: 0.0975530015340895
+    - x: 0.7661762625548169
+      y: 0.08628624600759499
+    - x: 0.7489743952468524
+      y: 0.10560068405301411
+    - x: 0.7000848776347433
+      y: 0.12169604909086337
+    - x: 0.6566275286462017
+      y: 0.14744863315142218
+    - x: 0.6276559626538407
+      y: 0.14744863315142218
+    - x: 0.6023058424105249
+      y: 0.18929658224983023
+    - x: 0.5814825293535153
+      y: 0.2118300933028192
+  - id: C
+    human_readable_name: ''
+    region_role: entry
+    polygon_normalized:
+    - x: 0.4945678313764323
+      y: 0.25850665191258204
+    - x: 0.43119253076814257
+      y: 0.28425923597314084
+    - x: 0.35423680860093365
+      y: 0.3212785755601941
+    - x: 0.33160277266940164
+      y: 0.24241128687473282
+    - x: 0.3225491582967888
+      y: 0.14101048713628248
+    - x: 0.3107794596123922
+      y: 0.05570505243568141
+    - x: 0.3279813269203565
+      y: 0.04926690642054171
+    - x: 0.34789927854010466
+      y: 0.060533661947036195
+    - x: 0.377776205969727
+      y: 0.0927243920227347
+    - x: 0.42032819352100725
+      y: 0.14422956014385233
+    - x: 0.46469090394681
+      y: 0.1989538012725398
+  - id: D
+    human_readable_name: ''
+    region_role: entry
+    polygon_normalized:
+    - x: 0.39407271184043
+      y: 0.496718054472751
+    - x: 0.22114867732352525
+      y: 0.5643185876317179
+    - x: 0.1052624133540812
+      y: 0.6351381937982546
+    - x: 0.00024048663177252794
+      y: 0.6963005809420818
+    - x: 0.0011458480690338096
+      y: 0.9972839071498629
+    - x: 0.4864195784410808
+      y: 0.995674370646078
+    - x: 0.5009053614372613
+      y: 0.9264643009833263
+  - id: E
+    human_readable_name: ''
+    region_role: exit
+    polygon_normalized:
+    - x: 0.7859711416041874
+      y: 0.995674370646078
+    - x: 0.6556401188286886
+      y: 0.6930815079345121
+    - x: 0.4891356627528646
+      y: 0.8572542313205744
+    - x: 0.47827132550572926
+      y: 0.9972839071498629
+  - id: F
+    human_readable_name: ''
+    region_role: exit
+    polygon_normalized:
+    - x: 0.6955580704484368
+      y: 0.35185976913210776
+    - x: 0.8105389729806196
+      y: 0.4918894449613963
+    - x: 0.8295515631631065
+      y: 0.41624122928350477
+    - x: 0.8539963219691611
+      y: 0.29874506450720517
+    - x: 0.8594284905927289
+      y: 0.2263159218368835
+    - x: 0.8476587919083322
+      y: 0.1748107537157659
+    - x: 0.8286462017258452
+      y: 0.13296280461735785
+    - x: 0.8105389729806196
+      y: 0.1039911475492292
+    - x: 0.7987692742962229
+      y: 0.10238161104544424
+    - x: 0.8123496958551423
+      y: 0.13779141412871262
+    - x: 0.8168765030414485
+      y: 0.15871538867791665
+    - x: 0.811444334417881
+      y: 0.1860775092422604
+    - x: 0.8078228886688358
+      y: 0.22148731232552876
+  - id: G
+    human_readable_name: ''
+    region_role: exit
+    polygon_normalized:
+    - x: 0.4954731928136936
+      y: 0.25850665191258204
+    - x: 0.5914415051633894
+      y: 0.21987777582174384
+    - x: 0.5371198189277125
+      y: 0.14744863315142218
+    - x: 0.46016409676050357
+      y: 0.06214319845082111
+    - x: 0.41399066346017827
+      y: 0.039609687397832154
+    - x: 0.36691186872259157
+      y: 0.023514322359982902
+    - x: 0.3524260857264111
+      y: 0.017076176344843198
+    - x: 0.3297920497948791
+      y: 0.04765736991675678
+    - x: 0.3524260857264111
+      y: 0.06214319845082111
+    - x: 0.37958692884424955
+      y: 0.0975530015340895
+    - x: 0.42213891639552975
+      y: 0.14744863315142218
+    - x: 0.45654265101145847
+      y: 0.20378241078389456
+  - id: H
+    human_readable_name: ''
+    region_role: exit
+    polygon_normalized:
+    - x: 0.3967887961522139
+      y: 0.48545129894625655
+    - x: 0.3587636157872401
+      y: 0.3180595025526243
+    - x: 0.31621162823595983
+      y: 0.31001182003369965
+    - x: 0.19036638845664167
+      y: 0.3792218896964515
+    - x: 0.019253076814259442
+      y: 0.4725750069159772
+    - x: 0.00024048663177252794
+      y: 0.4902799084576114
+    - x: 0.0
+      y: 0.6930815079345121
+    - x: 0.11159994341491017
+      y: 0.6351381937982546
+    - x: 0.22477012307257035
+      y: 0.5578804416165782
+  valid_entry_approaches:
+  - A
+  - B
+  - C
+  - D
+  valid_exit_approaches:
+  - E
+  - F
+  - G
+  - H
+  maneuver_type_mapping:
+  - entry: A
+    exit: F
+    maneuver_type: right
+  - entry: A
+    exit: G
+    maneuver_type: straight
+  - entry: A
+    exit: H
+    maneuver_type: left
+  - entry: B
+    exit: G
+    maneuver_type: right
+  - entry: B
+    exit: H
+    maneuver_type: straight
+  - entry: B
+    exit: E
+    maneuver_type: left
+  - entry: C
+    exit: H
+    maneuver_type: right
+  - entry: C
+    exit: E
+    maneuver_type: straight
+  - entry: C
+    exit: F
+    maneuver_type: left
+  - entry: D
+    exit: E
+    maneuver_type: right
+  - entry: D
+    exit: F
+    maneuver_type: straight
+  - entry: D
+    exit: G
+    maneuver_type: left
+  ambiguity_notes: Approach IDs are direction-specific and image-relative. A-D denote entry corridors;
+    E-H denote exit corridors. Same-road entry/exit pairs are A/E, B/F, C/G, and D/H. Determine entry
+    and exit from the full direction of travel, not solely from the first or last sampled point or polygon
+    membership. B/F and C/G are spatially close under perspective; use temporal direction and source video
+    frames when needed. If a trajectory starts or ends inside the intersection, is too short, or cannot
+    be assigned to a unique approach, select UNKNOWN and mark it ambiguous. Mark it unusable when travel
+    direction cannot be recovered. Treat adjacent lanes within the same corridor as one approach. U-turns
+    are not included in the current mapping; flag a clear same-road reversal for protocol review instead
+    of forcing it into left, right, or straight.
+- scene_id: bellevue_150th_newport
+  representative_frame: protocol/scene_guides/bellevue_150th_newport_representative_frame.png
+  representative_recording_id: Bellevue_150th_Newport__2017-09-10_18-08-24
+  representative_frame_number: 300
+  approaches:
+  - id: A
+    human_readable_name: ''
+    region_role: entry
+    polygon_normalized:
+    - x: 0.4468079111962585
+      y: 0.9706736789381417
+    - x: 0.43418605961570966
+      y: 0.5619584272476834
+    - x: 0.4477094720234406
+      y: 0.47861257200100177
+    - x: 0.5072124866174564
+      y: 0.4321312296518908
+    - x: 0.5865498394094777
+      y: 0.35199098422238917
+    - x: 0.6694934355102271
+      y: 0.32153769095917856
+    - x: 0.7010480644615991
+      y: 0.3295517155021287
+    - x: 0.7677635656730715
+      y: 0.345579764588029
+    - x: 0.8290697019214516
+      y: 0.441748059103431
+    - x: 0.8903758381698316
+      y: 0.5811920861507638
+    - x: 0.943567926973573
+      y: 0.7382669671925871
+    - x: 0.9760241167521271
+      y: 0.8905334335086402
+    - x: 0.9868428466783119
+      y: 0.9658652642123717
+  - id: B
+    human_readable_name: ''
+    region_role: entry
+    polygon_normalized:
+    - x: 0.776779173944892
+      y: 0.11477585775106436
+    - x: 0.7244886459683327
+      y: 0.06829451540195342
+    - x: 0.6721981179917733
+      y: 0.07951414976208365
+    - x: 0.6081872992618471
+      y: 0.11798146756824443
+    - x: 0.5928607651997521
+      y: 0.1211870773854245
+    - x: 0.5829435961007494
+      y: 0.15003756574004506
+    - x: 0.5838451569279315
+      y: 0.16927122464312547
+    - x: 0.5838451569279315
+      y: 0.20132732281492613
+    - x: 0.5946638868541162
+      y: 0.23178061607813671
+    - x: 0.6280216374598524
+      y: 0.22697220135236662
+    - x: 0.6658871922014988
+      y: 0.2157525669922364
+    - x: 0.6974418211528709
+      y: 0.20132732281492613
+    - x: 0.7226855243139686
+      y: 0.19812171299774606
+    - x: 0.7344058150673354
+      y: 0.19331329827197596
+    - x: 0.7542401532653407
+      y: 0.16286000500876535
+  - id: C
+    human_readable_name: ''
+    region_role: entry
+    polygon_normalized:
+    - x: 0.4774609793204485
+      y: 0.0330328074129727
+    - x: 0.47836254014763063
+      y: 0.05386927122464313
+    - x: 0.48377190511072293
+      y: 0.08592536939644377
+    - x: 0.49188595255536144
+      y: 0.1308039068369647
+    - x: 0.5
+      y: 0.17087402955171552
+    - x: 0.5009015608271821
+      y: 0.18690207863761582
+    - x: 0.4828703442835409
+      y: 0.20132732281492613
+    - x: 0.4404969854059841
+      y: 0.21735537190082646
+    - x: 0.4125485997633403
+      y: 0.22376659153518655
+    - x: 0.37738772750323996
+      y: 0.23178061607813671
+    - x: 0.38099397081196823
+      y: 0.19171049336338591
+    - x: 0.40713923480024794
+      y: 0.11477585775106436
+    - x: 0.42156420803516087
+      y: 0.08432256448785375
+    - x: 0.4278751338254353
+      y: 0.04906085649887303
+    - x: 0.4314813771341635
+      y: 0.0330328074129727
+  - id: D
+    human_readable_name: ''
+    region_role: entry
+    polygon_normalized:
+    - x: 0.25657857666084405
+      y: 0.3567993989481593
+    - x: 0.30436130050149324
+      y: 0.36321061858251935
+    - x: 0.30165661801994703
+      y: 0.40167793638868016
+    - x: 0.27821603651321347
+      y: 0.49143501126972206
+    - x: 0.2367442384628388
+      y: 0.5763836714249937
+    - x: 0.20338648785710262
+      y: 0.6661407463060356
+    - x: 0.17814278469600495
+      y: 0.7126220886551465
+    - x: 0.1574068856708176
+      y: 0.735061357375407
+    - x: 0.13486786499126613
+      y: 0.7655146506386176
+    - x: 0.07536485039725024
+      y: 0.7126220886551465
+    - x: 0.03479461317405759
+      y: 0.685374405209116
+    - x: 0.0
+      y: 0.6613323315802654
+    - x: 0.0014368625683214066
+      y: 0.5988229401452542
+    - x: 0.04741646475460641
+      y: 0.539519158527423
+    - x: 0.14117879078154055
+      y: 0.4465564738292011
+    - x: 0.2015833662027385
+      y: 0.40007513148009016
+  - id: E
+    human_readable_name: ''
+    region_role: exit
+    polygon_normalized:
+    - x: 0.4468079111962585
+      y: 0.9722764838467318
+    - x: 0.4350876204428918
+      y: 0.5651640370648635
+    - x: 0.41615484307206857
+      y: 0.48983220636113195
+    - x: 0.34583309855186795
+      y: 0.49944903581267214
+    - x: 0.26649574575984675
+      y: 0.5170798898071626
+    - x: 0.24215360342593115
+      y: 0.5747808665164037
+    - x: 0.20338648785710262
+      y: 0.6581267217630854
+    - x: 0.17904434552318702
+      y: 0.7142248935637365
+    - x: 0.15830844649799966
+      y: 0.7671174555472077
+    - x: 0.15199752070772526
+      y: 0.8568745304282495
+    - x: 0.1574068856708176
+      y: 0.9434259954921113
+    - x: 0.16101312897954584
+      y: 0.9674680691209616
+  - id: F
+    human_readable_name: ''
+    region_role: exit
+    polygon_normalized:
+    - x: 0.6045810559531188
+      y: 0.23819183571249686
+    - x: 0.6099904209162113
+      y: 0.30390683696468823
+    - x: 0.620809150842396
+      y: 0.3375657400450789
+    - x: 0.667690313855863
+      y: 0.3231404958677686
+    - x: 0.7019496252887812
+      y: 0.3295517155021287
+    - x: 0.7641573223643433
+      y: 0.31352366641622836
+    - x: 0.8290697019214516
+      y: 0.2878787878787879
+    - x: 0.8489040401194569
+      y: 0.23658903080390686
+    - x: 0.8425931143291823
+      y: 0.1660656148259454
+    - x: 0.83718374936609
+      y: 0.13881793137991486
+    - x: 0.8299712627486336
+      y: 0.1163786626596544
+    - x: 0.8227587761311771
+      y: 0.10515902829952416
+    - x: 0.7966135121428974
+      y: 0.1019534184823441
+    - x: 0.7776807347720742
+      y: 0.1163786626596544
+    - x: 0.7551417140925227
+      y: 0.16446280991735537
+    - x: 0.7344058150673354
+      y: 0.19331329827197596
+    - x: 0.7208824026596045
+      y: 0.19972451790633608
+    - x: 0.699244942807235
+      y: 0.2045329326321062
+    - x: 0.6658871922014988
+      y: 0.21094415226646632
+  - id: G
+    human_readable_name: ''
+    region_role: exit
+    polygon_normalized:
+    - x: 0.5018031216543641
+      y: 0.18850488354620584
+    - x: 0.5513889671493774
+      y: 0.19171049336338591
+    - x: 0.5856482785822956
+      y: 0.18049085900325568
+    - x: 0.5829435961007494
+      y: 0.15805159028299523
+    - x: 0.5838451569279315
+      y: 0.1420235411970949
+    - x: 0.5811404744463853
+      y: 0.10996744302529426
+    - x: 0.5685186228658365
+      y: 0.06348610067618332
+    - x: 0.5432749197047388
+      y: 0.045855246681692954
+    - x: 0.5279483856426438
+      y: 0.03143000250438267
+    - x: 0.5135234124077309
+      y: 0.012196343601302279
+    - x: 0.4891812700738153
+      y: 0.023415977961432504
+    - x: 0.47926410097481265
+      y: 0.029827197595792634
+    - x: 0.4774609793204485
+      y: 0.029827197595792634
+    - x: 0.47926410097481265
+      y: 0.04906085649887303
+    - x: 0.4819687834563588
+      y: 0.07951414976208365
+    - x: 0.49188595255536144
+      y: 0.1211870773854245
+    - x: 0.499098439172818
+      y: 0.1660656148259454
+  - id: H
+    human_readable_name: ''
+    region_role: exit
+    polygon_normalized:
+    - x: 0.3052628613286753
+      y: 0.36481342349110946
+    - x: 0.3755846058488759
+      y: 0.23658903080390686
+    - x: 0.30436130050149324
+      y: 0.244603055346857
+    - x: 0.21781146109201557
+      y: 0.21254695717505637
+    - x: 0.15199752070772526
+      y: 0.30070122714750813
+    - x: 0.05733363385360905
+      y: 0.3872526922113699
+    - x: 0.0014368625683214066
+      y: 0.46258452291510144
+    - x: 0.0014368625683214066
+      y: 0.6004257450538443
+    - x: 0.04831802558178847
+      y: 0.541121963436013
+    - x: 0.14117879078154055
+      y: 0.44335086401202106
+    - x: 0.20428804868428468
+      y: 0.3888554971199599
+    - x: 0.25116921169775175
+      y: 0.3567993989481593
+  valid_entry_approaches:
+  - A
+  - B
+  - C
+  - D
+  valid_exit_approaches:
+  - E
+  - F
+  - G
+  - H
+  maneuver_type_mapping:
+  - entry: A
+    exit: F
+    maneuver_type: right
+  - entry: A
+    exit: G
+    maneuver_type: straight
+  - entry: A
+    exit: H
+    maneuver_type: left
+  - entry: B
+    exit: G
+    maneuver_type: right
+  - entry: B
+    exit: H
+    maneuver_type: straight
+  - entry: B
+    exit: E
+    maneuver_type: left
+  - entry: C
+    exit: H
+    maneuver_type: right
+  - entry: C
+    exit: E
+    maneuver_type: straight
+  - entry: C
+    exit: F
+    maneuver_type: left
+  - entry: D
+    exit: E
+    maneuver_type: right
+  - entry: D
+    exit: F
+    maneuver_type: straight
+  - entry: D
+    exit: G
+    maneuver_type: left
+  ambiguity_notes: Approach IDs are direction-specific and image-relative. A-D denote entry corridors;
+    E-H denote exit corridors. Same-road entry/exit pairs are A/E, B/F, C/G, and D/H. Determine entry
+    and exit from the full direction of travel, not solely from the first or last sampled point or polygon
+    membership. Same-road entry and exit corridors are spatially close under perspective, particularly
+    B/F and C/G in the upper image area and D/H near the left image boundary. The lower foreground around
+    A/E is substantially occluded by traffic-signal and camera-mounting structures. Use the full temporal
+    direction and source video frames when a trajectory passes behind these structures or begins or ends
+    near them. Queued or partially occluded vehicles must be classified from their observed movement rather
+    than their position in a single frame. If a trajectory starts or ends inside the intersection, is
+    too short, is truncated near an image boundary, or cannot be assigned to a unique approach, select
+    UNKNOWN and mark it ambiguous. Mark it unusable when travel direction cannot be recovered. Treat adjacent
+    lanes within the same corridor as one approach. U-turns are not included in the current mapping; flag
+    a clear same-road reversal for protocol review instead of forcing it into left, right, or straight.
+- scene_id: bellevue_150th_eastgate
+  representative_frame: protocol/scene_guides/bellevue_150th_eastgate_representative_frame.png
+  representative_recording_id: Bellevue_150th_Eastgate__2017-09-10_18-08-24
+  representative_frame_number: 300
+  approaches:
+  - id: A
+    human_readable_name: ''
+    region_role: entry
+    polygon_normalized:
+    - x: 0.9994646982588608
+      y: 0.9658652642123717
+    - x: 0.9985631374316786
+      y: 0.6116453794139745
+    - x: 0.7226855243139686
+      y: 0.29108439769596794
+    - x: 0.6622809488927707
+      y: 0.33436013022789884
+    - x: 0.6190060291880318
+      y: 0.39686952166291006
+    - x: 0.5874514002366598
+      y: 0.5443275732531931
+    - x: 0.5586014537668338
+      y: 0.6244678186826947
+    - x: 0.62261227249676
+      y: 0.7591034310042575
+    - x: 0.6965402603256888
+      y: 0.8648885549711997
+    - x: 0.8011213162788076
+      y: 0.9658652642123717
+  - id: B
+    human_readable_name: ''
+    region_role: entry
+    polygon_normalized:
+    - x: 0.5333577506057362
+      y: 0.23979464062108688
+    - x: 0.5802389136192032
+      y: 0.1564487853744052
+    - x: 0.5964670085084803
+      y: 0.09714500375657399
+    - x: 0.5955654476812983
+      y: 0.05867768595041323
+    - x: 0.528849946469826
+      y: 0.029827197595792634
+    - x: 0.5090156082718206
+      y: 0.06989732031054345
+    - x: 0.47836254014763063
+      y: 0.1115702479338843
+    - x: 0.45672508029526115
+      y: 0.1420235411970949
+    - x: 0.4269735729982532
+      y: 0.19491610318056599
+    - x: 0.4170564038992506
+      y: 0.21735537190082646
+    - x: 0.5072124866174564
+      y: 0.24620586025544702
+  - id: C
+    human_readable_name: ''
+    region_role: entry
+    polygon_normalized:
+    - x: 0.3882064574294247
+      y: 0.244603055346857
+    - x: 0.36747055840423737
+      y: 0.2157525669922364
+    - x: 0.3287034428354088
+      y: 0.20293012772351615
+    - x: 0.27100354989575703
+      y: 0.20293012772351615
+    - x: 0.23313799515411054
+      y: 0.1901076884547959
+    - x: 0.20338648785710262
+      y: 0.20132732281492613
+    - x: 0.18715839296782555
+      y: 0.22697220135236662
+    - x: 0.19527244041246408
+      y: 0.23979464062108688
+    - x: 0.22051614357356172
+      y: 0.30070122714750813
+    - x: 0.22231926522792586
+      y: 0.3231404958677686
+    - x: 0.22953175184538233
+      y: 0.3487853744052091
+    - x: 0.23584267763565672
+      y: 0.3696218382168795
+    - x: 0.3178847129092241
+      y: 0.31672927623340846
+    - x: 0.3900095790837888
+      y: 0.26063110443275733
+  - id: D
+    human_readable_name: ''
+    region_role: entry
+    polygon_normalized:
+    - x: 0.023975883247872882
+      y: 0.9706736789381417
+    - x: 0.0961007494224376
+      y: 0.8184072126220886
+    - x: 0.17363498056009466
+      y: 0.7046080641121963
+    - x: 0.2601848199695723
+      y: 0.589206110693714
+    - x: 0.28813320561221617
+      y: 0.5555472076133233
+    - x: 0.47565785766608437
+      y: 0.685374405209116
+    - x: 0.47475629683890236
+      y: 0.8039819684447784
+    - x: 0.4359891812700738
+      y: 0.9065614825945404
+    - x: 0.4125485997633403
+      y: 0.9674680691209616
+  - id: E
+    human_readable_name: ''
+    region_role: exit
+    polygon_normalized:
+    - x: 0.8047275595875358
+      y: 0.9626596543951916
+    - x: 0.698343381980053
+      y: 0.8632857500626095
+    - x: 0.6271200766326703
+      y: 0.7542950162784874
+    - x: 0.5567983321124698
+      y: 0.6260706235912847
+    - x: 0.4864765875922691
+      y: 0.6789631855747558
+    - x: 0.4765594184932665
+      y: 0.685374405209116
+    - x: 0.47565785766608437
+      y: 0.8007763586275983
+    - x: 0.4170564038992506
+      y: 0.9658652642123717
+  - id: F
+    human_readable_name: ''
+    region_role: exit
+    polygon_normalized:
+    - x: 0.6586747055840424
+      y: 0.31833208114199846
+    - x: 0.515326534062095
+      y: 0.2494114700726271
+    - x: 0.5486842846678311
+      y: 0.23178061607813671
+    - x: 0.5730264270017468
+      y: 0.18369646882043575
+    - x: 0.5964670085084803
+      y: 0.1211870773854245
+    - x: 0.607285738434665
+      y: 0.07470573503631354
+    - x: 0.6181044683608496
+      y: 0.042649636864512896
+    - x: 0.68391840874514
+      y: 0.05867768595041323
+  - id: G
+    human_readable_name: ''
+    region_role: exit
+    polygon_normalized:
+    - x: 0.3909111399109709
+      y: 0.2622339093413473
+    - x: 0.40443455231870173
+      y: 0.28146756824442776
+    - x: 0.44320166788753024
+      y: 0.2878787878787879
+    - x: 0.454921958640897
+      y: 0.22697220135236662
+    - x: 0.41615484307206857
+      y: 0.21094415226646632
+    - x: 0.37287992336732967
+      y: 0.16766841973453545
+    - x: 0.34583309855186795
+      y: 0.13721512647132483
+    - x: 0.28903476643939824
+      y: 0.1259954921111946
+    - x: 0.25116921169775175
+      y: 0.13400951665414476
+    - x: 0.2304333126725644
+      y: 0.16766841973453545
+    - x: 0.23764579929002086
+      y: 0.1901076884547959
+    - x: 0.2673973065870288
+      y: 0.19812171299774606
+    - x: 0.3269003211810447
+      y: 0.20293012772351615
+    - x: 0.36837211923141944
+      y: 0.21254695717505637
+    - x: 0.3882064574294247
+      y: 0.244603055346857
+  - id: H
+    human_readable_name: ''
+    region_role: exit
+    polygon_normalized:
+    - x: 0.2872316447850341
+      y: 0.5555472076133233
+    - x: 0.1970755620668282
+      y: 0.4321312296518908
+    - x: 0.07536485039725024
+      y: 0.5972201352366642
+    - x: 0.014058714148870232
+      y: 0.6789631855747558
+    - x: 0.0
+      y: 0.7126220886551465
+    - x: 0.0014368625683214066
+      y: 0.9626596543951916
+    - x: 0.02307432242069082
+      y: 0.9690708740295517
+    - x: 0.09519918859525553
+      y: 0.8232156273478588
+    - x: 0.17093029807854848
+      y: 0.7062108690207863
+  valid_entry_approaches:
+  - A
+  - B
+  - C
+  - D
+  valid_exit_approaches:
+  - E
+  - F
+  - G
+  - H
+  maneuver_type_mapping:
+  - entry: A
+    exit: F
+    maneuver_type: right
+  - entry: A
+    exit: G
+    maneuver_type: straight
+  - entry: A
+    exit: H
+    maneuver_type: left
+  - entry: B
+    exit: G
+    maneuver_type: right
+  - entry: B
+    exit: H
+    maneuver_type: straight
+  - entry: B
+    exit: E
+    maneuver_type: left
+  - entry: C
+    exit: H
+    maneuver_type: right
+  - entry: C
+    exit: E
+    maneuver_type: straight
+  - entry: C
+    exit: F
+    maneuver_type: left
+  - entry: D
+    exit: E
+    maneuver_type: right
+  - entry: D
+    exit: F
+    maneuver_type: straight
+  - entry: D
+    exit: G
+    maneuver_type: left
+  ambiguity_notes: Approach IDs are direction-specific and image-relative. A-D denote entry corridors;
+    E-H denote exit corridors. Same-road entry/exit pairs are A/E, B/F, C/G, and D/H. Determine entry
+    and exit from the full direction of travel, not solely from the first or last sampled point or polygon
+    membership. Same-road entry and exit corridors are spatially close under strong perspective and lens
+    distortion, particularly B/F and C/G. The lower image area around A/E is partly affected by camera
+    housing and edge cropping, while the upper-left area around C/G may be affected by glare. Use temporal
+    direction and source video frames when needed. If a trajectory starts or ends inside the intersection,
+    is too short, is truncated near the image boundary, or cannot be assigned to a unique approach, select
+    UNKNOWN and mark it ambiguous. Mark it unusable when travel direction cannot be recovered. Treat adjacent
+    lanes within the same corridor as one approach. U-turns are not included in the current mapping; flag
+    a clear same-road reversal for protocol review instead of forcing it into left, right, or straight.
+- scene_id: bellevue_150th_se38th
+  representative_frame: protocol/scene_guides/bellevue_150th_se38th_representative_frame.png
+  representative_recording_id: Bellevue_150th_SE38th__2017-09-10_18-08-24
+  representative_frame_number: 300
+  approaches:
+  - id: A
+    human_readable_name: ''
+    region_role: entry
+    polygon_normalized:
+    - x: 0.6181044683608496
+      y: 0.590808915602304
+    - x: 0.6911308953625965
+      y: 0.6084397695967944
+    - x: 0.7984166337972616
+      y: 0.6308790383170548
+    - x: 0.9165211021581113
+      y: 0.6533183070373153
+    - x: 0.9922522116414042
+      y: 0.6693463561232156
+    - x: 0.9985631374316786
+      y: 0.6276734284998748
+    - x: 0.9994646982588608
+      y: 0.5202854996243426
+    - x: 0.9895475291598579
+      y: 0.46739293764087153
+    - x: 0.9084070547134727
+      y: 0.4177059854745805
+    - x: 0.8281681410942694
+      y: 0.3840470823941899
+    - x: 0.7335042542401533
+      y: 0.33596293513648884
+    - x: 0.712768355214966
+      y: 0.3247433007763586
+    - x: 0.6821152870907758
+      y: 0.3279489105935387
+    - x: 0.6658871922014988
+      y: 0.33436013022789884
+  - id: B
+    human_readable_name: ''
+    region_role: entry
+    polygon_normalized:
+    - x: 0.5054093649630923
+      y: 0.3055096418732782
+    - x: 0.5234405815067336
+      y: 0.2590282995241673
+    - x: 0.5414717980503747
+      y: 0.2285750062609567
+    - x: 0.5793373527920211
+      y: 0.19491610318056599
+    - x: 0.6190060291880318
+      y: 0.15965439519158528
+    - x: 0.6758043613005015
+      y: 0.13721512647132483
+    - x: 0.6649856313743168
+      y: 0.09874780866516403
+    - x: 0.5874514002366598
+      y: 0.06829451540195342
+    - x: 0.5198343381980053
+      y: 0.07470573503631354
+    - x: 0.4711500535301741
+      y: 0.07791134485349362
+    - x: 0.41976108638079673
+      y: 0.11798146756824443
+    - x: 0.36747055840423737
+      y: 0.15805159028299523
+    - x: 0.34673465937905
+      y: 0.19812171299774606
+    - x: 0.3377190511072294
+      y: 0.22536939644377663
+    - x: 0.32058939539077025
+      y: 0.2654395191585274
+  - id: C
+    human_readable_name: ''
+    region_role: entry
+    polygon_normalized:
+    - x: 0.2610863807967544
+      y: 0.37603305785123964
+    - x: 0.22863019101820026
+      y: 0.3696218382168795
+    - x: 0.17904434552318702
+      y: 0.3535937891309792
+    - x: 0.13486786499126613
+      y: 0.3375657400450789
+    - x: 0.10151011438552995
+      y: 0.31833208114199846
+    - x: 0.07716797205161435
+      y: 0.292687202604558
+    - x: 0.052825829717698766
+      y: 0.2622339093413473
+    - x: 0.017664957457598468
+      y: 0.24300025043826695
+    - x: 0.010452470840141996
+      y: 0.3055096418732782
+    - x: 0.027582126556601118
+      y: 0.38084147257700973
+    - x: 0.04831802558178847
+      y: 0.4850237916353619
+    - x: 0.07085704626133994
+      y: 0.5315051339844727
+    - x: 0.09159294528652731
+      y: 0.5795892812421738
+    - x: 0.12404913506508142
+      y: 0.6308790383170548
+    - x: 0.14388347326308673
+      y: 0.6597295266716755
+    - x: 0.2755113540316673
+      y: 0.3872526922113699
+  - id: D
+    human_readable_name: ''
+    region_role: entry
+    polygon_normalized:
+    - x: 0.5252437031610977
+      y: 0.8568745304282495
+    - x: 0.4251704513438891
+      y: 0.8087903831705484
+    - x: 0.33140812531695496
+      y: 0.7286501377410468
+    - x: 0.2655941849326647
+      y: 0.7254445279238668
+    - x: 0.22502394770947204
+      y: 0.7238417230152767
+    - x: 0.18084746717755112
+      y: 0.7943651389932381
+    - x: 0.15019439905336113
+      y: 0.8552717255196595
+    - x: 0.117738209274807
+      y: 0.9674680691209616
+    - x: 0.5189327773708232
+      y: 0.9642624593037816
+  - id: E
+    human_readable_name: ''
+    region_role: exit
+    polygon_normalized:
+    - x: 0.5018031216543641
+      y: 0.8392436764337591
+    - x: 0.5189327773708232
+      y: 0.7078136739293764
+    - x: 0.5387671155688285
+      y: 0.6164537941397445
+    - x: 0.5531920888037415
+      y: 0.5795892812421738
+    - x: 0.6181044683608496
+      y: 0.5940145254194841
+    - x: 0.6893277737082324
+      y: 0.6052341597796144
+    - x: 0.8029244379331718
+      y: 0.6308790383170548
+    - x: 0.9516819744182115
+      y: 0.6645379413974456
+    - x: 0.9985631374316786
+      y: 0.6725519659403957
+    - x: 0.9976615766044965
+      y: 0.9642624593037816
+    - x: 0.5189327773708232
+      y: 0.9642624593037816
+    - x: 0.5279483856426438
+      y: 0.8648885549711997
+  - id: F
+    human_readable_name: ''
+    region_role: exit
+    polygon_normalized:
+    - x: 0.499098439172818
+      y: 0.3471825694966191
+    - x: 0.5036062433087283
+      y: 0.29909842223891814
+    - x: 0.5243421423339156
+      y: 0.26864512897570747
+    - x: 0.5414717980503747
+      y: 0.23498622589531679
+    - x: 0.5667155012114724
+      y: 0.20613573754069622
+    - x: 0.6018763734715726
+      y: 0.1740796393688956
+    - x: 0.6812137262635939
+      y: 0.1420235411970949
+    - x: 0.7109652335606018
+      y: 0.17568244427748558
+    - x: 0.6884262128810503
+      y: 0.20293012772351615
+    - x: 0.6622809488927707
+      y: 0.22216378662659655
+    - x: 0.6532653406209501
+      y: 0.2510142749812171
+    - x: 0.654166901448132
+      y: 0.2846731780616078
+    - x: 0.6631825097199526
+      y: 0.3055096418732782
+    - x: 0.6649856313743168
+      y: 0.33436013022789884
+    - x: 0.654166901448132
+      y: 0.3904583020285499
+  - id: G
+    human_readable_name: ''
+    region_role: exit
+    polygon_normalized:
+    - x: 0.2764129148588494
+      y: 0.3904583020285499
+    - x: 0.34943934186059616
+      y: 0.27185073879288757
+    - x: 0.28633008395785203
+      y: 0.2494114700726271
+    - x: 0.20969741364737704
+      y: 0.21094415226646632
+    - x: 0.14839127739899702
+      y: 0.19812171299774606
+    - x: 0.11954133092917112
+      y: 0.19171049336338591
+    - x: 0.06725080295261171
+      y: 0.18850488354620584
+    - x: 0.055530512199244944
+      y: 0.2045329326321062
+    - x: 0.035696174001239644
+      y: 0.2285750062609567
+    - x: 0.045613343100242294
+      y: 0.2526170798898072
+    - x: 0.07806953287879642
+      y: 0.29589281242173804
+    - x: 0.10331323603989406
+      y: 0.31352366641622836
+    - x: 0.1357694258184482
+      y: 0.3375657400450789
+    - x: 0.17814278469600495
+      y: 0.3487853744052091
+    - x: 0.23223643432692848
+      y: 0.37282744803405965
+  - id: H
+    human_readable_name: ''
+    region_role: exit
+    polygon_normalized:
+    - x: 0.025779004902236995
+      y: 0.9530428249436514
+    - x: 0.07356172874288612
+      y: 0.781542699724518
+    - x: 0.09249450611370937
+      y: 0.7174305033809166
+    - x: 0.10421479686707613
+      y: 0.6773603806661658
+    - x: 0.13667098664563024
+      y: 0.5843976959679439
+    - x: 0.14839127739899702
+      y: 0.5699724517906336
+    - x: 0.22502394770947204
+      y: 0.5811920861507638
+    - x: 0.25477545500647997
+      y: 0.6116453794139745
+    - x: 0.2673973065870288
+      y: 0.638893062860005
+    - x: 0.2755113540316673
+      y: 0.682168795391936
+    - x: 0.2259255085366541
+      y: 0.7238417230152767
+    - x: 0.18084746717755112
+      y: 0.8152016028049085
+    - x: 0.14568659491745084
+      y: 0.8761081893313298
+    - x: 0.12495069589226349
+      y: 0.930603556223391
+    - x: 0.12314757423789938
+      y: 0.9594540445780115
+    - x: 0.11863977010198908
+      y: 0.9706736789381417
+    - x: 0.02487744407505494
+      y: 0.9706736789381417
+  valid_entry_approaches:
+  - A
+  - B
+  - C
+  - D
+  valid_exit_approaches:
+  - E
+  - F
+  - G
+  - H
+  maneuver_type_mapping:
+  - entry: A
+    exit: F
+    maneuver_type: right
+  - entry: A
+    exit: G
+    maneuver_type: straight
+  - entry: A
+    exit: H
+    maneuver_type: left
+  - entry: B
+    exit: G
+    maneuver_type: right
+  - entry: B
+    exit: H
+    maneuver_type: straight
+  - entry: B
+    exit: E
+    maneuver_type: left
+  - entry: C
+    exit: H
+    maneuver_type: right
+  - entry: C
+    exit: E
+    maneuver_type: straight
+  - entry: C
+    exit: F
+    maneuver_type: left
+  - entry: D
+    exit: E
+    maneuver_type: right
+  - entry: D
+    exit: F
+    maneuver_type: straight
+  - entry: D
+    exit: G
+    maneuver_type: left
+  ambiguity_notes: Approach IDs are direction-specific and image-relative. A-D denote entry corridors;
+    E-H denote exit corridors. Same-road entry/exit pairs are A/E, B/F, C/G, and D/H. Determine entry
+    and exit from the full direction of travel, not solely from the first or last sampled point, polygon
+    membership, or a single lane-arrow marking. Strong fisheye perspective makes same-road entry and exit
+    corridors appear spatially close, particularly B/F in the upper-center area, C/G on the left, and
+    D/H near the lower-left image boundary. The lower-center E corridor and parts of the A/E movement
+    paths are substantially occluded by the camera housing and nearby equipment. Strong sunlight, glare,
+    and windshield reflections in the upper half of the image may temporarily obscure vehicles and lane
+    boundaries. Use temporal direction and source video frames when a trajectory crosses an occluded or
+    reflective area. Queued, lane-changing, or partially occluded vehicles must be classified from their
+    complete observed movement rather than their position in a single frame. If a trajectory starts or
+    ends inside the intersection, is too short, is truncated near an image boundary, or cannot be assigned
+    to a unique approach, select UNKNOWN and mark it ambiguous. Mark it unusable when travel direction
+    cannot be recovered. Treat adjacent lanes within the same corridor as one approach. U-turns are not
+    included in the current mapping; flag a clear same-road reversal for protocol review instead of forcing
+    it into left, right, or straight.
+- scene_id: bellevue_ne8th
+  representative_frame: protocol/scene_guides/bellevue_ne8th_representative_frame.png
+  representative_recording_id: Bellevue_Bellevue_NE8th__2017-09-10_18-08-23
+  representative_frame_number: 300
+  approaches:
+  - id: A
+    human_readable_name: ''
+    region_role: entry
+    polygon_normalized:
+    - x: 0.684819969572322
+      y: 0.9626596543951916
+    - x: 0.6595762664112244
+      y: 0.8745053844227398
+    - x: 0.6424466106947653
+      y: 0.8168044077134986
+    - x: 0.7479292274750662
+      y: 0.7623090408214375
+    - x: 0.8461993576379105
+      y: 0.7014024542950162
+    - x: 0.8777539865892827
+      y: 0.6901828199348861
+    - x: 0.9011945680960162
+      y: 0.735061357375407
+    - x: 0.9327491970473882
+      y: 0.8360380666165791
+    - x: 0.9796303600608554
+      y: 0.9482344102178812
+    - x: 0.9886459683326759
+      y: 0.9642624593037816
+  - id: B
+    human_readable_name: ''
+    region_role: entry
+    polygon_normalized:
+    - x: 0.776779173944892
+      y: 0.47700976709241166
+    - x: 0.7326026934129712
+      y: 0.3872526922113699
+    - x: 0.683016847917958
+      y: 0.31672927623340846
+    - x: 0.7226855243139686
+      y: 0.2974956173303281
+    - x: 0.7677635656730715
+      y: 0.3055096418732782
+    - x: 0.836282188538908
+      y: 0.30070122714750813
+    - x: 0.8759508649349186
+      y: 0.2830703731530178
+    - x: 0.9309460753930242
+      y: 0.3103180565990483
+    - x: 0.9525835352453935
+      y: 0.31672927623340846
+    - x: 0.9706147517890347
+      y: 0.3487853744052091
+    - x: 0.9796303600608554
+      y: 0.37603305785123964
+    - x: 0.9787287992336733
+      y: 0.39206110693713997
+    - x: 0.9372570011832986
+      y: 0.40969196093163035
+    - x: 0.8786555474164647
+      y: 0.43854244928625097
+    - x: 0.8443962359835465
+      y: 0.44815927873779116
+  - id: C
+    human_readable_name: ''
+    region_role: entry
+    polygon_normalized:
+    - x: 0.5811404744463853
+      y: 0.31192086150763837
+    - x: 0.56130613624838
+      y: 0.2526170798898072
+    - x: 0.546881163013467
+      y: 0.2093413473578763
+    - x: 0.5108187299261847
+      y: 0.15324317555722514
+    - x: 0.48016566180199466
+      y: 0.10355622339093415
+    - x: 0.4648391277398997
+      y: 0.06989732031054345
+    - x: 0.423367329689525
+      y: 0.0666917104933634
+    - x: 0.40443455231870173
+      y: 0.08913097921362384
+    - x: 0.39632050487406323
+      y: 0.15003756574004506
+    - x: 0.38730489660224265
+      y: 0.1901076884547959
+    - x: 0.3791908491576041
+      y: 0.2670423240671174
+    - x: 0.3746830450216938
+      y: 0.3263461056849487
+    - x: 0.37287992336732967
+      y: 0.34397695967943903
+  - id: D
+    human_readable_name: ''
+    region_role: entry
+    polygon_normalized:
+    - x: 0.002338423395503465
+      y: 0.5587528174305033
+    - x: 0.06003831633515524
+      y: 0.5571500125219134
+    - x: 0.15560376401645348
+      y: 0.5459303781617831
+    - x: 0.2187130219191976
+      y: 0.5234911094415227
+    - x: 0.29444413140249054
+      y: 0.5186826947157526
+    - x: 0.3611596326139629
+      y: 0.5218883045329327
+    - x: 0.3864033357750606
+      y: 0.5459303781617831
+    - x: 0.3855017749478785
+      y: 0.6725519659403957
+    - x: 0.3882064574294247
+      y: 0.7751314800901578
+    - x: 0.3755846058488759
+      y: 0.8696969696969696
+    - x: 0.2313348734997464
+      y: 0.8087903831705484
+    - x: 0.11503352679326084
+      y: 0.7959679439018281
+    - x: 0.06274299881670141
+      y: 0.7735286751815676
+    - x: 0.0
+      y: 0.7623090408214375
+  - id: E
+    human_readable_name: ''
+    region_role: exit
+    polygon_normalized:
+    - x: 0.6406434890404011
+      y: 0.8103931880791385
+    - x: 0.3755846058488759
+      y: 0.8712997746055596
+    - x: 0.3710768017129656
+      y: 0.9658652642123717
+    - x: 0.6884262128810503
+      y: 0.9626596543951916
+  - id: F
+    human_readable_name: ''
+    region_role: exit
+    polygon_normalized:
+    - x: 0.7785822955992562
+      y: 0.47861257200100177
+    - x: 0.8615258917000057
+      y: 0.693388429752066
+    - x: 0.9038992505775625
+      y: 0.6597295266716755
+    - x: 0.9525835352453935
+      y: 0.5539444027047332
+    - x: 0.9904490899870402
+      y: 0.5042574505384423
+    - x: 0.9922522116414042
+      y: 0.44976208364638115
+    - x: 0.9805319208880373
+      y: 0.3904583020285499
+    - x: 0.9345523187017524
+      y: 0.40167793638868016
+    - x: 0.9002930072688342
+      y: 0.4289256198347107
+  - id: G
+    human_readable_name: ''
+    region_role: exit
+    polygon_normalized:
+    - x: 0.5802389136192032
+      y: 0.31672927623340846
+    - x: 0.6812137262635939
+      y: 0.3295517155021287
+    - x: 0.6712965571645911
+      y: 0.292687202604558
+    - x: 0.6406434890404011
+      y: 0.24139744552967693
+    - x: 0.6190060291880318
+      y: 0.2093413473578763
+    - x: 0.5865498394094777
+      y: 0.1660656148259454
+    - x: 0.5685186228658365
+      y: 0.13881793137991486
+    - x: 0.5414717980503747
+      y: 0.1115702479338843
+    - x: 0.5171296557164591
+      y: 0.0875281743050338
+    - x: 0.5090156082718206
+      y: 0.08271975957926371
+    - x: 0.4873781484194512
+      y: 0.09073378412221388
+    - x: 0.4873781484194512
+      y: 0.10355622339093415
+    - x: 0.5126218515805487
+      y: 0.14683195592286502
+    - x: 0.5477827238406492
+      y: 0.2093413473578763
+    - x: 0.56130613624838
+      y: 0.2494114700726271
+  - id: H
+    human_readable_name: ''
+    region_role: exit
+    polygon_normalized:
+    - x: 0.3900095790837888
+      y: 0.542724768344603
+    - x: 0.392714261565335
+      y: 0.33436013022789884
+    - x: 0.28182227982194175
+      y: 0.3471825694966191
+    - x: 0.11503352679326084
+      y: 0.38084147257700973
+    - x: 0.04831802558178847
+      y: 0.4369396443776609
+    - x: 0.014058714148870232
+      y: 0.45777610818933134
+    - x: 0.0005353017411393474
+      y: 0.47861257200100177
+    - x: 0.005043105877049642
+      y: 0.5635612321562734
+    - x: 0.06634924212542966
+      y: 0.5523415977961433
+    - x: 0.15650532484363555
+      y: 0.5459303781617831
+    - x: 0.22502394770947204
+      y: 0.5299023290758829
+    - x: 0.29354257057530847
+      y: 0.5218883045329327
+    - x: 0.3566518284780526
+      y: 0.5202854996243426
+  valid_entry_approaches:
+  - A
+  - B
+  - C
+  - D
+  valid_exit_approaches:
+  - E
+  - F
+  - G
+  - H
+  maneuver_type_mapping:
+  - entry: A
+    exit: F
+    maneuver_type: right
+  - entry: A
+    exit: G
+    maneuver_type: straight
+  - entry: A
+    exit: H
+    maneuver_type: left
+  - entry: B
+    exit: G
+    maneuver_type: right
+  - entry: B
+    exit: H
+    maneuver_type: straight
+  - entry: B
+    exit: E
+    maneuver_type: left
+  - entry: C
+    exit: H
+    maneuver_type: right
+  - entry: C
+    exit: E
+    maneuver_type: straight
+  - entry: C
+    exit: F
+    maneuver_type: left
+  - entry: D
+    exit: E
+    maneuver_type: right
+  - entry: D
+    exit: F
+    maneuver_type: straight
+  - entry: D
+    exit: G
+    maneuver_type: left
+  ambiguity_notes: Approach IDs are direction-specific and image-relative. A-D denote entry corridors;
+    E-H denote exit corridors. Same-road entry/exit pairs are A/E, B/F, C/G, and D/H. Determine entry
+    and exit from the full direction of travel, not solely from the first or last sampled point, polygon
+    membership, or a single lane-arrow marking. Strong perspective compresses the distant C/G corridors
+    in the upper image area, while B/F and D/H are spatially close near the right and left image boundaries.
+    The lower A/E corridors are partly truncated by the bottom image boundary. Dense urban traffic, queued
+    vehicles, and temporary vehicle-to-vehicle occlusion may hide parts of a trajectory, particularly
+    on the C/G and B/F approaches. Building and tree shadows create strong illumination changes across
+    the intersection, and the overhead structure may obscure or visually compress distant movements. Use
+    temporal direction and source video frames when a trajectory passes through an occluded, shadowed,
+    or congested area. Queued, lane-changing, or partially observed vehicles must be classified from their
+    complete observed movement rather than their position in a single frame. If a trajectory starts or
+    ends inside the intersection, is too short, is truncated near an image boundary, or cannot be assigned
+    to a unique approach, select UNKNOWN and mark it ambiguous. Mark it unusable when travel direction
+    cannot be recovered. Treat adjacent lanes within the same corridor as one approach. U-turns are not
+    included in the current mapping; flag a clear same-road reversal for protocol review instead of forcing
+    it into left, right, or straight.
+scientific_guards:
+  manual_cherry_picked_labels_used: false
+  cluster_outputs_used: false
+  hg_targets_used: false
+  emas_scores_used: false
+  automatic_od_assignments_used: false
+  independent_test_clustering_executed: false
+protocol_hash: b3ed9c7a211d461e21d7b3f39a1c9b34793ddcea5fea8036ebf4f02128377d6a

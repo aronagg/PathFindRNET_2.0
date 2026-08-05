@@ -40,3 +40,19 @@ trajectory, split, recording, local source track, frame range, point count, sour
 paths/checksum, and video availability. Primary queue status remains
 `locked_pending_protocol_freeze` until all five manually configured scene guides are
 validated and `annotation_protocol_v1.yaml` is frozen.
+
+## Polygon-Rule Reference Schema
+
+The exhaustive rule-based reference is a separate product from the manual SQLite
+workflow. Every canonical trajectory has one row containing source identity and
+canonical frame bounds; camera-space entry/exit coordinates; entry/exit polygon IDs,
+match counts, boundary distances and boundary flags; reference movement and maneuver
+type; explicit status and exclusion reason; protocol version/hash; trajectory and
+source fingerprints; and label-generator version/timestamp.
+
+Valid rows require exactly one entry match, exactly one exit match, and a legal frozen
+entry-to-exit mapping. Invalid or unassigned rows retain empty movement fields and one
+of the documented reasons: `entry_no_polygon`, `entry_multiple_polygons`,
+`exit_no_polygon`, `exit_multiple_polygons`, `mapping_not_legal`, `missing_geometry`,
+`invalid_endpoint`, or `source_mapping_error`. Nearest polygon IDs and distances are
+diagnostic columns only and never affect the primary label.
