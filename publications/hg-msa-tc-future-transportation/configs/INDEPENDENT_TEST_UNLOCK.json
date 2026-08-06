@@ -1,0 +1,15 @@
+{
+  "author_authorization_statement": "Authorized by the repository owner through Codex Task 05 for the first frozen independent-test evaluation.",
+  "authorization_timestamp_utc": "2026-08-06T11:24:48+00:00",
+  "frozen_protocol_file_sha256": "865513b8be4d59365bd430e5909fbd72b6a9d37f3e8b805917af3a80e66a1337",
+  "frozen_protocol_sha256": "829c95c4f0a012d08433536b22379afad4d5a79122e52f8fd6ac12817882167c",
+  "git_commit": "96ee0c4525d2cca9f01c86a15395fa4491774214",
+  "intended_task_name": "future-transportation-independent-test-evaluation-v1",
+  "no_further_tuning_confirmation": "No target, parameter, normalization, preprocessing, EMAS weight, or selection rule will be changed after independent-test results are seen.",
+  "polygon_reference_protocol_hash": "b3ed9c7a211d461e21d7b3f39a1c9b34793ddcea5fea8036ebf4f02128377d6a",
+  "protocol_version": "future-transportation-split-aware-v1",
+  "reference_export_sha256": "127a52ff80af8906fdc3bb6a7436a222baedd42d8c542cfb2e234e67e43b4f5f",
+  "required_cli_confirmation": "--confirm-independent-test-evaluation",
+  "single_use_output_directory_must_not_exist": true,
+  "unlock_version": "independent-test-unlock-v1"
+}

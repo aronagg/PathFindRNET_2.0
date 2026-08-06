@@ -545,15 +545,24 @@ def test_camera_aspect_ratio_is_preserved() -> None:
     assert width / height == pytest.approx(1920 / 1080)
 
 
-def test_real_scientific_test_remains_locked_and_absent() -> None:
+def test_real_scientific_test_was_explicitly_unlocked_after_freeze() -> None:
     frozen = json.loads(
         (PUBLICATION_ROOT / "results" / "development" / "frozen_selection_manifest.json").read_text(
             encoding="utf-8"
         )
     )
     assert frozen["independent_test_locked"] is True
+    unlock = json.loads(
+        (PUBLICATION_ROOT / "configs" / "INDEPENDENT_TEST_UNLOCK.json").read_text(encoding="utf-8")
+    )
+    assert unlock["frozen_protocol_sha256"] == frozen["complete_frozen_configuration_sha256"]
     output = PUBLICATION_ROOT / "results" / "independent_test"
-    assert not output.exists() or not any(output.rglob("*"))
+    clustering = json.loads((output / "clustering_run_manifest.json").read_text(encoding="utf-8"))
+    evaluation = json.loads((output / "evaluation_run_manifest.json").read_text(encoding="utf-8"))
+    assert clustering["reference_labels_read"] is False
+    assert clustering["evaluation_started"] is False
+    assert clustering["assignment_rows"] == 27393 * 6
+    assert evaluation["assignments_loaded_before_reference"] is True
 
 
 def test_real_preflight_maps_every_primary_trajectory() -> None:

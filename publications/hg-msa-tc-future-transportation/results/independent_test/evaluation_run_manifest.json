@@ -1,0 +1,23 @@
+{
+  "assignment_file_sha256": "137cd7e39f8886abbfbb49f4599d4f000626614f78342cf08f74f389b4963169",
+  "assignments_loaded_before_reference": true,
+  "assignments_persisted_at_utc": "2026-08-06T11:26:00+00:00",
+  "emas_hg_role": "development/ranking score, not independent validation",
+  "evaluation_data_access_log_sha256": "9c00a2bb1c8d438eac36f9bd93c2eaaeb86787ca333bade00899b7654d76f7a7",
+  "evaluation_timestamp_utc": "2026-08-06T11:27:59+00:00",
+  "hungarian_mapping_policy": "One-to-one maximum-overlap mapping per scene/method/strategy; unmatched clusters predict an explicit unmatched token and unmatched movements receive zero recall.",
+  "noise_partition_policy": "Noise label -1 is retained in ARI/NMI/purity/homogeneity/completeness/V-measure; noise is excluded from Hungarian cluster-to-movement matching and remains unmatched.",
+  "output_checksums": {
+    "cluster_movement_mapping.csv": "1060b6ac3a5af55c0e02b2ae4ad13e9246b13fb4d8fcce0a3e7e1c1af24f5727",
+    "independent_test_metrics.csv": "021ba0dcd806a50dd5a6533f12ff37710228b07649839286e38d7d532d572977",
+    "paired_strategy_differences.csv": "3af40f7686ca98d02f5dda46c4b6cda940dd1608169b612f06bb5c3934003a54",
+    "per_movement_metrics.csv": "ce419ea7ad74b610744ba96c3b29cb1a3baf7b6241a8e3ba7ee2967b824bd696",
+    "scene_level_bootstrap_ci.csv": "f467dd38372ce8d4b2f1395ad826e9719cc0827888b6ef17fad81f20172d4ddf",
+    "target_estimation_validation.csv": "699d84be8b53d5ed2d2cd5f430bb7e9226cae7f2d4c6377dc348cceb83c0d840"
+  },
+  "reference_file_sha256": "127a52ff80af8906fdc3bb6a7436a222baedd42d8c542cfb2e234e67e43b4f5f",
+  "reference_loaded_at_utc": "2026-08-06T11:27:47+00:00",
+  "reference_split": "independent_test",
+  "task_name": "future-transportation-independent-test-evaluation-v1",
+  "valid_reference_only_for_metrics": true
+}

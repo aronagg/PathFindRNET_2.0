@@ -55,11 +55,12 @@ def _verify_persisted_assignments(paths: Paths) -> dict[str, Any]:
 
 
 def _append_access_record(paths: Paths, record: dict[str, Any]) -> None:
-    log_path = paths.results / "data_access_log.jsonl"
-    existing = log_path.read_text(encoding="utf-8") if log_path.exists() else ""
+    log_path = paths.results / "evaluation_data_access_log.jsonl"
+    if log_path.exists():
+        raise FileExistsError(f"Evaluation access log is single-use: {log_path}")
     protocol_io.write_text_atomic(
         log_path,
-        existing + json.dumps(record, sort_keys=True, ensure_ascii=True) + "\n",
+        json.dumps(record, sort_keys=True, ensure_ascii=True) + "\n",
     )
 
 
@@ -460,6 +461,9 @@ def run_primary_evaluation(paths: Paths) -> dict[str, Any]:
             "predict an explicit unmatched token and unmatched movements receive zero recall."
         ),
         "emas_hg_role": "development/ranking score, not independent validation",
+        "evaluation_data_access_log_sha256": protocol_io.sha256_file(
+            paths.results / "evaluation_data_access_log.jsonl"
+        ),
         "output_checksums": {
             filename: protocol_io.sha256_file(paths.results / filename) for filename in outputs
         },
@@ -607,6 +611,7 @@ def create_figures(paths: Paths) -> None:
     save(fig, "01_observed_target_error_by_scene")
 
     fig, axes = plt.subplots(2, 2, figsize=(14, 9), sharex=True)
+    method_markers = {"kmeans": "o", "hdbscan": "s", "optics": "^"}
     for ax, metric in zip(axes.flat, ("ari", "nmi", "purity", "macro_f1"), strict=True):
         x = np.arange(len(SCENES))
         for method_index, method in enumerate(METHODS):
@@ -622,9 +627,11 @@ def create_figures(paths: Paths) -> None:
                 ax.plot(
                     x + offset,
                     subset[metric],
-                    marker="o" if strategy_index == 0 else "s",
+                    marker=method_markers[method],
                     linestyle="none",
                     color=colors[strategy],
+                    markerfacecolor=(colors[strategy] if strategy_index else "white"),
+                    markeredgewidth=1.5,
                     alpha=0.85,
                     label=f"{method}/{strategy.split('_')[0]}",
                 )

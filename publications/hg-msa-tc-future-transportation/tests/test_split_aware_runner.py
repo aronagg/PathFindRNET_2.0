@@ -40,9 +40,7 @@ NEWPORT_CONFIG = REPO_ROOT / "configs" / "dataset" / "bellevue_150th_newport.yam
 def test_phase_accepts_only_its_split(phase: str, allowed: str) -> None:
     protocol_io.assert_phase_rows(pd.DataFrame({"split": [allowed, allowed]}), phase)
     with pytest.raises(PermissionError):
-        protocol_io.assert_phase_rows(
-            pd.DataFrame({"split": [allowed, "forbidden"]}), phase
-        )
+        protocol_io.assert_phase_rows(pd.DataFrame({"split": [allowed, "forbidden"]}), phase)
 
 
 @pytest.mark.parametrize("phase", ["target", "select"])
@@ -55,9 +53,7 @@ def test_development_phases_reject_annotation_inputs(phase: str) -> None:
 
 def test_test_phase_refuses_without_unlock_file(tmp_path: Path) -> None:
     with pytest.raises(PermissionError):
-        protocol_io.require_test_unlock(
-            tmp_path / "missing.json", "abc", None, "CONFIRM"
-        )
+        protocol_io.require_test_unlock(tmp_path / "missing.json", "abc", None, "CONFIRM")
 
 
 def synthetic_endpoints() -> pd.DataFrame:
@@ -130,9 +126,7 @@ def test_selected_configuration_is_deterministic() -> None:
             "trial_index": [1, 2, 3],
         }
     )
-    first = core.select_candidate(
-        trials, "hg_expected_aware_selection", "hdbscan"
-    )
+    first = core.select_candidate(trials, "hg_expected_aware_selection", "hdbscan")
     second = core.select_candidate(
         trials.sample(frac=1, random_state=9),
         "hg_expected_aware_selection",
@@ -156,12 +150,11 @@ def test_optics_data_dependent_grid_uses_supplied_model_selection_features() -> 
 
 def test_frozen_manifest_hash_validates_and_detects_mutation() -> None:
     payload = {"protocol_version": "test", "selected": [{"method": "kmeans"}]}
-    payload["complete_frozen_configuration_sha256"] = protocol_io.canonical_sha256(
-        payload
+    payload["complete_frozen_configuration_sha256"] = protocol_io.canonical_sha256(payload)
+    assert (
+        protocol_io.validate_frozen_payload(payload)
+        == payload["complete_frozen_configuration_sha256"]
     )
-    assert protocol_io.validate_frozen_payload(payload) == payload[
-        "complete_frozen_configuration_sha256"
-    ]
     payload["selected"][0]["method"] = "optics"
     with pytest.raises(ValueError):
         protocol_io.validate_frozen_payload(payload)
@@ -172,9 +165,7 @@ def test_generated_frozen_protocol_and_manifest_validate() -> None:
     frozen_hash = protocol_io.validate_frozen_payload(frozen)
     manifest = json.loads(FROZEN_MANIFEST_PATH.read_text(encoding="utf-8"))
     assert manifest["complete_frozen_configuration_sha256"] == frozen_hash
-    assert manifest["frozen_protocol_file_sha256"] == protocol_io.sha256_file(
-        FROZEN_PATH
-    )
+    assert manifest["frozen_protocol_file_sha256"] == protocol_io.sha256_file(FROZEN_PATH)
     assert manifest["independent_test_locked"] is True
     assert frozen["independent_test_locked"] is True
 
@@ -182,9 +173,7 @@ def test_generated_frozen_protocol_and_manifest_validate() -> None:
 def test_frozen_protocol_cannot_be_overwritten_silently(tmp_path: Path) -> None:
     config = runner.load_config(CONFIG_PATH)
     frozen = {"protocol_version": config["protocol_version"]}
-    frozen["complete_frozen_configuration_sha256"] = protocol_io.canonical_sha256(
-        frozen
-    )
+    frozen["complete_frozen_configuration_sha256"] = protocol_io.canonical_sha256(frozen)
     frozen_path = tmp_path / "frozen.yaml"
     protocol_io.write_yaml_atomic(frozen_path, frozen)
     paths = runner.output_paths(config)
@@ -196,9 +185,7 @@ def test_frozen_protocol_cannot_be_overwritten_silently(tmp_path: Path) -> None:
 
 
 def test_no_exact_trajectory_crosses_phases() -> None:
-    split = pd.read_csv(
-        SPLIT_PATH, usecols=["trajectory_id", "data_fingerprint", "split"]
-    )
+    split = pd.read_csv(SPLIT_PATH, usecols=["trajectory_id", "data_fingerprint", "split"])
     assert split.groupby("trajectory_id")["split"].nunique().max() == 1
     assert split.groupby("data_fingerprint")["split"].nunique().max() == 1
 
@@ -211,9 +198,7 @@ def test_feature_order_is_stable() -> None:
         "end_x",
         "end_y",
     )
-    assert core.FEATURE_COLUMNS == tuple(
-        config["coordinate_representation"]["feature_columns"]
-    )
+    assert core.FEATURE_COLUMNS == tuple(config["coordinate_representation"]["feature_columns"])
 
 
 def test_synthetic_transductive_test_phase_smoke(tmp_path: Path) -> None:
@@ -232,16 +217,23 @@ def test_synthetic_transductive_test_phase_smoke(tmp_path: Path) -> None:
     assert provenance["assignment_sha256"] == protocol_io.sha256_file(output)
 
 
-def test_real_independent_test_outputs_are_absent() -> None:
+def test_real_independent_test_outputs_follow_authorized_contract() -> None:
     config = runner.load_config(CONFIG_PATH)
-    output_path = runner.resolve_repo_path(
-        config["test_protocol"]["clustering_output_directory"]
+    output_path = runner.resolve_repo_path(config["test_protocol"]["clustering_output_directory"])
+    manifest = json.loads(
+        (output_path / "clustering_run_manifest.json").read_text(encoding="utf-8")
     )
-    assert not output_path.exists()
+    assignments = pd.read_parquet(output_path / "cluster_assignments.parquet")
+    assert manifest["reference_labels_read"] is False
+    assert manifest["target_recomputed"] is False
+    assert manifest["hyperparameters_recomputed"] is False
+    assert manifest["normalization_refitted"] is False
+    assert len(assignments) == 27393 * 3 * 2
+    assert not assignments.duplicated(
+        ["scene_id", "trajectory_id", "method", "selection_strategy"]
+    ).any()
 
 
 def test_newport_cross_scene_video_path_is_rejected() -> None:
     with pytest.raises(ValueError, match="another scene"):
-        protocol_io.validate_scene_video_field(
-            NEWPORT_CONFIG, "bellevue_150th_newport"
-        )
+        protocol_io.validate_scene_video_field(NEWPORT_CONFIG, "bellevue_150th_newport")

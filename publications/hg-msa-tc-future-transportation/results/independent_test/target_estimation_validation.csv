@@ -1,0 +1,6 @@
+scene_id,frozen_hg_target,legal_movement_count,observed_independent_test_movement_count,hg_target_signed_error_vs_observed,hg_target_abs_error_vs_observed,hg_target_signed_error_vs_legal,hg_target_abs_error_vs_legal
+bellevue_116th_ne12th,10,12,10,0,0,-2,2
+bellevue_150th_newport,12,12,9,3,3,0,0
+bellevue_150th_eastgate,9,12,9,0,0,-3,3
+bellevue_150th_se38th,18,12,9,9,9,6,6
+bellevue_ne8th,9,12,10,-1,1,-3,3
