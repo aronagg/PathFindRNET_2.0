@@ -22,6 +22,8 @@ annotations/reference_labels/independent_test_reference_labels.csv
 annotations/reference_labels/polygon_assignment_sensitivity.csv
 annotations/reference_labels/qa_audit_queue.csv
 annotations/reference_labels/figures/
+results/independent_test/cluster_assignments.csv
+results/independent_test/cluster_assignments.parquet
 
 __pycache__/
 *.py[cod]

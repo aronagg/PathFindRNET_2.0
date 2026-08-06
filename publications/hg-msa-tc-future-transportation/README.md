@@ -196,3 +196,25 @@ Run the stages from the repository root:
 `cli.py all` runs generation and all downstream summaries after the protocol has
 already been frozen. See `docs/polygon_reference_generation_protocol.md` for the
 schema, status rules, scientific isolation constraints, and reproducibility details.
+
+## Locked Independent-Test Evaluation
+
+The independent-test runner is a separate, single-use workflow. It validates all
+frozen development hashes before test-feature access, requires the versioned unlock
+file and an explicit confirmation flag, runs both frozen selection strategies for
+KMeans, HDBSCAN, and OPTICS, and persists assignments before any reference row is
+loaded. Clustering and reference evaluation are separate CLI commands.
+
+```powershell
+.\.venv\Scripts\python.exe publications\hg-msa-tc-future-transportation\code\run_independent_test_evaluation.py preflight
+.\.venv\Scripts\python.exe publications\hg-msa-tc-future-transportation\code\run_independent_test_evaluation.py unlock
+.\.venv\Scripts\python.exe publications\hg-msa-tc-future-transportation\code\run_independent_test_evaluation.py cluster --confirm-independent-test-evaluation
+.\.venv\Scripts\python.exe publications\hg-msa-tc-future-transportation\code\run_independent_test_evaluation.py evaluate
+.\.venv\Scripts\python.exe publications\hg-msa-tc-future-transportation\code\run_independent_test_evaluation.py sensitivity
+.\.venv\Scripts\python.exe publications\hg-msa-tc-future-transportation\code\run_independent_test_evaluation.py figures
+.\.venv\Scripts\python.exe publications\hg-msa-tc-future-transportation\code\run_independent_test_evaluation.py reports
+```
+
+The frozen HG targets and selected configurations are never recomputed. Independent
+metrics use only valid polygon-reference rows from `independent_test`. EMAS_HG is
+reported as the frozen task-specific ranking score, not as independent validation.
