@@ -267,3 +267,20 @@ See `docs/hg_target_estimator_mathematical_definition.md`,
 `docs/se38th_target_failure_analysis.md`, and
 `docs/target_estimation_result_manifest.md`. The sensitivity analyses are diagnostic;
 they do not replace frozen thresholds, endpoint K values, targets, or cluster selections.
+
+
+## Homography Quality and Perturbation Analysis
+
+Task 08 exactly reproduces the five frozen camera-to-top-view matrices, publishes all
+calibration correspondences and inlier masks, applies an objective quality gate, and
+propagates jackknife/point-perturbation uncertainty through the frozen target estimator
+on `target_estimation` only.
+
+```powershell
+./.venv/Scripts/python.exe publications/hg-msa-tc-future-transportation/code/run_homography_analysis.py analyze --replicates 20
+./.venv/Scripts/python.exe publications/hg-msa-tc-future-transportation/code/run_homography_reporting.py all
+```
+
+No frozen matrix, target, region count, threshold, selected configuration, reference
+label or independent-test assignment is changed. Google-derived top-view rasters are
+not redistributed in the Task 08 review package.

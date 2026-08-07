@@ -1,0 +1,9 @@
+{
+  "independent_test_clustering_executed": false,
+  "pytest_command": ".\\.venv\\Scripts\\python.exe -m pytest publications/hg-msa-tc-future-transportation/tests -q",
+  "pytest_passed": 117,
+  "pytest_seconds": 86.68,
+  "ruff_command": ".\\.venv\\Scripts\\python.exe -m ruff check publications/hg-msa-tc-future-transportation/code publications/hg-msa-tc-future-transportation/tests",
+  "ruff_result": "All checks passed!",
+  "status": "passed"
+}

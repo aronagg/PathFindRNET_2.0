@@ -1,0 +1,6 @@
+scene_id,historical_method,ransac_threshold_px,max_iterations,confidence,point_count,frozen_inlier_count,reproduced_inlier_count,inlier_mask_exact_match,matrix_max_abs_difference,matrix_frobenius_difference,matrix_exact_match,frozen_matrix_replaced
+bellevue_116th_ne12th,ransac_10px,10.0,2000,0.995,26,17,17,True,0.0,0.0,True,False
+bellevue_150th_newport,ransac_10px,10.0,2000,0.995,20,13,13,True,0.0,0.0,True,False
+bellevue_150th_eastgate,ransac_10px,10.0,2000,0.995,13,11,11,True,0.0,0.0,True,False
+bellevue_150th_se38th,ransac_10px,10.0,2000,0.995,24,16,16,True,0.0,0.0,True,False
+bellevue_ne8th,ransac_10px_excluding_points_12_13_15_21_23,10.0,2000,0.995,18,13,13,True,0.0,0.0,True,False

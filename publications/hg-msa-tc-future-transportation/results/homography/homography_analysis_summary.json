@@ -1,0 +1,13 @@
+{
+  "all_frozen_matrices_reproduced_exactly": true,
+  "endpoint_stability_rows": 25,
+  "frozen_homographies_modified": false,
+  "frozen_targets_modified": false,
+  "independent_test_clustering_executed": false,
+  "jackknife_runs": 101,
+  "perturbation_replicates_per_scene_scale": 20,
+  "perturbation_runs": 500,
+  "quality_gate_pass_count": 5,
+  "quality_gate_scene_count": 5,
+  "result_manifest_outputs": 11
+}

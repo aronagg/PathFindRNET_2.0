@@ -33,3 +33,11 @@ feature files, polygon-reference exports, or independent-test assignment table. 
 SE38th fragmentation analysis is reproducible from persisted assignments and source
 trajectory shards but does not distribute raw videos or trajectory shards. Human
 reference data are diagnostic-only inputs loaded after frozen-target reproduction.
+
+
+The homography-quality revision package should include canonical calibration/quality
+source, the frozen correspondence table, matrices, compact quality and sensitivity
+tables, generated schematic/camera diagnostic figures, tests, manifests and reports.
+It must not duplicate raw video, trajectory data, independent-test assignments, or
+Google-derived top-view raster images. Source-image paths and hashes preserve local
+auditability without asserting redistribution permission.

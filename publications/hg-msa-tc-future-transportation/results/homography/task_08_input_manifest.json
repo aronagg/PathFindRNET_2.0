@@ -1,0 +1,117 @@
+{
+  "created_at_utc": "2026-08-07T21:42:52+00:00",
+  "files": {
+    "publications/hg-msa-tc-future-transportation/configs/frozen_evaluation_protocol.yaml": {
+      "sha256": "865513b8be4d59365bd430e5909fbd72b6a9d37f3e8b805917af3a80e66a1337",
+      "size_bytes": 42775
+    },
+    "publications/hg-msa-tc-future-transportation/configs/split_aware_runner.yaml": {
+      "sha256": "982699aa24f3c2f33b2e9a8e670fc3b6aeef8992d697d71cfd66f4c7449943f9",
+      "size_bytes": 3455
+    },
+    "publications/hg-msa-tc-future-transportation/results/development/target_estimates.csv": {
+      "sha256": "57664aa66e2f902853e304c1cd2a85d6d68e16836a7cca42de38aeca322d80f0",
+      "size_bytes": 1519
+    },
+    "publications/hg-msa-tc-future-transportation/results/target_estimation/cross_scene_semantic_duplication.csv": {
+      "sha256": "b0eaf556d1e97eb6ac8ad9710b6f94a80e0e426a0634f9c916f0cfa5607fec0b",
+      "size_bytes": 1040
+    },
+    "publications/hg-msa-tc-future-transportation/results/target_estimation/target_endpoint_region_assignments.parquet": {
+      "sha256": "9ee9c96428e85b740f3bd850d75d10566642485b28aadfcc2224b0bcbca4e130",
+      "size_bytes": 1784745
+    },
+    "publications/hg-msa-tc-future-transportation/results/target_estimation/target_reproduction.csv": {
+      "sha256": "61df4d2449fc990620adc7cda94aaaec1eeaf6935a1b563f9109506e54624ca2",
+      "size_bytes": 1372
+    },
+    "research_experiments/fov2026_trajectory_clustering/configs/hg_msa_tc_five_scene/homography_bellevue_116th_ne12th.json": {
+      "sha256": "9afd259bd684c188409527be753af4f8bcb572b7fbcada7e17d184c56c2f730a",
+      "size_bytes": 1399
+    },
+    "research_experiments/fov2026_trajectory_clustering/configs/hg_msa_tc_five_scene/homography_bellevue_150th_eastgate.json": {
+      "sha256": "99bbf7a9fc5b8cca7bfb91b5055a84ff75b47a2f679a0a196a92b197e273f366",
+      "size_bytes": 1240
+    },
+    "research_experiments/fov2026_trajectory_clustering/configs/hg_msa_tc_five_scene/homography_bellevue_150th_newport.json": {
+      "sha256": "1e3a078de822a5dc946669c4f91cbf75f87dc808232e4e5285eecbba61ee735c",
+      "size_bytes": 1290
+    },
+    "research_experiments/fov2026_trajectory_clustering/configs/hg_msa_tc_five_scene/homography_bellevue_150th_se38th.json": {
+      "sha256": "47da6b23ad76ba6fbb101b94fde50acfacc794af17eadfbe52d4a31d4032b51b",
+      "size_bytes": 1379
+    },
+    "research_experiments/fov2026_trajectory_clustering/configs/hg_msa_tc_five_scene/homography_bellevue_ne8th.json": {
+      "sha256": "d5b5ccd06d2cd9a1bdf356895347bd66ed4e23d388f860fe195d11a07290ddc6",
+      "size_bytes": 1825
+    },
+    "research_experiments/fov2026_trajectory_clustering/outputs/hg_msa_tc_five_scene/calibration_inputs/bellevue_116th_ne12th/point_pair_template.csv": {
+      "sha256": "49a26bc53dac84ebf06604b71eaddedc51f667252cc6406be8034b65e4f0d54c",
+      "size_bytes": 1527
+    },
+    "research_experiments/fov2026_trajectory_clustering/outputs/hg_msa_tc_five_scene/calibration_inputs/bellevue_116th_ne12th/representative_camera_frame.png": {
+      "sha256": "c310c844949cacaf70d2bfd7c346fcd2f156ed229c6d741fe442c053db83c094",
+      "size_bytes": 1626646
+    },
+    "research_experiments/fov2026_trajectory_clustering/outputs/hg_msa_tc_five_scene/calibration_inputs/bellevue_116th_ne12th/topview_reference_image.png": {
+      "sha256": "380c0653efacdb631364dadf4921f821cb3bbf973cdfc69133f7e64ea37f87ab",
+      "size_bytes": 2742453
+    },
+    "research_experiments/fov2026_trajectory_clustering/outputs/hg_msa_tc_five_scene/calibration_inputs/bellevue_150th_eastgate/point_pair_template.csv": {
+      "sha256": "1d02ba21db24e66674cf061f689a7b7143cc6cd0bcaadb0c04028d8ef8ddb6a2",
+      "size_bytes": 1536
+    },
+    "research_experiments/fov2026_trajectory_clustering/outputs/hg_msa_tc_five_scene/calibration_inputs/bellevue_150th_eastgate/representative_camera_frame.png": {
+      "sha256": "2372972099490fc00db8f002c577be377c6e44b6a3f675d344f3088b5228f086",
+      "size_bytes": 1338900
+    },
+    "research_experiments/fov2026_trajectory_clustering/outputs/hg_msa_tc_five_scene/calibration_inputs/bellevue_150th_eastgate/topview_reference_image.png": {
+      "sha256": "6afeedfbcf6850e0bae5ee21707140d03bdc7e2d24d283a4edd603855c64a8db",
+      "size_bytes": 3497689
+    },
+    "research_experiments/fov2026_trajectory_clustering/outputs/hg_msa_tc_five_scene/calibration_inputs/bellevue_150th_newport/point_pair_template.csv": {
+      "sha256": "243f3e4e2f2934655415ca97509041c6d8e5714bfde91b9a8d747f45f2be15d8",
+      "size_bytes": 2325
+    },
+    "research_experiments/fov2026_trajectory_clustering/outputs/hg_msa_tc_five_scene/calibration_inputs/bellevue_150th_newport/representative_camera_frame.png": {
+      "sha256": "d362b09147e09c811558f38d76ea9af7ccd006c913d15f6a3db9c361c16c0431",
+      "size_bytes": 1675526
+    },
+    "research_experiments/fov2026_trajectory_clustering/outputs/hg_msa_tc_five_scene/calibration_inputs/bellevue_150th_newport/topview_reference_image.png": {
+      "sha256": "a676d8bdb957ef34c348ad5e03e9f468baae2afd17345ff4d3f57ae8e063423d",
+      "size_bytes": 3611109
+    },
+    "research_experiments/fov2026_trajectory_clustering/outputs/hg_msa_tc_five_scene/calibration_inputs/bellevue_150th_se38th/point_pair_template.csv": {
+      "sha256": "eedb8868328ae57489470c9ddf676f2f1312857c30c2e9e9528111a448e70817",
+      "size_bytes": 2778
+    },
+    "research_experiments/fov2026_trajectory_clustering/outputs/hg_msa_tc_five_scene/calibration_inputs/bellevue_150th_se38th/representative_camera_frame.png": {
+      "sha256": "174bdfb8f823cc8deb1ed3b4e5d4180d2ad6b2bf818c53f7dea6a38b557ee594",
+      "size_bytes": 1462209
+    },
+    "research_experiments/fov2026_trajectory_clustering/outputs/hg_msa_tc_five_scene/calibration_inputs/bellevue_150th_se38th/topview_reference_image.png": {
+      "sha256": "e6b5bd3727ff76867dbf6556198ac000e99ae961c22aede8e51c131d4467e25f",
+      "size_bytes": 3121777
+    },
+    "research_experiments/fov2026_trajectory_clustering/outputs/hg_msa_tc_five_scene/calibration_inputs/bellevue_ne8th/representative_camera_frame.png": {
+      "sha256": "176a030f790513a27cd1fd3f82081687934038f1c1440f919978ef50b2f943ab",
+      "size_bytes": 1570065
+    },
+    "research_experiments/fov2026_trajectory_clustering/outputs/hg_msa_tc_five_scene/calibration_inputs/bellevue_ne8th/topview_reference_image.png": {
+      "sha256": "cc794a69f028f1fddd8c7a413a1359a03531295a7b98ef10a2e9a635ea094497",
+      "size_bytes": 5372482
+    },
+    "research_experiments/fov2026_trajectory_clustering/outputs/hg_msa_tc_five_scene/homography_validation/bellevue_ne8th/point_pair_template_excluding_problem_points_12_13_15_21_23.csv": {
+      "sha256": "a8064bb79a8b566aa3926fffacc8c841c92d5530a9fe3b0c5ae3d34e3dd11435",
+      "size_bytes": 1081
+    }
+  },
+  "frozen_homographies_modified": false,
+  "frozen_targets_modified": false,
+  "git_commit_before_analysis": "1a370f8315acb06e3eaca34e2d93ab8941ca532c",
+  "implementation_version": "homography-quality-v1",
+  "independent_test_clustering_executed": false,
+  "quality_gate_tuned_against_reference_metrics": false,
+  "target_estimation_split_only_for_propagation": true,
+  "task": "futuretransp-homography-quality-sensitivity"
+}
