@@ -1,0 +1,249 @@
+protocol_version: hg-smg-tc-preregistration-v1
+method_name: HG-SMG-TC
+method_expansion: Homography-Guided Semantic Maneuver Graph Trajectory Clustering
+status: preregistered_not_implemented
+created_at_utc: '2026-08-07T22:30:12Z'
+base_commit: 8bfb4826725ea5c4c04042c037b521edcf216ec4
+branch: feature/futuretransp-hg-smg-preregistration
+scientific_positioning:
+  extension_type: post-review methodological extension
+  original_independent_test_findings_known: true
+  prospective_claim_for_original_method: false
+  freeze_before_first_extension_test_execution: true
+  no_new_scientific_results_in_this_protocol_task: true
+scenes:
+  fixed:
+    - bellevue_116th_ne12th
+    - bellevue_150th_newport
+    - bellevue_150th_eastgate
+    - bellevue_150th_se38th
+    - bellevue_ne8th
+  removal_permitted: false
+splits:
+  target_estimation:
+    allowed_modules: [EMD, SAC, SMG, UATP]
+    reference_label_access: false
+  model_selection:
+    allowed_modules: [PCMS, frozen_candidate_evaluation]
+    reference_label_access: false
+  independent_test:
+    execution_in_this_task: false
+    method_design_access: false
+    future_name: locked post-review extension evaluation
+hard_leakage_guard:
+  preregistration_code_must_not_read:
+    - independent-test polygon-reference labels
+    - independent-test cluster assignments
+    - independent-test ARI, NMI, F1, or purity
+    - independent-test confusion or cluster-movement mapping tables
+    - accidental HG-SMG-TC independent-test outputs
+  qualitative_known_failure_may_be_stated: true
+  prohibited_for_method_choice:
+    - semantic or polygon reference labels
+    - independent-test performance metrics
+    - original independent-test cluster assignments
+    - EMAS_HG optimization
+inherited_task_08_facts:
+  frozen_matrices_reproduce_exactly: true
+  opencv_version: '4.12'
+  estimator: cv2.findHomography
+  robust_method: RANSAC
+  ransac_reprojection_threshold_px: 10.0
+  max_iterations: 2000
+  confidence: 0.995
+  engineering_screening_passed_scenes: 5
+  engineering_screening_scene_count: 5
+  quality_class_interpretation: diagnostic engineering screening; not a prospective external-validation gate
+  endpoint_extrapolation_percent_range: [90.4, 96.9]
+  se38th_frozen_target: 18
+  se38th_target_preserved_for_perturbation_px: [1, 2, 3, 5]
+  se38th_primary_failure_mechanism: semantic endpoint-region granularity
+  se38th_secondary_failure_mechanism: calibration fragility
+  google_topview_redistribution_metadata_complete: false
+modules:
+  EMD:
+    name: Endpoint Micro-Mode Discovery
+    implementation: frozen split-aware-hg-msa-tc-v1
+    split: target_estimation
+    candidate_region_counts: [3, 4, 5, 6, 7, 8]
+    support_threshold_grid: [0.001, 0.0025, 0.005, 0.01, 0.02]
+    region_metric_sample_size: 2500
+    coordinate_domain: homography_topview
+    modifications_permitted: false
+  SAC:
+    name: Semantic Approach Consolidation
+    split: target_estimation
+    process_roles_separately: true
+    cross_role_merge_permitted: false
+    primary_heading_domain: camera_isotropic_shared_scale
+    topview_heading_role: sensitivity_only
+    heading_window_points: 5
+    heading_definition:
+      entry: directed vector from first to fifth finite canonical point
+      exit: directed vector from fifth-last to last finite canonical point
+      fewer_than_window_points: undefined
+    centroid_definition: componentwise median of top-view endpoints in the micro-region
+    bearing_definition: atan2 from frozen role-specific scene center to robust centroid
+    circular_location: observed-angle circular L1 median; tie by lowest wrapped angle in [-pi,pi)
+    circular_distance: absolute wrapped angular difference in [0,pi]
+    dispersion_definition: circular median absolute deviation around circular location
+    self_consistency:
+      bootstrap_replicates: 500
+      quantile: 0.95
+      sampling_unit: trajectory within micro-region with replacement
+      bearing_radius: q0.95 across bootstrap circular q0.95 residual radii
+      heading_radius: q0.95 across bootstrap circular q0.95 residual radii
+      pair_bearing_tolerance: sum of the two region bearing radii
+      pair_heading_tolerance: sum of the two region heading radii
+      numerical_floor: 8 times float64 machine epsilon radians
+    pair_distance:
+      primary: max(bearing_separation_over_pair_tolerance, heading_separation_over_pair_tolerance)
+      compatible_when: distance <= 1
+      manual_feature_weights: none
+      mandatory_fields: [same_role, bearing, directed_heading]
+      mandatory_od_profile_similarity: false
+    consolidation:
+      linkage: complete
+      cluster_distance: maximum primary pair distance across cross-cluster pairs
+      merge_rule: repeatedly merge the compatible cluster pair with minimum cluster distance
+      tie_break: lexicographic sorted tuple of original micro-region IDs
+      stop_rule: no cluster pair has complete-link distance <= 1
+      output_order: role entry before exit, then circular bearing, then heading, then minimum original micro-region ID
+    edge_cases:
+      zero_support_region: retain as isolated supernode and report
+      fewer_than_two_valid_bearings: retain as isolated supernode
+      fewer_than_two_valid_headings: retain as isolated supernode in primary SAC
+      one_region_for_role: return one supernode unchanged
+      undefined_heading: no primary merge involving that region
+      bootstrap_zero_radius: apply numerical floor; only numerically identical directions merge
+      bootstrap_failure: fail the scene; no nearest-region fallback
+      nonfinite_geometry: retain isolated with invalid_descriptor flag; do not impute
+    od_profile:
+      primary_merge_condition: false
+      normalized_over: destination micro-regions for entry profiles and source micro-regions for exit profiles
+      zero_support_profile: undefined; region isolated in SAC+OD diagnostic
+      distance: Jensen-Shannon distance using base-2 logarithms and square root
+      use: [SMG construction, A8 diagnostic]
+  SMG:
+    name: Semantic Maneuver Graph
+    split: target_estimation
+    nodes: SAC entry and exit supernodes
+    aggregate_count: n_tilde_uv = sum_{i in u} sum_{j in v} n_ij
+    denominator: number of target-estimation trajectories with valid entry and exit supernode assignments
+    aggregate_share: q_tilde_uv = n_tilde_uv / N
+    target: K_SMG = sum_{u,v} indicator(q_tilde_uv >= theta)
+    threshold_comparison: greater_than_or_equal
+    threshold_grid: [0.001, 0.0025, 0.005, 0.01, 0.02]
+    threshold_selection:
+      primary_eligibility: coverage >= 0.90 and K_SMG >= 2
+      fallback_eligibility: coverage >= 0.80 and K_SMG >= 2
+      final_fallback: all candidates
+      order:
+        - minimize adjacent-threshold target instability
+        - minimize absolute distance to threshold 0.005
+        - maximize supported trajectory coverage
+        - minimize threshold
+    missing_geometry: exclude from N and report count; do not infer an edge
+    zero_valid_trajectories: fail the scene
+    zero_supported_edges: permitted only in final fallback and reported as degenerate
+  UATP:
+    name: Uncertainty-Aware Target Prior
+    split: target_estimation
+    bootstrap_replicates: 500
+    bootstrap_design: hierarchical recording-aware bootstrap
+    bootstrap_steps:
+      - sample the scene's source recordings with replacement, preserving recording count
+      - for each selected recording occurrence sample its trajectories with replacement, preserving that recording's original trajectory count
+      - run the complete frozen EMD -> primary SAC -> SMG pipeline
+      - retain K_SMG for every replicate including degenerate flagged outcomes
+    summaries: [mode, median, Shannon entropy in bits, percentile interval]
+    mode_tie_break: smaller integer K_SMG
+    primary_interval_level: 0.90
+    primary_interval_quantiles: [0.05, 0.95]
+    percentile_method: linear
+    interval_integerization: [floor_lower_quantile, ceil_upper_quantile]
+    sensitivity_interval_levels: [0.80, 0.90, 0.95]
+    failed_replicate_policy: fail the scene if any failure is algorithmic; input-invalid replicates are retained as invalid and separately reported
+  PCMS:
+    name: Prior-Constrained Model Selection
+    split: model_selection
+    prior: frozen UATP primary 90 percent interval
+    interval_distance:
+      inside: 0
+      below: L - K
+      above: K - U
+    candidate_count:
+      kmeans: configured n_clusters from existing frozen candidate grid
+      hdbscan: resulting non-noise cluster count
+      optics: resulting non-noise cluster count
+    selection_order:
+      kmeans:
+        - minimize interval distance
+        - maximize silhouette_clustered_only
+        - minimize davies_bouldin_clustered_only
+        - maximize calinski_harabasz_clustered_only
+        - minimize largest_cluster_ratio
+        - deterministic lexical parameter order
+      density_methods:
+        - minimize interval distance
+        - minimize pct_outliers
+        - maximize silhouette_clustered_only
+        - minimize davies_bouldin_clustered_only
+        - maximize calinski_harabasz_clustered_only
+        - minimize largest_cluster_ratio
+        - deterministic lexical parameter order
+    kmeans_forced_to_target: false
+    emas_hg_role: diagnostic_only
+randomness:
+  master_seed: 20260901
+  seed_derivation: first 8 bytes of SHA256(master_seed|scene|module|role|region_or_replicate), interpreted unsigned big-endian modulo 2147483647
+  deterministic_ordering: stable mergesort and lexical IDs for every tie
+  frozen_original_emd_seeds_reused_for_nonbootstrap_full_fit: true
+sensitivities:
+  sac_heading_window_points: [3, 5, 7]
+  sac_self_consistency_quantiles: [0.90, 0.95, 0.975]
+  sac_heading_domains: [camera_isotropic_shared_scale, homography_topview]
+  uatp_interval_levels: [0.80, 0.90, 0.95]
+  primary_replacement_after_test_permitted: false
+ablations:
+  config: publications/hg-msa-tc-future-transportation/configs/hg_smg_ablation_protocol.yaml
+  immutable_ids: [A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10]
+hypotheses:
+  document: publications/hg-msa-tc-future-transportation/docs/hg_smg_preregistered_hypotheses.md
+holdout:
+  raw_recordings_found: 115
+  canonical_recordings_found: 115
+  unused_same_scene_recordings_found: 0
+  pristine_post_review_holdout_available: false
+  future_evaluation_name: locked post-review extension evaluation
+frozen_inputs:
+  trajectory_manifest:
+    path: publications/hg-msa-tc-future-transportation/data/manifests/trajectory_manifest.csv
+    sha256: 0b26f59168f0c3996290cc1832ddd423321a5988e27fca93e78d2a02ecde7a03
+  evaluation_split:
+    path: publications/hg-msa-tc-future-transportation/data/splits/evaluation_split.csv
+    sha256: 0ec1e76f7024ecbea46b832be56ae07ab2d9b16dc57a99654d0d8390d909774f
+  frozen_evaluation_protocol:
+    path: publications/hg-msa-tc-future-transportation/configs/frozen_evaluation_protocol.yaml
+    sha256: 865513b8be4d59365bd430e5909fbd72b6a9d37f3e8b805917af3a80e66a1337
+  frozen_selection_manifest:
+    path: publications/hg-msa-tc-future-transportation/results/development/frozen_selection_manifest.json
+    sha256: 65c70bb5f3bb89434df214af1b662159d074d77a339ef54e2dd2c62bccc797db
+  task_08_result_manifest:
+    path: publications/hg-msa-tc-future-transportation/results/homography/task_08_result_manifest.json
+    sha256: 4a14beac18e6467350d6392e71994721ea5eae492519a7b1e7b55704dc75d32d
+  task_08_quality_metrics:
+    path: publications/hg-msa-tc-future-transportation/results/homography/homography_quality_metrics.csv
+    sha256: db2156caab6ac8829c31636bf0e7416a8e1417f11904a395e8c4f5f11f84b146
+  frozen_scene_parameters:
+    path: publications/hg-msa-tc-future-transportation/results/target_estimation/frozen_scene_parameters.csv
+    sha256: 59502133baabd043b85c9161582a83e96e44451eb06550c2dc830f0b490b8170
+execution_gate:
+  extension_implementation_present: false
+  extension_scientific_outputs_present: false
+  independent_test_execution_permitted_by_this_protocol_task: false
+  future_required_confirmation: I_CONFIRM_FROZEN_HG_SMG_EXTENSION_EVALUATION
+amendment_policy:
+  before_first_extension_test: versioned amendment allowed only with rationale and new hash; independent-test information forbidden
+  after_first_extension_test: primary equations, parameters, ablations, seeds, and hypotheses immutable
+  deviations: report transparently; never overwrite protocol_v1

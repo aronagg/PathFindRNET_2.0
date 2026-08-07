@@ -1,0 +1,104 @@
+protocol_version: hg-smg-tc-preregistration-v1
+immutable_after_freeze: true
+primary_ablation: A5
+ablation_order:
+  - A0
+  - A1
+  - A2
+  - A3
+  - A4
+  - A5
+  - A6
+  - A7
+  - A8
+  - A9
+  - A10
+ablations:
+  A0:
+    name: original_untargeted
+    emd: false
+    sac: false
+    smg: false
+    uatp: false
+    pcms: false
+    selection: frozen_untargeted_selection
+    scientific_role: original baseline
+  A1:
+    name: original_frozen_hg_aware_point_target
+    emd: frozen_original
+    sac: false
+    smg: false
+    uatp: false
+    pcms: false
+    selection: frozen_hg_expected_aware_point_error
+    scientific_role: submitted-method baseline
+  A2:
+    name: emd_sac_semantic_single_point_target
+    emd: frozen_original
+    sac: primary
+    smg: false
+    uatp: false
+    pcms: false
+    target_definition: count_unique_supported_micro_od_pairs_after_sac_mapping_without_reaggregation
+    selection: frozen_point_target_error_then_frozen_tie_breaks
+    scientific_role: isolate consolidation from graph reaggregation
+  A3:
+    name: emd_sac_smg_single_point_target
+    emd: frozen_original
+    sac: primary
+    smg: true
+    uatp: false
+    pcms: false
+    target_definition: deterministic_K_SMG_on_full_target_estimation_split
+    selection: frozen_point_target_error_then_frozen_tie_breaks
+    scientific_role: isolate semantic graph aggregation
+  A4:
+    name: emd_sac_smg_uatp_interval
+    emd: frozen_original
+    sac: primary
+    smg: true
+    uatp: true
+    pcms: false
+    target_definition: bootstrap_distribution_and_primary_90_percent_interval
+    selection: not_applicable_target_estimation_ablation_only
+    scientific_role: quantify target uncertainty before operational interval selection
+  A5:
+    name: full_hg_smg_tc_pcms
+    emd: frozen_original
+    sac: primary
+    smg: true
+    uatp: true
+    pcms: true
+    selection: interval_distance_then_frozen_tie_breaks
+    scientific_role: primary extension
+  A6:
+    name: sac_without_heading
+    parent: A5
+    sac_variant: bearing_only
+    scientific_role: heading ablation
+  A7:
+    name: sac_without_bearing_spatial_information
+    parent: A5
+    sac_variant: heading_only
+    scientific_role: bearing and side ablation
+  A8:
+    name: sac_plus_od_diagnostic_compatibility
+    parent: A5
+    sac_variant: primary_plus_jensen_shannon_od_compatibility
+    scientific_role: diagnostic only; OD is not mandatory in the primary method
+  A9:
+    name: topview_heading
+    parent: A5
+    sac_variant: topview_heading_instead_of_camera_isotropic_heading
+    scientific_role: preregistered coordinate-domain sensitivity
+  A10:
+    name: point_target_instead_of_interval_prior
+    parent: A5
+    uatp: false
+    target_definition: mode_of_the_preregistered_bootstrap_K_SMG_distribution
+    selection: frozen_point_target_error_then_frozen_tie_breaks
+    scientific_role: interval-prior ablation
+post_test_change_policy:
+  additional_primary_ablations_permitted: false
+  sensitivity_variants_may_replace_primary: false
+  deviations_require: versioned_protocol_amendment_before_any_affected_test_run

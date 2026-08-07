@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: Please cite the associated Future Transportation article and this software package.
+title: HG-SMG-TC Future Transportation Reproducibility Package
+type: software
+authors:
+  - name: PathFindRNET research team
+version: hg-smg-preregistration-v1
+date-released: 2026-08-08
+repository-code: https://github.com/aronagg/PathFindRNET_2.0
+license: NOASSERTION
+keywords:
+  - vehicle trajectory clustering
+  - homography
+  - semantic maneuver graph
+  - intelligent transportation systems
+  - reproducibility
+abstract: >-
+  Publication-specific protocols, code, tests, and manifests for leakage-controlled
+  evaluation of homography-guided vehicle trajectory clustering. The HG-SMG-TC entry
+  is a preregistered post-review extension and has no scientific results in version 1.

@@ -41,3 +41,13 @@ tables, generated schematic/camera diagnostic figures, tests, manifests and repo
 It must not duplicate raw video, trajectory data, independent-test assignments, or
 Google-derived top-view raster images. Source-image paths and hashes preserve local
 auditability without asserting redistribution permission.
+
+The HG-SMG-TC preregistration package adds only protocols, literature/novelty
+positioning, reproducibility manifests, validation code, and tests. It contains no new
+scientific result, independent-test label, assignment, or metric. A later DOI-backed
+release should include processed trajectory tables, EMD micro-regions, SAC supernode
+memberships, SMG edges, UATP bootstrap distributions, PCMS candidates/selections,
+assignments, ablations, sensitivity tables, and figure-source data with SHA-256 and
+split/access metadata. Google-derived top-view rasters remain excluded until
+redistribution rights and attribution are resolved; calibration coordinates, matrices,
+checksums, and author-created schematic alternatives are publishable substitutes.

@@ -1,0 +1,150 @@
+registry_version: future-transportation-experiment-registry-v1
+created_at_utc: '2026-08-07T22:30:12Z'
+scientific_unit: scene
+entries:
+  - experiment_id: task08_homography_quality_sensitivity
+    parent: task07_target_estimation_formalization
+    commit: 8bfb4826725ea5c4c04042c037b521edcf216ec4
+    command: python code/run_homography_analysis.py analyze --replicates 20
+    split: target_estimation
+    input_hashes: [task_08_input_manifest.json]
+    output_hashes: [task_08_result_manifest.json]
+    random_seeds: deterministic_task08_scene_scale_replicate_seeds
+    reference_label_access: false
+    timestamp_utc: '2026-08-07T22:10:33Z'
+    status: completed_frozen
+  - experiment_id: task09a_hg_smg_preregistration
+    parent: task08_homography_quality_sensitivity
+    commit: 8bfb4826725ea5c4c04042c037b521edcf216ec4
+    command: python code/reproduction/cli.py validate-preregistration
+    split: none_protocol_only
+    input_hashes:
+      - 0b26f59168f0c3996290cc1832ddd423321a5988e27fca93e78d2a02ecde7a03
+      - 0ec1e76f7024ecbea46b832be56ae07ab2d9b16dc57a99654d0d8390d909774f
+      - 4a14beac18e6467350d6392e71994721ea5eae492519a7b1e7b55704dc75d32d
+    output_hashes: [hg_smg_protocol_v1.sha256]
+    random_seeds: [20260901]
+    reference_label_access: false
+    timestamp_utc: '2026-08-07T22:30:12Z'
+    status: protocol_frozen_no_scientific_run
+  - experiment_id: hg_smg_A0
+    parent: task09a_hg_smg_preregistration
+    commit: null
+    command: python code/hg_smg/run.py execute --ablation A0 --protocol configs/hg_smg_protocol_v1.yaml
+    split: target_estimation_then_model_selection
+    input_hashes: [hg_smg_protocol_v1.sha256]
+    output_hashes: []
+    random_seeds: [20260901]
+    reference_label_access: false
+    timestamp_utc: null
+    status: preregistered_not_implemented_not_run
+  - experiment_id: hg_smg_A1
+    parent: task09a_hg_smg_preregistration
+    commit: null
+    command: python code/hg_smg/run.py execute --ablation A1 --protocol configs/hg_smg_protocol_v1.yaml
+    split: target_estimation_then_model_selection
+    input_hashes: [hg_smg_protocol_v1.sha256]
+    output_hashes: []
+    random_seeds: [20260901]
+    reference_label_access: false
+    timestamp_utc: null
+    status: preregistered_not_implemented_not_run
+  - experiment_id: hg_smg_A2
+    parent: task09a_hg_smg_preregistration
+    commit: null
+    command: python code/hg_smg/run.py execute --ablation A2 --protocol configs/hg_smg_protocol_v1.yaml
+    split: target_estimation_then_model_selection
+    input_hashes: [hg_smg_protocol_v1.sha256]
+    output_hashes: []
+    random_seeds: [20260901]
+    reference_label_access: false
+    timestamp_utc: null
+    status: preregistered_not_implemented_not_run
+  - experiment_id: hg_smg_A3
+    parent: task09a_hg_smg_preregistration
+    commit: null
+    command: python code/hg_smg/run.py execute --ablation A3 --protocol configs/hg_smg_protocol_v1.yaml
+    split: target_estimation_then_model_selection
+    input_hashes: [hg_smg_protocol_v1.sha256]
+    output_hashes: []
+    random_seeds: [20260901]
+    reference_label_access: false
+    timestamp_utc: null
+    status: preregistered_not_implemented_not_run
+  - experiment_id: hg_smg_A4
+    parent: task09a_hg_smg_preregistration
+    commit: null
+    command: python code/hg_smg/run.py execute --ablation A4 --protocol configs/hg_smg_protocol_v1.yaml
+    split: target_estimation
+    input_hashes: [hg_smg_protocol_v1.sha256]
+    output_hashes: []
+    random_seeds: [20260901]
+    reference_label_access: false
+    timestamp_utc: null
+    status: preregistered_not_implemented_not_run
+  - experiment_id: hg_smg_A5
+    parent: task09a_hg_smg_preregistration
+    commit: null
+    command: python code/hg_smg/run.py execute --ablation A5 --protocol configs/hg_smg_protocol_v1.yaml
+    split: target_estimation_then_model_selection
+    input_hashes: [hg_smg_protocol_v1.sha256]
+    output_hashes: []
+    random_seeds: [20260901]
+    reference_label_access: false
+    timestamp_utc: null
+    status: preregistered_not_implemented_not_run
+  - experiment_id: hg_smg_A6
+    parent: hg_smg_A5
+    commit: null
+    command: python code/hg_smg/run.py execute --ablation A6 --protocol configs/hg_smg_protocol_v1.yaml
+    split: target_estimation_then_model_selection
+    input_hashes: [hg_smg_protocol_v1.sha256]
+    output_hashes: []
+    random_seeds: [20260901]
+    reference_label_access: false
+    timestamp_utc: null
+    status: preregistered_not_implemented_not_run
+  - experiment_id: hg_smg_A7
+    parent: hg_smg_A5
+    commit: null
+    command: python code/hg_smg/run.py execute --ablation A7 --protocol configs/hg_smg_protocol_v1.yaml
+    split: target_estimation_then_model_selection
+    input_hashes: [hg_smg_protocol_v1.sha256]
+    output_hashes: []
+    random_seeds: [20260901]
+    reference_label_access: false
+    timestamp_utc: null
+    status: preregistered_not_implemented_not_run
+  - experiment_id: hg_smg_A8
+    parent: hg_smg_A5
+    commit: null
+    command: python code/hg_smg/run.py execute --ablation A8 --protocol configs/hg_smg_protocol_v1.yaml
+    split: target_estimation_then_model_selection
+    input_hashes: [hg_smg_protocol_v1.sha256]
+    output_hashes: []
+    random_seeds: [20260901]
+    reference_label_access: false
+    timestamp_utc: null
+    status: preregistered_not_implemented_not_run
+  - experiment_id: hg_smg_A9
+    parent: hg_smg_A5
+    commit: null
+    command: python code/hg_smg/run.py execute --ablation A9 --protocol configs/hg_smg_protocol_v1.yaml
+    split: target_estimation_then_model_selection
+    input_hashes: [hg_smg_protocol_v1.sha256]
+    output_hashes: []
+    random_seeds: [20260901]
+    reference_label_access: false
+    timestamp_utc: null
+    status: preregistered_not_implemented_not_run
+  - experiment_id: hg_smg_A10
+    parent: hg_smg_A5
+    commit: null
+    command: python code/hg_smg/run.py execute --ablation A10 --protocol configs/hg_smg_protocol_v1.yaml
+    split: target_estimation_then_model_selection
+    input_hashes: [hg_smg_protocol_v1.sha256]
+    output_hashes: []
+    random_seeds: [20260901]
+    reference_label_access: false
+    timestamp_utc: null
+    status: preregistered_not_implemented_not_run

@@ -284,3 +284,31 @@ on `target_estimation` only.
 No frozen matrix, target, region count, threshold, selected configuration, reference
 label or independent-test assignment is changed. Google-derived top-view rasters are
 not redistributed in the Task 08 review package.
+
+## HG-SMG-TC Post-Review Preregistration
+
+Task 09A freezes **HG-SMG-TC, Homography-Guided Semantic Maneuver Graph
+Trajectory Clustering**, as a post-review extension. The motivating original
+independent-test failure is already known; the valid prospective safeguard is that
+all extension equations, nuisance parameters, seeds, A0-A10 ablations, H1-H7
+hypotheses, and selection logic are frozen before the first extension test run.
+
+Primary SAC uses top-view side/bearing and five-point directed camera-isotropic
+heading. OD-profile similarity is diagnostic, not mandatory. UATP uses 500
+recording-aware bootstraps and a primary 90% target interval; PCMS uses interval
+distance before the existing frozen tie-break order.
+
+Task 09A is protocol-only. It does not implement or run HG-SMG-TC and cannot read
+independent-test references, assignments, or agreement metrics. All 115 same-scene
+raw recordings are already represented in the 67,029-trajectory cohort, so later
+testing must be called a `locked post-review extension evaluation`, not a pristine
+holdout.
+
+```powershell
+./.venv/Scripts/python.exe publications/hg-msa-tc-future-transportation/code/reproduction/cli.py validate-preregistration
+publications/hg-msa-tc-future-transportation/reproduce_publication.ps1 list
+```
+
+See `configs/hg_smg_protocol_v1.yaml`,
+`docs/hg_smg_mathematical_specification.md`, and
+`reproducibility/REPRODUCIBILITY.md`.
