@@ -1,0 +1,6 @@
+scene,split_used,n_trajectories,frozen_target,reproduced_target,target_exact_match,frozen_entry_regions,reproduced_entry_regions,frozen_exit_regions,reproduced_exit_regions,frozen_support_threshold,reproduced_support_threshold,threshold_candidates_max_abs_difference,threshold_candidates_exact,region_candidates_max_abs_difference,region_candidates_exact,od_support_max_abs_difference,od_support_exact,canonical_module_version
+bellevue_116th_ne12th,target_estimation,723,10,10,True,4,4,4,4,0.0025,0.0025,1.1102230246251565e-16,True,1.1102230246251565e-16,True,9.8879238130678e-17,True,canonical-hg-target-estimator-v1
+bellevue_150th_newport,target_estimation,2423,12,12,True,4,4,4,4,0.001,0.001,1.1102230246251565e-16,True,1.1102230246251565e-16,True,9.8879238130678e-17,True,canonical-hg-target-estimator-v1
+bellevue_150th_eastgate,target_estimation,8720,9,9,True,4,4,4,4,0.005,0.005,1.1102230246251565e-16,True,1.1102230246251565e-16,True,9.8879238130678e-17,True,canonical-hg-target-estimator-v1
+bellevue_150th_se38th,target_estimation,2482,18,18,True,7,7,3,3,0.0025,0.0025,1.1102230246251565e-16,True,1.1102230246251565e-16,True,9.8879238130678e-17,True,canonical-hg-target-estimator-v1
+bellevue_ne8th,target_estimation,5576,9,9,True,4,4,4,4,0.005,0.005,1.1102230246251565e-16,True,1.1102230246251565e-16,True,9.8879238130678e-17,True,canonical-hg-target-estimator-v1

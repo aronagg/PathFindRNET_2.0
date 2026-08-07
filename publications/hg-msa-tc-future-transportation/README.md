@@ -242,3 +242,28 @@ weight analysis and does not rerun independent-test clustering.
 See `docs/emas_hg_mathematical_definition.md`,
 `docs/emas_weight_sensitivity_scientific_interpretation.md` and
 `docs/emas_result_manifest.md`.
+
+## Frozen HG Target Formalization and Failure Analysis
+
+The canonical target estimator is
+`code/target_estimation/hg_target_estimator.py`. It reproduces the frozen targets
+`10, 12, 9, 18, 9` and the complete threshold, endpoint-region, and OD-support tables
+from `target_estimation` only. The human polygon reference is loaded only after this
+reproduction is persisted and locked, and then only for diagnostic mapping.
+
+The analysis formalizes the separate entry/exit median centers, circular endpoint
+features, KMeans region-count rule, OD support, and data-dependent threshold heuristic.
+It also documents the SE38th failure: the frozen estimator selected seven entry and
+three exit regions, yielding 18 supported geometric OD pairs versus nine independently
+observed semantic movements. This result is retained without post hoc correction.
+
+```powershell
+.\.venv\Scripts\python.exe publications\hg-msa-tc-future-transportation\code\run_target_estimation_analysis.py analyze
+.\.venv\Scripts\python.exe publications\hg-msa-tc-future-transportation\code\run_target_estimation_reporting.py figures
+.\.venv\Scripts\python.exe publications\hg-msa-tc-future-transportation\code\run_target_estimation_reporting.py documents
+```
+
+See `docs/hg_target_estimator_mathematical_definition.md`,
+`docs/se38th_target_failure_analysis.md`, and
+`docs/target_estimation_result_manifest.md`. The sensitivity analyses are diagnostic;
+they do not replace frozen thresholds, endpoint K values, targets, or cluster selections.

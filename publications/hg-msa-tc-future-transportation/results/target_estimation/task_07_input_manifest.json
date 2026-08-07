@@ -1,0 +1,89 @@
+{
+  "canonical_module_version": "canonical-hg-target-estimator-v1",
+  "created_at_utc": "2026-08-07T20:16:09+00:00",
+  "files": {
+    "publications/hg-msa-tc-future-transportation/annotations/protocol/polygon_reference_protocol_v1.yaml": {
+      "sha256": "6609f29e6251d477089ad210d00ac2160ed0daea73d14c1a26e5fdfa401ede96",
+      "size_bytes": 45729
+    },
+    "publications/hg-msa-tc-future-transportation/annotations/reference_labels/independent_test_reference_labels.csv": {
+      "sha256": "127a52ff80af8906fdc3bb6a7436a222baedd42d8c542cfb2e234e67e43b4f5f",
+      "size_bytes": 25835801
+    },
+    "publications/hg-msa-tc-future-transportation/annotations/reference_labels/target_estimation_reference_labels.csv": {
+      "sha256": "c2d9f048dbc80f5856ce076496cf1707d07eb5caf8e1ab52cbf36a85b93d8f87",
+      "size_bytes": 18826154
+    },
+    "publications/hg-msa-tc-future-transportation/configs/frozen_evaluation_protocol.yaml": {
+      "sha256": "865513b8be4d59365bd430e5909fbd72b6a9d37f3e8b805917af3a80e66a1337",
+      "size_bytes": 42775
+    },
+    "publications/hg-msa-tc-future-transportation/configs/split_aware_runner.yaml": {
+      "sha256": "982699aa24f3c2f33b2e9a8e670fc3b6aeef8992d697d71cfd66f4c7449943f9",
+      "size_bytes": 3455
+    },
+    "publications/hg-msa-tc-future-transportation/data/manifests/trajectory_manifest.csv": {
+      "sha256": "0b26f59168f0c3996290cc1832ddd423321a5988e27fca93e78d2a02ecde7a03",
+      "size_bytes": 49990970
+    },
+    "publications/hg-msa-tc-future-transportation/data/splits/evaluation_split.csv": {
+      "sha256": "0ec1e76f7024ecbea46b832be56ae07ab2d9b16dc57a99654d0d8390d909774f",
+      "size_bytes": 26769282
+    },
+    "publications/hg-msa-tc-future-transportation/results/development/selected_configurations.csv": {
+      "sha256": "e57e82e282dc888f556090e289a8e845cebce2bb653d9aac1dd9a978d9c76d2f",
+      "size_bytes": 21088
+    },
+    "publications/hg-msa-tc-future-transportation/results/development/target_candidates.csv": {
+      "sha256": "b9510562e8cecf1533f75ff5547492e532a6c93499b186d5ba6e484fdb18f935",
+      "size_bytes": 2520
+    },
+    "publications/hg-msa-tc-future-transportation/results/development/target_estimates.csv": {
+      "sha256": "57664aa66e2f902853e304c1cd2a85d6d68e16836a7cca42de38aeca322d80f0",
+      "size_bytes": 1519
+    },
+    "publications/hg-msa-tc-future-transportation/results/development/target_estimation_provenance.json": {
+      "sha256": "6fbfd74605a4ebaaba7e0b39287ed9af6d20a26e1d7a48539e26bda096b7dd0b",
+      "size_bytes": 4912
+    },
+    "publications/hg-msa-tc-future-transportation/results/development/target_od_support_counts.csv": {
+      "sha256": "91998c74708d479fb40ccc18b84fac28a36194345443c300c1e37b8e1e45611c",
+      "size_bytes": 3287
+    },
+    "publications/hg-msa-tc-future-transportation/results/development/target_region_candidates.csv": {
+      "sha256": "4ec450ab8909975354a194f726b1e6ae38fb6fd5a0bd7ca6e7aa6f758014b207",
+      "size_bytes": 5598
+    },
+    "publications/hg-msa-tc-future-transportation/results/independent_test/cluster_assignments.parquet": {
+      "sha256": "137cd7e39f8886abbfbb49f4599d4f000626614f78342cf08f74f389b4963169",
+      "size_bytes": 467055
+    },
+    "research_experiments/fov2026_trajectory_clustering/configs/hg_msa_tc_five_scene/homography_bellevue_116th_ne12th.json": {
+      "sha256": "9afd259bd684c188409527be753af4f8bcb572b7fbcada7e17d184c56c2f730a",
+      "size_bytes": 1399
+    },
+    "research_experiments/fov2026_trajectory_clustering/configs/hg_msa_tc_five_scene/homography_bellevue_150th_eastgate.json": {
+      "sha256": "99bbf7a9fc5b8cca7bfb91b5055a84ff75b47a2f679a0a196a92b197e273f366",
+      "size_bytes": 1240
+    },
+    "research_experiments/fov2026_trajectory_clustering/configs/hg_msa_tc_five_scene/homography_bellevue_150th_newport.json": {
+      "sha256": "1e3a078de822a5dc946669c4f91cbf75f87dc808232e4e5285eecbba61ee735c",
+      "size_bytes": 1290
+    },
+    "research_experiments/fov2026_trajectory_clustering/configs/hg_msa_tc_five_scene/homography_bellevue_150th_se38th.json": {
+      "sha256": "47da6b23ad76ba6fbb101b94fde50acfacc794af17eadfbe52d4a31d4032b51b",
+      "size_bytes": 1379
+    },
+    "research_experiments/fov2026_trajectory_clustering/configs/hg_msa_tc_five_scene/homography_bellevue_ne8th.json": {
+      "sha256": "d5b5ccd06d2cd9a1bdf356895347bd66ed4e23d388f860fe195d11a07290ddc6",
+      "size_bytes": 1825
+    }
+  },
+  "frozen_configurations_modified": false,
+  "frozen_targets_modified": false,
+  "git_commit_before_analysis": "92f910cd62c2fa535ac5f303bbe9b0bd3cf747a0",
+  "independent_test_clustering_executed": false,
+  "semantic_reference_labels_read_during_reproduction": false,
+  "target_recomputation_split": "target_estimation",
+  "task": "futuretransp-target-estimation-formalization"
+}

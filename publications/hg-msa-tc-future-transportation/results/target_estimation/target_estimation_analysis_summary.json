@@ -1,0 +1,23 @@
+{
+  "all_five_targets_reproduced": true,
+  "automatic_region_mapping_rows": 42,
+  "cross_scene_rows": 5,
+  "endpoint_diagnostic_rows": 114,
+  "fragmentation_figure_queue_rows": 80,
+  "fragmentation_rows": 54,
+  "frozen_parameter_rows": 5,
+  "frozen_targets": {
+    "bellevue_116th_ne12th": 10,
+    "bellevue_150th_eastgate": 9,
+    "bellevue_150th_newport": 12,
+    "bellevue_150th_se38th": 18,
+    "bellevue_ne8th": 9
+  },
+  "independent_test_clustering_executed": false,
+  "reference_labels_used_only_after_reproduction": true,
+  "region_count_sensitivity_rows": 180,
+  "result_manifest_outputs": 18,
+  "se38th_supported_od_rows": 18,
+  "supported_automatic_od_rows": 58,
+  "threshold_sensitivity_rows": 50
+}

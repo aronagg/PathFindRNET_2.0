@@ -24,3 +24,12 @@ reproduction table, pre-specified weight configuration, local/global weight vect
 development-only ranking summaries, figures and scientific documentation. It should
 not duplicate independent-test assignments or reference-label exports because Task 06
 only records their hashes and does not rerun or retune the test workflow.
+
+The target-estimation formalization package should include the canonical estimator,
+exact reproduction table, frozen scene-parameter table, compact endpoint/OD diagnostic
+tables, threshold and region-count sensitivity results, source tests, figures, and
+scientific reports. It should include checksums rather than duplicate the large source
+feature files, polygon-reference exports, or independent-test assignment table. The
+SE38th fragmentation analysis is reproducible from persisted assignments and source
+trajectory shards but does not distribute raw videos or trajectory shards. Human
+reference data are diagnostic-only inputs loaded after frozen-target reproduction.

@@ -1,0 +1,8 @@
+{
+  "all_candidate_tables_exact": true,
+  "all_targets_exact": true,
+  "completed_at_utc": "2026-08-07T20:16:20+00:00",
+  "independent_test_clustering_executed": false,
+  "semantic_reference_loaded": false,
+  "split_used": "target_estimation"
+}

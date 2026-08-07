@@ -23,6 +23,7 @@ from sklearn.metrics import (
 from sklearn.neighbors import NearestNeighbors
 
 from metrics.emas_hg import compute_emas_hg
+from target_estimation import hg_target_estimator as target_estimator
 
 
 FEATURE_COLUMNS = ("start_x", "start_y", "end_x", "end_y")
@@ -61,61 +62,15 @@ def isotropic_normalize(
 
 
 def apply_homography(points: np.ndarray, homography: np.ndarray) -> np.ndarray:
-    points = np.asarray(points, dtype=np.float64)
-    matrix = np.asarray(homography, dtype=np.float64)
-    homogeneous = np.hstack(
-        [points, np.ones((len(points), 1), dtype=np.float64)]
-    ) @ matrix.T
-    denominator = homogeneous[:, 2:3]
-    if np.any(np.abs(denominator) < 1e-12):
-        raise ValueError("Homography produced a near-zero homogeneous scale.")
-    return homogeneous[:, :2] / denominator
+    """Compatibility wrapper for the canonical frozen target-estimation module."""
+    return target_estimator.apply_homography(points, homography)
 
 
 def transform_camera_endpoints(
     frame: pd.DataFrame, homography: np.ndarray
 ) -> pd.DataFrame:
-    start = apply_homography(frame[["start_x", "start_y"]].to_numpy(), homography)
-    end = apply_homography(frame[["end_x", "end_y"]].to_numpy(), homography)
-    return pd.DataFrame(
-        {
-            "trajectory_id": frame["trajectory_id"].astype(str).to_numpy(),
-            "recording_id": frame["source_recording_id"].astype(str).to_numpy(),
-            "start_x_topview": start[:, 0],
-            "start_y_topview": start[:, 1],
-            "end_x_topview": end[:, 0],
-            "end_y_topview": end[:, 1],
-        }
-    )
-
-
-def _endpoint_features(points: np.ndarray, center: np.ndarray) -> np.ndarray:
-    delta = points - center
-    angle = np.arctan2(delta[:, 1], delta[:, 0])
-    radius = np.linalg.norm(delta, axis=1)
-    radius_norm = radius / max(float(np.nanmedian(radius)), 1e-12)
-    radius_norm = np.clip(radius_norm, 0, 3) / 3.0
-    return np.column_stack([np.cos(angle), np.sin(angle), 0.25 * radius_norm])
-
-
-def _region_metrics(
-    features: np.ndarray, labels: np.ndarray, metric_indices: np.ndarray
-) -> tuple[float, float]:
-    selected_features = features[metric_indices]
-    selected_labels = labels[metric_indices]
-    if len(np.unique(selected_labels)) < 2:
-        return np.nan, np.nan
-    try:
-        silhouette = float(silhouette_score(selected_features, selected_labels))
-    except Exception:
-        silhouette = np.nan
-    try:
-        davies_bouldin = float(
-            davies_bouldin_score(selected_features, selected_labels)
-        )
-    except Exception:
-        davies_bouldin = np.nan
-    return silhouette, davies_bouldin
+    """Compatibility wrapper for the canonical frozen target-estimation module."""
+    return target_estimator.transform_camera_endpoints(frame, homography)
 
 
 def estimate_endpoint_regions(
@@ -126,56 +81,9 @@ def estimate_endpoint_regions(
     region_counts: list[int],
     metric_sample_size: int,
 ) -> tuple[np.ndarray, pd.DataFrame]:
-    """Select entry or exit region count and retain every evaluated candidate."""
-    center = np.median(points, axis=0)
-    features = _endpoint_features(points, center)
-    if len(features) > metric_sample_size:
-        rng = np.random.default_rng(seed)
-        metric_indices = np.sort(
-            rng.choice(len(features), size=metric_sample_size, replace=False)
-        )
-    else:
-        metric_indices = np.arange(len(features))
-
-    rows: list[dict[str, Any]] = []
-    labels_by_count: dict[int, np.ndarray] = {}
-    for region_count in region_counts:
-        labels = KMeans(
-            n_clusters=int(region_count),
-            n_init=10,
-            random_state=seed,
-            algorithm="lloyd",
-        ).fit_predict(features)
-        silhouette, davies_bouldin = _region_metrics(
-            features, labels, metric_indices
-        )
-        rows.append(
-            {
-                "scene": scene,
-                "endpoint_role": role,
-                "n_regions": int(region_count),
-                "silhouette": silhouette,
-                "davies_bouldin": davies_bouldin,
-                "n_trajectories": int(len(points)),
-                "metric_sample_size": int(len(metric_indices)),
-                "random_seed": int(seed),
-            }
-        )
-        labels_by_count[int(region_count)] = labels.astype(int)
-
-    candidates = pd.DataFrame(rows)
-    candidates["_silhouette_key"] = candidates["silhouette"].fillna(-np.inf)
-    candidates["_db_key"] = candidates["davies_bouldin"].fillna(np.inf)
-    selected = candidates.sort_values(
-        ["_silhouette_key", "_db_key", "n_regions"],
-        ascending=[False, True, True],
-        kind="mergesort",
-    ).iloc[0]
-    selected_count = int(selected["n_regions"])
-    candidates["selected"] = candidates["n_regions"] == selected_count
-    return (
-        labels_by_count[selected_count],
-        candidates.drop(columns=["_silhouette_key", "_db_key"]),
+    """Compatibility wrapper for the canonical frozen target-estimation module."""
+    return target_estimator.estimate_endpoint_regions(
+        points, role, scene, seed, region_counts, metric_sample_size
     )
 
 
@@ -187,146 +95,15 @@ def estimate_hg_target(
     support_thresholds: list[float],
     region_metric_sample_size: int,
 ) -> tuple[dict[str, Any], pd.DataFrame, pd.DataFrame, pd.DataFrame]:
-    """Estimate the observed maneuver target from top-view endpoint geometry."""
-    start_points = endpoints[
-        ["start_x_topview", "start_y_topview"]
-    ].to_numpy(dtype=np.float64)
-    end_points = endpoints[["end_x_topview", "end_y_topview"]].to_numpy(
-        dtype=np.float64
-    )
-    entry_labels, entry_candidates = estimate_endpoint_regions(
-        start_points,
-        "entry",
+    """Compatibility wrapper for the canonical frozen target-estimation module."""
+    return target_estimator.estimate_hg_target(
         scene,
+        endpoints,
         seed,
         region_counts,
+        support_thresholds,
         region_metric_sample_size,
     )
-    exit_labels, exit_candidates = estimate_endpoint_regions(
-        end_points,
-        "exit",
-        scene,
-        seed + 17,
-        region_counts,
-        region_metric_sample_size,
-    )
-    region_candidates = pd.concat(
-        [entry_candidates, exit_candidates], ignore_index=True
-    )
-    selected_entry = int(
-        entry_candidates.loc[entry_candidates["selected"], "n_regions"].iloc[0]
-    )
-    selected_exit = int(
-        exit_candidates.loc[exit_candidates["selected"], "n_regions"].iloc[0]
-    )
-
-    od_pairs = pd.DataFrame(
-        {
-            "trajectory_id": endpoints["trajectory_id"].astype(str),
-            "entry_region": entry_labels,
-            "exit_region": exit_labels,
-        }
-    )
-    od_pairs["od_pair"] = (
-        od_pairs["entry_region"].astype(str)
-        + "->"
-        + od_pairs["exit_region"].astype(str)
-    )
-    od_counts = (
-        od_pairs["od_pair"]
-        .value_counts()
-        .rename_axis("od_pair")
-        .reset_index(name="count")
-    )
-    od_counts["share"] = od_counts["count"] / len(od_pairs)
-
-    threshold_rows: list[dict[str, Any]] = []
-    for threshold in support_thresholds:
-        valid = od_counts[od_counts["share"] >= float(threshold)]
-        threshold_rows.append(
-            {
-                "scene": scene,
-                "support_threshold": float(threshold),
-                "support_threshold_percent": 100.0 * float(threshold),
-                "support_threshold_absolute_count": int(
-                    np.ceil(float(threshold) * len(od_pairs))
-                ),
-                "n_entry_regions": selected_entry,
-                "n_exit_regions": selected_exit,
-                "hg_estimated_target": int(len(valid)),
-                "od_coverage": float(valid["count"].sum() / len(od_pairs)),
-                "smallest_valid_od_pair_share": (
-                    float(valid["share"].min()) if len(valid) else np.nan
-                ),
-                "n_trajectories": int(len(od_pairs)),
-            }
-        )
-    threshold_candidates = pd.DataFrame(threshold_rows)
-    targets = threshold_candidates["hg_estimated_target"].tolist()
-    instability: list[float] = []
-    for index, target in enumerate(targets):
-        neighbor_differences = []
-        if index > 0:
-            neighbor_differences.append(abs(target - targets[index - 1]))
-        if index < len(targets) - 1:
-            neighbor_differences.append(abs(target - targets[index + 1]))
-        instability.append(
-            float(np.mean(neighbor_differences)) if neighbor_differences else 0.0
-        )
-    threshold_candidates["target_local_instability"] = instability
-
-    eligible = threshold_candidates[
-        (threshold_candidates["od_coverage"] >= 0.90)
-        & (threshold_candidates["hg_estimated_target"] >= 2)
-    ].copy()
-    if eligible.empty:
-        eligible = threshold_candidates[
-            (threshold_candidates["od_coverage"] >= 0.80)
-            & (threshold_candidates["hg_estimated_target"] >= 2)
-        ].copy()
-    if eligible.empty:
-        eligible = threshold_candidates.copy()
-    eligible["_threshold_distance"] = (
-        eligible["support_threshold"] - 0.005
-    ).abs()
-    selected = eligible.sort_values(
-        [
-            "target_local_instability",
-            "_threshold_distance",
-            "od_coverage",
-            "support_threshold",
-        ],
-        ascending=[True, True, False, True],
-        kind="mergesort",
-    ).iloc[0]
-    threshold_candidates["selected"] = (
-        threshold_candidates["support_threshold"]
-        == float(selected["support_threshold"])
-    )
-    summary = {
-        "scene": scene,
-        "n_entry_regions": selected_entry,
-        "n_exit_regions": selected_exit,
-        "support_threshold": float(selected["support_threshold"]),
-        "support_threshold_percent": float(
-            selected["support_threshold_percent"]
-        ),
-        "support_threshold_absolute_count": int(
-            selected["support_threshold_absolute_count"]
-        ),
-        "hg_estimated_target": int(selected["hg_estimated_target"]),
-        "od_coverage": float(selected["od_coverage"]),
-        "n_trajectories": int(len(endpoints)),
-        "sampling_applied": False,
-        "random_seed": int(seed),
-        "implementation_version": IMPLEMENTATION_VERSION,
-        "target_selection_rule": (
-            "prefer coverage>=0.90 and target>=2; minimize adjacent-threshold "
-            "target instability; tie by distance to 0.5% support, higher "
-            "coverage, then lower threshold"
-        ),
-    }
-    return summary, threshold_candidates, region_candidates, od_counts
 
 
 def safe_cluster_metrics(

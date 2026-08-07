@@ -1,0 +1,6 @@
+{
+  "pytest": "108 passed in 79.02s",
+  "pytest_command": ".\\.venv\\Scripts\\python.exe -m pytest publications\\hg-msa-tc-future-transportation\\tests -q",
+  "ruff": "All checks passed",
+  "ruff_command": ".\\.venv\\Scripts\\python.exe -m ruff check publications\\hg-msa-tc-future-transportation\\code publications\\hg-msa-tc-future-transportation\\tests"
+}

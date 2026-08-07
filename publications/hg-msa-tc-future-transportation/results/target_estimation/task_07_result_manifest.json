@@ -1,0 +1,85 @@
+{
+  "all_frozen_targets_reproduced": true,
+  "created_at_utc": "2026-08-07T20:16:25+00:00",
+  "frozen_selected_configurations_modified": false,
+  "frozen_targets_modified": false,
+  "git_commit_at_execution": "92f910cd62c2fa535ac5f303bbe9b0bd3cf747a0",
+  "independent_test_clustering_executed": false,
+  "outputs": {
+    "publications/hg-msa-tc-future-transportation/results/target_estimation/automatic_od_to_manual_movement_mapping.csv": {
+      "sha256": "557d4d1d94f5f284b8822c61cc1d1d6f6f6baad2cc183240b38d426451874d1f",
+      "size_bytes": 19587
+    },
+    "publications/hg-msa-tc-future-transportation/results/target_estimation/automatic_region_to_manual_approach_mapping.csv": {
+      "sha256": "30c72fee0c09b1569abdc5b197551b7282573718dff43fcd06bab66170f57aef",
+      "size_bytes": 5428
+    },
+    "publications/hg-msa-tc-future-transportation/results/target_estimation/cross_scene_semantic_duplication.csv": {
+      "sha256": "b0eaf556d1e97eb6ac8ad9710b6f94a80e0e426a0634f9c916f0cfa5607fec0b",
+      "size_bytes": 1040
+    },
+    "publications/hg-msa-tc-future-transportation/results/target_estimation/endpoint_region_diagnostics.csv": {
+      "sha256": "d1d62ad5d3692a118576b4b042a3f83bf6978554740e846246a6f9cde24b4e83",
+      "size_bytes": 20794
+    },
+    "publications/hg-msa-tc-future-transportation/results/target_estimation/frozen_scene_parameters.csv": {
+      "sha256": "59502133baabd043b85c9161582a83e96e44451eb06550c2dc830f0b490b8170",
+      "size_bytes": 2417
+    },
+    "publications/hg-msa-tc-future-transportation/results/target_estimation/independent_endpoint_region_diagnostic_assignments.parquet": {
+      "sha256": "2c4bad8a9f6d6559ec964a02f744a81ce9e2fa6d32b89c2959194174906e3d54",
+      "size_bytes": 1334311
+    },
+    "publications/hg-msa-tc-future-transportation/results/target_estimation/region_count_sensitivity.csv": {
+      "sha256": "d876258616aab858294791fa7b9c44bbdf862ef4e66109bb3f30ff8d8d3719e0",
+      "size_bytes": 15861
+    },
+    "publications/hg-msa-tc-future-transportation/results/target_estimation/se38th_cluster_fragmentation.csv": {
+      "sha256": "80f91c625f1c559930e6dd6a8c67236fc1a2d6051cd2f4ae3e9b9bf49ba6a346",
+      "size_bytes": 8327
+    },
+    "publications/hg-msa-tc-future-transportation/results/target_estimation/se38th_fragmentation_figure_queue.csv": {
+      "sha256": "79089dabb76a3d33dc1d962ad222ad32531c789b386330849b90dd740baf5936",
+      "size_bytes": 44213
+    },
+    "publications/hg-msa-tc-future-transportation/results/target_estimation/se38th_od_collapse_table.csv": {
+      "sha256": "eab73dc35cab9fedd4b77d96cafec0dc4f1ae6ced7b2f66f55304c9db6ddd5c5",
+      "size_bytes": 4444
+    },
+    "publications/hg-msa-tc-future-transportation/results/target_estimation/support_threshold_sensitivity.csv": {
+      "sha256": "bea264711ecf628b07cf30b3255eb76c7171c5164c1584b74bb2588c685e235d",
+      "size_bytes": 3950
+    },
+    "publications/hg-msa-tc-future-transportation/results/target_estimation/target_endpoint_region_assignments.csv": {
+      "sha256": "a22d5b075f09b4844d12af3a6a918fb9611a010984fe0e045f38f9b5eca3dcaf",
+      "size_bytes": 6293905
+    },
+    "publications/hg-msa-tc-future-transportation/results/target_estimation/target_endpoint_region_assignments.parquet": {
+      "sha256": "9ee9c96428e85b740f3bd850d75d10566642485b28aadfcc2224b0bcbca4e130",
+      "size_bytes": 1784745
+    },
+    "publications/hg-msa-tc-future-transportation/results/target_estimation/target_estimation_analysis_summary.json": {
+      "sha256": "1dec49f1832056ba009548d375fc980d645540e7a5817f0d02eafaa3d69b02da",
+      "size_bytes": 734
+    },
+    "publications/hg-msa-tc-future-transportation/results/target_estimation/target_estimation_data_access_log.jsonl": {
+      "sha256": "9fc1894556c89312118516cdacbdc042429db35a85993118c15dc8179752c5de",
+      "size_bytes": 3224
+    },
+    "publications/hg-msa-tc-future-transportation/results/target_estimation/target_reproduction.csv": {
+      "sha256": "61df4d2449fc990620adc7cda94aaaec1eeaf6935a1b563f9109506e54624ca2",
+      "size_bytes": 1372
+    },
+    "publications/hg-msa-tc-future-transportation/results/target_estimation/target_reproduction_lock.json": {
+      "sha256": "4382956480d64eaf700625377827ed070a4798a41d5fdfb4911b2480cca4042b",
+      "size_bytes": 253
+    },
+    "publications/hg-msa-tc-future-transportation/results/target_estimation/task_07_input_manifest.json": {
+      "sha256": "7e9ec77af0905373945c31ef4e47ad04518e6ad7f887b2558b59a275cac87a05",
+      "size_bytes": 4885
+    }
+  },
+  "reference_access_stage": "post_reproduction_diagnostic_only",
+  "reproduction_completed_at_utc": "2026-08-07T20:16:20+00:00",
+  "task": "futuretransp-target-estimation-formalization"
+}
