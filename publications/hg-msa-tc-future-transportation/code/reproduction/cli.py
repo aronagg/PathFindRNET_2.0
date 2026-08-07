@@ -9,7 +9,9 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+import os
 import subprocess
+import sys
 from pathlib import Path
 from typing import Any
 
@@ -107,6 +109,21 @@ def plan_experiment(experiment_id: str) -> str:
     raise KeyError(f"Unknown experiment: {experiment_id}")
 
 
+def run_hg_smg_development(stage: str, confirmation: str | None) -> None:
+    """Run one explicitly confirmed development-only HG-SMG stage."""
+    if confirmation != "I_CONFIRM_DEVELOPMENT_SPLITS_ONLY":
+        raise PermissionError("Exact development-only confirmation phrase is required.")
+    allowed = {"preflight", "full-split", "uatp", "pcms"}
+    if stage not in allowed:
+        raise ValueError(f"Unsupported HG-SMG development stage: {stage}")
+    subprocess.run(
+        [sys.executable, "-m", "hg_smg.cli", stage],
+        cwd=PUBLICATION_ROOT,
+        env={**os.environ, "PYTHONPATH": str(PUBLICATION_ROOT / "code")},
+        check=True,
+    )
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     subparsers = parser.add_subparsers(dest="command", required=True)
@@ -114,6 +131,11 @@ def parse_args() -> argparse.Namespace:
     subparsers.add_parser("list")
     plan = subparsers.add_parser("plan")
     plan.add_argument("--experiment", required=True)
+    development = subparsers.add_parser("hg-smg-development")
+    development.add_argument(
+        "--stage", choices=["preflight", "full-split", "uatp", "pcms"], required=True
+    )
+    development.add_argument("--confirm-development-only")
     return parser.parse_args()
 
 
@@ -123,8 +145,10 @@ def main() -> None:
         print("\n".join(validate_preregistration()))
     elif args.command == "list":
         print("\n".join(list_entries()))
-    else:
+    elif args.command == "plan":
         print(plan_experiment(args.experiment))
+    else:
+        run_hg_smg_development(args.stage, args.confirm_development_only)
 
 
 if __name__ == "__main__":

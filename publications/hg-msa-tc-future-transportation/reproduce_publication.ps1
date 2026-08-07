@@ -1,8 +1,11 @@
 param(
     [Parameter(Position = 0)]
-    [ValidateSet('validate-preregistration', 'list', 'plan')]
+    [ValidateSet('validate-preregistration', 'list', 'plan', 'hg-smg-development')]
     [string]$Command = 'validate-preregistration',
-    [string]$Experiment
+    [string]$Experiment,
+    [ValidateSet('preflight', 'full-split', 'uatp', 'pcms')]
+    [string]$Stage,
+    [string]$ConfirmDevelopmentOnly
 )
 
 $ErrorActionPreference = 'Stop'
@@ -19,6 +22,12 @@ if ($Command -eq 'plan') {
         throw 'The plan command requires -Experiment.'
     }
     $Arguments += @('--experiment', $Experiment)
+}
+if ($Command -eq 'hg-smg-development') {
+    if (-not $Stage) {
+        throw 'The hg-smg-development command requires -Stage.'
+    }
+    $Arguments += @('--stage', $Stage, '--confirm-development-only', $ConfirmDevelopmentOnly)
 }
 & $Python @Arguments
 exit $LASTEXITCODE
