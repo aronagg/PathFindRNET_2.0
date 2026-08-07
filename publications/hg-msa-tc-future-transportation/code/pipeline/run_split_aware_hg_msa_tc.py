@@ -29,11 +29,12 @@ import pandas as pd
 
 
 PIPELINE_DIR = Path(__file__).resolve().parent
-if str(PIPELINE_DIR) not in sys.path:
-    sys.path.insert(0, str(PIPELINE_DIR))
+CODE_ROOT = PIPELINE_DIR.parent
+if str(CODE_ROOT) not in sys.path:
+    sys.path.insert(0, str(CODE_ROOT))
 
-import hg_msa_tc_core as core  # noqa: E402
-import split_aware_io as protocol_io  # noqa: E402
+from pipeline import hg_msa_tc_core as core  # noqa: E402
+from pipeline import split_aware_io as protocol_io  # noqa: E402
 
 
 REPO_ROOT = Path(__file__).resolve().parents[4]

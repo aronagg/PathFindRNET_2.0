@@ -79,4 +79,4 @@
 
 ## Interpretation limits
 
-There are five scene-level units from one city subset, the reference is human-defined and rule-based rather than per-trajectory manual ground truth, and polygon boundaries influence coverage. Hungarian mapping is one-to-one; unmatched clusters remain unmatched and unmatched reference movements receive zero recall. Noise is retained for partition metrics but is not mapped to a movement class. EMAS_HG is reported only as the frozen task-specific development/ranking score.
+There are five scene-level units from one city subset, the reference is human-defined and rule-based rather than per-trajectory manual ground truth, and polygon boundaries influence coverage. Hungarian mapping is one-to-one; unmatched clusters remain unmatched and unmatched reference movements receive zero recall. Noise is retained for partition metrics but is not mapped to a movement class. EMAS_HG is reported only as the frozen task-specific diagnostic composite; it was not a model-selection key.

@@ -11,13 +11,13 @@ import pytest
 
 REPO_ROOT = Path(__file__).resolve().parents[3]
 PUBLICATION_ROOT = Path(__file__).resolve().parents[1]
-PIPELINE_DIR = PUBLICATION_ROOT / "code" / "pipeline"
-if str(PIPELINE_DIR) not in sys.path:
-    sys.path.insert(0, str(PIPELINE_DIR))
+CODE_ROOT = PUBLICATION_ROOT / "code"
+if str(CODE_ROOT) not in sys.path:
+    sys.path.insert(0, str(CODE_ROOT))
 
-import hg_msa_tc_core as core  # noqa: E402
-import run_split_aware_hg_msa_tc as runner  # noqa: E402
-import split_aware_io as protocol_io  # noqa: E402
+from pipeline import hg_msa_tc_core as core  # noqa: E402
+from pipeline import run_split_aware_hg_msa_tc as runner  # noqa: E402
+from pipeline import split_aware_io as protocol_io  # noqa: E402
 
 
 SPLIT_PATH = PUBLICATION_ROOT / "data" / "splits" / "evaluation_split.csv"

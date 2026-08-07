@@ -202,14 +202,16 @@ runner. The completed automatic HG targets are 10, 12, 9, 12, and 10 in scene or
   nearest-neighbor distance quantiles computed on the current sample.
 
 **Verified selection rules.** Untargeted selection sorts by highest silhouette, lowest
-Davies-Bouldin, highest Calinski-Harabasz, lowest largest-cluster ratio, and fit time.
+Davies-Bouldin, highest Calinski-Harabasz, lowest largest-cluster ratio, and
+deterministic lexical parameter order.
 HG expected-aware selection first minimizes absolute cluster-count error to the HG
 target; HDBSCAN/OPTICS then minimize outlier percentage; internal metrics follow.
 
 **Verified EMAS_HG.** Its weighted terms are target alignment 0.50, non-outlier share
 0.20, cluster balance 0.10, scaled silhouette 0.10, and transformed Davies-Bouldin
-0.10. Because target alignment is both a primary selection criterion and half of
-EMAS_HG, EMAS_HG on the same sample is not independent evidence.
+0.10. EMAS_HG itself is not present in either selection key: it is a post hoc
+diagnostic composite. Because target alignment is both a primary HG-aware selection
+criterion and half of EMAS_HG, EMAS_HG on the same sample is not independent evidence.
 
 **Verified sampling/seeds.** Constants are:
 

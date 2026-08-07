@@ -1,0 +1,19 @@
+{
+  "candidate_sensitivity_rows": 255,
+  "component_analysis_rows": 560,
+  "created_at_utc": "2026-08-07T10:43:03+00:00",
+  "development_candidates": 255,
+  "frozen_inputs_unchanged_after_analysis": true,
+  "global_weight_vectors": 1000,
+  "grid_group_rows": 21975,
+  "independent_test_clustering_rerun": false,
+  "independent_test_reference_labels_read_for_weight_analysis": false,
+  "local_weight_vectors": 465,
+  "margin_rows": 15,
+  "named_weight_scenarios": 7,
+  "rank_stability_rows": 45,
+  "reproduction_max_absolute_error": 5.493383525845275e-13,
+  "reproduction_rows": 345,
+  "scene_method_groups": 15,
+  "score_version": "EMAS_HG-v1"
+}

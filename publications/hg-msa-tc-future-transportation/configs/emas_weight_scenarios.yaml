@@ -1,0 +1,58 @@
+protocol_version: emas-hg-weight-sensitivity-v1
+score_version: EMAS_HG-v1
+purpose: pre-specified development-candidate ranking sensitivity without post-test retuning
+named_scenarios:
+  original:
+    T: 0.50
+    O: 0.20
+    B: 0.10
+    S: 0.10
+    D: 0.10
+  reviewer_example:
+    T: 0.40
+    O: 0.30
+    B: 0.10
+    S: 0.10
+    D: 0.10
+  moderate_target:
+    T: 0.40
+    O: 0.20
+    B: 0.15
+    S: 0.125
+    D: 0.125
+  balanced_task_internal:
+    T: 0.30
+    O: 0.20
+    B: 0.15
+    S: 0.175
+    D: 0.175
+  equal_weights:
+    T: 0.20
+    O: 0.20
+    B: 0.20
+    S: 0.20
+    D: 0.20
+  target_heavy:
+    T: 0.60
+    O: 0.15
+    B: 0.10
+    S: 0.075
+    D: 0.075
+  outlier_heavy:
+    T: 0.35
+    O: 0.35
+    B: 0.10
+    S: 0.10
+    D: 0.10
+local_grid:
+  step: 0.05
+  T: [0.30, 0.65]
+  O: [0.10, 0.35]
+  B: [0.05, 0.25]
+  S: [0.05, 0.25]
+  D: [0.05, 0.25]
+global_sample:
+  distribution: dirichlet
+  alpha: [1.0, 1.0, 1.0, 1.0, 1.0]
+  seed: 20260806
+  unique_vectors: 1000

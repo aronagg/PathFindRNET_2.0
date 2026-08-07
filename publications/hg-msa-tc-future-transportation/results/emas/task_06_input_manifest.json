@@ -1,0 +1,46 @@
+{
+  "created_at_utc": "2026-08-07T10:42:33+00:00",
+  "files": {
+    "annotations/reference_labels/independent_test_reference_labels.csv": {
+      "sha256": "127a52ff80af8906fdc3bb6a7436a222baedd42d8c542cfb2e234e67e43b4f5f",
+      "size_bytes": 25835801
+    },
+    "configs/frozen_evaluation_protocol.yaml": {
+      "sha256": "865513b8be4d59365bd430e5909fbd72b6a9d37f3e8b805917af3a80e66a1337",
+      "size_bytes": 42775
+    },
+    "configs/split_aware_runner.yaml": {
+      "sha256": "982699aa24f3c2f33b2e9a8e670fc3b6aeef8992d697d71cfd66f4c7449943f9",
+      "size_bytes": 3455
+    },
+    "results/development/frozen_selection_manifest.json": {
+      "sha256": "65c70bb5f3bb89434df214af1b662159d074d77a339ef54e2dd2c62bccc797db",
+      "size_bytes": 539
+    },
+    "results/development/model_selection_candidates.csv": {
+      "sha256": "c9243c0adb3135d327b4bbaaa3944feefe4b891289a51490fc5ad38734418469",
+      "size_bytes": 151470
+    },
+    "results/development/selected_configurations.csv": {
+      "sha256": "e57e82e282dc888f556090e289a8e845cebce2bb653d9aac1dd9a978d9c76d2f",
+      "size_bytes": 21088
+    },
+    "results/independent_test/cluster_assignments.csv": {
+      "sha256": "81185f1f92f4411a9b8e575769e58d45bc386adb4b4e753f2c6824e86998f47d",
+      "size_bytes": 59887739
+    },
+    "results/independent_test/cluster_assignments.parquet": {
+      "sha256": "137cd7e39f8886abbfbb49f4599d4f000626614f78342cf08f74f389b4963169",
+      "size_bytes": 467055
+    },
+    "results/independent_test/independent_test_metrics.csv": {
+      "sha256": "021ba0dcd806a50dd5a6533f12ff37710228b07649839286e38d7d532d572977",
+      "size_bytes": 16532
+    }
+  },
+  "git_commit_before_analysis": "9ed1ea1992ede1ce6e94b1cf3af16e8afebae665",
+  "independent_test_clustering_executed": false,
+  "score_version": "EMAS_HG-v1",
+  "semantic_reference_labels_read": false,
+  "task": "futuretransp-emas-formalization-sensitivity"
+}

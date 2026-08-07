@@ -217,4 +217,28 @@ loaded. Clustering and reference evaluation are separate CLI commands.
 
 The frozen HG targets and selected configurations are never recomputed. Independent
 metrics use only valid polygon-reference rows from `independent_test`. EMAS_HG is
-reported as the frozen task-specific ranking score, not as independent validation.
+reported as the frozen task-specific diagnostic composite, not as a selection key or
+independent validation metric.
+
+## EMAS_HG-v1 Formalization and Sensitivity
+
+The canonical score implementation is `code/metrics/emas_hg.py`. It exactly reproduces
+the stored frozen scores and explicitly defines component transformations, clipping,
+noise handling, missing-metric fallbacks and invalid inputs. The audit confirms that
+EMAS_HG was reported after candidate evaluation but did not participate in either
+frozen model-selection key.
+
+Weight sensitivity therefore concerns development-candidate ranking, not re-selection.
+It uses seven pre-specified scenarios, a deterministic 465-vector local grid and 1,000
+fixed-seed global simplex vectors. It does not read independent reference labels for
+weight analysis and does not rerun independent-test clustering.
+
+```powershell
+.\.venv\Scripts\python.exe publications\hg-msa-tc-future-transportation\code\run_emas_sensitivity.py analyze
+.\.venv\Scripts\python.exe publications\hg-msa-tc-future-transportation\code\run_emas_reporting.py figures
+.\.venv\Scripts\python.exe publications\hg-msa-tc-future-transportation\code\run_emas_reporting.py documents
+```
+
+See `docs/emas_hg_mathematical_definition.md`,
+`docs/emas_weight_sensitivity_scientific_interpretation.md` and
+`docs/emas_result_manifest.md`.

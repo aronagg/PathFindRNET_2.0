@@ -19,6 +19,7 @@ from sklearn.metrics import (
     v_measure_score,
 )
 
+from metrics.emas_hg import compute_emas_hg
 from pipeline import hg_msa_tc_core as core
 from pipeline import split_aware_io as protocol_io
 
@@ -217,7 +218,18 @@ def evaluate_partition(
             "silhouette_clustered_only": metrics["silhouette_clustered_only"],
             "davies_bouldin_clustered_only": metrics["davies_bouldin_clustered_only"],
         }
-        metrics["EMAS_HG"] = core.emas_hg(frozen_score_inputs)
+        metrics["EMAS_HG"] = compute_emas_hg(
+            expected_target=frozen_score_inputs["hg_estimated_target"],
+            cluster_count_error=frozen_score_inputs["cluster_count_error"],
+            pct_outliers=frozen_score_inputs["pct_outliers"],
+            largest_cluster_ratio=frozen_score_inputs["largest_cluster_ratio"],
+            silhouette_clustered_only=frozen_score_inputs[
+                "silhouette_clustered_only"
+            ],
+            davies_bouldin_clustered_only=frozen_score_inputs[
+                "davies_bouldin_clustered_only"
+            ],
+        )
     return metrics, per_movement, mapping
 
 

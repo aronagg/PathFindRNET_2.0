@@ -22,6 +22,8 @@ from sklearn.metrics import (
 )
 from sklearn.neighbors import NearestNeighbors
 
+from metrics.emas_hg import compute_emas_hg
+
 
 FEATURE_COLUMNS = ("start_x", "start_y", "end_x", "end_y")
 METHODS = ("kmeans", "hdbscan", "optics")
@@ -395,31 +397,16 @@ def quick_score(metrics: dict[str, Any]) -> float:
 
 
 def emas_hg(metrics: dict[str, Any]) -> float:
-    expected = max(float(metrics["hg_estimated_target"]), 1.0)
-    target_term = np.clip(
-        1.0 - float(metrics["cluster_count_error"]) / expected, 0, 1
-    )
-    outlier_term = np.clip(1.0 - float(metrics["pct_outliers"]) / 100.0, 0, 1)
-    largest = metrics.get("largest_cluster_ratio")
-    balance = np.clip(1.0 - float(largest), 0, 1) if pd.notna(largest) else 0.5
-    silhouette = metrics.get("silhouette_clustered_only")
-    silhouette_term = (
-        np.clip((float(silhouette) + 1.0) / 2.0, 0, 1)
-        if pd.notna(silhouette)
-        else 0.5
-    )
-    davies = metrics.get("davies_bouldin_clustered_only")
-    db_term = (
-        1.0 / (1.0 + float(davies))
-        if pd.notna(davies) and float(davies) >= 0
-        else 0.5
-    )
-    return float(
-        0.50 * target_term
-        + 0.20 * outlier_term
-        + 0.10 * balance
-        + 0.10 * silhouette_term
-        + 0.10 * db_term
+    """Compatibility wrapper around the canonical EMAS_HG-v1 implementation."""
+    return compute_emas_hg(
+        expected_target=metrics["hg_estimated_target"],
+        cluster_count_error=metrics["cluster_count_error"],
+        pct_outliers=metrics["pct_outliers"],
+        largest_cluster_ratio=metrics.get("largest_cluster_ratio"),
+        silhouette_clustered_only=metrics.get("silhouette_clustered_only"),
+        davies_bouldin_clustered_only=metrics.get(
+            "davies_bouldin_clustered_only"
+        ),
     )
 
 

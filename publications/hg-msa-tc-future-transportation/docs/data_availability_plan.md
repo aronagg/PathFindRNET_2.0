@@ -18,3 +18,9 @@ metrics, target-validation table, sensitivity results, and figures. The full
 assignment CSV is a reproducible large artifact; compressed Parquet plus its checksum
 is sufficient when package limits require omitting the CSV. The assignment table
 contains trajectory IDs and cluster labels, not raw images or videos.
+
+The EMAS_HG revision package should include the canonical metric source, frozen-score
+reproduction table, pre-specified weight configuration, local/global weight vectors,
+development-only ranking summaries, figures and scientific documentation. It should
+not duplicate independent-test assignments or reference-label exports because Task 06
+only records their hashes and does not rerun or retune the test workflow.
