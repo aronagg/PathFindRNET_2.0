@@ -1,30 +1,32 @@
 # Public Release Scope
 
-This release candidate covers the revised Future Transportation manuscript
-centered on HG-SMG-TC.
+Generated/updated for Task 15 on `2026-08-08T22:47:51Z`.
 
-## In Scope
+## In Scope For GitHub
 
-- publication-specific code and tests;
-- frozen protocol and configuration documentation;
-- compact metric tables and final synthesis outputs;
-- final manuscript-support documents;
-- reviewer-response draft and evidence map;
-- reproducibility scripts that regenerate final synthesis only;
-- public-release, licensing and data-availability documentation.
+- Source code and publication-specific scripts.
+- Frozen protocol/configuration files.
+- Compact CSV summaries, manifests and checksums.
+- Manuscript-support documentation and reviewer-response material.
+- Public website source under `site/`.
+- Web-optimized preview images under `site/assets/images/`.
 
-## Out of Scope
+## In Scope For OneDrive
 
-- raw video redistribution;
-- rerunning scientific experiments as part of release preparation;
-- changing frozen targets, metrics, homographies, EMAS weights, baselines or
-  reference labels;
-- publishing Google-derived rasters without license confirmation;
-- creating ZIP review packages.
+- Raw video files, if redistribution is permitted.
+- YOLOv11 detection exports.
+- Tracking outputs.
+- Large processed trajectory and feature exports.
+- Reference-label artifacts that are too large for Git.
+- Supplementary full-resolution figures and tables where appropriate.
 
-## Intended Audience
+Public OneDrive folder:
 
-- journal reviewers checking revision evidence;
-- researchers reproducing final tables from persisted outputs;
-- maintainers preparing a GitHub release and DOI archive;
-- readers following the GitHub Pages publication landing page.
+`https://onedrive.live.com/?redeem=aHR0cHM6Ly8xZHJ2Lm1zL2YvYy84MGZhYWQ2ZmVhMDViMDhjL0lnQlBxblBYemRWd1I1NERrbHVfUzB0bkFUMWJFUlBzSk1XTHM3TVJ3ZDNPZFRJP2U9b2NpOXBM&id=80FAAD6FEA05B08C%21sd773aa4fd5cd47709e03925bbf4b4b67&cid=80FAAD6FEA05B08C`
+
+## Excluded Or Requires Manual Review
+
+- Google-derived and third-party map imagery unless redistribution rights and attribution are confirmed.
+- Local virtual environments, caches and generated ZIP review packages.
+- Manual SQLite annotation databases unless intentionally redacted and documented.
+- Any file containing private absolute paths or credentials.

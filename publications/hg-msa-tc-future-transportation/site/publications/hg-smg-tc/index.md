@@ -2,28 +2,21 @@
 
 **Homography-Guided Vehicle Trajectory Clustering at Complex Urban Intersections**
 
-This page summarizes the Future Transportation revision package for
-HG-SMG-TC: **Homography-Guided Semantic Maneuver Graph Trajectory Clustering**.
+This page summarizes the Future Transportation revision package for HG-SMG-TC: **Homography-Guided Semantic Maneuver Graph Trajectory Clustering**.
 
-Expected public URL:
+Expected public URL after GitHub Pages integration:
 
 `https://aronagg.github.io/PathFindRNET_2.0/publications/hg-smg-tc/`
 
-## Relation to PathFindRNET 2.0
+## Release Links
 
-PathFindRNET 2.0 provides the traffic-video trajectory extraction and dataset
-context. This publication page links to a manuscript-specific reproducibility
-package under:
-
-[`publications/hg-msa-tc-future-transportation/`](../../../publications/hg-msa-tc-future-transportation/)
+- GitHub repository: `https://github.com/aronagg/PathFindRNET_2.0`
+- Publication package: `publications/hg-msa-tc-future-transportation/`
+- Public OneDrive data folder: `https://onedrive.live.com/?redeem=aHR0cHM6Ly8xZHJ2Lm1zL2YvYy84MGZhYWQ2ZmVhMDViMDhjL0lnQlBxblBYemRWd1I1NERrbHVfUzB0bkFUMWJFUlBzSk1XTHM3TVJ3ZDNPZFRJP2U9b2NpOXBM&id=80FAAD6FEA05B08C%21sd773aa4fd5cd47709e03925bbf4b4b67&cid=80FAAD6FEA05B08C`
 
 ## Summary
 
-HG-SMG-TC connects homography-guided endpoint micro-mode discovery with semantic
-approach consolidation, semantic maneuver graph construction, uncertainty-aware
-maneuver-count priors and prior-constrained model selection. The method is
-evaluated on five Bellevue intersections using a leakage-controlled split
-protocol and exhaustive human-defined polygon-rule-based reference labels.
+HG-SMG-TC connects homography-guided endpoint micro-mode discovery with semantic approach consolidation, semantic maneuver graph construction, uncertainty-aware maneuver-count priors and prior-constrained model selection. The method is evaluated on five Bellevue intersections using a leakage-controlled split protocol and exhaustive human-defined polygon-rule-based reference labels.
 
 ## Dataset and Split Summary
 
@@ -35,13 +28,11 @@ The study uses five Bellevue scenes only:
 - `bellevue_150th_se38th`
 - `bellevue_ne8th`
 
-The split roles are target estimation, model selection and locked independent
-test. Independent-test labels are read only after cluster assignments are
-persisted.
+The split roles are target estimation, model selection and locked independent test. Independent-test labels are read only after cluster assignments are persisted.
 
 ## Pipeline Overview
 
-![HG-SMG-TC pipeline](../../../publications/hg-msa-tc-future-transportation/figures/final_synthesis/final_hg_smg_pipeline_schematic.png)
+![HG-SMG-TC pipeline](../../assets/images/final_hg_smg_pipeline_schematic_preview.png)
 
 ## Locked-Test Result Summary
 
@@ -53,25 +44,25 @@ persisted.
 | Endpoint isotropic baseline | 3.4667 | 0.7099 | 0.5710 | 24.43 |
 | Resampled trajectory baseline | 3.0000 | 0.6827 | 0.4752 | 25.02 |
 
-The results support a conservative trade-off interpretation. HG-SMG-TC improves
-mean observed target-count alignment and slightly improves NMI relative to the
-original HG-aware method, but it does not improve every metric.
+The results support a conservative trade-off interpretation. HG-SMG-TC improves mean observed target-count alignment and slightly improves NMI relative to the original HG-aware method, but it does not improve every metric.
 
 ## Key Figures
 
-![Target error](../../../publications/hg-msa-tc-future-transportation/figures/final_synthesis/final_target_count_error.png)
+![Target error](../../assets/images/final_target_count_error_preview.png)
 
-![Agreement metrics](../../../publications/hg-msa-tc-future-transportation/figures/final_synthesis/final_agreement_metrics.png)
+![Agreement metrics](../../assets/images/final_agreement_metrics_preview.png)
 
-![Baseline comparison](../../../publications/hg-msa-tc-future-transportation/figures/final_synthesis/final_baseline_comparison_summary.png)
+![Baseline comparison](../../assets/images/final_baseline_comparison_summary_preview.png)
+
+![SE38th fragmentation](../../assets/images/final_se38th_fragmentation_story_preview.png)
 
 ## Reproducibility
 
 Start with:
 
-- [`README.md`](../../../publications/hg-msa-tc-future-transportation/README.md)
-- [`REPRODUCIBILITY.md`](../../../publications/hg-msa-tc-future-transportation/REPRODUCIBILITY.md)
-- [`DATA_AVAILABILITY.md`](../../../publications/hg-msa-tc-future-transportation/DATA_AVAILABILITY.md)
+- `publications/hg-msa-tc-future-transportation/README.md`
+- `publications/hg-msa-tc-future-transportation/REPRODUCIBILITY.md`
+- `publications/hg-msa-tc-future-transportation/DATA_AVAILABILITY.md`
 
 Core synthesis regeneration:
 
@@ -79,27 +70,8 @@ Core synthesis regeneration:
 .\publications\hg-msa-tc-future-transportation\scripts\reproduce_core_results.ps1
 ```
 
-## Code and Archive
-
-- GitHub repository: `https://github.com/aronagg/PathFindRNET_2.0`
-- GitHub release tag: `[GitHub release tag to be added]`
-- DOI archive: `[DOI to be added after archive deposit]`
-- Archive URL: `[Archive URL to be added]`
-
-## Citation
-
-```text
-PathFindRNET research team. From Geometric Endpoint Micro-Modes to Semantic
-Maneuver Graphs: Homography-Guided Vehicle Trajectory Clustering at Complex
-Urban Intersections. Future Transportation, revised manuscript package.
-[DOI to be added after archive deposit]
-```
-
 ## License and Provenance Notes
 
-Raw videos are not redistributed by this publication package. Google-derived or
-third-party map imagery is not redistributed unless licensing and attribution are
-confirmed. Public materials should rely on source code, compact metrics,
-calibration tables, generated figures and author-created diagrams.
+Raw videos and large detector/tracking artifacts belong in the public OneDrive data folder, not in Git history. Google-derived or third-party map imagery should not be redistributed unless licensing and attribution are confirmed. Public materials should rely on source code, compact metrics, calibration tables, generated figures and author-created diagrams.
 
 [Back to PathFindRNET 2.0](../../../)

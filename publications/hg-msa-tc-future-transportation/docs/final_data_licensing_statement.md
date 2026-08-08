@@ -1,21 +1,11 @@
 # Final Data Licensing Statement
 
-The public release should distinguish repository code, derived metrics,
-reference-label artifacts, raw videos and third-party imagery.
+The revised release plan uses GitHub for code and compact reproducibility artifacts, GitHub Pages for the public project page, and public OneDrive for large redistributable data artifacts.
 
-Recommended wording:
+Public OneDrive folder:
 
-> The code, configuration files, compact result tables, figures and manuscript
-> support materials are released through the PathFindRNET 2.0 GitHub repository
-> and a DOI archive. Raw video files are not redistributed in this package and
-> should be obtained from the official dataset source under its own access terms.
-> Google-derived or other third-party map imagery is not redistributed unless
-> licensing and attribution requirements are confirmed. Homography calibration is
-> documented through numeric correspondence tables, matrices and residual
-> summaries.
+`https://onedrive.live.com/?redeem=aHR0cHM6Ly8xZHJ2Lm1zL2YvYy84MGZhYWQ2ZmVhMDViMDhjL0lnQlBxblBYemRWd1I1NERrbHVfUzB0bkFUMWJFUlBzSk1XTHM3TVJ3ZDNPZFRJP2U9b2NpOXBM&id=80FAAD6FEA05B08C%21sd773aa4fd5cd47709e03925bbf4b4b67&cid=80FAAD6FEA05B08C`
 
-Placeholders:
+Raw videos, YOLOv11 detection outputs, tracking outputs and large trajectory-level exports should be provided through OneDrive only when redistribution is permitted. Google-derived map imagery and any third-party imagery require separate provenance and redistribution review before public release.
 
-- `[GitHub release tag to be added]`
-- `[DOI to be added]`
-- `[Archive URL to be added]`
+The manuscript data-availability statement should describe the OneDrive folder as the public large-artifact location and should not claim a permanent archive identifier that has not been assigned.

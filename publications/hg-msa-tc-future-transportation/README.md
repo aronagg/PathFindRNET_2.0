@@ -21,7 +21,7 @@ HG-SMG-TC: **Homography-Guided Semantic Maneuver Graph Trajectory Clustering**.
 - final independent-test method-comparison tables;
 - manuscript-ready figures and tables;
 - revised manuscript draft and point-by-point reviewer-response draft;
-- public-release, data-availability and GitHub Pages planning files.
+- public-release, OneDrive data-availability and GitHub Pages planning files.
 
 ## Relationship to PathFindRNET 2.0
 
@@ -76,11 +76,13 @@ The active Pages source could not be safely determined from this checkout, so
 the existing dataset website was not modified directly. See
 `docs/github_pages_integration_plan.md`.
 
-## DOI Placeholder
+## Public OneDrive Data Release
 
-No DOI is claimed yet. Use this placeholder until an archive deposit exists:
+Large redistributable artifacts are planned for public access through OneDrive:
 
-`[DOI to be added after archive deposit]`
+`https://onedrive.live.com/?redeem=aHR0cHM6Ly8xZHJ2Lm1zL2YvYy84MGZhYWQ2ZmVhMDViMDhjL0lnQlBxblBYemRWd1I1NERrbHVfUzB0bkFUMWJFUlBzSk1XTHM3TVJ3ZDNPZFRJP2U9b2NpOXBM&id=80FAAD6FEA05B08C%21sd773aa4fd5cd47709e03925bbf4b4b67&cid=80FAAD6FEA05B08C`
+
+The local upload manifest is `docs/onedrive_upload_manifest.csv`. The release does not claim an unavailable permanent archive identifier.
 
 ---
 

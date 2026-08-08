@@ -1,40 +1,28 @@
 # Final Submission Checklist
 
-## Manuscript
+Generated/updated for Task 15 on `2026-08-08T22:47:51Z`.
 
-- [ ] Convert `docs/manuscript_revised_full.md` into the journal DOCX template.
-- [ ] Insert final author list and affiliations.
-- [ ] Insert final acknowledgements, funding and conflict-of-interest statement.
-- [ ] Replace `[TO BE COMPLETED]` and citation placeholders.
-- [ ] Confirm the manuscript states five Bellevue intersections only.
-- [ ] Confirm the manuscript does not claim full dataset validation.
-- [ ] Confirm the manuscript does not call the reference fully manual ground truth.
-- [ ] Confirm EMAS_HG is described as diagnostic, not independent validation.
-- [ ] Confirm baseline strength and trade-offs are explicitly discussed.
+## Manuscript Package
 
-## Reviewer Response
+- [ ] Final DOCX/PDF exported from the revised manuscript.
+- [ ] Figure and table numbering checked against manuscript text.
+- [ ] Reviewer response line/page placeholders completed after final formatting.
+- [ ] Data and code availability statement uses GitHub, GitHub Pages and OneDrive links.
+- [ ] No unassigned permanent archive identifier is claimed.
 
-- [ ] Fill all `[Section X, Lines YY-ZZ to be filled after DOCX formatting]`
-  placeholders.
-- [ ] Check that every major reviewer criticism is covered.
-- [ ] Add final page and line numbers after DOCX formatting.
+## Public Release
 
-## Figures and Tables
+- [ ] GitHub release tag selected and reviewed.
+- [ ] GitHub Pages source location confirmed by repository maintainer.
+- [ ] Proposed page under `site/publications/hg-smg-tc/index.md` integrated into the active Pages source.
+- [ ] Public OneDrive folder populated according to `docs/onedrive_upload_manifest.csv`.
+- [ ] OneDrive share permissions checked in a private browser session.
+- [ ] Large raw videos and detector/tracking exports kept out of Git history.
+- [ ] Google-derived or third-party imagery excluded unless redistribution rights are documented.
 
-- [ ] Insert figures from `figures/final_synthesis/`.
-- [ ] Check readability at journal column width.
-- [ ] Insert final tables from `docs/manuscript_tables_final.md`.
-- [ ] Confirm no Google-derived raster is included unless licensing is resolved.
+## Consistency Checks
 
-## Data and Release
-
-- [ ] Create GitHub release tag `[GitHub release tag to be added]`.
-- [ ] Deposit permitted artifacts to DOI archive.
-- [ ] Replace `[DOI to be added]` and `[Archive URL to be added]`.
-- [ ] Confirm raw video and map imagery restrictions in the final data statement.
-
-## Final Technical Checks
-
-- [ ] Run publication tests if code or generated tables are changed.
-- [ ] Run Ruff if code is changed.
-- [ ] Confirm no frozen scientific outputs were modified during formatting.
+- [ ] `DATA_AVAILABILITY.md` matches the manuscript statement.
+- [ ] `CITATION.cff` does not claim unavailable identifiers.
+- [ ] `docs/final_placeholder_and_consistency_report.md` reviewed.
+- [ ] Website preview images render on the deployed page.

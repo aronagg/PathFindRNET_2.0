@@ -1,54 +1,33 @@
 # Data Availability
 
-The revised manuscript uses five Bellevue intersections from the Traffic Node
-Video Dataset. This publication package contains compact derived artifacts,
-protocols, metrics, figures and manuscript-support files. It does not redistribute
-raw videos or third-party map imagery.
+Public release materials for the revised Future Transportation manuscript are split across GitHub, GitHub Pages and a public OneDrive folder.
 
-## GitHub-Suitable Artifacts
+Public OneDrive folder:
 
-- source code and tests;
-- frozen configuration files;
-- compact metric CSV files;
-- final synthesis tables and figures;
-- protocol reports and reproducibility documentation;
-- homography correspondence tables when redistribution is permitted;
-- manuscript-support Markdown files.
+`https://onedrive.live.com/?redeem=aHR0cHM6Ly8xZHJ2Lm1zL2YvYy84MGZhYWQ2ZmVhMDViMDhjL0lnQlBxblBYemRWd1I1NERrbHVfUzB0bkFUMWJFUlBzSk1XTHM3TVJ3ZDNPZFRJP2U9b2NpOXBM&id=80FAAD6FEA05B08C%21sd773aa4fd5cd47709e03925bbf4b4b67&cid=80FAAD6FEA05B08C`
 
-## DOI Archive Candidates
+## GitHub Repository
 
-The following should be deposited in Zenodo, Figshare, OSF or an equivalent DOI
-archive:
+The GitHub repository should contain source code, compact result tables, frozen protocol files, reproducibility manifests, manuscript-support documentation and website source files.
 
-- exact release snapshot of this publication package;
-- compact CSV/Parquet result tables;
-- split manifests and checksums where size permits;
-- reference-label protocol and labels where data policy permits;
-- homography correspondences and residual summaries;
-- final manuscript figures and tables;
-- environment and reproduction scripts.
+Repository: `https://github.com/aronagg/PathFindRNET_2.0`
 
-DOI placeholder: `[DOI to be added after archive deposit]`.
+Expected publication page after GitHub Pages integration:
 
-## Excluded or Restricted Artifacts
+`https://aronagg.github.io/PathFindRNET_2.0/publications/hg-smg-tc/`
 
-- raw videos;
-- large local trajectory-level intermediate outputs not suitable for GitHub;
-- Google Maps or Google-derived top-view raster images unless redistribution is
-  explicitly permitted;
-- manual SQLite annotation databases;
-- previous task ZIP review packages;
-- machine-specific caches and virtual environments.
+## OneDrive Large-Artifact Release
 
-## Raw Video Handling
+The OneDrive folder is the planned public location for large artifacts that are unsuitable for Git history, including raw videos, YOLOv11 detection exports, tracking outputs and large trajectory-level exports where redistributable.
 
-Raw video files should be obtained from the official dataset source under its
-own license or access rules. The publication package can provide scripts and
-manifests to reproduce derived results after the raw files are available locally.
+The local upload manifest is:
 
-## Google Imagery Handling
+`publications/hg-msa-tc-future-transportation/docs/onedrive_upload_manifest.csv`
 
-Google-derived imagery is treated as restricted until licensing, attribution and
-redistribution permissions are confirmed. The public release should prefer
-author-created diagrams, source video frames, compact numeric calibration tables,
-or other permitted alternatives.
+## Exclusions
+
+The publication package does not redistribute raw data for which licensing or privacy review is unresolved. Google-derived or third-party map imagery should not be included in public release materials unless redistribution rights and attribution are confirmed.
+
+## Reproducibility Boundary
+
+The release supports audit and reproduction of the submitted analyses from frozen protocols and compact result artifacts. No new scientific experiments were run as part of the OneDrive release audit.

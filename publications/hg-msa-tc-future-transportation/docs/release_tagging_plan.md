@@ -1,42 +1,31 @@
 # Release Tagging Plan
 
-Recommended GitHub release tag:
+Generated/updated for Task 15 on `2026-08-08T22:47:51Z`.
+
+## Recommended GitHub Tag
 
 `futuretransp-hg-smg-tc-v1.0`
 
-## Include in the GitHub Release
+## Release Contents
 
-- publication package source tree;
-- code and tests;
-- frozen configs and protocol reports;
-- final synthesis tables and figures;
-- manuscript and reviewer-response drafts;
-- reproducibility, data availability and licensing documents;
-- `CITATION.cff`.
+The GitHub release should point to:
 
-## Keep External or Excluded
+- the repository source tree;
+- `publications/hg-msa-tc-future-transportation/README.md`;
+- `publications/hg-msa-tc-future-transportation/DATA_AVAILABILITY.md`;
+- the GitHub Pages publication page;
+- the public OneDrive folder for large redistributable artifacts.
 
-- raw videos;
-- Google-derived map rasters unless redistribution is confirmed;
-- large local trajectory-level intermediates;
-- manual SQLite annotation databases;
-- previous task ZIP packages.
+Public OneDrive folder:
 
-## Archive With DOI
+`https://onedrive.live.com/?redeem=aHR0cHM6Ly8xZHJ2Lm1zL2YvYy84MGZhYWQ2ZmVhMDViMDhjL0lnQlBxblBYemRWd1I1NERrbHVfUzB0bkFUMWJFUlBzSk1XTHM3TVJ3ZDNPZFRJP2U9b2NpOXBM&id=80FAAD6FEA05B08C%21sd773aa4fd5cd47709e03925bbf4b4b67&cid=80FAAD6FEA05B08C`
 
-- GitHub release source snapshot;
-- compact metrics and final figures;
-- reference-label protocols and generated labels if permitted;
-- homography correspondences and quality metrics;
-- split manifests and checksums if size permits;
-- README, citation and data availability documents.
+## Tagging Steps
 
-## Manuscript Citation
+```powershell
+git status --short
+git tag -a futuretransp-hg-smg-tc-v1.0 -m "Future Transportation HG-SMG-TC reproducibility release"
+git push origin futuretransp-hg-smg-tc-v1.0
+```
 
-Before final submission, replace placeholders:
-
-- `[GitHub release tag to be added]`
-- `[DOI to be added]`
-- `[Archive URL to be added]`
-
-Do not claim a DOI before the archive deposit exists.
+Do not create or advertise a release tag until the manuscript-support package, GitHub Pages page and OneDrive upload manifest have been reviewed.
