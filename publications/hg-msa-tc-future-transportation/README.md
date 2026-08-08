@@ -1,4 +1,90 @@
-# HG-MSA-TC Future Transportation Evaluation Protocol
+# HG-SMG-TC Future Transportation Revision Package
+
+This directory is the publication-specific release package for the revised
+Future Transportation manuscript:
+
+**From Geometric Endpoint Micro-Modes to Semantic Maneuver Graphs:
+Homography-Guided Vehicle Trajectory Clustering at Complex Urban Intersections**
+
+The package belongs to the public repository
+`aronagg/PathFindRNET_2.0` and contains the code, frozen protocols, result
+summaries, manuscript-support material and reproducibility documentation for
+HG-SMG-TC: **Homography-Guided Semantic Maneuver Graph Trajectory Clustering**.
+
+## What This Package Contains
+
+- leakage-controlled split-aware evaluation protocols;
+- exhaustive human-defined polygon-rule-based reference-label protocol and
+  compact summaries;
+- frozen homography, target-estimation, EMAS_HG, HG-SMG-TC and baseline
+  evidence packages;
+- final independent-test method-comparison tables;
+- manuscript-ready figures and tables;
+- revised manuscript draft and point-by-point reviewer-response draft;
+- public-release, data-availability and GitHub Pages planning files.
+
+## Relationship to PathFindRNET 2.0
+
+The main repository contains the general trajectory-processing code and broader
+dataset/project materials. This publication folder isolates the Future
+Transportation revision so that manuscript-specific protocols, results and
+release materials can be reviewed without modifying the main processing
+pipeline.
+
+## Reproducibility Scope
+
+The public package is intended to reproduce or verify:
+
+- frozen split manifests and leakage guards;
+- reference-label generation protocol and compact quality summaries;
+- persisted independent-test evaluation summaries;
+- final synthesis tables and figures;
+- manuscript evidence maps and reviewer-response tables.
+
+It is not intended to redistribute raw videos, third-party map imagery, large
+trajectory-level local exports, or Google-derived rasters. Those exclusions are
+documented in `DATA_AVAILABILITY.md`, `LICENSES.md`, and
+`docs/data_redaction_and_exclusion_policy.md`.
+
+## Revised-Manuscript Results
+
+The final manuscript evidence is under:
+
+- `results/final_synthesis/final_method_comparison.csv`
+- `results/final_synthesis/paired_scene_differences.csv`
+- `docs/manuscript_revised_full.md`
+- `docs/response_to_reviewers_full_draft.md`
+- `figures/final_synthesis/`
+
+The headline result is deliberately conservative: HG-SMG-TC A5 improves mean
+observed target-count error relative to the original HG-aware A1 method
+(`2.1333` versus `2.5333`) and slightly improves mean NMI (`0.8386` versus
+`0.8376`), while macro F1 and outlier percentage show trade-offs. The paper does
+not claim universal superiority.
+
+## Public Website
+
+The proposed publication landing page source is:
+
+`site/publications/hg-smg-tc/index.md`
+
+Expected public URL after GitHub Pages integration:
+
+`https://aronagg.github.io/PathFindRNET_2.0/publications/hg-smg-tc/`
+
+The active Pages source could not be safely determined from this checkout, so
+the existing dataset website was not modified directly. See
+`docs/github_pages_integration_plan.md`.
+
+## DOI Placeholder
+
+No DOI is claimed yet. Use this placeholder until an archive deposit exists:
+
+`[DOI to be added after archive deposit]`
+
+---
+
+# Legacy Protocol Notes
 
 This publication-specific directory contains the data audit, canonical trajectory
 manifest, leakage-controlled evaluation split, split-aware HG-MSA-TC runner,
