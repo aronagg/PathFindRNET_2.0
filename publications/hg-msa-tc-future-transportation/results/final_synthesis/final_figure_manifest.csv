@@ -1,0 +1,10 @@
+figure_path,caption
+figures\final_synthesis\final_target_count_error.png,Mean observed target-count error by method family.
+figures\final_synthesis\final_outlier_percentage.png,Mean outlier percentage by method family.
+figures\final_synthesis\final_agreement_metrics.png,Independent reference agreement metrics by method family.
+figures\final_synthesis\final_se38th_fragmentation_story.png,SE38th target-error and mapped-F1 summary.
+figures\final_synthesis\final_target_estimation_vs_observed.png,Frozen HG target versus observed and legal movement counts.
+figures\final_synthesis\final_homography_quality_sensitivity.png,Homography reprojection and extrapolation diagnostics.
+figures\final_synthesis\final_emas_weight_sensitivity_summary.png,EMAS_HG top-rank stability under weight perturbation.
+figures\final_synthesis\final_hg_smg_pipeline_schematic.png,HG-SMG-TC pipeline schematic.
+figures\final_synthesis\final_baseline_comparison_summary.png,Baseline comparison in target-error versus NMI space.

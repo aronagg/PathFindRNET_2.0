@@ -1,0 +1,35 @@
+{
+  "task": "Task 12 final results synthesis",
+  "input_files": {
+    "hg_smg_metrics": "results\\hg_smg\\independent_test\\metrics.csv",
+    "baseline_metrics": "results\\baselines\\independent_test\\baseline_metrics.csv",
+    "target_validation": "results\\independent_test\\target_estimation_validation.csv",
+    "homography_quality": "results\\homography\\homography_quality_metrics.csv",
+    "homography_perturbation": "results\\homography\\homography_perturbation_summary.csv",
+    "emas_rank_stability": "results\\emas\\emas_rank_stability.csv",
+    "emas_component_analysis": "results\\emas\\emas_component_analysis.csv",
+    "hg_smg_ablation": "results\\hg_smg\\independent_test\\ablation_comparison.csv",
+    "baseline_comparison": "results\\baselines\\independent_test\\baseline_comparison_to_hg_smg.csv",
+    "reference_labels": "annotations\\reference_labels\\independent_test_reference_labels.csv"
+  },
+  "outputs": [
+    "results/final_synthesis/final_method_comparison.csv",
+    "results/final_synthesis/paired_scene_differences.csv",
+    "results/final_synthesis/paired_scene_difference_summary.csv",
+    "results/final_synthesis/final_figure_manifest.csv",
+    "docs/final_statistical_analysis.md",
+    "docs/final_claim_audit.md",
+    "docs/reviewer_evidence_map.md",
+    "docs/manuscript_tables_final.md",
+    "docs/public_release_final_checklist.md",
+    "docs/final_scientific_interpretation.md",
+    "docs/task_12_execution_report.md"
+  ],
+  "non_actions": [
+    "no_clustering",
+    "no_tuning",
+    "no_zip",
+    "no_sha_sidecar",
+    "no_docx_rewrite"
+  ]
+}
