@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="HG-SMG-TC publication package for homography-guided semantic maneuver graph trajectory clustering." />
+  <title>HG-SMG-TC Future Transportation Revision</title>
+  <link rel="stylesheet" href="../../assets/style.css" />
+  <style>
+    .metric-table td:first-child{font-weight:700}
+    .figure-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+    .figure-card{padding:0;overflow:hidden}
+    .figure-card img{width:100%;display:block;background:#eef3f7}
+    .figure-card .content{padding:16px}
+    .release-note{border-left:4px solid var(--accent2);background:#edf5f8;padding:16px 18px;border-radius:8px}
+    @media(max-width:860px){.figure-grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Future Transportation revision · trajectory clustering · reproducible research</p>
+      <h1>HG-SMG-TC</h1>
+      <h2>Homography-Guided Semantic Maneuver Graph Trajectory Clustering</h2>
+      <p class="lead">A manuscript-specific evidence and reproducibility package for clustering vehicle trajectories at five Bellevue intersections.</p>
+      <div class="actions">
+        <a href="https://github.com/aronagg/PathFindRNET_2.0/tree/main/publications/hg-msa-tc-future-transportation" class="button primary">Open publication package</a>
+        <a href="https://onedrive.live.com/?redeem=aHR0cHM6Ly8xZHJ2Lm1zL2YvYy84MGZhYWQ2ZmVhMDViMDhjL0lnQlBxblBYemRWd1I1NERrbHVfUzB0bkFUMWJFUlBzSk1XTHM3TVJ3ZDNPZFRJP2U9b2NpOXBM&id=80FAAD6FEA05B08C%21sd773aa4fd5cd47709e03925bbf4b4b67&cid=80FAAD6FEA05B08C" class="button">Open OneDrive data folder</a>
+        <a href="../../index.html" class="button">Dataset homepage</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="grid two">
+      <div>
+        <h2>Study scope</h2>
+        <p>HG-SMG-TC combines homography-guided endpoint micro-mode discovery, semantic approach consolidation, semantic maneuver graph construction, uncertainty-aware maneuver-count priors and prior-constrained model selection.</p>
+        <p>The evaluation is limited to five Bellevue scenes and uses a leakage-controlled split protocol. The method is compared against original HG-aware selection and trajectory-clustering baselines using independently generated polygon-rule reference labels.</p>
+      </div>
+      <div class="card">
+        <h3>Five Bellevue scenes</h3>
+        <ul>
+          <li>bellevue_116th_ne12th</li>
+          <li>bellevue_150th_newport</li>
+          <li>bellevue_150th_eastgate</li>
+          <li>bellevue_150th_se38th</li>
+          <li>bellevue_ne8th</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Method pipeline</h2>
+      <img src="../../assets/publications/hg-smg-tc/final_hg_smg_pipeline_schematic_preview.png" alt="HG-SMG-TC pipeline schematic" style="width:100%;background:#eef3f7;border:1px solid var(--line);border-radius:12px" />
+    </section>
+
+    <section>
+      <h2>Locked-test result summary</h2>
+      <table class="metric-table">
+        <thead><tr><th>Method family</th><th>Target error</th><th>NMI</th><th>Macro F1</th><th>Outlier %</th></tr></thead>
+        <tbody>
+          <tr><td>Original untargeted A0</td><td>3.2000</td><td>0.8155</td><td>0.6328</td><td>15.56</td></tr>
+          <tr><td>Original HG-aware A1</td><td>2.5333</td><td>0.8376</td><td>0.6838</td><td>9.94</td></tr>
+          <tr><td>HG-SMG-TC A5</td><td>2.1333</td><td>0.8386</td><td>0.6723</td><td>10.34</td></tr>
+          <tr><td>Endpoint isotropic baseline</td><td>3.4667</td><td>0.7099</td><td>0.5710</td><td>24.43</td></tr>
+          <tr><td>Resampled trajectory baseline</td><td>3.0000</td><td>0.6827</td><td>0.4752</td><td>25.02</td></tr>
+        </tbody>
+      </table>
+      <p class="small">The result should be read conservatively: HG-SMG-TC improves mean target-count alignment and slightly improves NMI relative to the original HG-aware method, while macro F1 and outlier percentage show trade-offs.</p>
+    </section>
+
+    <section>
+      <h2>Evidence figures</h2>
+      <div class="figure-grid">
+        <article class="card figure-card"><img src="../../assets/publications/hg-smg-tc/final_target_count_error_preview.png" alt="Target-count error comparison"><div class="content"><h3>Target-count alignment</h3><p>Scene-level comparison of observed target-count error.</p></div></article>
+        <article class="card figure-card"><img src="../../assets/publications/hg-smg-tc/final_agreement_metrics_preview.png" alt="Agreement metric comparison"><div class="content"><h3>Independent agreement metrics</h3><p>ARI, NMI, purity and mapped F1 are interpreted as independent validation metrics.</p></div></article>
+        <article class="card figure-card"><img src="../../assets/publications/hg-smg-tc/final_baseline_comparison_summary_preview.png" alt="Baseline comparison summary"><div class="content"><h3>Baseline comparison</h3><p>Compact summary against endpoint and resampled-trajectory baselines.</p></div></article>
+        <article class="card figure-card"><img src="../../assets/publications/hg-smg-tc/final_se38th_fragmentation_story_preview.png" alt="SE38th fragmentation analysis"><div class="content"><h3>SE38th limitation</h3><p>Diagnostic evidence for semantic over-segmentation and residual trade-offs.</p></div></article>
+      </div>
+    </section>
+
+    <section>
+      <h2>Data and reproducibility</h2>
+      <div class="release-note">
+        GitHub contains code, compact result tables, reproducibility documentation and manuscript-support files. OneDrive is used for large redistributable artifacts such as videos, tracking outputs and processed trajectory data. Raw YOLOv11 detection exports should not be claimed available unless the release manifest is updated with the actual files.
+      </div>
+      <div class="section-actions">
+        <a class="button" href="https://github.com/aronagg/PathFindRNET_2.0/tree/main/publications/hg-msa-tc-future-transportation">GitHub package</a>
+        <a class="button secondary" href="https://onedrive.live.com/?redeem=aHR0cHM6Ly8xZHJ2Lm1zL2YvYy84MGZhYWQ2ZmVhMDViMDhjL0lnQlBxblBYemRWd1I1NERrbHVfUzB0bkFUMWJFUlBzSk1XTHM3TVJ3ZDNPZFRJP2U9b2NpOXBM&id=80FAAD6FEA05B08C%21sd773aa4fd5cd47709e03925bbf4b4b67&cid=80FAAD6FEA05B08C">OneDrive data folder</a>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="wrap">PathFindRNET 2.0 · Future Transportation revision · <a href="../../index.html">Back to dataset homepage</a></div></footer>
+</body>
+</html>
