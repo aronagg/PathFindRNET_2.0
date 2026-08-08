@@ -1,29 +1,23 @@
 # Final Placeholder And Consistency Report
 
-Generated/updated for Task 15 on `2026-08-08T22:47:51Z`.
+Generated/updated for Task 16 on `2026-08-08T23:23:19Z`.
 
-## Checked Files
+## Checks
 
-- `publications/hg-msa-tc-future-transportation/DATA_AVAILABILITY.md`
-- `publications/hg-msa-tc-future-transportation/README.md`
-- `publications/hg-msa-tc-future-transportation/CITATION.cff`
-- `publications/hg-msa-tc-future-transportation/docs/final_data_licensing_statement.md`
-- `publications/hg-msa-tc-future-transportation/docs/manuscript_revised_data_code_availability_final.md`
-- `publications/hg-msa-tc-future-transportation/docs/public_release_scope.md`
-- `publications/hg-msa-tc-future-transportation/docs/release_tagging_plan.md`
-- `publications/hg-msa-tc-future-transportation/docs/final_submission_checklist.md`
-- `publications/hg-msa-tc-future-transportation/docs/manuscript_data_availability_onedrive_final.md`
-- `publications/hg-msa-tc-future-transportation/site/publications/hg-smg-tc/index.md`
+- no DOI/archive placeholder in release-facing files;
+- no unsupported all-data-available claim before upload verification;
+- no unsupported YOLOv11 raw detection availability claim;
+- P0 source files exist locally;
+- Pages URL and OneDrive URL are consistent across checked docs;
+- preview image links resolve locally;
+- staging scripts parse the prioritized manifest.
+
+## OneDrive Synced Comparison
+
+`not_performed_ONEDRIVE_RELEASE_ROOT_not_set`
 
 ## Findings
 
-| File | Type | Detail |
+| File/item | Finding | Detail |
 | --- | --- | --- |
-| All checked files | none | No old archive placeholders found in checked release-facing files. |
-
-## Remaining Manual Checks
-
-- Confirm the final GitHub release tag before submission.
-- Confirm the deployed GitHub Pages URL after the site source is connected.
-- Confirm OneDrive share permissions from a browser session that is not signed in.
-- Confirm that third-party imagery is excluded or separately licensed before public release.
+| Checked files | none | No release-blocking consistency issue found in checked files. |

@@ -1,36 +1,29 @@
 # GitHub Pages Integration Plan
 
-Generated/updated for Task 15 on `2026-08-08T22:47:51Z`.
+Generated/updated for Task 16 on `2026-08-08T23:23:19Z`.
 
-## Source Detection
+## Confirmed Source
 
-The active GitHub Pages source could not be safely determined from this checkout. No root Pages source was modified.
+The user provided the active GitHub Pages source:
 
-Observed state:
+- deployment mode: deploy from branch;
+- branch: `tnvd2-github-pages`;
+- folder: `/` root.
 
-- no root `_config.yml` was found;
-- no root `mkdocs.yml` was found;
-- no `.github/workflows/` Pages workflow was found;
-- the local `gh-pages` branch was not present.
+## Integration Target
 
-## Proposed Page
+The publication page should be integrated into the root of the `tnvd2-github-pages` branch under:
 
-The publication page is staged at:
+`publications/hg-smg-tc/index.html`
 
-`publications/hg-msa-tc-future-transportation/site/publications/hg-smg-tc/index.md`
+Preview images should be copied to:
 
-Web preview images are staged at:
+`assets/publications/hg-smg-tc/`
 
-`publications/hg-msa-tc-future-transportation/site/assets/images/`
+The homepage `index.html` should receive a small publication card/link pointing to:
 
-Expected public URL after integration:
+`publications/hg-smg-tc/`
+
+Expected public URL:
 
 `https://aronagg.github.io/PathFindRNET_2.0/publications/hg-smg-tc/`
-
-## Manual Integration Steps
-
-1. Confirm the repository Pages source in GitHub settings or Actions.
-2. Copy or route `site/publications/hg-smg-tc/index.md` into the active Pages source.
-3. Copy `site/assets/images/` into the corresponding public assets folder.
-4. Verify relative image links after deployment.
-5. Add the OneDrive folder link to the deployed page.

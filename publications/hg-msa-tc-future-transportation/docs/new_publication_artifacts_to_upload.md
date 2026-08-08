@@ -1,24 +1,141 @@
 # New Publication Artifacts To Upload To OneDrive
 
-Generated: `2026-08-08T22:47:51Z`
+Generated/updated for Task 16 on `2026-08-08T23:23:19Z`.
 
-This list is derived from `docs/onedrive_upload_manifest.csv`. It is a release-planning list only; no upload was performed.
+This file refines the Task 15 upload list with upload priority, OneDrive folder, GitHub tracking status, publication-page relevance and submission readiness.
 
-## High-Priority Groups
+## Priority Counts
 
-| Group | Local evidence | Suggested OneDrive folder |
-| --- | ---: | --- |
-| Raw videos | 230 files | `01_original_videos/` |
-| YOLOv11 detection/statistics files | 4 files | `02_yolov11x_detections/` |
-| YOLO tracking outputs | 240 files | `03_yolo_tracking_outputs/` |
-| Processed trajectories/features | 2488 files | `04_processed_trajectories_and_features/` |
-| Reference labels/protocols | 85 files | `05_reference_labels_and_protocols/` |
-| Publication results/docs | 307 files | `06_publication_results_and_docs/` |
-| Figures/site assets | 198 files | `07_figures_and_website_assets/` |
+| Priority | Files |
+| --- | ---: |
+| P0 | 2880 |
+| P1 | 595 |
+| P2 | 83 |
+| P3 | 177 |
 
-## Notes
+## P0/P1 Upload List
 
-- The full itemized upload list is `docs/onedrive_upload_manifest.csv`.
-- Large files have size metadata but may not have local SHA-256 hashes if they exceed the configured audit limit of 268435456 bytes.
-- Publication result CSVs, reference-label summaries and final figures should also remain in GitHub when compact enough.
-- OneDrive should be treated as the public large-artifact mirror, not as evidence that files were generated without the repository provenance records.
+| Priority | File | OneDrive folder | GitHub tracked | Link from page | Required before submission |
+| --- | --- | --- | --- | --- | --- |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_116th_ne12th/Bellevue_116th_NE12th__2017-09-10_19-08-25.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_116th_ne12th/Bellevue_116th_NE12th__2017-09-10_20-09-12.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_116th_ne12th/Bellevue_116th_NE12th__2017-09-10_21-08-54.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_116th_ne12th/Bellevue_116th_NE12th__2017-09-10_22-08-50.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_116th_ne12th/Bellevue_116th_NE12th__2017-09-10_23-08-29.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_116th_ne12th/Bellevue_116th_NE12th__2017-09-11_00-08-29.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_116th_ne12th/Bellevue_116th_NE12th__2017-09-11_01-08-29.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_116th_ne12th/Bellevue_116th_NE12th__2017-09-11_02-08-32.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_116th_ne12th/Bellevue_116th_NE12th__2017-09-11_03-08-30.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_116th_ne12th/Bellevue_116th_NE12th__2017-09-11_04-08-30.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_116th_ne12th/Bellevue_116th_NE12th__2017-09-11_05-08-39.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_116th_ne12th/Bellevue_116th_NE12th__2017-09-11_06-08-30.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_116th_ne12th/Bellevue_116th_NE12th__2017-09-11_07-08-32.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_116th_ne12th/Bellevue_116th_NE12th__2017-09-11_08-08-50.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_116th_ne12th/Bellevue_116th_NE12th__2017-09-11_09-08-31.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_116th_ne12th/Bellevue_116th_NE12th__2017-09-11_11-08-33.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_116th_ne12th/Bellevue_116th_NE12th__2017-09-11_12-08-33.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_116th_ne12th/Bellevue_116th_NE12th__2017-09-11_14-08-35.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_116th_ne12th/Bellevue_116th_NE12th__2017-09-11_15-08-36.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_116th_ne12th/Bellevue_116th_NE12th__2017-09-11_16-08-37.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_116th_ne12th/Bellevue_116th_NE12th__2017-09-11_17-08-39.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_150th_eastgate/Bellevue_150th_Eastgate__2017-09-10_18-08-24.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_150th_eastgate/Bellevue_150th_Eastgate__2017-09-10_19-08-25.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_150th_eastgate/Bellevue_150th_Eastgate__2017-09-10_20-08-25.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_150th_eastgate/Bellevue_150th_Eastgate__2017-09-10_21-08-28.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_150th_eastgate/Bellevue_150th_Eastgate__2017-09-10_22-08-28.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_150th_eastgate/Bellevue_150th_Eastgate__2017-09-10_23-08-29.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_150th_eastgate/Bellevue_150th_Eastgate__2017-09-11_00-08-29.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_150th_eastgate/Bellevue_150th_Eastgate__2017-09-11_01-08-29.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_150th_eastgate/Bellevue_150th_Eastgate__2017-09-11_02-08-29.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_150th_eastgate/Bellevue_150th_Eastgate__2017-09-11_03-08-30.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_150th_eastgate/Bellevue_150th_Eastgate__2017-09-11_04-08-29.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_150th_eastgate/Bellevue_150th_Eastgate__2017-09-11_05-08-30.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_150th_eastgate/Bellevue_150th_Eastgate__2017-09-11_06-08-30.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_150th_eastgate/Bellevue_150th_Eastgate__2017-09-11_07-08-31.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_150th_eastgate/Bellevue_150th_Eastgate__2017-09-11_08-08-31.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_150th_eastgate/Bellevue_150th_Eastgate__2017-09-11_09-08-31.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_150th_eastgate/Bellevue_150th_Eastgate__2017-09-11_10-08-31.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_150th_eastgate/Bellevue_150th_Eastgate__2017-09-11_11-08-32.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_150th_eastgate/Bellevue_150th_Eastgate__2017-09-11_12-08-32.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_150th_eastgate/Bellevue_150th_Eastgate__2017-09-11_13-08-32.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_150th_eastgate/Bellevue_150th_Eastgate__2017-09-11_14-08-31.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_150th_eastgate/Bellevue_150th_Eastgate__2017-09-11_15-08-33.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_150th_eastgate/Bellevue_150th_Eastgate__2017-09-11_16-08-33.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_150th_eastgate/Bellevue_150th_Eastgate__2017-09-11_17-08-33.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_150th_newport/Bellevue_150th_Newport__2017-09-10_18-08-24.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_150th_newport/Bellevue_150th_Newport__2017-09-10_19-08-24.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_150th_newport/Bellevue_150th_Newport__2017-09-10_20-08-25.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_150th_newport/Bellevue_150th_Newport__2017-09-10_21-08-28.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_150th_newport/Bellevue_150th_Newport__2017-09-10_22-08-28.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_150th_newport/Bellevue_150th_Newport__2017-09-10_23-08-29.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_150th_newport/Bellevue_150th_Newport__2017-09-11_00-08-29.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_150th_newport/Bellevue_150th_Newport__2017-09-11_01-08-29.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_150th_newport/Bellevue_150th_Newport__2017-09-11_02-08-29.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_150th_newport/Bellevue_150th_Newport__2017-09-11_03-08-29.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_150th_newport/Bellevue_150th_Newport__2017-09-11_04-08-29.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_150th_newport/Bellevue_150th_Newport__2017-09-11_05-08-29.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_150th_newport/Bellevue_150th_Newport__2017-09-11_06-08-30.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_150th_newport/Bellevue_150th_Newport__2017-09-11_07-08-31.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_150th_newport/Bellevue_150th_Newport__2017-09-11_08-08-31.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_150th_newport/Bellevue_150th_Newport__2017-09-11_09-08-30.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_150th_newport/Bellevue_150th_Newport__2017-09-11_10-08-31.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_150th_newport/Bellevue_150th_Newport__2017-09-11_11-08-32.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_150th_newport/Bellevue_150th_Newport__2017-09-11_12-08-32.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_150th_newport/Bellevue_150th_Newport__2017-09-11_13-08-32.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_150th_newport/Bellevue_150th_Newport__2017-09-11_14-08-31.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_150th_newport/Bellevue_150th_Newport__2017-09-11_15-08-32.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_150th_newport/Bellevue_150th_Newport__2017-09-11_16-08-32.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_150th_newport/Bellevue_150th_Newport__2017-09-11_17-08-32.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_150th_se38th/Bellevue_150th_SE38th__2017-09-10_18-08-24.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_150th_se38th/Bellevue_150th_SE38th__2017-09-10_19-08-25.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_150th_se38th/Bellevue_150th_SE38th__2017-09-10_20-08-25.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_150th_se38th/Bellevue_150th_SE38th__2017-09-10_21-08-38.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_150th_se38th/Bellevue_150th_SE38th__2017-09-10_22-08-28.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_150th_se38th/Bellevue_150th_SE38th__2017-09-10_23-08-29.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_150th_se38th/Bellevue_150th_SE38th__2017-09-11_00-08-29.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_150th_se38th/Bellevue_150th_SE38th__2017-09-11_01-08-30.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_150th_se38th/Bellevue_150th_SE38th__2017-09-11_02-08-29.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_150th_se38th/Bellevue_150th_SE38th__2017-09-11_03-08-30.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_150th_se38th/Bellevue_150th_SE38th__2017-09-11_04-08-29.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_150th_se38th/Bellevue_150th_SE38th__2017-09-11_05-08-30.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_150th_se38th/Bellevue_150th_SE38th__2017-09-11_06-08-32.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_150th_se38th/Bellevue_150th_SE38th__2017-09-11_07-08-31.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_150th_se38th/Bellevue_150th_SE38th__2017-09-11_08-09-36.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_150th_se38th/Bellevue_150th_SE38th__2017-09-11_09-08-31.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_150th_se38th/Bellevue_150th_SE38th__2017-09-11_10-08-33.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_150th_se38th/Bellevue_150th_SE38th__2017-09-11_11-08-34.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_150th_se38th/Bellevue_150th_SE38th__2017-09-11_12-08-38.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_150th_se38th/Bellevue_150th_SE38th__2017-09-11_13-08-32.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_150th_se38th/Bellevue_150th_SE38th__2017-09-11_14-08-32.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_150th_se38th/Bellevue_150th_SE38th__2017-09-11_16-08-35.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_150th_se38th/Bellevue_150th_SE38th__2017-09-11_17-08-45.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_ne8th/Bellevue_Bellevue_NE8th__2017-09-10_18-08-23.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_ne8th/Bellevue_Bellevue_NE8th__2017-09-10_19-08-24.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_ne8th/Bellevue_Bellevue_NE8th__2017-09-10_20-08-24.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_ne8th/Bellevue_Bellevue_NE8th__2017-09-10_21-08-28.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_ne8th/Bellevue_Bellevue_NE8th__2017-09-10_22-08-28.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_ne8th/Bellevue_Bellevue_NE8th__2017-09-10_23-08-29.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_ne8th/Bellevue_Bellevue_NE8th__2017-09-11_00-08-29.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_ne8th/Bellevue_Bellevue_NE8th__2017-09-11_01-08-29.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_ne8th/Bellevue_Bellevue_NE8th__2017-09-11_02-08-29.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_ne8th/Bellevue_Bellevue_NE8th__2017-09-11_03-08-29.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_ne8th/Bellevue_Bellevue_NE8th__2017-09-11_04-08-29.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_ne8th/Bellevue_Bellevue_NE8th__2017-09-11_05-08-29.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_ne8th/Bellevue_Bellevue_NE8th__2017-09-11_06-08-29.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_ne8th/Bellevue_Bellevue_NE8th__2017-09-11_07-08-31.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_ne8th/Bellevue_Bellevue_NE8th__2017-09-11_08-08-31.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_ne8th/Bellevue_Bellevue_NE8th__2017-09-11_09-08-30.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_ne8th/Bellevue_Bellevue_NE8th__2017-09-11_10-08-31.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_ne8th/Bellevue_Bellevue_NE8th__2017-09-11_11-08-31.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_ne8th/Bellevue_Bellevue_NE8th__2017-09-11_12-08-31.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_ne8th/Bellevue_Bellevue_NE8th__2017-09-11_13-08-32.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_ne8th/Bellevue_Bellevue_NE8th__2017-09-11_14-08-31.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_ne8th/Bellevue_Bellevue_NE8th__2017-09-11_15-08-32.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/01_original_videos/data/raw/bellevue_ne8th/Bellevue_Bellevue_NE8th__2017-09-11_16-08-32.mp4` | `01_original_videos/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/03_yolo_tracking_outputs/data/interim/bellevue_116th_ne12th/rebuild_v1/tracks.parquet` | `03_yolo_tracking_outputs/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/03_yolo_tracking_outputs/data/interim/bellevue_116th_ne12th/tracks.parquet` | `03_yolo_tracking_outputs/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/03_yolo_tracking_outputs/data/interim/bellevue_116th_ne12th/tracks_Bellevue_116th_NE12th__2017-09-10_19-08-25.parquet` | `03_yolo_tracking_outputs/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/03_yolo_tracking_outputs/data/interim/bellevue_116th_ne12th/tracks_Bellevue_116th_NE12th__2017-09-10_20-09-12.parquet` | `03_yolo_tracking_outputs/` | false | false | false |
+| P1 | `TNVD2_UPLOAD_PACKAGE/03_yolo_tracking_outputs/data/interim/bellevue_116th_ne12th/tracks_Bellevue_116th_NE12th__2017-09-10_21-08-54.parquet` | `03_yolo_tracking_outputs/` | false | false | false |
+
+Additional P0/P1 rows omitted from this markdown view: 3355. See `onedrive_upload_manifest_prioritized.csv`.
