@@ -70,13 +70,10 @@ def _region_descriptor(
     role_center: np.ndarray,
     bootstrap_replicates: int,
     quantile: float,
-    variant_id: str,
     seed_context: str,
 ) -> dict[str, Any]:
     n_rows = len(points)
-    seed = derive_seed(
-        scene, "SAC", role, f"{seed_context}:{variant_id}:{region}"
-    )
+    seed = derive_seed(scene, "SAC", role, f"{seed_context}:{region}")
     rng = np.random.default_rng(seed)
     sample_indices = rng.integers(
         0, n_rows, size=(int(bootstrap_replicates), n_rows), endpoint=False
@@ -115,7 +112,7 @@ def _region_descriptor(
                 scene,
                 "SAC",
                 role,
-                f"{seed_context}:{variant_id}:{region}:valid-heading",
+                f"{seed_context}:{region}:valid-heading",
             )
             heading_rng = np.random.default_rng(heading_seed)
             heading_indices = heading_rng.integers(
@@ -131,7 +128,6 @@ def _region_descriptor(
             heading_radii = {float(quantile): float("nan")}
     return {
         "scene": scene,
-        "variant_id": variant_id,
         "role": role,
         "micro_region": int(region),
         "n_support": int(n_rows),
@@ -300,6 +296,7 @@ def run_sac(
     variant: SACVariant,
     bootstrap_replicates: int = 500,
     seed_context: str = "full",
+    descriptor_cache: dict[tuple[object, ...], dict[str, Any]] | None = None,
 ) -> SACResult:
     """Run deterministic same-role SAC for one EMD result."""
     work = frame.reset_index(drop=True).copy()
@@ -317,22 +314,33 @@ def run_sac(
         descriptors = []
         for region in sorted(int(value) for value in np.unique(labels)):
             mask = np.asarray(labels) == region
-            descriptors.append(
-                _region_descriptor(
+            heading_column = variant.heading_column.format(role=role)
+            cache_key = (
+                role,
+                region,
+                heading_column,
+                float(variant.self_consistency_quantile),
+                int(bootstrap_replicates),
+                seed_context,
+            )
+            cached = descriptor_cache.get(cache_key) if descriptor_cache is not None else None
+            if cached is None:
+                cached = _region_descriptor(
                     scene,
                     role,
                     region,
                     work.loc[mask, point_columns].to_numpy(dtype=np.float64),
-                    work.loc[
-                        mask, variant.heading_column.format(role=role)
-                    ].to_numpy(dtype=np.float64),
+                    work.loc[mask, heading_column].to_numpy(dtype=np.float64),
                     role_center,
                     bootstrap_replicates,
                     variant.self_consistency_quantile,
-                    variant.variant_id,
                     seed_context,
                 )
-            )
+                if descriptor_cache is not None:
+                    descriptor_cache[cache_key] = cached
+            descriptor = dict(cached)
+            descriptor["variant_id"] = variant.variant_id
+            descriptors.append(descriptor)
         descriptor_frame = pd.DataFrame(descriptors)
         profiles = _od_profiles(entry_labels, exit_labels, role)
         pairwise = _pairwise_table(descriptor_frame, profiles, variant)

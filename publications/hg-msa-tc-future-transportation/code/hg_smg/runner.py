@@ -212,6 +212,7 @@ def _full_scene_run(
     thresholds = []
     targets = []
     a2_targets = []
+    descriptor_cache: dict[tuple[object, ...], dict[str, Any]] = {}
     for variant in variants:
         sac = run_sac(
             scene,
@@ -226,6 +227,7 @@ def _full_scene_run(
                     "bootstrap_replicates"
                 ]
             ),
+            descriptor_cache=descriptor_cache,
         )
         smg = run_smg(
             scene,
@@ -480,7 +482,7 @@ def run_determinism_check(
         raise RuntimeError(f"Unsafe determinism output path: {resolved}")
     if second_root.exists():
         shutil.rmtree(second_root)
-    variants = tuple(variant.variant_id for variant in ablations.executable_sac_variants())
+    variants = ("A5", "A6", "A7", "A9")
     run_full_split(n_jobs=3, output_root=second_root)
     run_uatp(
         replicates=replicates,

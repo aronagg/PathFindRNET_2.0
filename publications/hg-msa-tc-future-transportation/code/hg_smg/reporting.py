@@ -92,10 +92,14 @@ def build_ablation_tables() -> tuple[pd.DataFrame, pd.DataFrame]:
             }
         )
     ablation_frame = pd.DataFrame(rows)
-    sensitivity = uatp[
+    sensitivity_targets = targets[
+        targets["variant_id"].str.startswith("sensitivity_")
+    ][["scene", "variant_id", "smg_target"]]
+    sensitivity_uatp = uatp[
         uatp["variant_id"].str.startswith("sensitivity_")
-    ].merge(
-        targets[["scene", "variant_id", "smg_target"]],
+    ]
+    sensitivity = sensitivity_targets.merge(
+        sensitivity_uatp,
         on=["scene", "variant_id"],
         how="left",
         validate="one_to_one",

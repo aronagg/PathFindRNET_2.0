@@ -73,6 +73,7 @@ def run_uatp_scene(
                 support_thresholds,
                 metric_sample_size,
             )
+            descriptor_cache: dict[tuple[object, ...], dict[str, Any]] = {}
             for variant in variants:
                 sac = run_sac(
                     scene,
@@ -84,6 +85,7 @@ def run_uatp_scene(
                     variant,
                     bootstrap_replicates=sac_bootstrap_replicates,
                     seed_context=f"uatp:{replicate}",
+                    descriptor_cache=descriptor_cache,
                 )
                 smg = run_smg(
                     scene,
