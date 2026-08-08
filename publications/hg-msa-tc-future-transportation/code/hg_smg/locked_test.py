@@ -659,7 +659,7 @@ def _target_prior_by_ablation() -> pd.DataFrame:
     smg = pd.read_csv(dev / "smg_targets.csv")
     for ablation_id in ("A3", "A5", "A6", "A7", "A9", "A10"):
         subset = smg[smg["variant_id"] == ablation_id]
-        if subset.empty and ablation_id == "A10":
+        if subset.empty and ablation_id in {"A3", "A10"}:
             subset = smg[smg["variant_id"] == "A5"]
         for _, row in subset.iterrows():
             rows.append(
@@ -1247,7 +1247,11 @@ def _task_files() -> list[Path]:
         DOCS_ROOT / "task_10_execution_report.md",
     ]
     if RESULTS_ROOT.exists():
-        roots.extend(path for path in RESULTS_ROOT.rglob("*") if path.is_file())
+        roots.extend(
+            path
+            for path in RESULTS_ROOT.rglob("*")
+            if path.is_file() and path.name != "cluster_assignments.csv"
+        )
     if FIGURES_ROOT.exists():
         roots.extend(path for path in FIGURES_ROOT.rglob("*") if path.is_file())
     return sorted({path for path in roots if path.exists()})
@@ -1307,6 +1311,8 @@ def package_outputs(test_result: str = "not_run") -> dict[str, Any]:
         f"- Test/lint: `{test_result}`",
         "- No tuning occurred after test results.",
         "- Manuscript DOCX was not modified.",
+        f"- Full assignment CSV kept locally: `{relative(RESULTS_ROOT / 'cluster_assignments.csv')}`.",
+        "- ZIP includes compressed Parquet assignments plus checksums instead of the 307 MB CSV.",
         "",
         "## Reference Coverage",
         "",

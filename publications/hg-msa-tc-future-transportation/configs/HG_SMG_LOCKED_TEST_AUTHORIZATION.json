@@ -1,0 +1,14 @@
+{
+  "author_authorization_statement": "I authorize the first locked post-review HG-SMG-TC independent-test evaluation. No target, threshold, ablation, model-selection rule, or hyperparameter tuning will occur after test results are visible.",
+  "authorization_version": "hg-smg-locked-test-authorization-v1",
+  "confirmation_phrase_required": "I_CONFIRM_FROZEN_HG_SMG_EXTENSION_EVALUATION",
+  "development_freeze_hash": "c86830ea99b331fa8322915c33425398ac3edee76d242e0915f05c7c5ff0a14a",
+  "git_branch_at_authorization": "feature/futuretransp-hg-smg-locked-test-evaluation",
+  "git_commit_at_authorization": "b9e3c058159b71cf83c0db13cbd654bf011cb8da",
+  "preflight_status": "PASS",
+  "protocol_hash": "2e892f25b1c1770a55fa29e36206b634f424f9ff2508bf045c92d388e69b4be6",
+  "required_development_commit": "47fa961ebb77e9a2ba32b8cb621dbeb8fd43673b",
+  "scientific_implementation_commit": "55bab42853ce341c75b31404ed39eb34e9841c6b",
+  "task": "Task 10 locked post-review HG-SMG-TC independent-test evaluation",
+  "timestamp_utc": "2026-08-08T08:05:09+00:00"
+}

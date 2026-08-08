@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import hashlib
+import json
 import subprocess
 import sys
 from pathlib import Path
@@ -159,9 +160,16 @@ def test_ablation_list_is_exact_and_immutable() -> None:
 def test_preregistered_protocol_remains_immutable_and_no_test_result_exists() -> None:
     assert load_protocol()["status"] == "preregistered_not_implemented"
     assert not (PUBLICATION_ROOT / "results" / "hg_smg_tc").exists()
-    assert not (
-        PUBLICATION_ROOT / "results" / "hg_smg" / "independent_test"
-    ).exists()
+    locked_test = PUBLICATION_ROOT / "results" / "hg_smg" / "independent_test"
+    if locked_test.exists():
+        clustering = json.loads(
+            (locked_test / "clustering_run_manifest.json").read_text(encoding="utf-8")
+        )
+        evaluation = json.loads(
+            (locked_test / "evaluation_run_manifest.json").read_text(encoding="utf-8")
+        )
+        assert clustering["reference_labels_read"] is False
+        assert evaluation["assignments_loaded_before_reference"] is True
     registry = yaml.safe_load(
         (PUBLICATION_ROOT / "reproducibility" / "experiment_registry.yaml").read_text(
             encoding="utf-8"
@@ -190,7 +198,15 @@ def test_frozen_inputs_remain_unchanged_and_cli_validates() -> None:
         assert hashlib.sha256(path.read_bytes()).hexdigest() == item["sha256"]
     development_root = PUBLICATION_ROOT / "results" / "hg_smg"
     if development_root.exists():
-        assert not (development_root / "independent_test").exists()
+        locked_test = development_root / "independent_test"
+        if locked_test.exists():
+            clustering = json.loads(
+                (locked_test / "clustering_run_manifest.json").read_text(encoding="utf-8")
+            )
+            assert clustering["no_tuning_after_test_results"] is True
         assert (development_root / "preflight.json").exists()
     messages = cli.validate_preregistration()
-    assert "independent_test_outputs=0" in messages
+    assert any(
+        message in messages
+        for message in ("independent_test_outputs=0", "independent_test_outputs=locked_evaluation")
+    )

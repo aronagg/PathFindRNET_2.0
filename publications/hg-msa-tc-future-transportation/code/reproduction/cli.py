@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+import json
 import os
 import subprocess
 import sys
@@ -80,12 +81,22 @@ def validate_preregistration() -> list[str]:
         raise RuntimeError("A development ablation records independent-test access.")
 
     development_root = PUBLICATION_ROOT / "results/hg_smg/development"
-    test_result_roots = (
-        PUBLICATION_ROOT / "results/hg_smg/independent_test",
-        PUBLICATION_ROOT / "results/hg_smg_tc",
-    )
-    if any(path.exists() for path in test_result_roots):
-        raise RuntimeError("Unexpected HG-SMG-TC independent-test output exists.")
+    locked_test_root = PUBLICATION_ROOT / "results/hg_smg/independent_test"
+    if (PUBLICATION_ROOT / "results/hg_smg_tc").exists():
+        raise RuntimeError("Unexpected legacy HG-SMG-TC independent-test output exists.")
+    independent_test_state = "0"
+    if locked_test_root.exists():
+        clustering_manifest = locked_test_root / "clustering_run_manifest.json"
+        evaluation_manifest = locked_test_root / "evaluation_run_manifest.json"
+        if not clustering_manifest.exists() or not evaluation_manifest.exists():
+            raise RuntimeError("Incomplete HG-SMG locked-test output exists.")
+        clustering = json.loads(clustering_manifest.read_text(encoding="utf-8"))
+        evaluation = json.loads(evaluation_manifest.read_text(encoding="utf-8"))
+        if clustering.get("reference_labels_read") is not False:
+            raise RuntimeError("Locked-test clustering manifest does not prove isolation.")
+        if evaluation.get("assignments_loaded_before_reference") is not True:
+            raise RuntimeError("Locked-test evaluation order is not documented.")
+        independent_test_state = "locked_evaluation"
     if development_root.exists():
         if not DEVELOPMENT_FREEZE_PATH.exists() or not DEVELOPMENT_FREEZE_HASH_PATH.exists():
             raise RuntimeError("Development outputs exist without a complete freeze.")
@@ -109,7 +120,7 @@ def validate_preregistration() -> list[str]:
         "planned_ablations=11",
         f"development_state={development_state}",
         f"development_output_files={output_count}",
-        "independent_test_outputs=0",
+        f"independent_test_outputs={independent_test_state}",
     ]
 
 
