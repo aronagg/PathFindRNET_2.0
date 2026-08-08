@@ -31,6 +31,19 @@ def parse_args() -> argparse.Namespace:
     subparsers.add_parser("report")
     future = subparsers.add_parser("future-test")
     future.add_argument("--confirmation")
+    locked = subparsers.add_parser("locked-test")
+    locked_sub = locked.add_subparsers(dest="locked_command", required=True)
+    locked_sub.add_parser("preflight")
+    locked_sub.add_parser("authorize")
+    assign = locked_sub.add_parser("assign")
+    assign.add_argument("--confirmation")
+    locked_sub.add_parser("evaluate")
+    locked_sub.add_parser("figures")
+    locked_sub.add_parser("reports")
+    package = locked_sub.add_parser("package")
+    package.add_argument("--test-result", default="not_run")
+    all_cmd = locked_sub.add_parser("all")
+    all_cmd.add_argument("--confirmation")
     return parser.parse_args()
 
 
@@ -73,6 +86,26 @@ def main() -> None:
         print(reporting.freeze_development(runner.git_head(), determinism))
     elif args.command == "future-test":
         runner.future_test_gate(args.confirmation)
+    elif args.command == "locked-test":
+        from . import locked_test
+
+        if args.locked_command == "preflight":
+            print(locked_test.run_preflight()["status"])
+        elif args.locked_command == "authorize":
+            print(locked_test.authorize_locked_test()["timestamp_utc"])
+        elif args.locked_command == "assign":
+            print(locked_test.run_assignments(args.confirmation)["assignment_rows"])
+        elif args.locked_command == "evaluate":
+            print(locked_test.run_evaluation()["evaluation_timestamp_utc"])
+        elif args.locked_command == "figures":
+            print(len(locked_test.generate_figures()))
+        elif args.locked_command == "reports":
+            locked_test.write_reports()
+            print("reports")
+        elif args.locked_command == "package":
+            print(locked_test.package_outputs(args.test_result)["zip_sha256"])
+        elif args.locked_command == "all":
+            print(locked_test.run_all(args.confirmation)["zip_sha256"])
 
 
 if __name__ == "__main__":

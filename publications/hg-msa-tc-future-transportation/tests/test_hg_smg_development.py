@@ -157,6 +157,7 @@ def test_hg_smg_source_has_no_reference_or_test_data_imports() -> None:
     source = "\n".join(
         path.read_text(encoding="utf-8").lower()
         for path in sorted((CODE_ROOT / "hg_smg").glob("*.py"))
+        if path.name != "locked_test.py"
     )
     forbidden = (
         "independent_test_reference_labels",
