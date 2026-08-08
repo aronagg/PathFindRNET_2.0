@@ -1,2 +1,17 @@
+.gitattributes text eol=lf
+README.md text eol=lf
 configs/hg_smg_protocol_v1.yaml text eol=lf
 configs/hg_smg_protocol_v1.sha256 text eol=lf
+code/hg_smg/** text eol=lf
+code/reproduction/cli.py text eol=lf
+configs/hg_smg_development_freeze_v1.yaml -text
+configs/hg_smg_development_freeze_v1.sha256 -text
+docs/hg_smg_* text eol=lf
+docs/data_availability_plan.md text eol=lf
+docs/task_09b_execution_report.md text eol=lf
+results/hg_smg/** -text
+reproducibility/*.csv text eol=lf
+reproducibility/*.md text eol=lf
+reproducibility/*.txt text eol=lf
+reproducibility/*.yaml text eol=lf
+tests/test_hg_smg_*.py text eol=lf

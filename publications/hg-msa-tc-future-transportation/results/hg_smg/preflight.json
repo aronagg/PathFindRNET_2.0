@@ -1,0 +1,71 @@
+{
+  "actual_ablation_sha256": "e02cb6a22355fa66cd66c392e3199ccbb7508413e2db3b0f3977fc1796f0ccd6",
+  "actual_protocol_sha256": "2e892f25b1c1770a55fa29e36206b634f424f9ff2508bf045c92d388e69b4be6",
+  "checks": {
+    "ablation_hash_matches": true,
+    "all_frozen_inputs_match": true,
+    "branch_matches": true,
+    "hg_smg_output_absent_at_initial_preflight": true,
+    "independent_test_guard_active": true,
+    "protocol_hash_matches": true,
+    "required_base_is_ancestor": true
+  },
+  "forbidden_data_accessed": false,
+  "frozen_inputs": [
+    {
+      "actual_sha256": "0b26f59168f0c3996290cc1832ddd423321a5988e27fca93e78d2a02ecde7a03",
+      "expected_sha256": "0b26f59168f0c3996290cc1832ddd423321a5988e27fca93e78d2a02ecde7a03",
+      "input_id": "trajectory_manifest",
+      "matches": true,
+      "path": "publications/hg-msa-tc-future-transportation/data/manifests/trajectory_manifest.csv"
+    },
+    {
+      "actual_sha256": "0ec1e76f7024ecbea46b832be56ae07ab2d9b16dc57a99654d0d8390d909774f",
+      "expected_sha256": "0ec1e76f7024ecbea46b832be56ae07ab2d9b16dc57a99654d0d8390d909774f",
+      "input_id": "evaluation_split",
+      "matches": true,
+      "path": "publications/hg-msa-tc-future-transportation/data/splits/evaluation_split.csv"
+    },
+    {
+      "actual_sha256": "865513b8be4d59365bd430e5909fbd72b6a9d37f3e8b805917af3a80e66a1337",
+      "expected_sha256": "865513b8be4d59365bd430e5909fbd72b6a9d37f3e8b805917af3a80e66a1337",
+      "input_id": "frozen_evaluation_protocol",
+      "matches": true,
+      "path": "publications/hg-msa-tc-future-transportation/configs/frozen_evaluation_protocol.yaml"
+    },
+    {
+      "actual_sha256": "65c70bb5f3bb89434df214af1b662159d074d77a339ef54e2dd2c62bccc797db",
+      "expected_sha256": "65c70bb5f3bb89434df214af1b662159d074d77a339ef54e2dd2c62bccc797db",
+      "input_id": "frozen_selection_manifest",
+      "matches": true,
+      "path": "publications/hg-msa-tc-future-transportation/results/development/frozen_selection_manifest.json"
+    },
+    {
+      "actual_sha256": "4a14beac18e6467350d6392e71994721ea5eae492519a7b1e7b55704dc75d32d",
+      "expected_sha256": "4a14beac18e6467350d6392e71994721ea5eae492519a7b1e7b55704dc75d32d",
+      "input_id": "task_08_result_manifest",
+      "matches": true,
+      "path": "publications/hg-msa-tc-future-transportation/results/homography/task_08_result_manifest.json"
+    },
+    {
+      "actual_sha256": "db2156caab6ac8829c31636bf0e7416a8e1417f11904a395e8c4f5f11f84b146",
+      "expected_sha256": "db2156caab6ac8829c31636bf0e7416a8e1417f11904a395e8c4f5f11f84b146",
+      "input_id": "task_08_quality_metrics",
+      "matches": true,
+      "path": "publications/hg-msa-tc-future-transportation/results/homography/homography_quality_metrics.csv"
+    },
+    {
+      "actual_sha256": "59502133baabd043b85c9161582a83e96e44451eb06550c2dc830f0b490b8170",
+      "expected_sha256": "59502133baabd043b85c9161582a83e96e44451eb06550c2dc830f0b490b8170",
+      "input_id": "frozen_scene_parameters",
+      "matches": true,
+      "path": "publications/hg-msa-tc-future-transportation/results/target_estimation/frozen_scene_parameters.csv"
+    }
+  ],
+  "git_head": "7ffcbca365122a7acbf5232d515d829f1e27b8bd",
+  "required_ablation_sha256": "e02cb6a22355fa66cd66c392e3199ccbb7508413e2db3b0f3977fc1796f0ccd6",
+  "required_base_commit": "7ffcbca365122a7acbf5232d515d829f1e27b8bd",
+  "required_protocol_sha256": "2e892f25b1c1770a55fa29e36206b634f424f9ff2508bf045c92d388e69b4be6",
+  "task": "Task 09B HG-SMG development preflight",
+  "timestamp_utc": "2026-08-07T23:19:52+00:00"
+}

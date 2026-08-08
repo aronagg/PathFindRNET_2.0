@@ -312,3 +312,35 @@ publications/hg-msa-tc-future-transportation/reproduce_publication.ps1 list
 See `configs/hg_smg_protocol_v1.yaml`,
 `docs/hg_smg_mathematical_specification.md`, and
 `reproducibility/REPRODUCIBILITY.md`.
+
+## HG-SMG-TC Development Freeze
+
+Task 09B implements the preregistered extension on development splits only. Frozen
+EMD is reproduced on `target_estimation`, followed by SAC, SMG, 500-replicate UATP,
+and PCMS on the unchanged `model_selection` candidate grid. The primary A5 pipeline
+is computationally identified and deterministic; two clean runs produced identical
+hashes for SAC assignments, SMG edges, UATP runs and summaries, and PCMS selections.
+
+Primary full-split `K_SMG` values are `10, 8, 9, 10, 9`. The corresponding 90% UATP
+intervals are `[8,13]`, `[7,13]`, `[7,11]`, `[8,20]`, and `[9,10]` in fixed scene
+order. These are development-only structural results, not semantic-reference
+validation results.
+
+The A8 OD-profile diagnostic is not executable under protocol v1 because no JSD
+compatibility threshold was frozen. No threshold was invented. A versioned protocol
+amendment is therefore required before any affected independent-test evaluation.
+Task 09B creates no unlock file and never accesses independent-test or polygon-rule
+reference artifacts.
+
+```powershell
+$env:PYTHONPATH = 'publications/hg-msa-tc-future-transportation/code'
+./.venv/Scripts/python.exe -m hg_smg.cli preflight
+./.venv/Scripts/python.exe -m hg_smg.cli full-split --jobs 3
+./.venv/Scripts/python.exe -m hg_smg.cli uatp --replicates 500 --sac-replicates 500 --replicate-jobs 10 --variants A5,A6,A7,A9
+./.venv/Scripts/python.exe -m hg_smg.cli pcms
+./.venv/Scripts/python.exe -m hg_smg.cli determinism --replicates 500 --sac-replicates 500 --replicate-jobs 10
+./.venv/Scripts/python.exe -m hg_smg.cli report
+```
+
+See `configs/hg_smg_development_freeze_v1.yaml` and
+`docs/hg_smg_development_freeze_report.md`.

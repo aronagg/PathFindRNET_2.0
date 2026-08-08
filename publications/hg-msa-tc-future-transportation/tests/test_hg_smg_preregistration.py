@@ -73,7 +73,6 @@ def test_preregistration_path_has_no_independent_data_reads() -> None:
         "independent_test_metrics",
         "cluster_movement_mapping",
         "per_movement_metrics",
-        "results/hg_smg",
     )
     assert all(fragment not in source for fragment in forbidden_path_fragments)
     protocol = load_protocol()
@@ -172,8 +171,16 @@ def test_preregistered_protocol_remains_immutable_and_no_test_result_exists() ->
         row for row in registry["entries"] if row["experiment_id"].startswith("hg_smg_A")
     ]
     assert len(planned) == 11
-    assert all("not_run" in row["status"] for row in planned)
     assert all(row["reference_label_access"] is False for row in planned)
+    assert all(row.get("independent_test_access", False) is False for row in planned)
+    development = PUBLICATION_ROOT / "results" / "hg_smg" / "development"
+    if development.exists():
+        assert all("not_run" not in row["status"] for row in planned)
+        assert (
+            PUBLICATION_ROOT / "configs" / "hg_smg_development_freeze_v1.yaml"
+        ).exists()
+    else:
+        assert all("not_run" in row["status"] for row in planned)
 
 
 def test_frozen_inputs_remain_unchanged_and_cli_validates() -> None:
@@ -185,6 +192,5 @@ def test_frozen_inputs_remain_unchanged_and_cli_validates() -> None:
     if development_root.exists():
         assert not (development_root / "independent_test").exists()
         assert (development_root / "preflight.json").exists()
-    else:
-        messages = cli.validate_preregistration()
-        assert "scientific_outputs=0" in messages
+    messages = cli.validate_preregistration()
+    assert "independent_test_outputs=0" in messages

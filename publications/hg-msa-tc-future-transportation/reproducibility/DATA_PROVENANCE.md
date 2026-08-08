@@ -28,8 +28,17 @@ persisted test assignments -> separate polygon-reference evaluation
 The extension is post-review. Its equations and analysis plan are frozen before the
 first extension test run, but the motivating original failure was already known.
 
+Task 09B executes the upper two branches only. EMD/SAC/SMG/UATP read
+`target_estimation`; PCMS reads the frozen `model_selection` candidate table. The
+implementation records `reference_label_access=false` and
+`independent_test_access=false`, and rejects paths containing reference/test markers.
+No test assignment or semantic metric is generated.
+
 ## Immutable Inputs
 
 The protocol records SHA-256 values for the trajectory manifest, split manifest,
 frozen evaluation protocol, frozen model-selection manifest, Task-08 result manifest,
 Task-08 quality table, and frozen scene parameters. Reproduction must fail on mismatch.
+Task 09B additionally freezes its exact code commit, master seed, input hashes,
+development result hashes, deterministic rerun comparison, and package versions in
+`configs/hg_smg_development_freeze_v1.yaml`.

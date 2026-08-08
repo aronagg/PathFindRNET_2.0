@@ -129,6 +129,8 @@ def test_forbidden_paths_and_future_gate_refuse() -> None:
         reject_forbidden_paths(["annotations/reference_labels/x.csv"])
     with pytest.raises(PermissionError):
         future_test_gate(None)
+    with pytest.raises(PermissionError):
+        future_test_gate("I_CONFIRM_FROZEN_HG_SMG_EXTENSION_EVALUATION")
 
 
 def test_preregistered_variants_are_exact_and_a8_is_not_silently_defined() -> None:
@@ -163,3 +165,56 @@ def test_hg_smg_source_has_no_reference_or_test_data_imports() -> None:
         "scene_guides/",
     )
     assert all(value not in source for value in forbidden)
+
+
+def test_frozen_development_outputs_are_complete_and_consistent() -> None:
+    root = PUBLICATION_ROOT / "results/hg_smg/development"
+    if not root.exists():
+        pytest.skip("Task 09B development outputs are not present")
+    reproduction = pd.read_csv(root / "emd_reproduction.csv")
+    assert reproduction.set_index("scene")["reproduced_target"].to_dict() == {
+        "bellevue_116th_ne12th": 10,
+        "bellevue_150th_newport": 12,
+        "bellevue_150th_eastgate": 9,
+        "bellevue_150th_se38th": 18,
+        "bellevue_ne8th": 9,
+    }
+    assert reproduction["reproduction_passed"].all()
+    assert reproduction["entry_assignments_exact_match"].all()
+    assert reproduction["exit_assignments_exact_match"].all()
+
+    runs = pd.read_csv(root / "uatp_bootstrap_targets.csv")
+    assert len(runs) == 10_000
+    assert len(runs.groupby(["scene", "variant_id"])) == 20
+    assert set(runs.groupby(["scene", "variant_id"]).size()) == {500}
+    assert not runs["invalid_replicate"].any()
+    assert set(runs["variant_id"]) == {"A5", "A6", "A7", "A9"}
+
+    selected = pd.read_csv(root / "pcms_selected_configurations.csv")
+    assert len(selected) == 15
+    assert set(selected["method"]) == {"kmeans", "hdbscan", "optics"}
+    provenance = yaml.safe_load(
+        (root / "pcms_selection_provenance.json").read_text(encoding="utf-8")
+    )
+    assert provenance["emas_hg_used_for_selection"] is False
+    assert provenance["reference_labels_accessed"] is False
+    assert provenance["independent_test_accessed"] is False
+
+
+def test_development_freeze_and_determinism_hashes_are_valid() -> None:
+    root = PUBLICATION_ROOT / "results/hg_smg/development"
+    freeze_path = PUBLICATION_ROOT / "configs/hg_smg_development_freeze_v1.yaml"
+    sidecar = PUBLICATION_ROOT / "configs/hg_smg_development_freeze_v1.sha256"
+    if not freeze_path.exists():
+        pytest.skip("Task 09B development freeze is not present")
+    recorded = sidecar.read_text(encoding="ascii").split()[0]
+    assert hashlib.sha256(freeze_path.read_bytes()).hexdigest() == recorded
+    freeze = yaml.safe_load(freeze_path.read_text(encoding="utf-8"))
+    assert freeze["reference_label_access"] is False
+    assert freeze["independent_test_access"] is False
+    assert freeze["independent_test_execution"] is False
+    assert freeze["future_test_eligible_without_amendment"] is False
+    comparison = pd.read_csv(root / "determinism_hash_comparison.csv")
+    assert len(comparison) == 6
+    assert comparison["matches"].all()
+    assert (comparison["run1_sha256"] == comparison["run2_sha256"]).all()

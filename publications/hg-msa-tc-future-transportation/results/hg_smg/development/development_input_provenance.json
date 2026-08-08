@@ -1,0 +1,47 @@
+{
+  "bellevue_116th_ne12th": {
+    "authorized_split": "target_estimation",
+    "maximum_endpoint_difference_px": 0.0,
+    "returned_row_count": 223352,
+    "returned_track_count": 723,
+    "scene": "bellevue_116th_ne12th",
+    "trajectory_source": "data/processed/bellevue_116th_ne12th/trajectories.parquet",
+    "trajectory_source_sha256": "8ff8cfdc6ea176d14f7592109770f3ef875429d48269fb441640d8efa0ecb154"
+  },
+  "bellevue_150th_eastgate": {
+    "authorized_split": "target_estimation",
+    "maximum_endpoint_difference_px": 0.0,
+    "returned_row_count": 2160578,
+    "returned_track_count": 8720,
+    "scene": "bellevue_150th_eastgate",
+    "trajectory_source": "data/processed/bellevue_150th_eastgate/trajectories.parquet",
+    "trajectory_source_sha256": "b551c851eb482844935aab6f5ee12d144bd1d98d469b679c6181b2f0c9ef1bde"
+  },
+  "bellevue_150th_newport": {
+    "authorized_split": "target_estimation",
+    "maximum_endpoint_difference_px": 0.0,
+    "returned_row_count": 655661,
+    "returned_track_count": 2423,
+    "scene": "bellevue_150th_newport",
+    "trajectory_source": "data/processed/bellevue_150th_newport/trajectories.parquet",
+    "trajectory_source_sha256": "b674a8fb6eb698108206e5324c060974a6ca843319e81b9e3fb3377b09e68a12"
+  },
+  "bellevue_150th_se38th": {
+    "authorized_split": "target_estimation",
+    "maximum_endpoint_difference_px": 0.0,
+    "returned_row_count": 781339,
+    "returned_track_count": 2482,
+    "scene": "bellevue_150th_se38th",
+    "trajectory_source": "data/processed/bellevue_150th_se38th/trajectories.parquet",
+    "trajectory_source_sha256": "b6caaf96491fabb191a033742267c41f0831cbf10bb695d9047c8558bee2e545"
+  },
+  "bellevue_ne8th": {
+    "authorized_split": "target_estimation",
+    "maximum_endpoint_difference_px": 0.0,
+    "returned_row_count": 2428945,
+    "returned_track_count": 5576,
+    "scene": "bellevue_ne8th",
+    "trajectory_source": "data/processed/bellevue_ne8th/trajectories.parquet",
+    "trajectory_source_sha256": "9eb7cc25a26dd447aee8d8ddd38f80beb9271aab787209284eb6f406cb4203fb"
+  }
+}

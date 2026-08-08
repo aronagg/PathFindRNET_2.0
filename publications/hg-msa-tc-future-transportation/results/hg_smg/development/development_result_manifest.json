@@ -1,0 +1,100 @@
+{
+  "code_commit": "55bab42853ce341c75b31404ed39eb34e9841c6b",
+  "created_at_utc": "2026-08-08T06:15:07+00:00",
+  "freeze_sha256": "c86830ea99b331fa8322915c33425398ac3edee76d242e0915f05c7c5ff0a14a",
+  "outputs": {
+    "publications/hg-msa-tc-future-transportation/results/hg_smg/development/a2_targets.csv": {
+      "sha256": "b2dfc4d0617471b30182fd81606d0355124dceb26853dc2886a994fe5efbd39d",
+      "size_bytes": 163
+    },
+    "publications/hg-msa-tc-future-transportation/results/hg_smg/development/a8_protocol_status.csv": {
+      "sha256": "1e23fa863b6f578e06f3f5b2c16872109ff049af0dc73d78bb6be7a49f3468ca",
+      "size_bytes": 441
+    },
+    "publications/hg-msa-tc-future-transportation/results/hg_smg/development/ablation_development_summary.csv": {
+      "sha256": "9d310233d8e3739fa6944c8ba167f0a001ccc21078024a3ab807c89eed10366f",
+      "size_bytes": 1025
+    },
+    "publications/hg-msa-tc-future-transportation/results/hg_smg/development/ablation_selected_configurations.csv": {
+      "sha256": "457ff2a0f48fce1938eb0d0cc8257136c386b3b7f2a47be3d25a68b4eb63312a",
+      "size_bytes": 74654
+    },
+    "publications/hg-msa-tc-future-transportation/results/hg_smg/development/determinism_hash_comparison.csv": {
+      "sha256": "f00d17c62bb3adc569b944022a499a98e34324a64441f3ebeb2f047f15c31a0d",
+      "size_bytes": 1003
+    },
+    "publications/hg-msa-tc-future-transportation/results/hg_smg/development/determinism_summary.json": {
+      "sha256": "ab4a63cd50eec2fb23d2f9d715ea1f5ef3eeaba7c568e801177a683948b51284",
+      "size_bytes": 353
+    },
+    "publications/hg-msa-tc-future-transportation/results/hg_smg/development/development_input_provenance.json": {
+      "sha256": "2734cd188c6e76c02cbfbdc011f49ce2feee8687290392abefa83c35c2f1c848",
+      "size_bytes": 2104
+    },
+    "publications/hg-msa-tc-future-transportation/results/hg_smg/development/emd_reproduction.csv": {
+      "sha256": "20b56f1e99fef53e46052c2710c2bcf3af13df9768b40615f4e7e4b750ec8bfa",
+      "size_bytes": 548
+    },
+    "publications/hg-msa-tc-future-transportation/results/hg_smg/development/pcms_candidates.csv": {
+      "sha256": "7e8fe88d51b483152ff74c6577b8bcf8e2ed0d3825ca57e8ded3daed6331612c",
+      "size_bytes": 155532
+    },
+    "publications/hg-msa-tc-future-transportation/results/hg_smg/development/pcms_selected_configurations.csv": {
+      "sha256": "10628f2fae1a4731e27604135363491acc95f118802058c7d68c6a0e9873138f",
+      "size_bytes": 12093
+    },
+    "publications/hg-msa-tc-future-transportation/results/hg_smg/development/pcms_selection_provenance.json": {
+      "sha256": "5323d7de4c0fd2a1043d28135617b0ab39b4dd9d6be105a3011a52b6af4c025d",
+      "size_bytes": 565
+    },
+    "publications/hg-msa-tc-future-transportation/results/hg_smg/development/preregistered_sensitivity_summary.csv": {
+      "sha256": "73bce7f1dd38b2fc1cc1239d964c9cbe04c5bd42689493eca91505fb14e15a54",
+      "size_bytes": 3420
+    },
+    "publications/hg-msa-tc-future-transportation/results/hg_smg/development/sac_merge_trace.csv": {
+      "sha256": "16a194d83ac980fbb5622e4137206650c12f361aefbbfc2fcea670e59ce80fbb",
+      "size_bytes": 3717
+    },
+    "publications/hg-msa-tc-future-transportation/results/hg_smg/development/sac_microregion_descriptors.csv": {
+      "sha256": "ed41b67309389cdd03abbc6a9bf33965a465a9aade1fab1c1bd5755e52b5336d",
+      "size_bytes": 91027
+    },
+    "publications/hg-msa-tc-future-transportation/results/hg_smg/development/sac_pairwise_compatibility.csv": {
+      "sha256": "56ef2f8f644f9869334f75997e2eb0a3732578ad6b9e343b9305000e794f93dc",
+      "size_bytes": 110503
+    },
+    "publications/hg-msa-tc-future-transportation/results/hg_smg/development/sac_structural_diagnostics.csv": {
+      "sha256": "c5842542abbb0f47a681a8c93a52546b2f57e38ac8c2b0cf0cc8dd416201a8d9",
+      "size_bytes": 2389
+    },
+    "publications/hg-msa-tc-future-transportation/results/hg_smg/development/sac_supernode_assignments.csv": {
+      "sha256": "af480c62e2950e92d897b0134dc2ab0a188c7fd5ae54c183453b52ed875ce9b4",
+      "size_bytes": 18262
+    },
+    "publications/hg-msa-tc-future-transportation/results/hg_smg/development/sac_supernodes.csv": {
+      "sha256": "a2062026774601e525bb52cf98b1c060d33502f7f6332d592eaa2007ae7f563d",
+      "size_bytes": 29274
+    },
+    "publications/hg-msa-tc-future-transportation/results/hg_smg/development/smg_edges.csv": {
+      "sha256": "eb9ff5fa336a66fa3f13773680205633110a0a958f031e72d468955ceb3bfa08",
+      "size_bytes": 38784
+    },
+    "publications/hg-msa-tc-future-transportation/results/hg_smg/development/smg_targets.csv": {
+      "sha256": "68c1eb2d04367bdb2ae516f1ebb4210e518c6c89805fcb17076c2f376c93c967",
+      "size_bytes": 3387
+    },
+    "publications/hg-msa-tc-future-transportation/results/hg_smg/development/smg_threshold_candidates.csv": {
+      "sha256": "52f1cc532c099ba44076b9f0d4ce7be6bdf159f3afe36d4959eef52402f37e38",
+      "size_bytes": 19965
+    },
+    "publications/hg-msa-tc-future-transportation/results/hg_smg/development/uatp_bootstrap_targets.csv": {
+      "sha256": "2dea9c61af0062cf5a855190cc8ff1ed6b934d944e72365000fbd66917b1cd8c",
+      "size_bytes": 879862
+    },
+    "publications/hg-msa-tc-future-transportation/results/hg_smg/development/uatp_summary.csv": {
+      "sha256": "9e1adc1131129c90ae98b794095db312d33f4599660c8dbe985cd98651f5aa21",
+      "size_bytes": 3988
+    }
+  },
+  "protocol_sha256": "2e892f25b1c1770a55fa29e36206b634f424f9ff2508bf045c92d388e69b4be6"
+}

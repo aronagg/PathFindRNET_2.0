@@ -1,0 +1,12 @@
+ablation_id,status,split,selected_configuration_rows,reference_label_access,note
+A0,reused_frozen_original,target_estimation_then_model_selection,0,False,Frozen untargeted selection reused; no scientific recomputation.
+A1,reused_frozen_original,target_estimation_then_model_selection,0,False,Frozen original HG-aware point-target selection reused.
+A2,completed,target_estimation_then_model_selection,15,False,
+A3,completed,target_estimation_then_model_selection,15,False,
+A4,completed,target_estimation,0,False,UATP target distribution only; no model selection by definition.
+A5,completed,target_estimation_then_model_selection,15,False,
+A6,completed,target_estimation_then_model_selection,15,False,
+A7,completed,target_estimation_then_model_selection,15,False,
+A8,not_identifiable,target_estimation_then_model_selection,0,False,Protocol v1 defines JSD but no executable JSD compatibility threshold.
+A9,completed,target_estimation_then_model_selection,15,False,
+A10,completed,target_estimation_then_model_selection,15,False,

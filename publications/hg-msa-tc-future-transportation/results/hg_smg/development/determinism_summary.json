@@ -1,0 +1,10 @@
+{
+  "all_compared_artifacts_match": true,
+  "compared_artifact_count": 6,
+  "complete_pipeline_rerun": true,
+  "independent_test_access": false,
+  "reference_label_access": false,
+  "replicates": 500,
+  "sac_bootstrap_replicates": 500,
+  "second_run_directory": "publications/hg-msa-tc-future-transportation/results/hg_smg/determinism_run2"
+}

@@ -51,3 +51,12 @@ assignments, ablations, sensitivity tables, and figure-source data with SHA-256 
 split/access metadata. Google-derived top-view rasters remain excluded until
 redistribution rights and attribution are resolved; calibration coordinates, matrices,
 checksums, and author-created schematic alternatives are publishable substitutes.
+
+The Task 09B development package adds the canonical HG-SMG source, exact EMD
+reproduction, SAC descriptor/compatibility/merge tables, SMG edges, the complete
+10,000-row UATP development sequence, UATP summaries, PCMS candidate and selection
+tables, development-only diagnostic figures, tests, and the development-freeze
+manifest. It excludes raw videos, source trajectory shards, Google-derived rasters,
+manual scene guides, polygon-reference exports, independent-test assignments, and
+independent-test metrics. Repository-relative identifiers and SHA-256 manifests are
+used in place of machine-specific scientific paths.
