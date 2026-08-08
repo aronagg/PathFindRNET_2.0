@@ -1,0 +1,6 @@
+scene_id,diagnostic_id,diagnostic_type,valid_reference_trajectories,observed_reference_movement_count,non_noise_cluster_count_implied,observed_target_abs_error,ari,nmi,purity,macro_f1
+bellevue_116th_ne12th,oracle_polygon_reference,"oracle/reference diagnostic, not an unsupervised baseline",864,10,10,0,1,1,1,1
+bellevue_150th_newport,oracle_polygon_reference,"oracle/reference diagnostic, not an unsupervised baseline",3852,9,9,0,1,1,1,1
+bellevue_150th_eastgate,oracle_polygon_reference,"oracle/reference diagnostic, not an unsupervised baseline",10586,9,9,0,1,1,1,1
+bellevue_150th_se38th,oracle_polygon_reference,"oracle/reference diagnostic, not an unsupervised baseline",3422,9,9,0,1,1,1,1
+bellevue_ne8th,oracle_polygon_reference,"oracle/reference diagnostic, not an unsupervised baseline",7510,10,10,0,1,1,1,1

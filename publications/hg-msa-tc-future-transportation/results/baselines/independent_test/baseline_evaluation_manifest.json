@@ -1,0 +1,15 @@
+{
+  "assignments_loaded_before_reference": true,
+  "assignments_persisted_at_utc": "2026-08-08T08:35:49+00:00",
+  "evaluation_timestamp_utc": "2026-08-08T08:36:23+00:00",
+  "output_checksums": {
+    "baseline_cluster_mapping.csv": "57cc1551239712ec445f9df46c23f43ac27098e57b9da36606d385829f306ee1",
+    "baseline_comparison_to_hg_smg.csv": "ec01faa515ec252649e1d545c026d2b8514cd5a1d99a3be8b13395f022855f55",
+    "baseline_metrics.csv": "0f304965827a961dae8fd73c6d22c3f3db4c5995a76fd506cc5c0927f3003d30",
+    "baseline_per_movement_metrics.csv": "d2a235b38b2fa9f94f2b3ace5957136436743a18790a20ad7d9e9a3c2a25abff",
+    "oracle_reference_diagnostic.csv": "f3344275350802ed2dc94b4a9966d726897d9ed4ce855c7834ac1a2b9c18059c"
+  },
+  "reference_loaded_at_utc": "2026-08-08T08:36:19+00:00",
+  "task": "Task 11 baseline reference evaluation",
+  "valid_reference_only_for_metrics": true
+}

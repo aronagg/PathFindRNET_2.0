@@ -1,0 +1,25 @@
+{
+  "assignment_rows": 246537,
+  "assignments_persisted_at_utc": "2026-08-08T08:35:49+00:00",
+  "baseline_ids": [
+    "endpoint_camera_raw",
+    "endpoint_camera_isotropic",
+    "resampled_trajectory_euclidean"
+  ],
+  "dtw_frechet_status": "skipped_full_pairwise_infeasible",
+  "evaluation_started": false,
+  "methods": [
+    "kmeans",
+    "hdbscan",
+    "optics"
+  ],
+  "output_checksums": {
+    "baseline_assignments.parquet": "d93d4dfd6e59272078c2d555c18aa1b38bafe0f5211275eb335a2c2a84ac8be1",
+    "baseline_candidate_trials.csv": "ce66fb054bc26aad634d7888a987daa7e7f74d4d2a5fccf2304938d6c03d5bd8",
+    "baseline_runtime_summary.csv": "ee7acd895d95a2bf0e9889721c2c20f042753b65cc33db66d254b98572e9f527",
+    "baseline_selected_configurations.csv": "0fe42e9e6e754b613a11898ebd596272fc38c1a8d37ea972a01a7b85fe628623"
+  },
+  "reference_labels_read": false,
+  "run_id": "baseline-independent-test-20260808T083407+0000",
+  "task": "Task 11 baseline assignments"
+}
