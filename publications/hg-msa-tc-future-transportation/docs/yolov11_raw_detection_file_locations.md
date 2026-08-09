@@ -1,6 +1,6 @@
 # YOLOv11 Raw Detection File Locations
 
-Generated: `2026-08-08T22:47:51Z`
+Generated: `2026-08-09T21:55:40Z`
 
 This audit searched the local checkout for YOLOv11/Yolov11x detection files and adjacent tracking outputs. It did not run detection or tracking.
 
@@ -11,7 +11,10 @@ This audit searched the local checkout for YOLOv11/Yolov11x detection files and 
 | TNVD2_UPLOAD_PACKAGE/09_metadata_and_statistics/Traffic_Node_Video_Dataset_2_0_2026/07_RESULTS_AND_STATISTICS/detection_statistics_yolov11x.csv | 8e-05 | 3afd97e12e7a28dbcc93ed9997041cb7586c2b4605479356cb1dc847adc02c8d |
 | TNVD2_UPLOAD_PACKAGE/09_metadata_and_statistics/traffic_node_dataset_2_0_starter_pack/tnvd2_starter_pack/schemas/detection_schema.csv | 0.000113 | 5139114c5701972fec84567f0a649c4ce3897a2fd839973fd432cad2d009f63f |
 | Traffic_Node_Video_Dataset_2_0_2026/07_RESULTS_AND_STATISTICS/detection_statistics_yolov11x.csv | 8e-05 | 3afd97e12e7a28dbcc93ed9997041cb7586c2b4605479356cb1dc847adc02c8d |
-| publications/hg-msa-tc-future-transportation/docs/yolov11_raw_detection_file_locations.md | 0.018482 | bf433e6a5948e1bc623c579436af3d270dc5330961ae4ffeb12d8ba48bbabd92 |
+| publications/hg-msa-tc-future-transportation/docs/interim_detection_tracking_inventory.csv | 0.270977 | fa364dbf2b74995e32f4fa73dfd2796de6515618daf9652e082d03fe158ffd52 |
+| publications/hg-msa-tc-future-transportation/docs/yolov11_detection_deep_audit.md | 0.027778 | d1b3cfb2ffee4a8a4612e33fae4f294065b5305bced3e3b3179c13ab921f5a1d |
+| publications/hg-msa-tc-future-transportation/docs/yolov11_detection_upload_manifest.csv | 0.270977 | fa364dbf2b74995e32f4fa73dfd2796de6515618daf9652e082d03fe158ffd52 |
+| publications/hg-msa-tc-future-transportation/docs/yolov11_raw_detection_file_locations.md | 0.019134 | 52820ceb066e277b28d3a1bf396eb388bef3833e240899317277a302d55fffb2 |
 
 
 ## Adjacent Tracking Outputs

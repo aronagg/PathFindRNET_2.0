@@ -23,6 +23,7 @@ missing = []
 copied = []
 if not dry_run:
     staging_root.mkdir(parents=True, exist_ok=True)
+    (staging_root / "00_RELEASE_MANIFESTS").mkdir(parents=True, exist_ok=True)
 for row in selected:
     src = source_root / row["repository_relative_path"]
     dst = staging_root / row["onedrive_target_relative_path"]
