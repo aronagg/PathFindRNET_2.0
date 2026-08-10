@@ -1,15 +1,22 @@
-# HG-SMG-TC Future Transportation Revision Package
+# Future Transportation HG-SMG-TC Public Reproducibility Package
 
-This directory is the publication-specific release package for the revised
-Future Transportation manuscript:
+This directory is the public, publication-specific reproducibility package for
+the revised Future Transportation manuscript:
 
-**From Geometric Endpoint Micro-Modes to Semantic Maneuver Graphs:
-Homography-Guided Vehicle Trajectory Clustering at Complex Urban Intersections**
+**Isotropic Coordinate Normalization and Target-Aware Search for Vehicle
+Trajectory Clustering at Complex Urban Intersections**
 
 The package belongs to the public repository
-`aronagg/PathFindRNET_2.0` and contains the code, frozen protocols, result
-summaries, manuscript-support material and reproducibility documentation for
-HG-SMG-TC: **Homography-Guided Semantic Maneuver Graph Trajectory Clustering**.
+`aronagg/PathFindRNET_2.0` and contains code, frozen protocols, compact result
+tables, final figures, reference-label protocols, homography quality summaries,
+data-availability manifests and reproducibility documentation for the
+HG-SMG-TC methodological extension.
+
+Submission-only materials are intentionally not part of this public package.
+Tracked-changes manuscripts, reviewer-response letters, cover letters and
+private submission DOCX files are kept outside the public release branch.
+See `docs/public_github_release_scope.md` for the explicit include/exclude
+boundary.
 
 ## What This Package Contains
 
@@ -19,9 +26,8 @@ HG-SMG-TC: **Homography-Guided Semantic Maneuver Graph Trajectory Clustering**.
 - frozen homography, target-estimation, EMAS_HG, HG-SMG-TC and baseline
   evidence packages;
 - final independent-test method-comparison tables;
-- manuscript-ready figures and tables;
-- revised manuscript draft and point-by-point reviewer-response draft;
-- public-release, OneDrive data-availability and GitHub Pages planning files.
+- final evidence figures and compact figure/table inventories;
+- public-release, OneDrive data-availability and GitHub Pages files.
 
 ## Relationship to PathFindRNET 2.0
 
@@ -48,12 +54,12 @@ documented in `DATA_AVAILABILITY.md`, `LICENSES.md`, and
 
 ## Revised-Manuscript Results
 
-The final manuscript evidence is under:
+The final public evidence is under:
 
 - `results/final_synthesis/final_method_comparison.csv`
 - `results/final_synthesis/paired_scene_differences.csv`
-- `docs/manuscript_revised_full.md`
-- `docs/response_to_reviewers_full_draft.md`
+- `docs/manuscript_tables_final.md`
+- `docs/final_scientific_interpretation.md`
 - `figures/final_synthesis/`
 
 The headline result is deliberately conservative: HG-SMG-TC A5 improves mean
@@ -72,9 +78,7 @@ Expected public URL after GitHub Pages integration:
 
 `https://aronagg.github.io/PathFindRNET_2.0/publications/hg-smg-tc/`
 
-The active Pages source could not be safely determined from this checkout, so
-the existing dataset website was not modified directly. See
-`docs/github_pages_integration_plan.md`.
+The live GitHub Pages branch is `tnvd2-github-pages`.
 
 ## Public OneDrive Data Release
 
@@ -83,6 +87,10 @@ Large redistributable artifacts are planned for public access through OneDrive:
 `https://onedrive.live.com/?redeem=aHR0cHM6Ly8xZHJ2Lm1zL2YvYy84MGZhYWQ2ZmVhMDViMDhjL0lnQlBxblBYemRWd1I1NERrbHVfUzB0bkFUMWJFUlBzSk1XTHM3TVJ3ZDNPZFRJP2U9b2NpOXBM&id=80FAAD6FEA05B08C%21sd773aa4fd5cd47709e03925bbf4b4b67&cid=80FAAD6FEA05B08C`
 
 The local upload manifest is `docs/onedrive_upload_manifest.csv`. The release does not claim an unavailable permanent archive identifier.
+
+Task 17 locally staged and checksum-verified the P0 OneDrive release materials
+under the OneDrive sync folder. Final cloud synchronization and public
+visibility still require manual OneDrive verification.
 
 ---
 
